@@ -21,9 +21,17 @@ power-unlocks that make later content easier, protects the player from missables
 important — produces a checklist where checking items off top to bottom actually tracks real
 progress through the game, not a loosely-ordered pile of true facts.
 
-**The deliverable is always an interactive HTML checklist** (checkboxes, persistent
+**The deliverable is always an interactive HTML checklist artifact** (checkboxes, persistent
 progress, collapsible notes), not a static markdown file or a plain chat response — see Output
 Format below.
+
+This skill applies to **any Xbox game** — open-world sandboxes, RPGs, shooters, racers,
+platformers, indies, multiplayer titles. Many examples below come from GTA-style open-world
+games because that's where the skill was battle-tested, but every principle generalizes: read
+"missions" as the game's own progress unit (quests, chapters, levels, races, operations),
+"islands" as any gated region or act, and "vehicle missions" as any repeatable side activity
+with a permanent reward. Don't skip a step because the game "doesn't have that" — translate
+the concept to the game's own systems instead.
 
 ---
 
@@ -55,7 +63,17 @@ Search for:
   collectible category actually grants (cash, weapons, stat unlocks) — this often changes how
   early it's worth prioritizing them.
 - Vehicle missions, minigames, or side content and what they unlock
+- **Where required vehicles, items, or NPCs actually spawn**, by name of location, not just
+  "steal a truck." Community guides frequently get this wrong for small/rural locations
+  specifically — a vehicle being conveniently available in the same small town as an unrelated
+  side mission is a claim to verify, not assume, and it's worth checking more than one source
+  when a location seems suspiciously convenient. Separately verify where the vehicle is best
+  *acquired* versus where the mission is best *completed* — see Step 4, they're often different.
 - Any known bugs, crashes, or platform-specific issues that affect completion
+- Whether any achievement is discontinued or currently unobtainable (server shutdowns, delisted
+  DLC, removed events) — for multiplayer/online achievements, also check server population and
+  whether boosting is realistically possible. A 100% route that dead-ends on a dead server
+  needs to say so up front, not at the end.
 - Specific locations for location-dependent tasks (see "Add locations" under Output Format) —
   the exact venue, its neighborhood, and which candidate is best given where the player will be
   at that point in the route
@@ -115,6 +133,9 @@ Common examples:
 - Companion/relationship perks that reduce the cost of death or failure (e.g., a perk that
   prevents item loss on death or arrest) — worth calling out specifically before the guide's
   most punishing or combat-heavy stretch, not just "whenever you get around to it"
+- The same logic in any genre: early traversal or ability unlocks in action-adventures, a
+  weapon/gear tier that trivializes a difficulty achievement, an XP/loot multiplier in an RPG,
+  or a practice mode that makes a hard minigame achievement cheaper to attempt
 
 These should happen in Phase 1 or Phase 2 of the guide, not after the story.
 
@@ -170,6 +191,9 @@ the route, determine:
 - What content is accessible from the start vs. what requires story progress to unlock
 - Which collectibles, jumps, rampages, or side missions are physically blocked early
 - Which vehicle missions require specific vehicles that only spawn in locked areas
+- In non-open-world games, the same check applies to chapter-locked levels, point-of-no-return
+  cutoffs, and NG+-only content — "area" is whatever slice of the game can become temporarily
+  or permanently unreachable
 
 **Do not tell the player to sweep areas they cannot fully access yet.** Only instruct a
 collectible or content sweep once the player has full access to that area. If access is
@@ -248,6 +272,50 @@ For each task, include:
    in the list. Re-verify where the edited item now sits relative to everything else after any
    edit — an item can be perfectly correct in isolation and still be wrong if it ends up
    referencing a later point in the game than the item above it.
+9. **Item granularity: one mission, one row.** An uneventful stretch of missions still gets
+   each mission named individually as its own child row under a connecting parent line, never
+   crammed into a parenthetical on the parent itself. See the dedicated section below for the
+   exact mechanic.
+10. **Every deferral must land somewhere.** Any time an item's own text defers part of the
+    task to later ("the last 2 need X access," "a few won't count until region Y opens,"
+    "save it for later," "the rest later"), the guide must contain an actual completion step
+    in the correct later phase — a real checkbox that sends the player back to finish the
+    deferred remainder. The deferring line acknowledges the split; only the later step closes
+    it. Stating the deferral without adding the follow-up step is one of the easiest ways a
+    guide silently drops content: the task *reads* as handled, but no line anywhere actually
+    completes it. When writing any deferral, add the matching later step in the same editing
+    pass — don't trust a future pass to remember. (The pre-presentation sweep in Output
+    Format exists to catch the ones that slip through anyway.)
+
+### Bundled missions get their own sub-list, never a parenthetical
+
+This is a specific, easy-to-violate case of the granularity principle above, worth spelling out
+on its own because it's the anti-pattern that recurs most often:
+
+**Wrong:** `Play missions 7 through 17 (Nines and AK's, Drive-By, Sweet's Girl, Cesar
+Vialpando, Home Invasion, Catalyst, Robbing Uncle Sam, OG Loc, Running Dog, Wrong Side of the
+Tracks, Just Business).`
+
+This crams eleven distinct missions into a parenthetical on a single line. The player can only
+check off "did the whole stretch" as one lump action, there's no way to track partial progress
+through it, and a long parenthetical is harder to scan than a short list.
+
+**Right:** the parent line states only the range (`Play missions 7 through 17.`), and each
+mission gets its own child row nested underneath it — `Nines and AK's`, `Drive-By`, `Sweet's
+Girl`, and so on, one per line, each its own checkbox. The parent collapses them visually
+(collapsed by default with a small toggle to expand), but each is independently checkable.
+
+This applies to every bundle, however short — consistency matters more than saving one toggle
+click on a two-mission bundle. It applies even when nothing noteworthy happens in a given
+mission — "uneventful" is not a reason to compress missions together into prose. It only stops
+applying when a stretch is being described in passing rather than presented as checklist steps
+at all (e.g., a note mentioning "the rest of the Y questline" for context, not as its own line
+item).
+
+When an item bundling several missions already has other children (e.g., a note attached to
+whichever mission unlocks an asset), add the missing mission names as additional children
+rather than leaving them out of the sub-list — every mission in the stated range should have
+its own row, whether or not it individually has anything special attached to it.
 
 ---
 
@@ -309,7 +377,11 @@ divs is not acceptable and will need to be redone.
 
 ### Required structure
 
-1. **Header** — game title, a live overall progress percentage/count, a progress bar, and
+1. **Header** — game title, a large, prominent overall completion percentage computed live
+   from checked/total across every item, and a progress bar that fills as items are checked —
+   give the bar some visual character tied to the game's identity (a texture, a shape, a
+   motif) rather than a plain rounded rect; this is one of the few places a signature flourish
+   earns its place. Plus a small persistent save-status indicator (see Persistence below) and
    controls: Expand all / Collapse all / Reset progress (with a confirm step, never a bare
    `confirm()` dialog — build a two-click arm/confirm on the button itself, since modal dialogs
    can be blocked in sandboxed contexts).
@@ -318,10 +390,13 @@ divs is not acceptable and will need to be redone.
    the exact action required, including any systemic (non-story) missables. Rendered as plain
    bullets with no checkboxes (see Step 2) — the protective action gets its checkbox inline in
    the phase where it applies. If a game has no true missables (some don't), say so explicitly
-   here rather than omitting the box.
+   here rather than omitting the box. Each missable may carry a collapsible note (see Content
+   depth standard) for the safe-handling explanation, but the warning text itself stays visible
+   without expanding anything.
 3. **Phases, as collapsible accordions** — one per phase, each showing a live `done/total`
    fraction in its collapsed header so the player can see progress without opening it. First
-   phase open by default, rest collapsed. Power-unlocks fold into the phase where they're
+   (or current, if known) phase open by default, rest collapsed, so the player isn't scrolling
+   past phases they've already finished. Power-unlocks fold into the phase where they're
    front-loaded, per Step 3. Phase **titles** are proper title case ("Alderney Unlocked," not
    "Alderney unlocked"); the smaller descriptive sub-caption under the title (e.g. "missions
    52-88") can stay as a plain lowercase caption, matching the reference file.
@@ -337,11 +412,13 @@ divs is not acceptable and will need to be redone.
 The player checks this off **in the exact order they'll hit it in-game, one line at a time.**
 That does not mean "one line per mission":
 
-- **Bundle uneventful missions together.** A run of consecutive story missions that unlock
-  nothing and aren't missable becomes ONE line: "Play missions 7-17 (Nines and AK's, Drive-By,
-  Sweet's Girl, ...)." Only break a mission out onto its own line when something is tied to
-  it — it's missable, it unlocks a side system, it's a hard area/story gate, or it's otherwise
-  notable.
+- **Bundle uneventful missions together — as a parent line with child rows.** A run of
+  consecutive story missions that unlock nothing and aren't missable becomes ONE parent line
+  ("Play missions 7-17") with each mission as its own checkable child row beneath it, never a
+  parenthetical list of names (see the bundling section in Step 6). Only break a mission out
+  onto its own top-level line when something is tied to it — it's missable, it unlocks a side
+  system, it's a hard area/story gate, or it's otherwise notable. Keep nesting to one level
+  deep for readability.
 - **Side content nests under the mission that unlocks it, as a child item, not as a sibling
   and not under a separate "Side Content" heading.** A parent line ("Play mission 6 'Drive-Thru'
   (gym unlocks)") gets child lines directly under it for what just opened up. This keeps strict
@@ -415,27 +492,21 @@ Use a small expandable "(i)" note toggle on any line that needs this extra detai
 plain-English definition of jargon (assume the player may be new to this game — define terms
 like "vigilante missions" or "triathlons" on first use via this same mechanism). The visible
 line stays short; depth lives one tap away. Nothing the player actually needs to *not miss*
-gets hidden behind a collapsed note — only context and reasoning does.
+gets hidden behind a collapsed note — only context and reasoning does. The test: if you deleted
+every note, would the player still be able to complete everything correctly, just without
+knowing why? If not, something that belongs on the visible line got buried in a note.
 
 ### Visual design
 
 Give the file a distinct visual identity tied to the game's own setting and tone — a real color
 palette and font pairing (Google Fonts are fine), not a generic default dashboard look. This
 should read as a made-for-this-game reference tool, the kind of thing a fan site would build,
-not a templated to-do list. **Never reuse a previous game's exact palette/font pairing for a new
+not a templated to-do list. Pick a signature visual element tied to the game (a texture, a
+recurring shape, a stat-screen convention the game itself uses) and build the palette and type
+choices around it. **Never reuse a previous game's exact palette/font pairing for a new
 game** — the per-game visual identity is a deliberate, permanent feature of these guides, not
 an incidental style choice. Reuse the *structure* (accordion phases, missables box, nested
 children, footer) across every game; vary the *look* every time.
-
-### Bundled missions get their own sub-list, never a parenthetical
-
-When bundling consecutive uneventful missions into one line ("Play missions 2-10"), do **not**
-list the individual mission names in parentheses on that line. Instead, give that line its own
-collapsed nested list (same nesting mechanism as side content), one child item per mission,
-collapsed by default with a small toggle to expand it. The parent line itself stays short
-("Play missions 2-10"); tapping it open reveals "2. It's Your Call," "3. Three's a Crowd,"
-etc. as their own checkable rows. This applies to every bundle, however short — consistency
-matters more than saving one toggle click on a two-mission bundle.
 
 ### Persistence — read this before writing any storage code
 
@@ -468,13 +539,55 @@ is an unescaped apostrophe inside a single-quoted string ("you're", "don't", "wa
 which silently breaks the entire script. Run a syntax check (e.g., `node --check`) after
 writing or editing the data, not just after the first draft.
 
+### Sweep for orphaned deferrals — every "later" needs a real step
+
+A guide's own text will sometimes defer part of a task to a later point ("sweep what you can,
+a few near the border won't count until the next area opens," "do levels 1-6, the last 2 need
+a later unlock"). The recurring bug: the deferral gets stated, but the follow-up step never
+gets written — the task is acknowledged and then dropped, and the player is left stranded just
+short of 100% with the guide reading as if everything was covered. A related form of the same
+bug: a wrap-up or recap section later in the guide describes something as fully done in an
+earlier section when it was only partially done there, with no mention of where (or whether)
+the rest happened.
+
+Run this sweep on the finished guide **every time before presenting it — including after any
+edit — not as a one-time fix.** It's exactly the kind of loop that's easy to write and then
+forget to close:
+
+- **Search the full document for deferral phrasing.** Patterns like "won't count/register
+  until," "needs … access," "of [0-9]+ levels," "save … for later," "the rest later," "come
+  back when/after," "until … opens/unlocks," "for now." Use a regex or a manual scan, but
+  actually enumerate the matches — don't rely on remembering what was deferred.
+- **For each match, find the actual completion step elsewhere in the document.** It must be a
+  real checkbox item in the correct later phase — an acknowledgment, a note, or a mention in a
+  recap does not count as completion. If no such step exists, add one in the right later
+  section before presenting.
+- **Check every summary/recap claim against what actually happened.** If a recap or wrap-up
+  says a category was completed in an earlier section, verify that section actually completes
+  it in full. Partial completion earlier plus a recap claiming full completion is the same bug
+  wearing different clothes.
+
 ### Before presenting: walk it like a player, not a writer
 
 Once the guide is built, this is the last gate, after everything above, before showing it to
-the person. Re-read it start to finish as if actually playing, one line at a time: does the
-order make sense, would you get stuck because a line is too vague or assumes something you
-haven't been told yet, does a "child" item actually belong after its parent, is anything a bare
-FYI wearing a checkbox. Fix what you find. Only present the guide after this pass, not before it.
+the person. Re-read it start to finish as if actually playing, one line at a time, checking:
+
+- Does the sequence of checkboxes match how the game is actually played, with nothing skipped
+  and nothing implied twice (the overlapping-items test from Step 6, principle 7)?
+- Does every location, vehicle, or target named on a checkbox line actually exist where the
+  guide says it does (the location-research requirement from Step 1)?
+- Does anything referencing a later point in the game appear before something referencing an
+  earlier one (the position-desync check from Step 6, principle 8)?
+- Would a player who has never seen this game get stuck or confused by any single line without
+  opening its note? Does a "child" item actually belong after its parent? Is anything a bare
+  FYI wearing a checkbox?
+- Does every "later" / "won't count until" / "the rest" promise in the guide's own text have a
+  matching real completion step in a later phase (the orphaned-deferral sweep above), and does
+  every recap claim match what the earlier sections actually completed?
+
+This pass is not optional and not the same thing as validating JS syntax — syntax validation
+confirms the file runs, this pass confirms the file is *right*. Do both. Fix what you find, and
+only present the guide after this pass, not before it.
 
 ---
 
@@ -567,3 +680,65 @@ FYI wearing a checkbox. Fix what you find. Only present the guide after this pas
   answer existed. The fix that stuck: for every location-dependent item, explicitly work out
   what's closest to where the player actually is at that point in the route (e.g. the bowling
   alley that happens to border the starting apartment), not just "a valid one somewhere."
+- Vehicle or item spawn locations reported by community guides can be wrong or inconsistent,
+  especially for small or rural in-game locations. A vehicle being conveniently available in
+  the same small town as an unrelated task is a claim to verify against more than one source,
+  not an assumption to build a route around (a fire truck turned out not to exist in a town
+  where multiple guides implied it did, only the ambulance was actually there).
+- When the best place to *acquire* something differs from the best place to *use* it, name
+  both locations explicitly and place the task at the completion site with a "get it from X,
+  bring it to Y" instruction, rather than collapsing them into a single location for tidiness.
+- Money-generating exploits belong first among a cluster of related tasks, not just documented
+  somewhere in the guide, so the cash they produce is actually available for whatever spending
+  comes later in that same cluster.
+- All-or-nothing or high-risk achievements (max-bet gambles, one-shot bets) belong last in a
+  cluster of similar tasks, done only after safer wins have built a cushion — not first.
+- Side-content categories can hide inside a mission's unlock description ("also unlocks Freight
+  Train") without ever becoming their own actionable checklist line. Audit unlock descriptions
+  specifically for nouns that never received their own bullet anywhere in the guide.
+- A side-content "category" can have more real instances than a first pass assumes (three gym
+  trainers across three cities in one game, not the one most guides lead with). When a source
+  describes something as a category or a set, confirm the actual count before assuming one
+  instance covers it.
+- Daily or session caps on a grindable stat need their reset mechanism named explicitly (e.g.,
+  "save at a hub twice to skip the cooldown"), not just flagged as existing.
+- If a stat-interaction concern turns out to be based on a mechanic that isn't real (a physical
+  stat assumed to affect a numeric one it doesn't actually touch), correct the misconception
+  explicitly in the guide rather than just quietly adjusting the recommended order — otherwise
+  the guide implies a false mechanic even while giving correct advice.
+- A guaranteed late-game reward (a fixed cash grant on hitting 100%, for example) can satisfy
+  an earlier achievement's resource requirement. Sequence spending before that reward lands and
+  let it backfill the requirement, instead of telling the player to accumulate the same amount
+  twice.
+- "I already did X out of the recommended order" from the player is not a mistake to smooth
+  over, it's a cue to check whether that order was a hard requirement or just the suggested
+  path, and to give a concrete next step from wherever the player actually is right now.
+- Editing a skill file directly inside a sandboxed session is not the same as it being saved to
+  the user's actual profile. Only a packaged `.skill` file, installed through the client's own
+  "Save skill" action, persists across sessions — a direct file edit only updates the copy
+  mounted for the current session. When a user questions whether an update "took," this
+  distinction is the first thing to check, before re-asserting that a file looks correct.
+- When a user provides a concrete, itemized list of what should have changed, verify it
+  claim-by-claim (grep, line count, diff) rather than responding with general reassurance.
+  "I checked and it's fine" is much weaker than showing the actual count, checksum, or line
+  that proves (or disproves) each specific claim — and weaker reassurance repeated twice is
+  not the same as escalating the rigor of the check.
+- Re-verifying a prior conclusion with the same shallow method (a keyword grep, a quick
+  skim) a second time is not a stronger signal than checking it once properly. When a player
+  pushes back more than once on the same claim, escalate the rigor of the check itself (full
+  read, checksum, exact count) rather than repeating the same spot-check and getting the same
+  answer.
+- A guide deferred parts of tasks in its own text ("do levels 1-6 now, the last 2 need a later
+  unlock"; "sweep what you can, a few near the border won't count until the next area opens")
+  and then never added the follow-up step anywhere — the deferral was stated, the loop never
+  closed, and a wrap-up checklist near the end even claimed the whole category was finished in
+  the earlier section. Deferral text *reads* like handling, which is exactly why it slips
+  through: the writer feels the task is covered, the player ends up stranded at 99%. The fix
+  that sticks is mechanical, not attentional: sweep the finished guide for deferral phrases
+  and demand a real completion step for each match, every time, before presenting (see the
+  orphaned-deferrals section in Output Format).
+- The lessons above skew toward GTA-style open-world games because that's where this skill was
+  battle-tested. Don't let that narrow the skill's scope: for each new game, translate the
+  concepts (missions → quests/chapters/races, islands → gated acts, vehicle missions →
+  repeatable side activities with permanent rewards) instead of pattern-matching for
+  GTA-specific structures and concluding a step doesn't apply.
