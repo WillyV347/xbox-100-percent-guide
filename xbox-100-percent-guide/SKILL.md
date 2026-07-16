@@ -276,6 +276,16 @@ For each task, include:
    each mission named individually as its own child row under a connecting parent line, never
    crammed into a parenthetical on the parent itself. See the dedicated section below for the
    exact mechanic.
+10. **Every deferral must land somewhere.** Any time an item's own text defers part of the
+    task to later ("the last 2 need X access," "a few won't count until region Y opens,"
+    "save it for later," "the rest later"), the guide must contain an actual completion step
+    in the correct later phase — a real checkbox that sends the player back to finish the
+    deferred remainder. The deferring line acknowledges the split; only the later step closes
+    it. Stating the deferral without adding the follow-up step is one of the easiest ways a
+    guide silently drops content: the task *reads* as handled, but no line anywhere actually
+    completes it. When writing any deferral, add the matching later step in the same editing
+    pass — don't trust a future pass to remember. (The pre-presentation sweep in Output
+    Format exists to catch the ones that slip through anyway.)
 
 ### Bundled missions get their own sub-list, never a parenthetical
 
@@ -529,6 +539,34 @@ is an unescaped apostrophe inside a single-quoted string ("you're", "don't", "wa
 which silently breaks the entire script. Run a syntax check (e.g., `node --check`) after
 writing or editing the data, not just after the first draft.
 
+### Sweep for orphaned deferrals — every "later" needs a real step
+
+A guide's own text will sometimes defer part of a task to a later point ("sweep what you can,
+a few near the border won't count until the next area opens," "do levels 1-6, the last 2 need
+a later unlock"). The recurring bug: the deferral gets stated, but the follow-up step never
+gets written — the task is acknowledged and then dropped, and the player is left stranded just
+short of 100% with the guide reading as if everything was covered. A related form of the same
+bug: a wrap-up or recap section later in the guide describes something as fully done in an
+earlier section when it was only partially done there, with no mention of where (or whether)
+the rest happened.
+
+Run this sweep on the finished guide **every time before presenting it — including after any
+edit — not as a one-time fix.** It's exactly the kind of loop that's easy to write and then
+forget to close:
+
+- **Search the full document for deferral phrasing.** Patterns like "won't count/register
+  until," "needs … access," "of [0-9]+ levels," "save … for later," "the rest later," "come
+  back when/after," "until … opens/unlocks," "for now." Use a regex or a manual scan, but
+  actually enumerate the matches — don't rely on remembering what was deferred.
+- **For each match, find the actual completion step elsewhere in the document.** It must be a
+  real checkbox item in the correct later phase — an acknowledgment, a note, or a mention in a
+  recap does not count as completion. If no such step exists, add one in the right later
+  section before presenting.
+- **Check every summary/recap claim against what actually happened.** If a recap or wrap-up
+  says a category was completed in an earlier section, verify that section actually completes
+  it in full. Partial completion earlier plus a recap claiming full completion is the same bug
+  wearing different clothes.
+
 ### Before presenting: walk it like a player, not a writer
 
 Once the guide is built, this is the last gate, after everything above, before showing it to
@@ -543,6 +581,9 @@ the person. Re-read it start to finish as if actually playing, one line at a tim
 - Would a player who has never seen this game get stuck or confused by any single line without
   opening its note? Does a "child" item actually belong after its parent? Is anything a bare
   FYI wearing a checkbox?
+- Does every "later" / "won't count until" / "the rest" promise in the guide's own text have a
+  matching real completion step in a later phase (the orphaned-deferral sweep above), and does
+  every recap claim match what the earlier sections actually completed?
 
 This pass is not optional and not the same thing as validating JS syntax — syntax validation
 confirms the file runs, this pass confirms the file is *right*. Do both. Fix what you find, and
@@ -687,6 +728,15 @@ only present the guide after this pass, not before it.
   pushes back more than once on the same claim, escalate the rigor of the check itself (full
   read, checksum, exact count) rather than repeating the same spot-check and getting the same
   answer.
+- A guide deferred parts of tasks in its own text ("do levels 1-6 now, the last 2 need a later
+  unlock"; "sweep what you can, a few near the border won't count until the next area opens")
+  and then never added the follow-up step anywhere — the deferral was stated, the loop never
+  closed, and a wrap-up checklist near the end even claimed the whole category was finished in
+  the earlier section. Deferral text *reads* like handling, which is exactly why it slips
+  through: the writer feels the task is covered, the player ends up stranded at 99%. The fix
+  that sticks is mechanical, not attentional: sweep the finished guide for deferral phrases
+  and demand a real completion step for each match, every time, before presenting (see the
+  orphaned-deferrals section in Output Format).
 - The lessons above skew toward GTA-style open-world games because that's where this skill was
   battle-tested. Don't let that narrow the skill's scope: for each new game, translate the
   concepts (missions → quests/chapters/races, islands → gated acts, vehicle missions →
