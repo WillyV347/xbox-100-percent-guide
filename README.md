@@ -8,23 +8,26 @@ Point it at a game, and Claude researches the current achievement list, flags ev
 
 When you name an Xbox game and ask how to 100% it, the skill drives Claude through a disciplined process:
 
-1. **Research the game** — web-searches for the current achievement list, missables, completion requirements, exploits, and exact collectible counts (never relies on training data alone, since these change over time).
-2. **Identify missables first** — extracts every missable achievement into a table with its trigger point and the exact action required, flagging any that conflict (i.e. require multiple playthroughs).
-3. **Identify power-unlocks** — surfaces upgrades and rewards (infinite sprint, fireproof status, money/XP exploits, etc.) worth front-loading even when they feel like a detour.
-4. **Identify area-gated content** — determines what's reachable now vs. locked behind story progress, so it never tells you to sweep an area you can't fully access yet.
-5. **Build the phased route** — orders everything by missable protection → power-unlocks → accessible sweeps → minimal backtracking → story gating.
-6. **Enforce clarity standards** — names areas explicitly, defines jargon on first use, states precise collectible counts, and separates *achievements* from *100% requirements*.
-7. **Surface exploits and bugs** — including whether they disable achievements and whether they've been patched.
+1. **Research the game** — web-searches for the current achievement list, missables (including systemic ones like losable companions or reputations), per-category completion requirements, verified exploit methods, exact collectible counts, and specific locations for location-dependent tasks (never relies on training data alone, since these change over time).
+2. **Identify missables first** — extracts every missable achievement with its trigger point and the exact action required, flagging any that conflict (i.e. require multiple playthroughs).
+3. **Identify power-unlocks** — surfaces upgrades and rewards (infinite sprint, fireproof status, money/XP exploits, protective perks, etc.) worth front-loading even when they feel like a detour.
+4. **Check cross-system interactions** — catches orderings where one task accidentally fights another: redundant grinds, resource requirements backfilled by guaranteed rewards, daily caps, and acquire-vs-use location mismatches.
+5. **Identify area-gated content** — determines what's reachable now vs. locked behind story progress, so it never tells you to sweep an area you can't fully access yet.
+6. **Build the phased route** — verifies the actual unlock *sequence* against sources, then orders everything by missable protection → power-unlocks → accessible sweeps → minimal backtracking → story gating, with no unordered "do these whenever" buckets and no overlapping checklist items.
+7. **Enforce clarity standards** — names areas explicitly, defines jargon on first use, states precise collectible counts, separates *achievements* from *100% requirements*, and never invents false precision.
+8. **Surface exploits and bugs** — including whether they disable achievements, whether they've been patched, and the known "stuck at 99%" culprits.
 
 ### Output format
 
-Every guide is presented in a consistent, scannable order:
+Every guide ships as a **single, self-contained interactive HTML checklist** — a real tool you keep open in a browser tab across a full playthrough, not a static writeup:
 
-1. **Missables table** — always first, so you know what to protect before doing anything
-2. **Power-unlocks summary** — what to do early and why
-3. **Phased route** — phase by phase, with missable warnings inline
+1. **Header** — live progress bar and count, with expand/collapse/reset controls
+2. **Missables box** — pinned up top as plain warnings (never checkboxes), with each missable also flagged inline at the exact point it occurs in the route
+3. **Phased route** — collapsible accordion phases with per-phase progress, side content nested under the mission that unlocks it, uneventful mission runs bundled with expandable sub-lists, and expandable notes for context and jargon
 4. **Time estimate** — story and full 100%, when sources provide one
-5. **Useful tools** — maps, trackers, and interactive checklists
+5. **Footer** — maps, trackers, and known stuck-at-99% culprits
+
+Progress persists across sessions, and every guide gets its own visual identity drawn from the game's setting — the structure stays consistent between games, the look never repeats.
 
 ## Installation
 
