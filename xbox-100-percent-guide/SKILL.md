@@ -55,6 +55,13 @@ Search for:
   generic achievement-list source doesn't. Cross-check an authoritative "what counts toward 100%"
   breakdown against the achievement list — they are usually different sources, and content that
   matters for one can be totally absent from the other.
+- Cumulative, whole-game requirements — anything satisfied by *how the player plays* over
+  dozens of hours rather than by a task at one point in the route: max proficiency/level with
+  every weapon, total distance or usage counts, per-category kill totals, skill mastery bars.
+  These must be identified up front, because the cheap way to satisfy them is a habit adopted
+  from hour one ("once a weapon hits max level, switch to another and keep rotating") and the
+  expensive way is discovering them at the end and grinding. See Step 6 for how the guide
+  routes these.
 - Known exploits or efficiency tricks (e.g., money/XP glitches, sequence breaks) — get the
   specific, verified method (exact target, exact button, exact condition), not a vague
   paraphrase. "Bet on horses" is not a method; "bet on the horse with the [specific marker],
@@ -286,6 +293,13 @@ For each task, include:
     completes it. When writing any deferral, add the matching later step in the same editing
     pass — don't trust a future pass to remember. (The pre-presentation sweep in Output
     Format exists to catch the ones that slip through anyway.)
+11. **The cleanup phase must be earned, item by item.** A final "post-story cleanup" phase is
+    only for content that verifiably must (or measurably best) happens late. It is not the
+    default home for anything lacking an obvious story trigger — see the dedicated audit
+    section below.
+12. **Ongoing whole-game requirements are routed as a habit, not an end-phase task.** State
+    the behavior early, checkpoint it mid-route, verify it at the end — see the dedicated
+    section below.
 
 ### Bundled missions get their own sub-list, never a parenthetical
 
@@ -316,6 +330,61 @@ When an item bundling several missions already has other children (e.g., a note 
 whichever mission unlocks an asset), add the missing mission names as additional children
 rather than leaving them out of the sub-list — every mission in the stated range should have
 its own row, whether or not it individually has anything special attached to it.
+
+### Audit the cleanup phase — nothing lands there by default
+
+Guides built with this skill tend to end with a "post-story cleanup" phase that catches
+whatever isn't tied to a specific story mission. The phase itself is legitimate — but it has a
+gravity problem: side content ends up dumped there *by default*, not because anything gates it
+late, but because it's easier to lump anything without an obvious story trigger into the
+catch-all than to research where it's actually reachable. In practice much of that content is
+available from very early in the game, or unlocks at a specific earlier point, and belongs in
+that phase instead.
+
+**For every item in the cleanup phase, verify via research when it actually becomes
+available** — the same evidence standard as any other fact in the guide, not an assumption in
+either direction. Then:
+
+- **If nothing forces it late**, move it to the earliest phase where it's actually reachable
+  (earliest-reachable is the ceiling; the other ordering principles — grouping by area,
+  money-before-spending, and so on — still decide the exact placement within that window). The
+  cleanup phase keeps only a one-line verification for it ("done in Phase X if you followed
+  along"), never a line presenting it as new work.
+- **If a real mechanical reason keeps it late or bundled, leave it — and state the reason
+  explicitly** in the item or its note, so the placement reads as a verified decision rather
+  than a thing nobody checked. Real reasons include: an achievement that requires several
+  sub-parts completed in one sitting or one session; a fixed reward that another achievement's
+  resource requirement depends on (see Step 4); content genuinely only reachable near or after
+  the end of the story.
+
+Both failure modes are the same underlying bug — unresearched placement. "Spread everything
+out" is exactly as capable of being wrong as "dump everything at the end"; the audit is
+per-item research, and moving an item without checking is just as lazy as leaving it without
+checking. Watch especially for repeatable side activities (minigames, races, fares/courier-type
+jobs): some are story-gated and fine to leave late, but others have no gate at all or unlock
+simply by reaching a place the player passes through early — those must never sit in the
+cleanup phase as a vague "you'll also need to do this eventually."
+
+### Ongoing whole-game requirements: state the habit early, verify late
+
+Some requirements are satisfied by *how the player plays for the whole game*, not by a task at
+a point in the route — max level/proficiency with every weapon, cumulative distance or usage
+totals, per-weapon kill counts, skill mastery bars (identified during Step 1 research). These
+get a three-part treatment:
+
+- **Introduce the habit in Phase 1 as its own visible item**: what the requirement is and the
+  concrete in-flow behavior that satisfies it for free — e.g., "all weapons must reach max
+  level for 100%: once a weapon maxes, switch to another and keep rotating; don't keep using a
+  maxed weapon out of comfort." Naming the requirement without naming the behavior is what
+  produces the end-game grind.
+- **Checkpoint it at natural milestones** (phase boundaries work well): "by the end of this
+  phase you should have roughly N of M weapons maxed — if you're behind, rotate more
+  aggressively." Checkpoints go in phase notes or a short item, so drift is caught mid-game
+  rather than discovered at the end.
+- **The end-phase line is a verification plus a targeted top-up, never the task itself**:
+  "check the stats page; for any weapon still short, grind it now at [specific efficient
+  spot]." If the habit was followed, this line costs minutes. The guide must never present the
+  whole requirement as end-phase work.
 
 ---
 
@@ -584,6 +653,17 @@ the person. Re-read it start to finish as if actually playing, one line at a tim
 - Does every "later" / "won't count until" / "the rest" promise in the guide's own text have a
   matching real completion step in a later phase (the orphaned-deferral sweep above), and does
   every recap claim match what the earlier sections actually completed?
+- **Is everything required for 100% actually in the document, and is every achievement
+  covered?** Cross-check the full achievement list and the 100%-requirements breakdown from
+  Step 1 against the finished guide, entry by entry — every achievement must appear somewhere
+  (as a task, inside a task's note, or as an explicit "not required for 100%" / "currently
+  unobtainable" callout), and every 100% category must have real covering steps, not just a
+  mention. "It's probably in there somewhere" is not a check; enumerate the list and tick each
+  entry off against the document.
+- Is every item still sitting in the final cleanup phase there for a stated, verified reason,
+  with everything else moved to its earliest reachable phase (the cleanup-phase audit from
+  Step 6)? And does every ongoing whole-game requirement have its habit stated in Phase 1,
+  checkpoints along the route, and only a verification-plus-top-up line at the end?
 
 This pass is not optional and not the same thing as validating JS syntax — syntax validation
 confirms the file runs, this pass confirms the file is *right*. Do both. Fix what you find, and
@@ -737,6 +817,21 @@ only present the guide after this pass, not before it.
   that sticks is mechanical, not attentional: sweep the finished guide for deferral phrases
   and demand a real completion step for each match, every time, before presenting (see the
   orphaned-deferrals section in Output Format).
+- The final cleanup phase exerts gravity on anything without an obvious story trigger. In one
+  guide, three repeatable side activities — a stadium minigame available from the very start of
+  the game, a race unlocked simply by reaching a landmark the player passes through in an early
+  region, and a repeatable fare-pickup job with no gate at all — had zero mention anywhere
+  except a vague "you'll also need to do these eventually" in the cleanup phase, because no
+  research was ever done into when they actually become available. Availability is a
+  researchable fact per item, never a default. The fix runs in both directions: other content
+  genuinely does belong late (single-sitting multi-part achievements, reward dependencies,
+  end-game-only access), so the audit is "verify each and state the reason," never "move
+  everything earlier."
+- Whole-game cumulative requirements (all weapons to max level, usage totals, mastery bars)
+  are cheapest as a habit from hour one — "once a weapon maxes, switch to the next" — and most
+  expensive as an end-phase grind. State the habit early as its own checklist line, checkpoint
+  it at phase boundaries, and make the end-phase line a stats-page verification with a targeted
+  top-up, not the task itself.
 - The lessons above skew toward GTA-style open-world games because that's where this skill was
   battle-tested. Don't let that narrow the skill's scope: for each new game, translate the
   concepts (missions → quests/chapters/races, islands → gated acts, vehicle missions →
