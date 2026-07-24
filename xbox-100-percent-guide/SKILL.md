@@ -155,12 +155,22 @@ authenticates themselves — never ask for, type, or store their Microsoft accou
 
 1. **A personal Xbox API key (simplest, no password ever involved).** The player creates their
    own key at a third-party Xbox Live API service — OpenXBL (`xbl.io`) is the common one, free
-   tier 150 requests/hour at time of writing — and hands you the key. Verified anchors: requests
-   carry an `X-Authorization: <key>` header, `GET https://api.xbl.io/api/v2/account` returns the
-   player's own gamertag, XUID, and gamerscore, and responses carry `X-RateLimit-Remaining`
-   (a 429 means the hourly cap is hit). **Confirm the current achievements endpoint path against
-   the service's live docs at sync time rather than assuming one** — third-party paths change,
-   and a guessed path that 404s is indistinguishable from "this player has earned nothing."
+   tier 150 requests/hour at time of writing — and hands you the key. Every request carries an
+   `x-authorization: <key>` header; responses carry `X-RateLimit-Remaining`, and a 429 means the
+   hourly cap is hit. The paths below are from OpenXBL's own OpenAPI spec
+   (`github.com/OpenXBL/Docs`), which is the thing to re-check if any of them 404 — a wrong path
+   is indistinguishable from "this player has earned nothing":
+
+   | Call | Purpose |
+   | --- | --- |
+   | `GET /api/v2/account` | The key owner's own gamertag, XUID, gamerscore — always start here |
+   | `GET /api/v2/player/titleHistory` | Games the player has actually launched, with title IDs — resolve the game from this, never from a guessed title ID |
+   | `GET /api/v2/achievements/player/{xuid}/title/{titleId}` | Per-title achievement list, **Xbox One/Series titles** |
+   | `GET /api/v2/achievements/x360/{xuid}/title/{titleId}` | Per-title achievement list, **Xbox 360 titles** — a separate path, see the generation gotcha below |
+   | `GET /api/v2/achievements/stats/{titleId}` | The player's stats for a title, where progression numbers live |
+   | `GET /api/v2/achievements/title/{titleId}/{continuationToken}` | Paging, when a title's list is long enough to be truncated |
+
+   Base URL `https://xbl.io` (`https://api.xbl.io` also serves the same `/api/v2/` routes).
 2. **The official Xbox Live REST endpoint**, if the player has or wants to set up an XSTS token:
    `GET https://achievements.xboxlive.com/users/xuid({xuid})/achievements`, with
    `Authorization: XBL3.0 x=<userhash>;<xsts-token>` and `x-xbl-contract-version: 2`, filtered
@@ -190,10 +200,12 @@ say why it doesn't apply and offer the paths above instead.
 ### Sync gotchas that produce silently wrong guides
 
 - **Xbox 360-era titles and Xbox One/Series titles sit behind different achievement endpoints
-  with different schemas.** A 360-era game — the back catalogue this skill gets asked about most
-  — queried against the modern endpoint comes back empty, which reads exactly like "this player
-  has earned nothing." Match the endpoint family to the title's generation, and if a result is
-  empty, prove it's genuinely empty before believing it.
+  with different schemas** — on OpenXBL, literally `.../achievements/x360/{xuid}/title/{titleId}`
+  versus `.../achievements/player/{xuid}/title/{titleId}`. A 360-era game — the back catalogue
+  this skill gets asked about most — queried against the modern endpoint comes back empty, which
+  reads exactly like "this player has earned nothing." Match the endpoint family to the title's
+  generation, and if a result is empty, try the other family before believing it. Backward-
+  compatible titles played on a modern console are the genuinely ambiguous case: check both.
 - **An empty or failed sync is not "zero achievements earned."** Same rule as Step 1's
   fetch-verification note, applied to the player's own data: a non-result is unverified, not a
   verified zero. Never pre-check or pre-*un*check anything on the strength of a call that didn't

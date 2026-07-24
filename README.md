@@ -26,7 +26,7 @@ Four ways to sync, in preference order — you authenticate yourself in all of t
 
 | Path | What it needs |
 | --- | --- |
-| **Personal API key** | A free key from a third-party Xbox Live API service such as [OpenXBL](https://xbl.io/) (150 requests/hour on the free tier) |
+| **Personal API key** | A free key from a third-party Xbox Live API service such as [OpenXBL](https://xbl.io/) (150 requests/hour on the free tier) — see [setup](#setting-up-an-openxbl-key) below |
 | **Official Xbox Live REST** | An XSTS token from the Microsoft-account OAuth chain — e.g. [`xbox-webapi-python`](https://github.com/OpenXbox/xbox-webapi-python) plus your own Azure AD app registration |
 | **Signed-in browser** | Browser automation plus an Xbox session you signed in to yourself |
 | **Manual** | Screenshots of the console achievement list, a pasted list, or a public TrueAchievements/Xbox profile |
@@ -34,6 +34,26 @@ Four ways to sync, in preference order — you authenticate yourself in all of t
 Two things the skill is deliberately strict about. **Achievements are profile-wide and permanent; in-game 100% completion is save-bound** — so a sync pre-checks achievement items but never a mission, collectible sweep, or 100% task, because an achievement banked on an old save doesn't mean the content is done on your current one. And **re-syncing merges, it never overwrites** — anything you checked by hand stays checked, since plenty of 100% requirements have no achievement attached at all.
 
 No API key, token, or XUID is ever written into the generated HTML file, and the file makes no live calls to any Xbox service — the sync runs at build time and its results are baked in as data, so the guide stays safe to share.
+
+#### Setting up an OpenXBL key
+
+1. Go to [xbl.io](https://xbl.io/) and sign in **with your own Microsoft account** — the same one your Xbox profile is on. This is a standard Microsoft OAuth consent screen; you're granting a read-only app access to your own profile, and no password is ever shared with the model.
+2. In your profile, create an app and generate an **API key**. Copy it.
+3. Paste the key into your session when the skill asks for it. Treat it like a password: it can read your Xbox profile data, and it's regenerable from the same page if it leaks.
+
+Every request sends the key as an `x-authorization` header. The endpoints the skill uses, from [OpenXBL's OpenAPI spec](https://github.com/OpenXBL/Docs):
+
+| Call | Purpose |
+| --- | --- |
+| `GET /api/v2/account` | Your gamertag, XUID, gamerscore |
+| `GET /api/v2/player/titleHistory` | Games you've launched, with title IDs |
+| `GET /api/v2/achievements/player/{xuid}/title/{titleId}` | Per-title achievements, **Xbox One/Series** |
+| `GET /api/v2/achievements/x360/{xuid}/title/{titleId}` | Per-title achievements, **Xbox 360** |
+| `GET /api/v2/achievements/stats/{titleId}` | Your stats for a title (progression numbers) |
+
+Base URL `https://xbl.io`. Free tier is 150 requests/hour — a sync costs about three, so it's not a constraint in practice. Watch `X-RateLimit-Remaining`; a 429 means you're over.
+
+The 360-vs-modern split matters more than it looks: a 360-era game queried against the modern endpoint returns nothing at all, which is indistinguishable from "you've earned nothing." The skill checks both families before believing an empty result.
 
 Worth knowing if you go looking yourself: the GDK/XSAPI **Achievements Manager** (`XblAchievementsManager*`) is *not* a path to this. It's a C/C++ API compiled into a game, running against an authenticated user inside that game's own process, and it only ever sees the title it's built into — it's how a game reads and writes its own achievements, not how a player reads their profile from outside.
 
