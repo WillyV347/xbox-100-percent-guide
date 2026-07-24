@@ -581,7 +581,11 @@ divs is not acceptable and will need to be redone.
    controls: Expand all / Collapse all / Reset progress (with a confirm step, never a bare
    `confirm()` dialog — build a two-click arm/confirm on the button itself, since modal dialogs
    can be blocked in sandboxed contexts).
-2. **Missables box** — always immediately after the header, before any phase content. A visually
+2. **Search bar** — sticky/pinned so it stays reachable while scrolling, since the document runs
+   to hundreds of items. Filters the checklist live as the player types. This is a load-bearing
+   feature, not a nicety — see the dedicated section below for the mechanics, which are easy to
+   get wrong in a way that makes search look functional while finding nothing.
+3. **Missables box** — always immediately after the header, before any phase content. A visually
    distinct callout (not just another section) listing every missable with what triggers it and
    the exact action required, including any systemic (non-story) missables. Rendered as plain
    bullets with no checkboxes (see Step 3) — the protective action gets its checkbox inline in
@@ -589,19 +593,65 @@ divs is not acceptable and will need to be redone.
    here rather than omitting the box. Each missable may carry a collapsible note (see Content
    depth standard) for the safe-handling explanation, but the warning text itself stays visible
    without expanding anything.
-3. **Phases, as collapsible accordions** — one per phase, each showing a live `done/total`
+4. **Phases, as collapsible accordions** — one per phase, each showing a live `done/total`
    fraction in its collapsed header so the player can see progress without opening it. First
    (or current, if known) phase open by default, rest collapsed, so the player isn't scrolling
    past phases they've already finished. Power-unlocks fold into the phase where they're
    front-loaded, per Step 4. Phase **titles** are proper title case ("Alderney Unlocked," not
    "Alderney unlocked"); the smaller descriptive sub-caption under the title (e.g. "missions
    52-88") can stay as a plain lowercase caption, matching the reference file.
-4. **Time estimate** — story completion and full 100% estimate, if sources provide one.
-5. **Footer** — a "Tools" list (map/tracker sites, save-checker sites) and a "Known stuck-at-X%
+5. **Time estimate** — story completion and full 100% estimate, if sources provide one.
+6. **Footer** — a "Tools" list (map/tracker sites, save-checker sites) and a "Known stuck-at-X%
    culprits" list (the specific things that commonly cause a player to plateau just under 100%,
    e.g. one missed collectible category, a stat that silently fails to register, a cheat that
    was used once and forgot about). Both sections should have real, specific entries, not
    placeholders.
+
+### The search bar — most of its work happens inside collapsed content
+
+A finished guide is several hundred items long and, by design, **mostly collapsed**: phases are
+accordions, bundled missions hide in sub-lists, and every location, jargon definition, and
+sequencing reason lives in a collapsed note. That structure is what makes the file scannable —
+and it's exactly what makes search non-trivial, because **the naive implementation searches only
+what's currently on screen and therefore finds almost nothing.** A search box that returns "no
+matches" for a term that's demonstrably in the file is worse than no search box; the player
+concludes the content isn't there.
+
+So:
+
+- **Search the full dataset, not the rendered DOM.** Match against every item's visible text
+  *and* its note text, plus phase titles, phase notes, and the missables box. Notes are the
+  highest-value target: when a player searches "bowling alley," "fireproof," or "ambulance,"
+  the answer is usually a location or definition the skill deliberately tucked into a note.
+- **Reveal matches automatically.** A hit inside a collapsed phase opens that phase; a hit inside
+  a bundled mission sub-list opens the parent; a hit inside a note expands (or at minimum flags)
+  that note. Filtering without auto-expanding is the same bug as not searching notes at all.
+- **Keep matches in context.** A lone child row reading "Drive-By" tells the player nothing.
+  Show the ancestor chain — phase, then parent item, then the matching row — so every result is
+  locatable in the route.
+- **Highlight the matched substring** in the results, case-insensitively.
+- **Show a live match count** ("14 matches"), and a real empty state naming the term ("No matches
+  for 'stunt jump'") rather than a blank list.
+- **Clearing search restores the player's previous expand/collapse state**, not everything-open
+  and not everything-closed. Snapshot the state when a search begins, restore it on clear. A
+  player working in Phase 4 who searches for something and clears should land back in Phase 4.
+- **Escape clears; a `/` or Ctrl/Cmd-K shortcut focuses the box.** Include a visible clear (×)
+  button too — not every player will guess the keyboard path.
+
+### Search is a view, never a mutation
+
+Filtering must not touch progress state in any way: no checkbox changes, nothing written to the
+storage blob, no altered totals. The header percentage keeps reporting whole-guide progress while
+a filter is active — a progress bar that appears to leap to 100% because the player filtered down
+to three completed items is alarming and wrong. Per-phase `done/total` fractions likewise stay
+absolute. If it's useful to show how much of the *filtered set* is done, label it separately and
+unmistakably ("3/14 shown"), never by repurposing the real numbers.
+
+The same view-state machinery makes a small set of filter toggles nearly free, and they pair
+naturally with search: **Hide completed** (the single most useful one late in a playthrough,
+when most of the file is checked off), and — when Step 2 produced a sync — **Hide already
+earned**. Both are optional; if included, they follow every rule above, especially the one about
+never touching real progress numbers.
 
 ### Synced state in the checklist — when Step 2 produced a sync
 
@@ -810,6 +860,12 @@ the person. Re-read it start to finish as if actually playing, one line at a tim
   unobtainable" callout), and every 100% category must have real covering steps, not just a
   mention. "It's probably in there somewhere" is not a check; enumerate the list and tick each
   entry off against the document.
+- **Test the search bar against collapsed content specifically.** Pick a term that appears only
+  inside a collapsed note (a location name, a jargon definition) and one that appears only in a
+  bundled mission sub-list, and confirm each is actually found and revealed. Then confirm
+  clearing the search restores the expand/collapse state the player had beforehand, and that no
+  progress number moved while a filter was active. Searching for a term you already know is
+  visible on screen proves nothing — that's the case that works even when the feature is broken.
 - If the guide was synced (Step 2): did anything auto-check a story mission, collectible sweep,
   or save-bound 100% task on the strength of a profile-wide achievement? Does the header show
   guide progress and achievements-earned as two labelled numbers rather than one? Is the file
@@ -986,6 +1042,16 @@ only present the guide after this pass, not before it.
   expensive as an end-phase grind. State the habit early as its own checklist line, checkpoint
   it at phase boundaries, and make the end-phase line a stats-page verification with a targeted
   top-up, not the task itself.
+- The structure that makes these guides scannable — collapsed accordions, bundled sub-lists,
+  notes hidden behind a toggle — is the same structure that breaks a naively-built search box.
+  Most of the file's text is off-screen at any moment, so a search that filters rendered rows
+  finds a fraction of the real matches and confidently reports nothing for the rest. Search the
+  data, not the DOM, and auto-expand what matches. The tell that it was never tested properly:
+  every term the author tried happened to be visible on screen already.
+- A filter is a view, not an edit. A progress bar that jumps because the player filtered the list
+  is a genuine scare — they're 80 hours into this file. Keep real progress numbers absolute while
+  filtering, and label any filtered-subset count so distinctly it can't be mistaken for the real
+  one.
 - The first result for "Xbox achievements API" is the GDK/XSAPI Achievements Manager, and it is
   the wrong tool for this skill in a way that isn't obvious until you read who it's *for*: it's
   a C/C++ API compiled into a game, running against an `XUser` inside that game's own process,

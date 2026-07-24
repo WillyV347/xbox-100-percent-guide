@@ -42,10 +42,11 @@ Worth knowing if you go looking yourself: the GDK/XSAPI **Achievements Manager**
 Every guide ships as a **single, self-contained interactive HTML checklist** — a real tool you keep open in a browser tab across a full playthrough, not a static writeup:
 
 1. **Header** — live progress bar and count, with expand/collapse/reset controls (and, if you synced, guide progress and achievements-earned shown as two separately labelled numbers, never merged into one)
-2. **Missables box** — pinned up top as plain warnings (never checkboxes), with each missable also flagged inline at the exact point it occurs in the route
-3. **Phased route** — collapsible accordion phases with per-phase progress, side content nested under the mission that unlocks it, uneventful mission runs bundled with expandable sub-lists, and expandable notes for context and jargon
-4. **Time estimate** — story and full 100%, when sources provide one
-5. **Footer** — maps, trackers, and known stuck-at-99% culprits
+2. **Search bar** — sticky, filters as you type, and searches *inside* collapsed phases, bundled mission sub-lists, and hidden notes, auto-expanding whatever matches. Since locations and jargon definitions deliberately live in collapsed notes, that's where searching for "bowling alley" or "fireproof" actually pays off. Clearing search restores the expand/collapse state you had, and filtering never touches your progress numbers
+3. **Missables box** — pinned up top as plain warnings (never checkboxes), with each missable also flagged inline at the exact point it occurs in the route
+4. **Phased route** — collapsible accordion phases with per-phase progress, side content nested under the mission that unlocks it, uneventful mission runs bundled with expandable sub-lists, and expandable notes for context and jargon
+5. **Time estimate** — story and full 100%, when sources provide one
+6. **Footer** — maps, trackers, and known stuck-at-99% culprits
 
 Progress persists across sessions, and every guide gets its own visual identity drawn from the game's setting — the structure stays consistent between games, the look never repeats.
 
