@@ -10,7 +10,9 @@ description: >
   if phrased casually like "I want to do everything in X" or "best way to play X for all
   achievements." Also applies when the user asks to turn an existing guide into an interactive
   checklist, or to revise/fix ordering, formatting, or accuracy in a guide already produced by
-  this skill.
+  this skill. Also triggers on requests to sync, import, or check the player's existing Xbox
+  achievements against a guide — "sync my achievements," "what do I already have," "update my
+  progress from my Xbox profile," "start the guide from where I actually am."
 ---
 
 # Xbox 100% Completion Guide Skill
@@ -47,7 +49,7 @@ Search for:
   companions) can be permanently lost through ordinary play (a bad interaction, a death, a
   decision) rather than only through a one-time story trigger. These are easy to miss because
   they don't show up in a simple achievement-list search; they surface in mechanic-specific or
-  troubleshooting-focused searches instead (see Step 2).
+  troubleshooting-focused searches instead (see Step 3).
 - 100% completion requirements (story missions, collectibles, side missions, vehicle missions,
   etc.) — enumerate every distinct category explicitly, not just the obvious ones. Side-job
   systems are easy to under-count: a game can have half a dozen distinct side-mission businesses
@@ -60,7 +62,7 @@ Search for:
   every weapon, total distance or usage counts, per-category kill totals, skill mastery bars.
   These must be identified up front, because the cheap way to satisfy them is a habit adopted
   from hour one ("once a weapon hits max level, switch to another and keep rotating") and the
-  expensive way is discovering them at the end and grinding. See Step 6 for how the guide
+  expensive way is discovering them at the end and grinding. See Step 7 for how the guide
   routes these.
 - Known exploits or efficiency tricks (e.g., money/XP glitches, sequence breaks) — get the
   specific, verified method (exact target, exact button, exact condition), not a vague
@@ -75,7 +77,7 @@ Search for:
   specifically — a vehicle being conveniently available in the same small town as an unrelated
   side mission is a claim to verify, not assume, and it's worth checking more than one source
   when a location seems suspiciously convenient. Separately verify where the vehicle is best
-  *acquired* versus where the mission is best *completed* — see Step 4, they're often different.
+  *acquired* versus where the mission is best *completed* — see Step 5, they're often different.
 - Any known bugs, crashes, or platform-specific issues that affect completion
 - Whether any achievement is discontinued or currently unobtainable (server shutdowns, delisted
   DLC, removed events) — for multiplayer/online achievements, also check server population and
@@ -101,7 +103,132 @@ numbers are the guide's own, not the game's.
 
 ---
 
-## Step 2: Identify Missables First
+## Step 2: Sync the Player's Earned Achievements
+
+Before building the route, offer to pull the player's *actual* achievement state for this game
+from their Xbox profile, so the guide starts from what they already have instead of assuming a
+fresh save. Offer it — never require it, and never block the guide on it. A player who declines,
+or whose sync fails, still gets the full guide; it just starts unsynced.
+
+A sync changes the guide in four concrete ways, which is the reason to do it at all:
+
+- **Earned achievements start checked** and visually marked as already banked, so the player
+  isn't re-reading tasks they finished two years ago.
+- **Missable warnings the player already satisfied stop shouting.** An already-earned missable
+  is no longer a risk and should read as resolved rather than as a live warning. The inverse
+  case — an unearned missable whose window has already closed — is the loudest thing in the
+  guide; see "when the sync says a window already closed" below.
+- **The route opens where the player actually is.** Unlock timestamps plus which story
+  achievements are already earned locate them in the game; the phase they're in opens by
+  default instead of Phase 1.
+- **Skipped power-unlocks get re-evaluated.** A player 40 missions deep who never did the
+  front-loaded upgrades from Phase 1 needs to know which are still worth a detour now and which
+  have been overtaken by their progress — a different answer from "do these first."
+
+### What a sync can and cannot tell you
+
+**Xbox achievements are profile-wide and permanent; in-game 100% completion is save-bound.**
+These are two different progress tracks, and conflating them is the fastest way to produce a
+confidently wrong guide. An achievement earned on an earlier save, a different console, or years
+ago is banked forever and never needs doing again — but the *content behind it* may still be
+unfinished on the save the player is actually on, and it still counts toward that save's 100%
+stat. Therefore:
+
+- Sync results may pre-check **achievement items**. They must never auto-check a **story
+  mission, a collectible sweep, or a 100%-completion task** on the strength of an achievement
+  alone.
+- Where an achievement is banked but the underlying content still matters for save-bound 100%,
+  leave the task checkable and say so in its note: "achievement already on your profile — you
+  still need this on your current save for the 100% stat."
+- If the synced data obviously describes a different playthrough (unlock dates years apart, or
+  late-game achievements with none of the early ones), say so plainly and ask whether this is a
+  fresh save before pre-checking anything.
+
+Where the service returns **progression** data rather than just earned/not-earned, use it — a
+partially-progressed collectible achievement gives an exact "you have 37 of 100" the checklist
+can state outright, instead of making the player recount from scratch.
+
+### How to sync — in preference order
+
+Ask which path the player wants; don't pick one silently. **In every path the player
+authenticates themselves — never ask for, type, or store their Microsoft account password.**
+
+1. **A personal Xbox API key (simplest, no password ever involved).** The player creates their
+   own key at a third-party Xbox Live API service — OpenXBL (`xbl.io`) is the common one, free
+   tier 150 requests/hour at time of writing — and hands you the key. Verified anchors: requests
+   carry an `X-Authorization: <key>` header, `GET https://api.xbl.io/api/v2/account` returns the
+   player's own gamertag, XUID, and gamerscore, and responses carry `X-RateLimit-Remaining`
+   (a 429 means the hourly cap is hit). **Confirm the current achievements endpoint path against
+   the service's live docs at sync time rather than assuming one** — third-party paths change,
+   and a guessed path that 404s is indistinguishable from "this player has earned nothing."
+2. **The official Xbox Live REST endpoint**, if the player has or wants to set up an XSTS token:
+   `GET https://achievements.xboxlive.com/users/xuid({xuid})/achievements`, with
+   `Authorization: XBL3.0 x=<userhash>;<xsts-token>` and `x-xbl-contract-version: 2`, filtered
+   by the `titleId` query parameter (`unlockedOnly`, `orderBy=UnlockTime`, and paging parameters
+   are also supported). It only ever returns the caller's own achievements — the XUID must match
+   the authenticated user or the service returns 403. Obtaining the XSTS token means running the
+   Microsoft-account OAuth chain, in practice via a tool like `xbox-webapi-python` plus an Azure
+   AD app registration the player creates themselves ("Personal Microsoft accounts only,"
+   redirect URI `http://localhost/auth/callback`). The player runs the sign-in; you never see
+   the password.
+3. **A signed-in browser session**, when browser automation is available and the player is
+   already signed in to their Xbox account — read the game's achievement list off their own
+   profile page. The player does the signing in. Do not type credentials into the page, and do
+   not follow a sign-in link that came from anywhere other than the player.
+4. **Manual, always available as a fallback:** screenshots of the in-game or console achievement
+   list, a pasted list of earned achievement names, or a public TrueAchievements / Xbox profile
+   the player links. Slower, zero setup, and it works when every API path is blocked.
+
+**The GDK Achievements Manager (`XblAchievementsManager*`) is not one of these paths**, despite
+being the first thing an achievements search surfaces. It is an in-title C/C++ API compiled into
+a GDK game, operating on an authenticated `XUser` inside that game's own process, and it only
+ever sees the achievements of *the title it is built into*. It is the API a game uses to read
+and update its own achievements — not a way for a player or a tool to read a profile from
+outside. Same for the rest of XSAPI's in-title surface. If a player links that documentation,
+say why it doesn't apply and offer the paths above instead.
+
+### Sync gotchas that produce silently wrong guides
+
+- **Xbox 360-era titles and Xbox One/Series titles sit behind different achievement endpoints
+  with different schemas.** A 360-era game — the back catalogue this skill gets asked about most
+  — queried against the modern endpoint comes back empty, which reads exactly like "this player
+  has earned nothing." Match the endpoint family to the title's generation, and if a result is
+  empty, prove it's genuinely empty before believing it.
+- **An empty or failed sync is not "zero achievements earned."** Same rule as Step 1's
+  fetch-verification note, applied to the player's own data: a non-result is unverified, not a
+  verified zero. Never pre-check or pre-*un*check anything on the strength of a call that didn't
+  clearly succeed — say the sync failed, and build the guide unsynced.
+- **Resolve the title from the player's own title history, not from a guessed title ID.**
+  Remasters, regional SKUs, and definitive/complete editions are separate titles with separate
+  achievement lists; the one sitting in the player's history is the one they're actually playing.
+- **Never write the API key, XSTS token, or XUID into the generated HTML file.** The guide is a
+  file the player may share, and it's generated once rather than calling any service live — bake
+  the *results* in as data, never the credential that fetched them. Treat the achievement data
+  itself as the player's personal data: use it for this guide, don't send it anywhere else.
+
+### When the sync says a window already closed
+
+If the sync shows a missable achievement unearned *and* the player is already past the point
+where it was obtainable, that is the single most important fact in the guide and it goes at the
+top, above the missables box, stated plainly. Then research the actual remedy for that specific
+achievement rather than defaulting to "start over": some are recoverable in New Game+, in a
+chapter/mission replay mode, or from an earlier manual save; some are genuinely gone for this
+save file. Give the specific answer, and if it is "a second playthrough," say what a cleanup run
+would need to cover so the player can judge the cost.
+
+### Re-syncing later
+
+The player lives in this file for 50-200 hours, so a sync is not a one-time event. When they
+come back and ask to re-sync, re-run it and **merge, never overwrite**: anything the player
+checked by hand stays checked even if it isn't in the synced set (they may have done the work
+before the achievement popped, or the item may be a 100%-stat task with no achievement attached
+at all). A sync can only *add* checks and update progress counts — it never unchecks. Then say
+what changed ("8 new since your last sync, you're now in Phase 4") instead of silently rewriting
+their file.
+
+---
+
+## Step 3: Identify Missables First
 
 Before building the route, extract every missable achievement and flag:
 - Which mission or story window it occurs in
@@ -126,7 +253,7 @@ prominently at the top of the guide.
 
 ---
 
-## Step 3: Identify Power-Unlocks
+## Step 4: Identify Power-Unlocks
 
 Before building the route, identify upgrades, rewards, or unlocks that make the rest of the
 game significantly easier. These should be front-loaded even if they feel like a detour.
@@ -148,7 +275,7 @@ These should happen in Phase 1 or Phase 2 of the guide, not after the story.
 
 ---
 
-## Step 4: Check Cross-System Interactions
+## Step 5: Check Cross-System Interactions
 
 Before finalizing any ordering, actively look for places where two systems interact in a way
 that changes what "the right order" means. Don't stop at "is this missable" and "does this
@@ -190,7 +317,7 @@ around? If the answer is "more," the order is wrong.
 
 ---
 
-## Step 5: Identify Area-Gated Content
+## Step 6: Identify Area-Gated Content
 
 Many open world games lock content behind story progression or map access. Before writing
 the route, determine:
@@ -216,7 +343,7 @@ Always ground collectible sweeps in what is actually reachable at that point in 
 
 ---
 
-## Step 6: Build the Phased Route
+## Step 7: Build the Phased Route
 
 **Before writing the route, do a research pass aimed specifically at the *sequence* — not just
 individual facts.** Step 1 verifies that facts (achievement triggers, counts, mechanics) are
@@ -354,7 +481,7 @@ either direction. Then:
   explicitly** in the item or its note, so the placement reads as a verified decision rather
   than a thing nobody checked. Real reasons include: an achievement that requires several
   sub-parts completed in one sitting or one session; a fixed reward that another achievement's
-  resource requirement depends on (see Step 4); content genuinely only reachable near or after
+  resource requirement depends on (see Step 5); content genuinely only reachable near or after
   the end of the story.
 
 Both failure modes are the same underlying bug — unresearched placement. "Spread everything
@@ -388,7 +515,7 @@ get a three-part treatment:
 
 ---
 
-## Step 7: Terminology and Clarity Standards
+## Step 8: Terminology and Clarity Standards
 
 Use consistent, plain terms throughout:
 
@@ -409,7 +536,7 @@ Use consistent, plain terms throughout:
 
 ---
 
-## Step 8: Known Exploits and Bugs
+## Step 9: Known Exploits and Bugs
 
 If any relevant exploits or known bugs exist:
 - Describe them clearly (what they do, how to execute them, the specific target/condition
@@ -457,7 +584,7 @@ divs is not acceptable and will need to be redone.
 2. **Missables box** — always immediately after the header, before any phase content. A visually
    distinct callout (not just another section) listing every missable with what triggers it and
    the exact action required, including any systemic (non-story) missables. Rendered as plain
-   bullets with no checkboxes (see Step 2) — the protective action gets its checkbox inline in
+   bullets with no checkboxes (see Step 3) — the protective action gets its checkbox inline in
    the phase where it applies. If a game has no true missables (some don't), say so explicitly
    here rather than omitting the box. Each missable may carry a collapsible note (see Content
    depth standard) for the safe-handling explanation, but the warning text itself stays visible
@@ -466,7 +593,7 @@ divs is not acceptable and will need to be redone.
    fraction in its collapsed header so the player can see progress without opening it. First
    (or current, if known) phase open by default, rest collapsed, so the player isn't scrolling
    past phases they've already finished. Power-unlocks fold into the phase where they're
-   front-loaded, per Step 3. Phase **titles** are proper title case ("Alderney Unlocked," not
+   front-loaded, per Step 4. Phase **titles** are proper title case ("Alderney Unlocked," not
    "Alderney unlocked"); the smaller descriptive sub-caption under the title (e.g. "missions
    52-88") can stay as a plain lowercase caption, matching the reference file.
 4. **Time estimate** — story completion and full 100% estimate, if sources provide one.
@@ -476,6 +603,29 @@ divs is not acceptable and will need to be redone.
    was used once and forgot about). Both sections should have real, specific entries, not
    placeholders.
 
+### Synced state in the checklist — when Step 2 produced a sync
+
+If the player synced their achievements, the file has to make earned-vs-remaining legible at a
+glance without collapsing the two progress tracks into one:
+
+- **Earned achievement items render checked and visibly marked as banked** — a small "earned"
+  badge carrying the unlock date, styled distinctly from an ordinary hand-checked box, so the
+  player can always tell what came from their profile and what they ticked themselves.
+- **The header shows both numbers, each labelled**: guide progress (checked/total — the route
+  the player is working through) and achievements earned (n/total, plus gamerscore if the sync
+  returned it). A single number pretending to be both is exactly the bug this prevents.
+- **A sync line in the header** states when the sync ran and that the file is a snapshot as of
+  then, with a one-line note on how to ask for a re-sync.
+- **Resolved missables leave the warning voice.** In the missables box, an already-earned
+  missable renders dimmed/struck through and labelled "already earned — no longer a risk," so
+  it stays readable without competing with live risks. A missable whose window has closed
+  unearned is the loudest thing on the page (see Step 2).
+- **Hand-checked state survives every re-sync.** Store synced-earned and player-checked as two
+  separate fields in the progress blob rather than one boolean, so a re-sync can merge instead
+  of clobbering (see Persistence below — it's still one blob, just with two fields per item).
+- **No API key, token, or XUID appears anywhere in the file**, and the file makes no live calls
+  to any Xbox service — the sync happens at build time and its results are baked in as data.
+
 ### Item granularity and ordering — this is the part most likely to be gotten wrong
 
 The player checks this off **in the exact order they'll hit it in-game, one line at a time.**
@@ -484,7 +634,7 @@ That does not mean "one line per mission":
 - **Bundle uneventful missions together — as a parent line with child rows.** A run of
   consecutive story missions that unlock nothing and aren't missable becomes ONE parent line
   ("Play missions 7-17") with each mission as its own checkable child row beneath it, never a
-  parenthetical list of names (see the bundling section in Step 6). Only break a mission out
+  parenthetical list of names (see the bundling section in Step 7). Only break a mission out
   onto its own top-level line when something is tied to it — it's missable, it unlocks a side
   system, it's a hard area/story gate, or it's otherwise notable. Keep nesting to one level
   deep for readability.
@@ -642,11 +792,11 @@ Once the guide is built, this is the last gate, after everything above, before s
 the person. Re-read it start to finish as if actually playing, one line at a time, checking:
 
 - Does the sequence of checkboxes match how the game is actually played, with nothing skipped
-  and nothing implied twice (the overlapping-items test from Step 6, principle 7)?
+  and nothing implied twice (the overlapping-items test from Step 7, principle 7)?
 - Does every location, vehicle, or target named on a checkbox line actually exist where the
   guide says it does (the location-research requirement from Step 1)?
 - Does anything referencing a later point in the game appear before something referencing an
-  earlier one (the position-desync check from Step 6, principle 8)?
+  earlier one (the position-desync check from Step 7, principle 8)?
 - Would a player who has never seen this game get stuck or confused by any single line without
   opening its note? Does a "child" item actually belong after its parent? Is anything a bare
   FYI wearing a checkbox?
@@ -660,9 +810,13 @@ the person. Re-read it start to finish as if actually playing, one line at a tim
   unobtainable" callout), and every 100% category must have real covering steps, not just a
   mention. "It's probably in there somewhere" is not a check; enumerate the list and tick each
   entry off against the document.
+- If the guide was synced (Step 2): did anything auto-check a story mission, collectible sweep,
+  or save-bound 100% task on the strength of a profile-wide achievement? Does the header show
+  guide progress and achievements-earned as two labelled numbers rather than one? Is the file
+  free of any API key, token, or XUID?
 - Is every item still sitting in the final cleanup phase there for a stated, verified reason,
   with everything else moved to its earliest reachable phase (the cleanup-phase audit from
-  Step 6)? And does every ongoing whole-game requirement have its habit stated in Phase 1,
+  Step 7)? And does every ongoing whole-game requirement have its habit stated in Phase 1,
   checkpoints along the route, and only a verification-plus-top-up line at the end?
 
 This pass is not optional and not the same thing as validating JS syntax — syntax validation
@@ -832,6 +986,25 @@ only present the guide after this pass, not before it.
   expensive as an end-phase grind. State the habit early as its own checklist line, checkpoint
   it at phase boundaries, and make the end-phase line a stats-page verification with a targeted
   top-up, not the task itself.
+- The first result for "Xbox achievements API" is the GDK/XSAPI Achievements Manager, and it is
+  the wrong tool for this skill in a way that isn't obvious until you read who it's *for*: it's
+  a C/C++ API compiled into a game, running against an `XUser` inside that game's own process,
+  and it can only ever see the title it's built into. Reading a player's profile from outside is
+  a different problem with different answers (a personal API key, an XSTS token, a signed-in
+  browser, or screenshots). Check whether an API is aimed at game code or at player tooling
+  before designing a feature around it.
+- Profile-wide achievements and save-bound 100% completion are two different progress tracks.
+  A synced achievement earned on an old save is banked forever, but the content behind it can
+  still be unfinished on the save the player is on — so a sync may pre-check achievement items
+  and must never pre-check missions, sweeps, or 100% tasks. Getting this wrong produces a guide
+  that tells a player they've already done things they haven't.
+- An empty achievement sync is not a verified zero. Xbox 360-era titles answer on a different
+  endpoint family than Xbox One/Series titles, so querying a back-catalogue game the modern way
+  returns nothing at all — identical in shape to "this player has earned nothing," and far more
+  likely. Same discipline as an empty web fetch: unverified, not verified-absent.
+- A re-sync merges, it never overwrites. Players check things by hand that no achievement covers
+  (100%-stat tasks) and things they finished before the achievement popped; a sync that
+  overwrites state punishes exactly the players who used the checklist most carefully.
 - The lessons above skew toward GTA-style open-world games because that's where this skill was
   battle-tested. Don't let that narrow the skill's scope: for each new game, translate the
   concepts (missions → quests/chapters/races, islands → gated acts, vehicle missions →
