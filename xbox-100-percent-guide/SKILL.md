@@ -1,18 +1,17 @@
 ---
 name: xbox-100-percent-guide
 description: >
-  Generate an optimal 100% completion and all-achievements guide for any Xbox game. Use this skill
-  whenever the user names a specific Xbox game and wants to know how to get 100% completion,
-  all achievements, a platinum roadmap, or asks "what order should I do everything in." Also
-  triggers on phrases like "how do I 100% X", "missable achievements in X", "optimal order for
-  X", "completion guide for X", or "what should I do first in X". Always use this skill when
-  the request involves a named game plus any completion, achievement, or roadmap intent — even
-  if phrased casually like "I want to do everything in X" or "best way to play X for all
-  achievements." Also applies when the user asks to turn an existing guide into an interactive
-  checklist, or to revise/fix ordering, formatting, or accuracy in a guide already produced by
-  this skill. Also triggers on requests to sync, import, or check the player's existing Xbox
-  achievements against a guide — "sync my achievements," "what do I already have," "update my
-  progress from my Xbox profile," "start the guide from where I actually am."
+  Generate an optimal 100% completion and all-achievements guide for any Xbox game. Use whenever
+  the user names a specific game and wants 100% completion, all achievements, a platinum roadmap,
+  or asks what order to do everything in. Triggers on "how do I 100% X", "missable achievements
+  in X", "optimal order for X", "completion guide for X", "what should I do first in X", and
+  casual phrasings like "I want to do everything in X" or "best way to play X for all
+  achievements" — any named game plus completion, achievement, or roadmap intent. Also applies
+  when the user asks to turn an existing guide into an interactive checklist, or to revise
+  ordering, formatting, or accuracy in a guide this skill already produced. Also triggers on
+  syncing, importing, or checking the player's existing Xbox achievements against a guide —
+  "sync my achievements," "what do I already have," "update my progress from my Xbox profile,"
+  "start the guide from where I actually am."
 ---
 
 # Xbox 100% Completion Guide Skill
