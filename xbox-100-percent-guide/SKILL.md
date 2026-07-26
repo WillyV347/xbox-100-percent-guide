@@ -848,6 +848,56 @@ forget to close:
   it in full. Partial completion earlier plus a recap claiming full completion is the same bug
   wearing different clothes.
 
+### Line-by-line dependency check — every mention needs a home
+
+The deferral sweep above catches the cases where the guide *says* "later." This check catches the
+much larger class where it doesn't say anything at all: a line names a thing — a vehicle, a
+weapon, an unlock, an amount of cash, a stat threshold, a location, an ability, a side activity,
+an NPC, an item — and simply assumes it into existence. Nothing in the text sounds unfinished, so
+the deferral-phrase regex won't flag it. The player only discovers the hole when they're standing
+in the mission with no way to do it, or when they hit 99% because a noun that appeared once in an
+unlock description never became a task.
+
+**Go line by line — every checkbox item, every note, every phase note, every missable entry — and
+for each thing the line mentions, resolve it in one of two directions.**
+
+**Backward (prerequisites): does the player already have it at this point in the route?** For
+every requirement a line implies, the acquisition must be either folded into that same line ("go
+get the ambulance from Dillimore General, bring it to Angel Pine") or completed by an earlier line
+the player has already checked off. If neither is true, the line is unplayable as written — add
+the acquisition step, or move the line to after whatever provides it. Things that hide as silent
+prerequisites:
+
+- A required vehicle, weapon, tool, or outfit the route never told the player to obtain
+- Cash, currency, or materials the route never had the player earn before a purchase item
+- A skill/stat level, license, or proficiency gate on an activity
+- Map or region access, a safehouse, a garage, a fast-travel unlock
+- An ability, perk, or companion introduced by a mission placed later than this line
+
+**Forward (mentions): does the thing named have its own real completion step somewhere?** Every
+noun the guide introduces as something that exists and matters must eventually appear as an
+actual checkbox item — not just as a phrase inside another item's text. The highest-risk source
+is unlock descriptions: "(gym unlocks)," "also unlocks Freight Train," "opens up the chop shop"
+each name a whole content category that will silently never be done if it never receives its own
+line. Also check anything named in a note as "you'll want this for X," any activity mentioned as
+existing in an area sweep, and any achievement referenced in passing.
+
+Resolution is one of exactly three things, and "it's implied" is not among them:
+
+1. **The line itself completes it** — the acquisition or the task is folded into that same step.
+2. **Another line completes it**, and that line is in the correct position (earlier for a
+   prerequisite, later for a deferred or unlocked thing). Name it if the connection isn't
+   obvious: "you bought this in Phase 2."
+3. **It's explicitly out of scope**, stated as such — not required for 100%, not achievement-
+   linked, currently unobtainable. Say that on the line, so it reads as a decision rather than
+   an omission.
+
+Run this as an actual enumeration, not an impression. Working through the document once, listing
+the dependencies each line raises and ticking each against a real step, is the check; reading the
+guide and feeling like it hangs together is not. Do it every time before presenting, including
+after edits — moving or rewriting a single item can strand a prerequisite that was satisfied by
+whatever used to sit above it.
+
 ### Before presenting: walk it like a player, not a writer
 
 Once the guide is built, this is the last gate, after everything above, before showing it to
@@ -865,6 +915,12 @@ the person. Re-read it start to finish as if actually playing, one line at a tim
 - Does every "later" / "won't count until" / "the rest" promise in the guide's own text have a
   matching real completion step in a later phase (the orphaned-deferral sweep above), and does
   every recap claim match what the earlier sections actually completed?
+- **Line by line: does every dependency a line raises resolve?** For each item, is every
+  prerequisite it implies (vehicle, cash, unlock, region access, stat level) either acquired in
+  that same line or already completed by an earlier one — and does every thing the line names
+  (especially inside unlock descriptions like "gym unlocks") have its own real checkbox somewhere
+  later, or an explicit out-of-scope statement? Enumerate them; don't eyeball it (the dependency
+  check above).
 - **Is everything required for 100% actually in the document, and is every achievement
   covered?** Cross-check the full achievement list and the 100%-requirements breakdown from
   Step 1 against the finished guide, entry by entry — every achievement must appear somewhere
@@ -998,6 +1054,14 @@ only present the guide after this pass, not before it.
 - Side-content categories can hide inside a mission's unlock description ("also unlocks Freight
   Train") without ever becoming their own actionable checklist line. Audit unlock descriptions
   specifically for nouns that never received their own bullet anywhere in the guide.
+- The deferral sweep only catches lines that *admit* something is unfinished. The bigger hole is
+  the line that admits nothing: it names a vehicle, an amount of cash, a region, or an unlocked
+  activity and quietly assumes it. Read as prose it's fine; played as a checklist the player
+  either can't start the task (no prerequisite) or never does the thing at all (a noun that
+  appeared once and never became a step). Both directions have to be resolved per line —
+  backward to an earlier step that provides it, forward to a later step that completes it — and
+  it has to be an enumeration, because the failure mode of this check is that everything *feels*
+  covered.
 - A side-content "category" can have more real instances than a first pass assumes (three gym
   trainers across three cities in one game, not the one most guides lead with). When a source
   describes something as a category or a set, confirm the actual count before assuming one
