@@ -898,6 +898,54 @@ guide and feeling like it hangs together is not. Do it every time before present
 after edits — moving or rewriting a single item can strand a prerequisite that was satisfied by
 whatever used to sit above it.
 
+### Assumed-completion check — every "you've already done X" needs an earlier line that did X
+
+The dependency check above resolves things a line *needs*. This one catches the mirror-image bug:
+a line that treats an action as **already performed** when no earlier line ever told the player to
+perform it. The guide says "now that the garage is upgraded," "with all 12 tapes collected," "sell
+the cars you've been stockpiling," "you should be at max muscle by now" — and the route never
+contained the step. Unlike the deferral sweep, nothing here reads as unfinished; it reads as
+*finished*, which is worse, because the player trusts it and moves on. They discover the gap only
+when the assumed thing turns out not to exist.
+
+This is not the same as a missing prerequisite. A prerequisite hole leaves the player unable to
+start a task and they notice immediately. An assumed completion quietly writes a task out of the
+guide entirely: the noun was mentioned in the past tense, so it never got its own checkbox, and
+the player finishes the whole route still missing it.
+
+**Scan the finished guide for past-tense and possessive framing, and for each one find the step
+that earned it.** The phrasings that carry this bug:
+
+- "now that you've …", "with X done/unlocked/built", "after you finished …"
+- "the X you collected/bought/unlocked earlier", "your X" for anything acquirable
+- "you should have X by now", "by this point you'll have …", "assuming max X"
+- "sell/use/spend the X you've accumulated" for money, materials, or stock
+- Phase intros summarizing the previous phase's state — these are the densest source, because
+  they're written last and describe an idealized version of the route rather than the real one
+
+For every match, the earlier step must be a **real checkbox item the player has actually checked
+off** at that point in the route, not a mention inside another item's note, not an unlock listed
+in passing, and not something a later phase happens to cover. Three legitimate resolutions:
+
+1. **An earlier line does it** — confirm it exists and sits before this line. Name it if the
+   connection isn't obvious.
+2. **Add the missing step** in the correct earlier phase, then verify it's reachable there.
+3. **Rewrite the line to stop assuming it** — turn "sell the cars you've stockpiled" into an
+   instruction that includes the stockpiling, or drop the past-tense framing.
+
+Two things this check should specifically look at, because they fail quietly:
+
+- **Ongoing/accumulating requirements** (money totals, stat maxes, collectible counts, reputation
+  levels). A later line assuming a threshold — "you'll have the $200k for the airport by now" —
+  only holds if the route actually generated it. Trace the arithmetic, don't assume the player
+  played efficiently.
+- **Anything the player was told was optional earlier.** If an earlier step is presented as
+  optional and a later line assumes it's done, that's a contradiction — either make the earlier
+  step required, or make the later line handle its absence.
+
+Run this every time before presenting, including after edits — the same edit that moves an item
+later can turn a correct past-tense reference into a false one.
+
 ### Before presenting: walk it like a player, not a writer
 
 Once the guide is built, this is the last gate, after everything above, before showing it to
@@ -921,6 +969,11 @@ the person. Re-read it start to finish as if actually playing, one line at a tim
   (especially inside unlock descriptions like "gym unlocks") have its own real checkbox somewhere
   later, or an explicit out-of-scope statement? Enumerate them; don't eyeball it (the dependency
   check above).
+- **Does every line that speaks of an action in the past tense point at a real earlier step that
+  performed it?** "Now that you've …", "the X you bought earlier", "you should have $200k by
+  now", and phase intros recapping the previous phase all assert work was done — each one needs
+  an actual earlier checkbox, not a mention, and accumulating totals need the route to genuinely
+  produce them (the assumed-completion check above).
 - **Is everything required for 100% actually in the document, and is every achievement
   covered?** Cross-check the full achievement list and the 100%-requirements breakdown from
   Step 1 against the finished guide, entry by entry — every achievement must appear somewhere
