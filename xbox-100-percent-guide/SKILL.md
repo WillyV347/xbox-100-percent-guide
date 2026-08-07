@@ -131,10 +131,24 @@ For every non-trivial achievement:
   free. Work out what it is, then either adopt their placement or keep yours **and record the
   reason in the item's note**. Silently keeping your own ordering against the top-voted solution
   is how a guide ends up confidently worse than the free advice it was built from.
-- **An unreachable source is unverified, not absent.** These sites commonly block automated
-  fetches (403). If you cannot read a solution thread, say so plainly and leave the item flagged
-  rather than inventing a rationale for the placement you already had — the same rule as any other
-  empty fetch, and an easy one to rationalize away when the existing placement looks reasonable.
+**These sites 403 plain fetch tools — use a browser instead.** TrueAchievements (and its
+TrueSteamAchievements/TrueTrophies siblings) reject automated fetches, so a fetch-style tool
+returns HTTP 403 and looks exactly like "no such page." That is a bot-protection response to the
+*tool*, not a restriction on the content: the pages are public and load normally in a real browser
+session. Open a browser pane at the URL and read the rendered text instead — the solutions,
+vote counts and comments all come through. Two things that keep this cheap:
+
+- **The bare achievement URL is enough** (e.g. `trueachievements.com/a21053`); the
+  `?showguides=1` suffix isn't needed, and the top-voted solution is already near the top of the
+  rendered text.
+- **Cap the text you pull.** The top solution plus its vote count sits in roughly the first
+  1,500-2,000 characters. Read that much per achievement rather than whole pages, and navigate
+  straight to the next achievement URL in the same tab.
+
+If a source still can't be read, it is **unverified, not absent** — say so plainly and leave the
+item flagged rather than inventing a rationale for the placement you already had. That is the same
+rule as any other empty fetch, and the easiest one to rationalize away, because a 403 arrives
+exactly when the existing placement looks perfectly reasonable.
 
 **Verify that a fetch or search actually returned content before treating it as ground truth.**
 A tool call that returns empty is not a source, it's a non-result — don't reconstruct plausible-
@@ -1627,8 +1641,19 @@ only present the guide after this pass, not before it.
   wrong one — because none of the internal checks ever consult that consensus. Read the solutions
   per achievement, and treat disagreement as a conflict to resolve and record, never as noise.
   GTA IV's Wheelie Rider was the case that surfaced this: the guide had it in Phase 1 on a
-  reasonable-sounding runway method, while the top TrueAchievements thread recommends a specific
-  much later mission.
+  reasonable-sounding "any bike, airport runway" method, while the top TrueAchievements solution
+  says to use a *scooter*, because a moped physically cannot loop over backwards, which turns a
+  balancing act into holding one stick — and no airport trip. Note what the reconciliation
+  actually produced: the thread framed its advice as "after mission X" because that mission hands
+  you a scooter, but the transferable insight was the vehicle, not the mission. Read the solution
+  for its *mechanism*, then decide placement yourself — adopting "do it after mission X" verbatim
+  would have moved the item four phases later for no reason once you can get the same vehicle
+  earlier.
+- A fetch tool returning 403 is a statement about the tool, not the content. TrueAchievements and
+  its sibling sites block automated fetches while serving the same pages normally to a browser, so
+  a 403 there is not "unavailable" — it means use a browser pane and read the rendered text. Two
+  achievement placements in one session were nearly left unverified on the strength of a 403 that
+  a browser resolved in seconds.
 - A premise sweep that greps only the rule you just changed will pass a guide that still
   contradicts itself elsewhere. A stale "clock target leaving this phase: under 16 hours" survived
   a full premise sweep because the sweep was built from *routing* vocabulary, while that line is a
