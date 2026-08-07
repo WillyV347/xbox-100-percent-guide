@@ -191,6 +191,21 @@ read.** The URL is standard per game: `trueachievements.com/game/<Game-Slug>/wal
 
 That breakdown is the triage input for everything below.
 
+**Then take the achievement list page, which is where the per-achievement URLs live.** It sits at
+`trueachievements.com/game/<Game-Slug>/achievements` and lists all achievements with their
+descriptions and, next to each, a **guide count** ("9 guides", "3 guides"). Two things come from it:
+
+- **The links are how you reach individual achievement pages.** Those pages are addressed by
+  opaque numeric ID (`trueachievements.com/a21053`), and the ID is *not* derivable from the
+  achievement's name — so collect the links from this page rather than guessing URLs. A guessed ID
+  lands on a different achievement in a different game, which is worse than a 404 because it
+  returns confident, plausible, wrong content.
+- **Guide count is a second triage signal, and a good one.** Many guides means the community found
+  the method contested or non-obvious and kept adding better ones; one or two means it is
+  straightforward and the top solution will only confirm what you already know. Combine it with the
+  type tags: a Collectable or Time Consuming achievement carrying nine guides is the strongest
+  possible case for a deep read, while a Main Storyline achievement with two is the weakest.
+
 ### Triage before deep-reading — most achievements never need a solution thread
 
 Reading a solution thread for all 60-70 achievements is enormously wasteful, because for a large
