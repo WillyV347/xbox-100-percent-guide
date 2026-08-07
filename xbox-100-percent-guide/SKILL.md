@@ -1438,9 +1438,40 @@ earlier draft, with no recent edit to draw attention to it. So the sweep runs in
   between notes are invisible to a check that reads each note in isolation, which is how they
   survive several passes.
 
-List the guide's premises explicitly, then check every note against the list. Grepping only the
-vocabulary of the rule you happened to edit will pass a guide that still contradicts itself
-somewhere else.
+**Enumerate against this fixed starter list every time — don't try to invent the list.** Working
+out which premises a guide asserts is the hard part, and it's being asked for at exactly the
+moment judgment already failed once. These recur across essentially every game, so tick through
+them as a checklist and add any game-specific ones on top:
+
+1. **Is there a clock?** A time limit, a day counter, a hunger/decay meter — and is it on *this*
+   save or a separate one?
+2. **Is the map gated?** What's reachable now versus later, and does any note assume access the
+   player doesn't have yet?
+3. **Save-bound or profile-wide?** Achievements versus completion percentage, and any note that
+   conflates them.
+4. **Placed at unlock, or placed where cheapest?** The routing rule itself, and every note that
+   explains a placement.
+5. **How many saves or playthroughs?** A dedicated speed-run save, NG+, a second run for
+   conflicting choices — and which save each instruction is addressed to.
+6. **Is anything time-limited outside the game?** Servers, delisted DLC, seasonal events.
+7. **Is there a point of no return**, and does any note assume content is still reachable past it?
+
+For each, find every note that asserts or depends on it and confirm it still holds. A fixed list
+you tick through beats a list you're asked to invent, and grepping only the vocabulary of the rule
+you happened to edit will pass a guide that still contradicts itself somewhere else.
+
+**Two things this sweep specifically catches**, both of which read as fine in isolation:
+
+- **A summary that still describes the old route.** "Everything else went into the phase where it
+  unlocked" reads as reassurance and is now simply false — and it is exactly the sentence a player
+  uses to decide whether to trust the ordering.
+- **Grammatical seams from targeted replacements.** Patching a clause inside a carried-over
+  sentence frequently leaves a broken or double-conjunction sentence. Re-read the *whole* sentence
+  after any in-place edit, not the fragment you replaced.
+
+This is Step 7's principle 8 — re-check position after editing content — applied to prose instead
+of items. Same failure, different surface: the thing you edited is fine, and the thing that
+described it is now wrong.
 
 ### Never write positional cross-references
 
@@ -1461,23 +1492,33 @@ are named units, while "two items up" is not. Sweep for the pattern before prese
 short, high-precision regex (`\b(two|three|\d+) (steps?|rows?|items?) (above|below)\b`, plus
 "the next/previous step"), and every hit is a defect.
 
-Two things this sweep specifically catches:
+### Every sweep re-runs after an edit round, not just after generation
 
-- **A summary that still describes the old route.** "Everything else went into the phase where it
-  unlocked" reads as reassurance and is now simply false — and it is exactly the sentence a player
-  uses to decide whether to trust the ordering.
-- **Grammatical seams from targeted replacements.** Patching a clause inside a carried-over
-  sentence frequently leaves a broken or double-conjunction sentence. Re-read the *whole* sentence
-  after any in-place edit, not the fragment you replaced.
+This is the loop that produced most of the defects this skill knows about, so it gets stated once,
+plainly, for all of the checks above and the walk-through below:
 
-This is Step 7's principle 8 — re-check position after editing content — applied to prose instead
-of items. Same failure, different surface: the thing you edited is fine, and the thing that
-described it is now wrong.
+**A targeted edit round requires the same full sweep as a fresh build.** Not a spot-check of what
+you touched — the whole set: deferrals, dependencies, assumed completions, premises, positional
+references, achievement-placement reconciliation, and the player walk-through.
+
+The reason is structural, not motivational. These defects are *created by editing* and are almost
+never present in a first draft. Moving one item strands a prerequisite that used to sit above it,
+falsifies a phase note three sections away that explains the routing, breaks a positional
+reference in a note nobody opened, and turns a correct past-tense recap into a false one. **None of
+that appears in the diff**, because the diff shows what you changed, and the damage is in what you
+didn't. Every one of those has happened in practice.
+
+So the sweeps are not a build-time gate that a revision pass has already cleared. Re-run them
+after every round of changes, however small the round looked — a single moved item is enough to
+require the whole pass. If that feels disproportionate, note that a one-line edit is exactly how
+each of these bugs got in.
 
 ### Before presenting: walk it like a player, not a writer
 
 Once the guide is built, this is the last gate, after everything above, before showing it to
-the person. Re-read it start to finish as if actually playing, one line at a time, checking:
+the person — **and equally after any round of edits, not only after a fresh build** (see the
+section immediately above). Re-read it start to finish as if actually playing, one line at a time,
+checking:
 
 - Does the sequence of checkboxes match how the game is actually played, with nothing skipped
   and nothing implied twice (the overlapping-items test from Step 7, principle 7)?
@@ -1833,6 +1874,23 @@ only present the guide after this pass, not before it.
   a 403 there is not "unavailable" — it means use a browser pane and read the rendered text. Two
   achievement placements in one session were nearly left unverified on the strength of a 403 that
   a browser resolved in seconds.
+- "List the guide's premises, then check every note against the list" pushes the hard part onto
+  judgment at exactly the moment judgment has already failed once. A fixed starter set you tick
+  through beats a list you're asked to invent, and the same handful recur in every game: is there a
+  clock and on which save, is the map gated, is progress save-bound or profile-wide, is content
+  placed at unlock or where it's cheapest, how many saves or playthroughs, is anything externally
+  time-limited, is there a point of no return.
+- Nearly every defect this skill guards against is *created by editing*, not present in a first
+  draft — which makes "run the checks before presenting" read as a build-time gate that a revision
+  pass has already cleared. It isn't. Moving one item strands a prerequisite, falsifies a phase note
+  three sections away, breaks a positional reference, and turns a correct recap into a false one,
+  **none of which appears in the diff** — the diff shows what changed, and the damage is in what
+  didn't. The full sweep re-runs after every edit round, however small it looked.
+- Sections drift when a new one is inserted mid-section. Adding the positional-reference section
+  orphaned the premise sweep's closing paragraph underneath it, so two adjacent sections each
+  described part of the other's topic and both got easier to skim past. After inserting a section,
+  re-read the section boundaries either side of it — the same class of error as editing an item's
+  content without re-checking its position.
 - A premise sweep that greps only the rule you just changed will pass a guide that still
   contradicts itself elsewhere. A stale "clock target leaving this phase: under 16 hours" survived
   a full premise sweep because the sweep was built from *routing* vocabulary, while that line is a
