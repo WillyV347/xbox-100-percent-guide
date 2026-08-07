@@ -397,6 +397,31 @@ For each task, include:
 - Why now (what it unlocks or enables)
 - Any critical save points or missable warnings inline
 
+### Play order is the spine — grouping is presentation, and it never reorders anything
+
+Before any of the principles below: the checklist's primary job is to be **the exact sequence
+the player executes in-game, top to bottom.** Everything else this skill specifies about
+structure — nesting side content under the mission that unlocks it, bundling uneventful missions
+into a parent line, phase accordions, collapsible notes — is presentation layered on top of that
+sequence. It exists to make several hundred items scannable and to show *why* an item sits where
+it does. It is never a reason to move an item away from the point where the player actually does
+it.
+
+**When grouping and play order disagree, play order wins and the group gets broken up.** Every
+time, without weighing it as a tradeoff.
+
+The practical consequence is that nesting is legal only when the children genuinely *are* the
+next things the player does after the parent. If a piece of side content unlocked by mission 6
+is best done immediately, it nests under mission 6. If it's best done 40 items later — because
+of area access, a resource it needs, a timer, or simple efficiency — it is not a child of
+mission 6 at all. It's its own item at its own correct position, carrying a note that names
+what unlocked it ("opened up by 'Drive-Thru' back in Phase 1"). The unlock relationship is
+information; the position is the instruction. Encode the relationship in a note, never by
+dragging the item out of its place in the route.
+
+This is what makes the checklist a route rather than an outline, and it's the rule that decides
+the time-gated cases further down.
+
 ### Ordering principles (apply in priority order):
 
 1. **Missable protection first.** Flag saves before any missable. Never let the player
@@ -607,9 +632,14 @@ block.** Each link goes at the point in the route where the required time has *a
 through normal play*, so the intervening steps are real tasks the player was going to do anyway.
 The wait is then invisible: by the time they reach link 2's line, the days have passed.
 
-This is a deliberate exception to the usual grouping rules — a timed chain is one of the few
-things that does **not** nest under the mission that unlocked it, because holding it together
-would reintroduce the dead time. It costs discoverability, so it has to be paid for:
+This is not an exception to the nesting rule — it *is* the nesting rule, applied correctly. Per
+the spine principle above, a child item is only a child when it's genuinely the next thing the
+player does; links 2, 3, and 4 of a timed chain are not, so they were never eligible to nest
+under link 1 in the first place. Holding the chain together as one visual block would be
+grouping overriding play order, which is the thing that never happens.
+
+Splitting does cost discoverability, and that cost is paid the same way any out-of-position
+relationship is paid for — in notes, not by moving items:
 
 - **The first link carries the map of the whole chain** in its note: how many links, roughly how
   much in-game time each gap needs, and where each subsequent link sits in the route ("4 visits
@@ -819,6 +849,12 @@ That does not mean "one line per mission":
   what it unlocked, moves to the next. Do not split a phase into "Story missions" / "Side
   content" / "Achievements" sections — that was tried and rejected, it forces the player to
   jump around instead of reading top to bottom.
+  **This nesting only applies when the unlocked content is genuinely what the player does
+  next.** Per the spine principle in Step 7, play order outranks grouping without exception: if
+  the best time to do the unlocked thing is much later in the route, it does not become a child
+  here — it goes at its correct position with a note naming what unlocked it. Nesting shows the
+  relationship *when the relationship and the order happen to agree*; it is never the reason an
+  item sits somewhere.
 - **Flag missables twice**: once inline at the exact line where the window opens or closes
   (a short tagged label like "MISSABLE — ...") and once in the top-of-page missables box. The
   inline flag is what actually protects the player in the moment; the box is the heads-up.
@@ -1065,6 +1101,10 @@ the person. Re-read it start to finish as if actually playing, one line at a tim
 
 - Does the sequence of checkboxes match how the game is actually played, with nothing skipped
   and nothing implied twice (the overlapping-items test from Step 7, principle 7)?
+- **Is anything sitting where it sits because of grouping rather than play order?** For every
+  nested child, ask whether the player really does it right after the parent — if the honest
+  answer is "later, but it belongs to that mission," it's mis-positioned: move it to where it's
+  actually done and put the unlock relationship in a note (the spine principle in Step 7).
 - Does every location, vehicle, or target named on a checkbox line actually exist where the
   guide says it does (the location-research requirement from Step 1)?
 - Does anything referencing a later point in the game appear before something referencing an
@@ -1303,6 +1343,13 @@ only present the guide after this pass, not before it.
   steps underneath it. Shortening the stated wait, or merging three waits into one shorter wait,
   fixes the symptom and leaves the bug. Adjacent waits in a draft are a signal to go back and
   ask where each clock *could* have started.
+- The checklist is a route first and an outline second, and that precedence has to be stated
+  rather than assumed. Nesting, bundling, and phase accordions are presentation — they exist to
+  make hundreds of items scannable and to show why an item sits where it does. Left unranked,
+  they quietly start deciding *position*: content gets held next to the mission that unlocked it
+  because that reads tidily, even when the player shouldn't do it for another 40 items. The rule
+  is that play order wins every time and the group gets broken up, with the unlock relationship
+  preserved in a note. An item's position is an instruction; its grouping is only information.
 - There are two shapes of waiting and only one of them has an easy fix. Independent timers get
   started early and run in parallel. A **dependent chain** — interact with an NPC, wait a few
   in-game days, interact again, wait again — can't be parallelized at all, because each link only
