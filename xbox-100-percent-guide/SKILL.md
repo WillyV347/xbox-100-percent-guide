@@ -305,6 +305,15 @@ unlock something" — also check:
 - **Are there daily/session caps on a grindable stat or activity?** If so, say so, and give the
   standard workaround (often: save at a safehouse/hub to skip an in-game cooldown) instead of
   letting the player assume one long session will finish it.
+- **Does anything advance on elapsed time rather than on player action?** In-game days passing,
+  a business or property accruing income, a build/craft/crop timer, a stock price moving, a
+  letter or phone call arriving some days after a trigger, a relationship cooling off, a
+  real-time cooldown on a repeatable job, a vehicle or spawn refreshing. These are not tasks,
+  they are clocks, and the only sequencing question that matters is **how early the clock can be
+  started** — research the earliest point in the route where the timer can be set running, the
+  same evidence standard as any other fact. A timer started at its earliest legal point is free;
+  the same timer started where its reward gets collected costs the player the entire wait. See
+  the dedicated section in Step 7 for how this gets written into the route.
 - **Does the order in which the player acquires protective perks matter** relative to the
   riskiest, most failure-prone stretch of the game? If a perk mitigates death/failure
   consequences, place the acquisition of that perk immediately before the section it protects,
@@ -438,6 +447,10 @@ For each task, include:
 12. **Ongoing whole-game requirements are routed as a habit, not an end-phase task.** State
     the behavior early, checkpoint it mid-route, verify it at the end — see the dedicated
     section below.
+13. **Waiting is never a step.** Anything that advances on elapsed time gets started at the
+    earliest point the route allows and then runs *underneath* the rest of the route. The
+    player is never parked in front of a clock, and two waits never sit next to each other —
+    see the dedicated section below.
 
 ### Bundled missions get their own sub-list, never a parenthetical
 
@@ -523,6 +536,53 @@ get a three-part treatment:
   "check the stats page; for any weapon still short, grind it now at [specific efficient
   spot]." If the habit was followed, this line costs minutes. The guide must never present the
   whole requirement as end-phase work.
+
+### Waiting is never a step — elapsed time runs underneath the route
+
+Elapsed-time requirements (identified in Step 5) are the one category where a guide can be
+completely accurate and still waste hours of the player's life. The failure looks like this:
+
+**Wrong:**
+
+```
+□ Wait a few in-game days for the property to start paying out.
+□ Wait a few in-game days for the newspaper to run the story.
+□ Wait a few in-game days for Sofia to call about the next job.
+```
+
+Three clocks that could all have been ticking simultaneously since Phase 2, run one after
+another while the player does nothing. **Back-to-back waits are almost never a property of the
+game — they're a drafting artifact.** They appear because the guide was written in the order
+rewards get *collected*, so each timer was started at the line where its payoff is claimed,
+which serializes clocks that the game itself runs in parallel. Even a single isolated "wait"
+step is usually the same bug in smaller form.
+
+Three things fix it, in this order:
+
+- **Start every clock at its earliest legal point.** Research when the timer can first be set
+  running — buying the property, triggering the phone call, planting the thing, making the
+  deposit — and put *that* action in the earliest phase where it's reachable. This is the whole
+  fix; the other two only clean up what's left.
+- **Let it run underneath real work.** Once started, the route keeps going with actual tasks and
+  the collection line appears later, wherever the player is genuinely nearby again (all the
+  usual grouping and backtracking rules still decide exactly where). Concurrent timers collapse
+  into one window sized by the longest one, not a queue.
+- **Only if the window genuinely can't be filled**, name the game's own cheapest way to burn the
+  clock — sleeping at a safehouse, saving to advance six hours, a fast-travel leg — as *one*
+  line, not one per timer, and say how much time it needs to cover. "Wait a few in-game days"
+  with no mechanism is never acceptable; if the player must pass time, tell them the fastest way
+  the game provides.
+
+**How this renders in the checklist:** the *start* is a real checkbox ("Buy the Vank Hoff Hotel
+— income accrues from here"). The *collection* is a real checkbox later. The wait itself gets no
+checkbox at all — it is not something the player does (the no-FYI-checkbox rule in Output
+Format), so it lives as a note on the collection line: "needs ~5 in-game days; you started this
+back in Phase 2 and the missions since have covered it."
+
+**Then verify the window is actually covered.** If the intervening route is shorter than the
+timer, the note is a lie — move the start earlier, move the collection later, or add the
+explicit pass-time line. Checking this means counting the real steps between start and
+collection, not assuming they add up.
 
 ---
 
@@ -990,6 +1050,11 @@ the person. Re-read it start to finish as if actually playing, one line at a tim
   or save-bound 100% task on the strength of a profile-wide achievement? Does the header show
   guide progress and achievements-earned as two labelled numbers rather than one? Is the file
   free of any API key, token, or XUID?
+- **Is the player ever told to wait?** No two elapsed-time waits may sit adjacent; no timer may
+  start later in the route than it could have; every wait note must point at real intervening
+  steps that actually fill the window (count them, don't assume); and any genuinely unavoidable
+  pass-time line must name the game's own fastest mechanism for it rather than saying "wait a
+  few days" (the waiting section in Step 7).
 - Is every item still sitting in the final cleanup phase there for a stated, verified reason,
   with everything else moved to its earliest reachable phase (the cleanup-phase audit from
   Step 7)? And does every ongoing whole-game requirement have its habit stated in Phase 1,
@@ -1170,6 +1235,20 @@ only present the guide after this pass, not before it.
   expensive as an end-phase grind. State the habit early as its own checklist line, checkpoint
   it at phase boundaries, and make the end-phase line a stats-page verification with a targeted
   top-up, not the task itself.
+- A real complaint from use: a guide had several "wait a few in-game days" steps back to back.
+  That was never a fact about the game — it was an artifact of writing the route in the order
+  rewards are *collected*, which starts each timer at its own payoff line and serializes clocks
+  the game runs in parallel. Elapsed time is the one requirement that costs nothing when started
+  early and costs the full wait when started late, so the fix is positional, not cosmetic: find
+  the earliest point each timer can be set running, put the start there, and keep writing real
+  steps underneath it. Shortening the stated wait, or merging three waits into one shorter wait,
+  fixes the symptom and leaves the bug. Adjacent waits in a draft are a signal to go back and
+  ask where each clock *could* have started.
+- If the player genuinely must pass time with nothing to do, that's a mechanic question, not a
+  shrug: name the game's own fastest way to advance the clock (sleep at a safehouse, save to
+  advance six hours, a fast-travel leg) and how much of the window it covers. "Wait a few in-game
+  days" tells the player something is required without telling them how to do it, which is the
+  same failure as "any bar with a pool table."
 - The structure that makes these guides scannable — collapsed accordions, bundled sub-lists,
   notes hidden behind a toggle — is the same structure that breaks a naively-built search box.
   Most of the file's text is off-screen at any moment, so a search that filters rendered rows
