@@ -161,6 +161,81 @@ item flagged rather than inventing a rationale for the placement you already had
 rule as any other empty fetch, and the easiest one to rationalize away, because a 403 arrives
 exactly when the existing placement looks perfectly reasonable.
 
+### Which achievement site, and start with the walkthrough
+
+All of this is **supplemental to** the research already specified above, never a replacement for it.
+Use whichever of these cover the game:
+
+| Source | Use it for | Notes |
+| --- | --- | --- |
+| **TrueAchievements** | Xbox titles — the primary source | Two distinct surfaces: a structured game *walkthrough*, and per-achievement *solution threads*. Both matter, and they answer different questions. |
+| **PowerPyx** | Modern multiplatform titles | Roadmap-style, often the entire game on one page, which makes it the cheapest read when it exists. Coverage skews recent — confirm the game is covered rather than assuming. |
+| **PlayStationTrophies.org** | Anything with a PlayStation release | Trophy names map 1:1 to achievement names for the same game, so its guides transfer directly. Useful when TrueAchievements' solutions are thin. |
+
+**Start with the TrueAchievements walkthrough overview. It is one read that plans every other
+read.** The URL is standard per game: `trueachievements.com/game/<Game-Slug>/walkthrough` — e.g.
+`.../game/Grand-Theft-Auto-4/walkthrough`. That single page returns:
+
+- Headline counts: achievements, gamerscore, estimated time, **playthroughs required**
+- **Missable and unobtainable counts** — a direct numeric cross-check against the missables work in
+  Step 3. If your research found four missables and the walkthrough says two, one of you is wrong;
+  resolve it rather than averaging. Same for a non-zero unobtainable count.
+- Online-only count, which sizes the multiplayer problem before you commit to it
+- A numbered **table of contents** with a page per section (overview, general hints, story
+  walkthrough, 100% completion, miscellaneous, online, one per DLC). This mirrors the phase
+  structure this skill builds, and the story-walkthrough and 100%-completion pages carry ordering
+  advice that is exactly what Step 7 is trying to derive — read them before writing the route.
+- A **Full Achievement Breakdown** tagging every achievement by type: *Main Storyline, Story
+  Completed, Collectable, Cumulative, Time/Date, Missable, Buggy, Time Consuming, Level, Viral,
+  Online / Versus / Cooperative, Players Required.*
+
+That breakdown is the triage input for everything below.
+
+### Triage before deep-reading — most achievements never need a solution thread
+
+Reading a solution thread for all 60-70 achievements is enormously wasteful, because for a large
+fraction of them the placement is already forced and no thread can move it. Decide per achievement
+*before* fetching anything.
+
+**Skip the per-achievement read when:**
+
+- It's tagged **Main Storyline** or **Story Completed** — the story dictates its position, full stop
+- Its placement is already fixed by a gate you have verified (region unlock, chapter, act)
+- It's a whole-game cumulative stat this skill already routes as a habit — the habit *is* the
+  answer, and placement isn't the question
+- It's trivially satisfied in passing by content already in the route
+
+**Deep-read the top solution when:**
+
+- Tagged **Missable** or **Buggy** — highest cost of getting it wrong, so these come first
+- Tagged **Collectable**, **Time Consuming**, or **Cumulative** — where an efficient method or a
+  good sweep order saves hours
+- Tagged **Time/Date** — these frequently carry a window (see method windows in Step 7)
+- It has no story gate and its method is a *choice*: grinds, minigames, skill challenges,
+  location-dependent tasks
+- **You placed it by inference rather than by a verified gate.** Your own uncertainty is a triage
+  signal, and the cheapest one you have.
+
+On a 60-70 achievement list this typically leaves 15-25 warranting a deep read. **Record which
+achievements you triaged out and why**, so a later pass extends the work instead of repeating it,
+and so a wrong triage call is auditable rather than invisible.
+
+### Keeping browser reads cheap
+
+- **One tab, navigate sequentially by URL, never re-read a page.**
+- **Cap each achievement page at roughly 1,500-2,000 characters.** The top-voted solution and its
+  vote count sit near the top of the rendered text; everything past that is comments and lower-
+  voted duplicates.
+- **Stop as soon as the top solution confirms placement you already derived.** Reading the
+  remaining nine guides cannot change the answer.
+- **Prefer one walkthrough page over N achievement pages for a cluster.** All the online
+  achievements, or a whole DLC, are usually covered on a single walkthrough page — one read
+  instead of ten.
+- The walkthrough offers a **Full Printer-Friendly Version** concatenating every page. That is one
+  navigation instead of eight, but it is long — read it in capped slices, not whole.
+- Prefer PowerPyx when it covers the game and you need broad roadmap context, since a single page
+  often replaces a dozen individual lookups.
+
 **Verify that a fetch or search actually returned content before treating it as ground truth.**
 A tool call that returns empty is not a source, it's a non-result — don't reconstruct plausible-
 sounding specifics (mission numbers, exact sequences, precise thresholds) from general knowledge
@@ -1391,6 +1466,9 @@ the person. Re-read it start to finish as if actually playing, one line at a tim
   premise-change sweep above). List the guide's premises and check every note against **all** of
   them, and against each other — a stale "clock target: under 16 hours" is only detectable against
   another note saying there is no clock on this save.
+- **Does the missable count match the walkthrough's?** TrueAchievements' walkthrough overview
+  states missable and unobtainable counts outright. Compare them against Step 3's findings; a
+  mismatch is an unresolved research conflict, not a rounding difference.
 - **Has every achievement's placement been reconciled against the top community solution?** Go
   achievement by achievement against TrueAchievements/PowerPyx solution threads — not the
   descriptions, the solutions — and for each one either match their recommended placement or carry
@@ -1660,6 +1738,17 @@ only present the guide after this pass, not before it.
   for its *mechanism*, then decide placement yourself — adopting "do it after mission X" verbatim
   would have moved the item four phases later for no reason once you can get the same vehicle
   earlier.
+- The expensive way to use solution threads is to read all 65 of them. The cheap way is to read
+  the walkthrough overview *first* — one page that reports missable and unobtainable counts,
+  playthroughs required, a section-by-section table of contents, and a breakdown tagging every
+  achievement by type (Main Storyline, Collectable, Cumulative, Missable, Buggy, Time Consuming,
+  Time/Date…). Those tags are a ready-made triage list: story-tagged achievements have forced
+  placements and need no thread at all, while Missable/Buggy/Collectable/Time-Consuming ones are
+  where a thread actually changes the route. Roughly a third of a list warrants a deep read, and
+  deciding which third costs one page.
+- A source that states a count you also researched is a free correctness check, not just content.
+  The walkthrough's "Missable Achievements: 2" is directly comparable to Step 3's output; if the
+  numbers differ, one of them is wrong and the disagreement is the finding.
 - Don't hunt for a URL form that slips past a block. Tested on TrueAchievements: bare, full-slug
   and `?showguides=1` URLs all 403 a fetch tool and all render in a browser — the block keys on the
   tool, not the address. And read the code: 403 means "wrong tool, page is fine, use a browser,"
