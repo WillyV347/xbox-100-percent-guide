@@ -312,8 +312,13 @@ unlock something" — also check:
   they are clocks, and the only sequencing question that matters is **how early the clock can be
   started** — research the earliest point in the route where the timer can be set running, the
   same evidence standard as any other fact. A timer started at its earliest legal point is free;
-  the same timer started where its reward gets collected costs the player the entire wait. See
-  the dedicated section in Step 7 for how this gets written into the route.
+  the same timer started where its reward gets collected costs the player the entire wait.
+  **Then check whether the timers are independent or chained**: several separate clocks can all
+  run at once, but a sequence where each step is gated on time since the *previous* step (visit
+  an NPC, wait, visit again, wait, visit again) can't be parallelized at all — it needs the
+  route rearranged around it instead. Establish how many links the chain has and how much time
+  each gap needs, because that's what the route has to fill. See the dedicated section in
+  Step 7 for how both cases get written into the route.
 - **Does the order in which the player acquires protective perks matter** relative to the
   riskiest, most failure-prone stretch of the game? If a perk mitigates death/failure
   consequences, place the acquisition of that perk immediately before the section it protects,
@@ -448,9 +453,11 @@ For each task, include:
     the behavior early, checkpoint it mid-route, verify it at the end — see the dedicated
     section below.
 13. **Waiting is never a step.** Anything that advances on elapsed time gets started at the
-    earliest point the route allows and then runs *underneath* the rest of the route. The
-    player is never parked in front of a clock, and two waits never sit next to each other —
-    see the dedicated section below.
+    earliest point the route allows and then runs *underneath* the rest of the route. Where a
+    chain of steps is gated on time between each one, the clock can't move — so the links get
+    interleaved into the route with real work between them, never written out as a contiguous
+    block. The player is never parked in front of a clock, and two waits never sit next to each
+    other — see the dedicated section below.
 
 ### Bundled missions get their own sub-list, never a parenthetical
 
@@ -583,6 +590,52 @@ back in Phase 2 and the missions since have covered it."
 timer, the note is a lie — move the start earlier, move the collection later, or add the
 explicit pass-time line. Checking this means counting the real steps between start and
 collection, not assuming they add up.
+
+#### Dependent chains: the clock can't move, so the route has to
+
+Everything above assumes the timers are **independent** — several clocks that could have been
+running at once. The harder case is a **dependent chain**, where each wait is gated on the step
+before it: talk to an NPC, wait a few in-game days, talk to them again, wait a few more, talk to
+them a third time. Nothing can be started earlier, because link 2 doesn't exist until link 1 has
+happened and the days have passed. Starting the clock early is not available as a fix here, and
+a guide that only knows that fix will write the chain out as three adjacent checkboxes with two
+waits wedged between them — which is exactly the thing that reads as "sit there and do nothing"
+three times in a row.
+
+**For a dependent chain, the links are interleaved into the route, never listed as a contiguous
+block.** Each link goes at the point in the route where the required time has *already accrued
+through normal play*, so the intervening steps are real tasks the player was going to do anyway.
+The wait is then invisible: by the time they reach link 2's line, the days have passed.
+
+This is a deliberate exception to the usual grouping rules — a timed chain is one of the few
+things that does **not** nest under the mission that unlocked it, because holding it together
+would reintroduce the dead time. It costs discoverability, so it has to be paid for:
+
+- **The first link carries the map of the whole chain** in its note: how many links, roughly how
+  much in-game time each gap needs, and where each subsequent link sits in the route ("4 visits
+  total, ~3 in-game days between each; the next three are in Phase 3 after the docks missions,
+  Phase 4 opening, and Phase 4 after the airport"). The player should never be surprised by a
+  link appearing, or wonder whether they missed one.
+- **Every later link carries a back-pointer**: "visit 3 of 4 — you did visit 2 in Phase 3; enough
+  days have passed since then." Without it, a lone "talk to X again" line 60 items later reads as
+  an orphan or a duplicate.
+- **Count the intervening steps for every gap, not just the first one.** Each individual gap has
+  to be covered by the work actually sitting between those two links. A chain can be correctly
+  interleaved at the front and collapse into back-to-back links at the end, where the route runs
+  out of nearby tasks — that tail is where this bug survives an inattentive check.
+- **If a gap genuinely can't be filled** — the player has cleared everything reachable in that
+  window — that specific gap gets the named pass-time mechanism from above, and only that gap.
+  One unavoidable "sleep twice at the safehouse to cover the remaining two days" is a fine
+  outcome; three of them in a row means the interleaving was never done.
+- **The chain still has to satisfy the deferral and dependency rules** (Step 7 principle 10, and
+  the line-by-line dependency check): every link is a real checkbox in a real phase, and the
+  final link is what closes the loop — the first link's note describing the rest of the chain
+  does not count as completing it.
+
+The test for a dependent chain is the same one as everywhere else, applied to time instead of
+content: **if the player checks these boxes top to bottom in order, are they ever standing still?**
+If two links of a chain touch, or if only a lone pass-time line separates them, the chain wasn't
+interleaved — it was transcribed.
 
 ---
 
@@ -1055,6 +1108,12 @@ the person. Re-read it start to finish as if actually playing, one line at a tim
   steps that actually fill the window (count them, don't assume); and any genuinely unavoidable
   pass-time line must name the game's own fastest mechanism for it rather than saying "wait a
   few days" (the waiting section in Step 7).
+- **Are any time-gated chains sitting as a contiguous block?** For every sequence where each
+  step is gated on time since the one before it, confirm the links are interleaved through the
+  route with real tasks in *every* gap — check the last gaps as carefully as the first, since a
+  chain that runs out of nearby work collapses at its tail. Confirm the first link's note maps
+  the whole chain and every later link points back to the previous one (the dependent-chain
+  section in Step 7).
 - Is every item still sitting in the final cleanup phase there for a stated, verified reason,
   with everything else moved to its earliest reachable phase (the cleanup-phase audit from
   Step 7)? And does every ongoing whole-game requirement have its habit stated in Phase 1,
@@ -1244,6 +1303,16 @@ only present the guide after this pass, not before it.
   steps underneath it. Shortening the stated wait, or merging three waits into one shorter wait,
   fixes the symptom and leaves the bug. Adjacent waits in a draft are a signal to go back and
   ask where each clock *could* have started.
+- There are two shapes of waiting and only one of them has an easy fix. Independent timers get
+  started early and run in parallel. A **dependent chain** — interact with an NPC, wait a few
+  in-game days, interact again, wait again — can't be parallelized at all, because each link only
+  exists once the previous one happened. Writing that chain out as consecutive checklist items is
+  the version of this bug that survives the "start the clock early" fix, because there is no
+  earlier clock to start. The route is what moves: each link goes where the required days have
+  already accrued through normal play, with real tasks between, the first link's note mapping the
+  whole chain and each later link pointing back to the previous one. Watch the *tail* of a chain
+  specifically — interleaving is easy at the start and collapses at the end, once the route runs
+  out of nearby work.
 - If the player genuinely must pass time with nothing to do, that's a mechanic question, not a
   shrug: name the game's own fastest way to advance the clock (sleep at a safehouse, save to
   advance six hours, a fast-travel leg) and how much of the window it covers. "Wait a few in-game
