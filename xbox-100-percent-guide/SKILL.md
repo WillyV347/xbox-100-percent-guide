@@ -1203,6 +1203,45 @@ Two things this check should specifically look at, because they fail quietly:
 Run this every time before presenting, including after edits — the same edit that moves an item
 later can turn a correct past-tense reference into a false one.
 
+### Premise-change sweep — carried-over prose outlives the rule that justified it
+
+The three checks above hunt for facts that don't resolve. This one hunts for **prose that was true
+under a premise the guide no longer follows.** Whenever a structural rule changes — the routing
+model, a pacing or timer assumption, a grouping policy, phase boundaries, whether content is
+save-bound or profile-wide — every sentence written to *explain* the old rule survives the edit
+untouched and quietly becomes a contradiction.
+
+It hides better than any other class of error, for a mechanical reason: **nobody re-reads what
+they didn't consciously edit.** The diff shows the items that moved. It does not show the
+paragraph three phases away whose job was to tell the player why items sit where they do.
+
+The concentration is predictable. Sweep these first:
+
+- **Phase notes and phase intros** — their entire purpose is to state the phase's governing logic,
+  so they are pure premise, and they are the densest source by a wide margin
+- **The top-of-guide framing** — the paragraph explaining how to use the route at all
+- **Recap, wrap-up, and final-sweep sections** — written to summarize a route that has since changed
+- **Any item note whose job is to justify a placement** ("this waits until now because…")
+
+**The sweep is mechanical, and you have to name the vocabulary before you start editing.** Write
+down the words the old premise used, then grep every note for them and confirm each hit is still
+true. If the routing rule moved from "everything at its earliest unlock" to "everything at its
+cheapest method," the vocabulary is *unlocks*, *earliest*, *as soon as*, *where it becomes
+available*. Enumerate the matches; don't rely on remembering which paragraphs described the rule.
+
+Two things this sweep specifically catches:
+
+- **A summary that still describes the old route.** "Everything else went into the phase where it
+  unlocked" reads as reassurance and is now simply false — and it is exactly the sentence a player
+  uses to decide whether to trust the ordering.
+- **Grammatical seams from targeted replacements.** Patching a clause inside a carried-over
+  sentence frequently leaves a broken or double-conjunction sentence. Re-read the *whole* sentence
+  after any in-place edit, not the fragment you replaced.
+
+This is Step 7's principle 8 — re-check position after editing content — applied to prose instead
+of items. Same failure, different surface: the thing you edited is fine, and the thing that
+described it is now wrong.
+
 ### Before presenting: walk it like a player, not a writer
 
 Once the guide is built, this is the last gate, after everything above, before showing it to
@@ -1252,6 +1291,11 @@ the person. Re-read it start to finish as if actually playing, one line at a tim
   or save-bound 100% task on the strength of a profile-wide achievement? Does the header show
   guide progress and achievements-earned as two labelled numbers rather than one? Is the file
   free of any API key, token, or XUID?
+- **Did any structural premise change during this revision, and does the prose still match it?**
+  Re-read every phase note, phase intro, and recap against the *current* rules, including the ones
+  carried over unedited — those are where the contradiction lives, because they were never
+  consciously re-read. Grep for the old premise's vocabulary and confirm each hit (the
+  premise-change sweep above).
 - **Is the player ever told to wait?** No two elapsed-time waits may sit adjacent; no timer may
   start later in the route than it could have; every wait note must point at real intervening
   steps that actually fill the window (count them, don't assume); and any genuinely unavoidable
@@ -1485,6 +1529,16 @@ only present the guide after this pass, not before it.
   achievement is never unobtainable, so no missables research surfaces it; the player just
   silently does a five-minute task the hard way. Research both edges of a method, not just the
   opening one, and flag the closing edge on the task *and* on the step that closes it.
+- Changing a routing rule silently invalidates the prose that explained the old one, and the
+  explanation is never in the diff. Moving two items out of Phase 1 to their cheaper method
+  windows left three phase notes still telling the player "side content sits in the phase where it
+  actually unlocks" and "everything else went into the phase where it unlocked" — reassurance that
+  had become false, sitting in the exact paragraphs a player reads to decide whether to trust the
+  ordering. Phase notes are the densest source because they are pure premise: their whole job is to
+  state the phase's governing logic. The fix is mechanical, not attentional — name the old
+  premise's vocabulary, grep every note for it, confirm each hit. A related tell from the same
+  edit: replacing a clause inside a carried-over sentence left an ungrammatical double-conjunction
+  seam, because only the fragment was re-read and not the sentence around it.
 - **When auditing a guide, its own notes are claims under audit, not evidence.** A placement that
   came with a confident justification got waved through on a review pass purely because the
   justification read well — the note asserted a method that the research did not actually support,
