@@ -63,6 +63,14 @@ Search for:
   from hour one ("once a weapon hits max level, switch to another and keep rotating") and the
   expensive way is discovering them at the end and grinding. See Step 7 for how the guide
   routes these.
+- **The best method for each non-trivial task, and what that method itself requires.** Research
+  doesn't stop at "what does this achievement ask for" — it has to reach "what's the fast way to
+  do it, and what does the fast way need?" The community's recommended method is usually tied to
+  a specific place, crowd, enemy type, vehicle, weapon, or upgrade, and *that* has prerequisites
+  the achievement's own description doesn't mention. Capture them, because they, not the
+  achievement, determine how early the task can sensibly be routed (see "Earliest reachable is a
+  ceiling" in Step 7). An achievement with no gate at all whose only good method sits behind a
+  late-game region is the standard shape of this.
 - Known exploits or efficiency tricks (e.g., money/XP glitches, sequence breaks) — get the
   specific, verified method (exact target, exact button, exact condition), not a vague
   paraphrase. "Bet on horses" is not a method; "bet on the horse with the [specific marker],
@@ -514,6 +522,66 @@ whichever mission unlocks an asset), add the missing mission names as additional
 rather than leaving them out of the sub-list — every mission in the stated range should have
 its own row, whether or not it individually has anything special attached to it.
 
+### Earliest reachable is a ceiling, not a target
+
+The cleanup audit below pushes content *forward*, because a catch-all end phase collects
+anything nobody researched. That correction has its own failure mode: an item gets yanked to the
+front on the strength of "it's technically possible there," which is a different question from
+"it's sensible there," and only the second one decides placement.
+
+The bug is nearly always that availability was assessed on **the task** when it should have been
+assessed on **the method**. Most tasks have a best way to do them — a specific spot, a reliable
+crowd, a particular vehicle or weapon, a farming route, a repeatable encounter — and *that method
+carries prerequisites the raw task doesn't*. The task looks ungated, so an audit stamps it
+"available from the start" and drops it in Phase 1, where the only version the player can
+actually attempt is the slow, miserable one.
+
+A worked example, generalizable to any genre: an achievement for landing a number of melee
+counters has no gate whatsoever — the player can punch a pedestrian five minutes in. But the
+method that makes it quick is a particular place where NPCs reliably fight back rather than
+fleeing, and in GTA IV that place (the Higgins Helitours queue, Fishmarket South) is in Algonquin,
+across bridges the story hasn't opened yet. Placed "as early as possible," the item lands before
+mission 6 and asks the player to do a version of the task that's dramatically worse — or to
+attempt it somewhere they can't yet legally reach. The achievement was ungated; the good method
+never was.
+
+**Place every item at the earliest point where its best method is available and the player is
+already going to be nearby** — not the earliest point the task is technically possible. Doing
+something earlier is the wrong call when "earlier" means:
+
+- **A worse method** — grinding the slow way because the efficient spot, crowd, tool, vehicle, or
+  enemy type isn't accessible yet
+- **A dedicated trip** — crossing the map, or backtracking to a prior region/act, for something
+  the player would pass on the way to something else later. Principle 4 (minimize backtracking)
+  does not lose to "earlier"
+- **A harder attempt** — a difficulty-, combat-, or skill-gated task tried before the gear,
+  upgrades, levels, abilities, or perks that make it routine
+- **Paying full price** for something that gets cheap or free later, or spending a resource the
+  route hasn't generated yet
+- **Grinding a stat, currency, or resource** that a later mission or reward simply hands over
+
+Translate that across genres rather than pattern-matching the example: in an RPG it's a bounty
+best cleared once a class ability trivializes it; in a shooter, a weapon-specific challenge best
+saved for the map where that weapon is issued; in a racer, a time trial best run after the car
+upgrade the campaign gives you anyway; in a platformer, a collectible best swept after the
+traversal ability that turns a precision jump into a walk.
+
+**Two things still outrank all of this** — they're principles 1 and 2, and they're deliberately
+willing to pay the cost: **missables** and **power-unlocks** go early even when early is
+expensive. A missable done the hard way beats a missable lost, and a power-unlock's entire value
+is the hours it saves everything after it.
+
+Everything else resolves by honestly comparing the cost both ways. The reason to do things early
+is a small post-story cleanup, not earliness as a virtue: a task the player will fly straight
+past in Phase 5 costs nothing to leave in Phase 5, while the same task in Phase 1 can cost a
+cross-map trip and a harder attempt. **When early and late are genuinely comparable, go early** —
+that's what keeps the cleanup phase small. When they aren't, go where it's cheap.
+
+**Then record the decision in the item's note** ("left until Phase 4 — the Helitours crowd is the
+fast way to do this and Algonquin isn't open before then"). An unexplained late item is
+indistinguishable from an unresearched one, and the next pass over the guide will drag it forward
+again on exactly the reasoning this section exists to stop.
+
 ### Audit the cleanup phase — nothing lands there by default
 
 Guides built with this skill tend to end with a "post-story cleanup" phase that catches
@@ -529,16 +597,21 @@ available** — the same evidence standard as any other fact in the guide, not a
 either direction. Then:
 
 - **If nothing forces it late**, move it to the earliest phase where it's actually reachable
-  (earliest-reachable is the ceiling; the other ordering principles — grouping by area,
-  money-before-spending, and so on — still decide the exact placement within that window). The
-  cleanup phase keeps only a one-line verification for it ("done in Phase X if you followed
-  along"), never a line presenting it as new work.
+  **by its best method** — never merely the earliest phase where the task is technically
+  possible (see the ceiling section above; this is the single most common way this audit
+  overcorrects). Earliest-reachable is the ceiling, not the target: the other ordering
+  principles — grouping by area, minimizing backtracking, money-before-spending, and so on —
+  still decide the exact placement within that window. The cleanup phase keeps only a one-line
+  verification for it ("done in Phase X if you followed along"), never a line presenting it as
+  new work.
 - **If a real mechanical reason keeps it late or bundled, leave it — and state the reason
   explicitly** in the item or its note, so the placement reads as a verified decision rather
   than a thing nobody checked. Real reasons include: an achievement that requires several
   sub-parts completed in one sitting or one session; a fixed reward that another achievement's
   resource requirement depends on (see Step 5); content genuinely only reachable near or after
-  the end of the story.
+  the end of the story; and **the early version being materially worse than the late one** — the
+  efficient location, crowd, vehicle, weapon, or upgrade that makes the task quick isn't
+  available yet, so doing it early means doing a harder task for the same reward.
 
 Both failure modes are the same underlying bug — unresearched placement. "Spread everything
 out" is exactly as capable of being wrong as "dump everything at the end"; the audit is
@@ -1154,6 +1227,11 @@ the person. Re-read it start to finish as if actually playing, one line at a tim
   chain that runs out of nearby work collapses at its tail. Confirm the first link's note maps
   the whole chain and every later link points back to the previous one (the dependent-chain
   section in Step 7).
+- **Is anything placed early that's genuinely cheaper later?** For every item moved forward, check
+  that its *best method* — not just the task — is available there and that the player is already
+  nearby. An early placement that forces a cross-map trip, a worse grinding spot, or a fight
+  without the gear that trivializes it is a regression, not an optimization (the ceiling section
+  in Step 7). Missables and power-unlocks are the standing exceptions and go early regardless.
 - Is every item still sitting in the final cleanup phase there for a stated, verified reason,
   with everything else moved to its earliest reachable phase (the cleanup-phase audit from
   Step 7)? And does every ongoing whole-game requirement have its habit stated in Phase 1,
@@ -1343,6 +1421,24 @@ only present the guide after this pass, not before it.
   steps underneath it. Shortening the stated wait, or merging three waits into one shorter wait,
   fixes the symptom and leaves the bug. Adjacent waits in a draft are a signal to go back and
   ask where each clock *could* have started.
+- The cleanup-phase audit overcorrects. Told to move anything not genuinely gated late to its
+  earliest reachable phase, a guide starts placing items at the earliest point they're
+  *technically possible*, which is a different and much weaker claim. The tell from real use:
+  GTA IV's "Finish Him" (melee counters) landed before mission 6, because countering a pedestrian
+  is ungated — while the method everyone actually uses is the Higgins Helitours queue in
+  Fishmarket South, Algonquin, an island the story hasn't opened at that point. **Availability
+  has to be assessed on the method, not the task.** Most tasks have a best way to do them, that
+  way is tied to a place/crowd/vehicle/weapon/upgrade, and the tie carries prerequisites the
+  achievement description never mentions. Same shape in any genre: the bounty that's trivial once
+  a class ability lands, the weapon challenge best saved for the map that issues that weapon, the
+  time trial best run after the campaign hands over the car.
+- Early placement is a means, not a virtue. The goal is a small post-story cleanup, so a task the
+  player will pass anyway in Phase 5 costs nothing left in Phase 5, while the same task in Phase 1
+  can cost a dedicated cross-map trip and a harder attempt for identical reward. Compare the real
+  cost both ways: comparable → go early; not comparable → go where it's cheap, and write the
+  reason into the note, or the next audit drags it forward again. Missables and power-unlocks are
+  the two standing exceptions — they go early even when early is expensive, because a lost
+  missable is unrecoverable and a power-unlock pays back across everything after it.
 - The checklist is a route first and an outline second, and that precedence has to be stated
   rather than assumed. Nesting, bundling, and phase accordions are presentation — they exist to
   make hundreds of items scannable and to show why an item sits where it does. Left unranked,
