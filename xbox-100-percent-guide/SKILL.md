@@ -1229,6 +1229,42 @@ true. If the routing rule moved from "everything at its earliest unlock" to "eve
 cheapest method," the vocabulary is *unlocks*, *earliest*, *as soon as*, *where it becomes
 available*. Enumerate the matches; don't rely on remembering which paragraphs described the rule.
 
+**Sweep every premise the guide asserts, not only the one you just changed.** This is the part
+that gets skipped, and it's where the surviving bugs are. A guide states several structural
+premises — is there a clock on this save, is the map open, is progress save-bound or profile-wide,
+does side content bank for later — and any of them can be contradicted by a note written under an
+earlier draft, with no recent edit to draw attention to it. So the sweep runs in two directions:
+
+- **Against the current rules** — each note still true under what the guide now does.
+- **Against each other** — no two notes asserting incompatible premises. A phase note reading
+  "clock target leaving this phase: under 16 hours" is not detectably wrong on its own; it is
+  wrong because another phase note says there is no clock on this save at all. Contradictions
+  between notes are invisible to a check that reads each note in isolation, which is how they
+  survive several passes.
+
+List the guide's premises explicitly, then check every note against the list. Grepping only the
+vocabulary of the rule you happened to edit will pass a guide that still contradicts itself
+somewhere else.
+
+### Never write positional cross-references
+
+A note that points at another item **by position** — "two steps above," "the confirmation step
+below," "the next item," "three rows down" — is a fact about the current ordering, not about the
+game. Every reorder invalidates it silently: nothing errors, the sentence still reads fluently,
+and it now points somewhere else or nowhere. Since this skill reorders items constantly (method
+windows, chain interleaving, cleanup audits, play-order corrections), positional references are
+guaranteed to rot, and they rot in the notes nobody re-reads.
+
+**Name the thing, not its distance.** "You unlocked Roman's taxi earlier in this phase when you
+pushed his Like past 90%" survives any reordering; "you unlocked it two steps above" does not.
+Where the reference genuinely needs locating, name the phase or the item's own title — both
+travel with the item — never a count of rows or a relative direction.
+
+This applies to the guide's own text, not to phase names: "in Phase 2" is stable because phases
+are named units, while "two items up" is not. Sweep for the pattern before presenting; it is a
+short, high-precision regex (`\b(two|three|\d+) (steps?|rows?|items?) (above|below)\b`, plus
+"the next/previous step"), and every hit is a defect.
+
 Two things this sweep specifically catches:
 
 - **A summary that still describes the old route.** "Everything else went into the phase where it
@@ -1295,7 +1331,12 @@ the person. Re-read it start to finish as if actually playing, one line at a tim
   Re-read every phase note, phase intro, and recap against the *current* rules, including the ones
   carried over unedited — those are where the contradiction lives, because they were never
   consciously re-read. Grep for the old premise's vocabulary and confirm each hit (the
-  premise-change sweep above).
+  premise-change sweep above). List the guide's premises and check every note against **all** of
+  them, and against each other — a stale "clock target: under 16 hours" is only detectable against
+  another note saying there is no clock on this save.
+- **Does any note point at another item by position?** "Two steps above," "the step below," "the
+  next item" — every hit is a defect, because this skill reorders constantly and the reference
+  rots silently. Name the item or its phase instead.
 - **Is the player ever told to wait?** No two elapsed-time waits may sit adjacent; no timer may
   start later in the route than it could have; every wait note must point at real intervening
   steps that actually fill the window (count them, don't assume); and any genuinely unavoidable
@@ -1539,6 +1580,25 @@ only present the guide after this pass, not before it.
   premise's vocabulary, grep every note for it, confirm each hit. A related tell from the same
   edit: replacing a clause inside a carried-over sentence left an ungrammatical double-conjunction
   seam, because only the fragment was re-read and not the sentence around it.
+- A premise sweep that greps only the rule you just changed will pass a guide that still
+  contradicts itself elsewhere. A stale "clock target leaving this phase: under 16 hours" survived
+  a full premise sweep because the sweep was built from *routing* vocabulary, while that line is a
+  *timer* premise — and it isn't wrong in isolation at all. It's wrong only against another phase
+  note stating there is no clock on this save. Enumerate every premise the guide asserts, then
+  check notes against the list and against each other; contradictions between notes are invisible
+  to any check that reads one note at a time.
+- **Positional cross-references rot on every reorder.** "You unlocked it two steps above" was
+  written when it was roughly true, then an unrelated item moved and it silently began pointing at
+  the wrong thing — no error, no broken render, a sentence that still reads fine. This skill
+  reorders constantly (method windows, chain interleaving, cleanup audits), so these are guaranteed
+  to break. Name the item or its phase, never a count of rows or a direction. It's a cheap regex to
+  sweep for and every hit is a real defect.
+- When a collaborator reports that a defect "came back," check whether it was ever actually fixed
+  in the artifact you were handed before accepting the diagnosis. A stale line in an exported file
+  usually means the export predated the fix, not that a regenerator reintroduced it — and those two
+  causes lead to completely different remedies. Verify provenance against the file as received; the
+  substantive complaint (that the line is wrong and was missed) can be entirely valid while the
+  proposed mechanism is not.
 - **When auditing a guide, its own notes are claims under audit, not evidence.** A placement that
   came with a confident justification got waved through on a review pass purely because the
   justification read well — the note asserted a method that the research did not actually support,
