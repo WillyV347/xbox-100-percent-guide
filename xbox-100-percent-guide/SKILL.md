@@ -138,12 +138,23 @@ returns HTTP 403 and looks exactly like "no such page." That is a bot-protection
 session. Open a browser pane at the URL and read the rendered text instead — the solutions,
 vote counts and comments all come through. Two things that keep this cheap:
 
-- **The bare achievement URL is enough** (e.g. `trueachievements.com/a21053`); the
-  `?showguides=1` suffix isn't needed, and the top-voted solution is already near the top of the
-  rendered text.
+- **The URL form has nothing to do with the block.** Tested directly: the bare
+  `trueachievements.com/a21053`, the full slug URL, and the `?showguides=1` variant all return 403
+  to a fetch tool, and all render fine in a browser. Don't waste calls trying URL variations to
+  find one that slips through — there isn't one. (The bare URL is still the one to *use*, simply
+  because it's shortest and the top-voted solution already sits near the top of the rendered text
+  without the query suffix.)
 - **Cap the text you pull.** The top solution plus its vote count sits in roughly the first
   1,500-2,000 characters. Read that much per achievement rather than whole pages, and navigate
   straight to the next achievement URL in the same tab.
+
+**Read the status code before deciding what went wrong — 403 and 404 need opposite responses.**
+A **403** means the server refused *this tool*: the page exists, the content is public, switch to
+a browser. A **404** means the server answered normally and the path is wrong: fix the URL, and do
+not reach for a browser, which will fail identically. Treating a 404 as a block sends you to open a
+browser session to work around a typo; treating a 403 as a dead link discards a source that was
+available the whole time. A guessed guide URL that 404s is especially worth re-checking, since
+tracking sites restructure paths and not every site covers every game.
 
 If a source still can't be read, it is **unverified, not absent** — say so plainly and leave the
 item flagged rather than inventing a rationale for the placement you already had. That is the same
@@ -1649,6 +1660,11 @@ only present the guide after this pass, not before it.
   for its *mechanism*, then decide placement yourself — adopting "do it after mission X" verbatim
   would have moved the item four phases later for no reason once you can get the same vehicle
   earlier.
+- Don't hunt for a URL form that slips past a block. Tested on TrueAchievements: bare, full-slug
+  and `?showguides=1` URLs all 403 a fetch tool and all render in a browser — the block keys on the
+  tool, not the address. And read the code: 403 means "wrong tool, page is fine, use a browser,"
+  while 404 means "the server answered and your path is wrong, fix the URL." Confusing them costs
+  either a pointless browser session or a discarded source that was reachable all along.
 - A fetch tool returning 403 is a statement about the tool, not the content. TrueAchievements and
   its sibling sites block automated fetches while serving the same pages normally to a browser, so
   a 403 there is not "unavailable" — it means use a browser pane and read the rendered text. Two
