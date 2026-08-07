@@ -219,7 +219,11 @@ descriptions and, next to each, a **guide count** ("9 guides", "3 guides"). Two 
   opaque numeric ID (`trueachievements.com/a21053`), and the ID is *not* derivable from the
   achievement's name — so collect the links from this page rather than guessing URLs. A guessed ID
   lands on a different achievement in a different game, which is worse than a 404 because it
-  returns confident, plausible, wrong content.
+  returns confident, plausible, wrong content. **Harvest every ID in one shot** rather than reading
+  the page repeatedly: run a small script in the browser that maps achievement name to ID from the
+  links, e.g. collect `href` matches of `/a<digits>/` with their link text into one object. That
+  returns the whole game's ID table in a single compact result — 65 achievements for GTA IV — and
+  every later page is then a direct navigation.
 - **Guide count is a second triage signal, and a good one.** Many guides means the community found
   the method contested or non-obvious and kept adding better ones; one or two means it is
   straightforward and the top solution will only confirm what you already know. Combine it with the
