@@ -63,6 +63,14 @@ Search for:
   from hour one ("once a weapon hits max level, switch to another and keep rotating") and the
   expensive way is discovering them at the end and grinding. See Step 7 for how the guide
   routes these.
+- **The best method for each non-trivial task, and what that method itself requires.** Research
+  doesn't stop at "what does this achievement ask for" — it has to reach "what's the fast way to
+  do it, and what does the fast way need?" The community's recommended method is usually tied to
+  a specific place, crowd, enemy type, vehicle, weapon, or upgrade, and *that* has prerequisites
+  the achievement's own description doesn't mention. Capture them, because they, not the
+  achievement, determine how early the task can sensibly be routed (see "Earliest reachable is a
+  ceiling" in Step 7). An achievement with no gate at all whose only good method sits behind a
+  late-game region is the standard shape of this.
 - Known exploits or efficiency tricks (e.g., money/XP glitches, sequence breaks) — get the
   specific, verified method (exact target, exact button, exact condition), not a vague
   paraphrase. "Bet on horses" is not a method; "bet on the horse with the [specific marker],
@@ -305,6 +313,20 @@ unlock something" — also check:
 - **Are there daily/session caps on a grindable stat or activity?** If so, say so, and give the
   standard workaround (often: save at a safehouse/hub to skip an in-game cooldown) instead of
   letting the player assume one long session will finish it.
+- **Does anything advance on elapsed time rather than on player action?** In-game days passing,
+  a business or property accruing income, a build/craft/crop timer, a stock price moving, a
+  letter or phone call arriving some days after a trigger, a relationship cooling off, a
+  real-time cooldown on a repeatable job, a vehicle or spawn refreshing. These are not tasks,
+  they are clocks, and the only sequencing question that matters is **how early the clock can be
+  started** — research the earliest point in the route where the timer can be set running, the
+  same evidence standard as any other fact. A timer started at its earliest legal point is free;
+  the same timer started where its reward gets collected costs the player the entire wait.
+  **Then check whether the timers are independent or chained**: several separate clocks can all
+  run at once, but a sequence where each step is gated on time since the *previous* step (visit
+  an NPC, wait, visit again, wait, visit again) can't be parallelized at all — it needs the
+  route rearranged around it instead. Establish how many links the chain has and how much time
+  each gap needs, because that's what the route has to fill. See the dedicated section in
+  Step 7 for how both cases get written into the route.
 - **Does the order in which the player acquires protective perks matter** relative to the
   riskiest, most failure-prone stretch of the game? If a perk mitigates death/failure
   consequences, place the acquisition of that perk immediately before the section it protects,
@@ -383,6 +405,31 @@ For each task, include:
 - Why now (what it unlocks or enables)
 - Any critical save points or missable warnings inline
 
+### Play order is the spine — grouping is presentation, and it never reorders anything
+
+Before any of the principles below: the checklist's primary job is to be **the exact sequence
+the player executes in-game, top to bottom.** Everything else this skill specifies about
+structure — nesting side content under the mission that unlocks it, bundling uneventful missions
+into a parent line, phase accordions, collapsible notes — is presentation layered on top of that
+sequence. It exists to make several hundred items scannable and to show *why* an item sits where
+it does. It is never a reason to move an item away from the point where the player actually does
+it.
+
+**When grouping and play order disagree, play order wins and the group gets broken up.** Every
+time, without weighing it as a tradeoff.
+
+The practical consequence is that nesting is legal only when the children genuinely *are* the
+next things the player does after the parent. If a piece of side content unlocked by mission 6
+is best done immediately, it nests under mission 6. If it's best done 40 items later — because
+of area access, a resource it needs, a timer, or simple efficiency — it is not a child of
+mission 6 at all. It's its own item at its own correct position, carrying a note that names
+what unlocked it ("opened up by 'Drive-Thru' back in Phase 1"). The unlock relationship is
+information; the position is the instruction. Encode the relationship in a note, never by
+dragging the item out of its place in the route.
+
+This is what makes the checklist a route rather than an outline, and it's the rule that decides
+the time-gated cases further down.
+
 ### Ordering principles (apply in priority order):
 
 1. **Missable protection first.** Flag saves before any missable. Never let the player
@@ -438,6 +485,12 @@ For each task, include:
 12. **Ongoing whole-game requirements are routed as a habit, not an end-phase task.** State
     the behavior early, checkpoint it mid-route, verify it at the end — see the dedicated
     section below.
+13. **Waiting is never a step.** Anything that advances on elapsed time gets started at the
+    earliest point the route allows and then runs *underneath* the rest of the route. Where a
+    chain of steps is gated on time between each one, the clock can't move — so the links get
+    interleaved into the route with real work between them, never written out as a contiguous
+    block. The player is never parked in front of a clock, and two waits never sit next to each
+    other — see the dedicated section below.
 
 ### Bundled missions get their own sub-list, never a parenthetical
 
@@ -469,6 +522,66 @@ whichever mission unlocks an asset), add the missing mission names as additional
 rather than leaving them out of the sub-list — every mission in the stated range should have
 its own row, whether or not it individually has anything special attached to it.
 
+### Earliest reachable is a ceiling, not a target
+
+The cleanup audit below pushes content *forward*, because a catch-all end phase collects
+anything nobody researched. That correction has its own failure mode: an item gets yanked to the
+front on the strength of "it's technically possible there," which is a different question from
+"it's sensible there," and only the second one decides placement.
+
+The bug is nearly always that availability was assessed on **the task** when it should have been
+assessed on **the method**. Most tasks have a best way to do them — a specific spot, a reliable
+crowd, a particular vehicle or weapon, a farming route, a repeatable encounter — and *that method
+carries prerequisites the raw task doesn't*. The task looks ungated, so an audit stamps it
+"available from the start" and drops it in Phase 1, where the only version the player can
+actually attempt is the slow, miserable one.
+
+A worked example, generalizable to any genre: an achievement for landing a number of melee
+counters has no gate whatsoever — the player can punch a pedestrian five minutes in. But the
+method that makes it quick is a particular place where NPCs reliably fight back rather than
+fleeing, and in GTA IV that place (the Higgins Helitours queue, Fishmarket South) is in Algonquin,
+across bridges the story hasn't opened yet. Placed "as early as possible," the item lands before
+mission 6 and asks the player to do a version of the task that's dramatically worse — or to
+attempt it somewhere they can't yet legally reach. The achievement was ungated; the good method
+never was.
+
+**Place every item at the earliest point where its best method is available and the player is
+already going to be nearby** — not the earliest point the task is technically possible. Doing
+something earlier is the wrong call when "earlier" means:
+
+- **A worse method** — grinding the slow way because the efficient spot, crowd, tool, vehicle, or
+  enemy type isn't accessible yet
+- **A dedicated trip** — crossing the map, or backtracking to a prior region/act, for something
+  the player would pass on the way to something else later. Principle 4 (minimize backtracking)
+  does not lose to "earlier"
+- **A harder attempt** — a difficulty-, combat-, or skill-gated task tried before the gear,
+  upgrades, levels, abilities, or perks that make it routine
+- **Paying full price** for something that gets cheap or free later, or spending a resource the
+  route hasn't generated yet
+- **Grinding a stat, currency, or resource** that a later mission or reward simply hands over
+
+Translate that across genres rather than pattern-matching the example: in an RPG it's a bounty
+best cleared once a class ability trivializes it; in a shooter, a weapon-specific challenge best
+saved for the map where that weapon is issued; in a racer, a time trial best run after the car
+upgrade the campaign gives you anyway; in a platformer, a collectible best swept after the
+traversal ability that turns a precision jump into a walk.
+
+**Two things still outrank all of this** — they're principles 1 and 2, and they're deliberately
+willing to pay the cost: **missables** and **power-unlocks** go early even when early is
+expensive. A missable done the hard way beats a missable lost, and a power-unlock's entire value
+is the hours it saves everything after it.
+
+Everything else resolves by honestly comparing the cost both ways. The reason to do things early
+is a small post-story cleanup, not earliness as a virtue: a task the player will fly straight
+past in Phase 5 costs nothing to leave in Phase 5, while the same task in Phase 1 can cost a
+cross-map trip and a harder attempt. **When early and late are genuinely comparable, go early** —
+that's what keeps the cleanup phase small. When they aren't, go where it's cheap.
+
+**Then record the decision in the item's note** ("left until Phase 4 — the Helitours crowd is the
+fast way to do this and Algonquin isn't open before then"). An unexplained late item is
+indistinguishable from an unresearched one, and the next pass over the guide will drag it forward
+again on exactly the reasoning this section exists to stop.
+
 ### Audit the cleanup phase — nothing lands there by default
 
 Guides built with this skill tend to end with a "post-story cleanup" phase that catches
@@ -484,16 +597,21 @@ available** — the same evidence standard as any other fact in the guide, not a
 either direction. Then:
 
 - **If nothing forces it late**, move it to the earliest phase where it's actually reachable
-  (earliest-reachable is the ceiling; the other ordering principles — grouping by area,
-  money-before-spending, and so on — still decide the exact placement within that window). The
-  cleanup phase keeps only a one-line verification for it ("done in Phase X if you followed
-  along"), never a line presenting it as new work.
+  **by its best method** — never merely the earliest phase where the task is technically
+  possible (see the ceiling section above; this is the single most common way this audit
+  overcorrects). Earliest-reachable is the ceiling, not the target: the other ordering
+  principles — grouping by area, minimizing backtracking, money-before-spending, and so on —
+  still decide the exact placement within that window. The cleanup phase keeps only a one-line
+  verification for it ("done in Phase X if you followed along"), never a line presenting it as
+  new work.
 - **If a real mechanical reason keeps it late or bundled, leave it — and state the reason
   explicitly** in the item or its note, so the placement reads as a verified decision rather
   than a thing nobody checked. Real reasons include: an achievement that requires several
   sub-parts completed in one sitting or one session; a fixed reward that another achievement's
   resource requirement depends on (see Step 5); content genuinely only reachable near or after
-  the end of the story.
+  the end of the story; and **the early version being materially worse than the late one** — the
+  efficient location, crowd, vehicle, weapon, or upgrade that makes the task quick isn't
+  available yet, so doing it early means doing a harder task for the same reward.
 
 Both failure modes are the same underlying bug — unresearched placement. "Spread everything
 out" is exactly as capable of being wrong as "dump everything at the end"; the audit is
@@ -523,6 +641,104 @@ get a three-part treatment:
   "check the stats page; for any weapon still short, grind it now at [specific efficient
   spot]." If the habit was followed, this line costs minutes. The guide must never present the
   whole requirement as end-phase work.
+
+### Waiting is never a step — elapsed time runs underneath the route
+
+Elapsed-time requirements (identified in Step 5) are the one category where a guide can be
+completely accurate and still waste hours of the player's life. The failure looks like this:
+
+**Wrong:**
+
+```
+□ Wait a few in-game days for the property to start paying out.
+□ Wait a few in-game days for the newspaper to run the story.
+□ Wait a few in-game days for Sofia to call about the next job.
+```
+
+Three clocks that could all have been ticking simultaneously since Phase 2, run one after
+another while the player does nothing. **Back-to-back waits are almost never a property of the
+game — they're a drafting artifact.** They appear because the guide was written in the order
+rewards get *collected*, so each timer was started at the line where its payoff is claimed,
+which serializes clocks that the game itself runs in parallel. Even a single isolated "wait"
+step is usually the same bug in smaller form.
+
+Three things fix it, in this order:
+
+- **Start every clock at its earliest legal point.** Research when the timer can first be set
+  running — buying the property, triggering the phone call, planting the thing, making the
+  deposit — and put *that* action in the earliest phase where it's reachable. This is the whole
+  fix; the other two only clean up what's left.
+- **Let it run underneath real work.** Once started, the route keeps going with actual tasks and
+  the collection line appears later, wherever the player is genuinely nearby again (all the
+  usual grouping and backtracking rules still decide exactly where). Concurrent timers collapse
+  into one window sized by the longest one, not a queue.
+- **Only if the window genuinely can't be filled**, name the game's own cheapest way to burn the
+  clock — sleeping at a safehouse, saving to advance six hours, a fast-travel leg — as *one*
+  line, not one per timer, and say how much time it needs to cover. "Wait a few in-game days"
+  with no mechanism is never acceptable; if the player must pass time, tell them the fastest way
+  the game provides.
+
+**How this renders in the checklist:** the *start* is a real checkbox ("Buy the Vank Hoff Hotel
+— income accrues from here"). The *collection* is a real checkbox later. The wait itself gets no
+checkbox at all — it is not something the player does (the no-FYI-checkbox rule in Output
+Format), so it lives as a note on the collection line: "needs ~5 in-game days; you started this
+back in Phase 2 and the missions since have covered it."
+
+**Then verify the window is actually covered.** If the intervening route is shorter than the
+timer, the note is a lie — move the start earlier, move the collection later, or add the
+explicit pass-time line. Checking this means counting the real steps between start and
+collection, not assuming they add up.
+
+#### Dependent chains: the clock can't move, so the route has to
+
+Everything above assumes the timers are **independent** — several clocks that could have been
+running at once. The harder case is a **dependent chain**, where each wait is gated on the step
+before it: talk to an NPC, wait a few in-game days, talk to them again, wait a few more, talk to
+them a third time. Nothing can be started earlier, because link 2 doesn't exist until link 1 has
+happened and the days have passed. Starting the clock early is not available as a fix here, and
+a guide that only knows that fix will write the chain out as three adjacent checkboxes with two
+waits wedged between them — which is exactly the thing that reads as "sit there and do nothing"
+three times in a row.
+
+**For a dependent chain, the links are interleaved into the route, never listed as a contiguous
+block.** Each link goes at the point in the route where the required time has *already accrued
+through normal play*, so the intervening steps are real tasks the player was going to do anyway.
+The wait is then invisible: by the time they reach link 2's line, the days have passed.
+
+This is not an exception to the nesting rule — it *is* the nesting rule, applied correctly. Per
+the spine principle above, a child item is only a child when it's genuinely the next thing the
+player does; links 2, 3, and 4 of a timed chain are not, so they were never eligible to nest
+under link 1 in the first place. Holding the chain together as one visual block would be
+grouping overriding play order, which is the thing that never happens.
+
+Splitting does cost discoverability, and that cost is paid the same way any out-of-position
+relationship is paid for — in notes, not by moving items:
+
+- **The first link carries the map of the whole chain** in its note: how many links, roughly how
+  much in-game time each gap needs, and where each subsequent link sits in the route ("4 visits
+  total, ~3 in-game days between each; the next three are in Phase 3 after the docks missions,
+  Phase 4 opening, and Phase 4 after the airport"). The player should never be surprised by a
+  link appearing, or wonder whether they missed one.
+- **Every later link carries a back-pointer**: "visit 3 of 4 — you did visit 2 in Phase 3; enough
+  days have passed since then." Without it, a lone "talk to X again" line 60 items later reads as
+  an orphan or a duplicate.
+- **Count the intervening steps for every gap, not just the first one.** Each individual gap has
+  to be covered by the work actually sitting between those two links. A chain can be correctly
+  interleaved at the front and collapse into back-to-back links at the end, where the route runs
+  out of nearby tasks — that tail is where this bug survives an inattentive check.
+- **If a gap genuinely can't be filled** — the player has cleared everything reachable in that
+  window — that specific gap gets the named pass-time mechanism from above, and only that gap.
+  One unavoidable "sleep twice at the safehouse to cover the remaining two days" is a fine
+  outcome; three of them in a row means the interleaving was never done.
+- **The chain still has to satisfy the deferral and dependency rules** (Step 7 principle 10, and
+  the line-by-line dependency check): every link is a real checkbox in a real phase, and the
+  final link is what closes the loop — the first link's note describing the rest of the chain
+  does not count as completing it.
+
+The test for a dependent chain is the same one as everywhere else, applied to time instead of
+content: **if the player checks these boxes top to bottom in order, are they ever standing still?**
+If two links of a chain touch, or if only a lone pass-time line separates them, the chain wasn't
+interleaved — it was transcribed.
 
 ---
 
@@ -706,6 +922,12 @@ That does not mean "one line per mission":
   what it unlocked, moves to the next. Do not split a phase into "Story missions" / "Side
   content" / "Achievements" sections — that was tried and rejected, it forces the player to
   jump around instead of reading top to bottom.
+  **This nesting only applies when the unlocked content is genuinely what the player does
+  next.** Per the spine principle in Step 7, play order outranks grouping without exception: if
+  the best time to do the unlocked thing is much later in the route, it does not become a child
+  here — it goes at its correct position with a note naming what unlocked it. Nesting shows the
+  relationship *when the relationship and the order happen to agree*; it is never the reason an
+  item sits somewhere.
 - **Flag missables twice**: once inline at the exact line where the window opens or closes
   (a short tagged label like "MISSABLE — ...") and once in the top-of-page missables box. The
   inline flag is what actually protects the player in the moment; the box is the heads-up.
@@ -952,6 +1174,10 @@ the person. Re-read it start to finish as if actually playing, one line at a tim
 
 - Does the sequence of checkboxes match how the game is actually played, with nothing skipped
   and nothing implied twice (the overlapping-items test from Step 7, principle 7)?
+- **Is anything sitting where it sits because of grouping rather than play order?** For every
+  nested child, ask whether the player really does it right after the parent — if the honest
+  answer is "later, but it belongs to that mission," it's mis-positioned: move it to where it's
+  actually done and put the unlock relationship in a note (the spine principle in Step 7).
 - Does every location, vehicle, or target named on a checkbox line actually exist where the
   guide says it does (the location-research requirement from Step 1)?
 - Does anything referencing a later point in the game appear before something referencing an
@@ -990,6 +1216,22 @@ the person. Re-read it start to finish as if actually playing, one line at a tim
   or save-bound 100% task on the strength of a profile-wide achievement? Does the header show
   guide progress and achievements-earned as two labelled numbers rather than one? Is the file
   free of any API key, token, or XUID?
+- **Is the player ever told to wait?** No two elapsed-time waits may sit adjacent; no timer may
+  start later in the route than it could have; every wait note must point at real intervening
+  steps that actually fill the window (count them, don't assume); and any genuinely unavoidable
+  pass-time line must name the game's own fastest mechanism for it rather than saying "wait a
+  few days" (the waiting section in Step 7).
+- **Are any time-gated chains sitting as a contiguous block?** For every sequence where each
+  step is gated on time since the one before it, confirm the links are interleaved through the
+  route with real tasks in *every* gap — check the last gaps as carefully as the first, since a
+  chain that runs out of nearby work collapses at its tail. Confirm the first link's note maps
+  the whole chain and every later link points back to the previous one (the dependent-chain
+  section in Step 7).
+- **Is anything placed early that's genuinely cheaper later?** For every item moved forward, check
+  that its *best method* — not just the task — is available there and that the player is already
+  nearby. An early placement that forces a cross-map trip, a worse grinding spot, or a fight
+  without the gear that trivializes it is a regression, not an optimization (the ceiling section
+  in Step 7). Missables and power-unlocks are the standing exceptions and go early regardless.
 - Is every item still sitting in the final cleanup phase there for a stated, verified reason,
   with everything else moved to its earliest reachable phase (the cleanup-phase audit from
   Step 7)? And does every ongoing whole-game requirement have its habit stated in Phase 1,
@@ -1170,6 +1412,55 @@ only present the guide after this pass, not before it.
   expensive as an end-phase grind. State the habit early as its own checklist line, checkpoint
   it at phase boundaries, and make the end-phase line a stats-page verification with a targeted
   top-up, not the task itself.
+- A real complaint from use: a guide had several "wait a few in-game days" steps back to back.
+  That was never a fact about the game — it was an artifact of writing the route in the order
+  rewards are *collected*, which starts each timer at its own payoff line and serializes clocks
+  the game runs in parallel. Elapsed time is the one requirement that costs nothing when started
+  early and costs the full wait when started late, so the fix is positional, not cosmetic: find
+  the earliest point each timer can be set running, put the start there, and keep writing real
+  steps underneath it. Shortening the stated wait, or merging three waits into one shorter wait,
+  fixes the symptom and leaves the bug. Adjacent waits in a draft are a signal to go back and
+  ask where each clock *could* have started.
+- The cleanup-phase audit overcorrects. Told to move anything not genuinely gated late to its
+  earliest reachable phase, a guide starts placing items at the earliest point they're
+  *technically possible*, which is a different and much weaker claim. The tell from real use:
+  GTA IV's "Finish Him" (melee counters) landed before mission 6, because countering a pedestrian
+  is ungated — while the method everyone actually uses is the Higgins Helitours queue in
+  Fishmarket South, Algonquin, an island the story hasn't opened at that point. **Availability
+  has to be assessed on the method, not the task.** Most tasks have a best way to do them, that
+  way is tied to a place/crowd/vehicle/weapon/upgrade, and the tie carries prerequisites the
+  achievement description never mentions. Same shape in any genre: the bounty that's trivial once
+  a class ability lands, the weapon challenge best saved for the map that issues that weapon, the
+  time trial best run after the campaign hands over the car.
+- Early placement is a means, not a virtue. The goal is a small post-story cleanup, so a task the
+  player will pass anyway in Phase 5 costs nothing left in Phase 5, while the same task in Phase 1
+  can cost a dedicated cross-map trip and a harder attempt for identical reward. Compare the real
+  cost both ways: comparable → go early; not comparable → go where it's cheap, and write the
+  reason into the note, or the next audit drags it forward again. Missables and power-unlocks are
+  the two standing exceptions — they go early even when early is expensive, because a lost
+  missable is unrecoverable and a power-unlock pays back across everything after it.
+- The checklist is a route first and an outline second, and that precedence has to be stated
+  rather than assumed. Nesting, bundling, and phase accordions are presentation — they exist to
+  make hundreds of items scannable and to show why an item sits where it does. Left unranked,
+  they quietly start deciding *position*: content gets held next to the mission that unlocked it
+  because that reads tidily, even when the player shouldn't do it for another 40 items. The rule
+  is that play order wins every time and the group gets broken up, with the unlock relationship
+  preserved in a note. An item's position is an instruction; its grouping is only information.
+- There are two shapes of waiting and only one of them has an easy fix. Independent timers get
+  started early and run in parallel. A **dependent chain** — interact with an NPC, wait a few
+  in-game days, interact again, wait again — can't be parallelized at all, because each link only
+  exists once the previous one happened. Writing that chain out as consecutive checklist items is
+  the version of this bug that survives the "start the clock early" fix, because there is no
+  earlier clock to start. The route is what moves: each link goes where the required days have
+  already accrued through normal play, with real tasks between, the first link's note mapping the
+  whole chain and each later link pointing back to the previous one. Watch the *tail* of a chain
+  specifically — interleaving is easy at the start and collapses at the end, once the route runs
+  out of nearby work.
+- If the player genuinely must pass time with nothing to do, that's a mechanic question, not a
+  shrug: name the game's own fastest way to advance the clock (sleep at a safehouse, save to
+  advance six hours, a fast-travel leg) and how much of the window it covers. "Wait a few in-game
+  days" tells the player something is required without telling them how to do it, which is the
+  same failure as "any bar with a pool table."
 - The structure that makes these guides scannable — collapsed accordions, bundled sub-lists,
   notes hidden behind a toggle — is the same structure that breaks a naively-built search box.
   Most of the file's text is off-screen at any moment, so a search that filters rendered rows
