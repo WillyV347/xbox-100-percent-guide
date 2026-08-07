@@ -255,9 +255,34 @@ fraction of them the placement is already forced and no thread can move it. Deci
 - **You placed it by inference rather than by a verified gate.** Your own uncertainty is a triage
   signal, and the cheapest one you have.
 
-On a 60-70 achievement list this typically leaves 15-25 warranting a deep read. **Record which
-achievements you triaged out and why**, so a later pass extends the work instead of repeating it,
-and so a wrong triage call is auditable rather than invisible.
+**Then split the deep-read candidates by what the open question actually is**, because half of
+them are asking something a solution thread is the wrong tool for:
+
+- **"Where are they?" — location and collectible enumeration.** Hidden packages, stunt jumps,
+  bridges, seagulls, races, shrines, chests: any set scattered across a map. Do **not** spend
+  achievement-page reads on these. What you need is an exhaustive location list, and that lives in
+  a dedicated interactive map (MapGenie and its equivalents) or a wiki with map data — sources
+  built for exactly this and far better at it than a prose solution. More importantly, **locations
+  are not what the guide is supposed to supply.** Point the player at the map tool for the pins,
+  and spend your own effort on the thing no map can do: **routing** — which members of the set are
+  reachable in the area the player is standing in *right now*, so they sweep them while they're
+  there instead of driving back later. That is per-phase reachable counts and area grouping
+  (Step 6 and ordering principles 3 and 4), not coordinates.
+- **"How and when?" — technique and efficiency.** Grinds, minigames, skill challenges, timed or
+  counted tasks, repeatable side jobs, anything with a trick. Here the solution thread is exactly
+  the right tool and a map is useless, because the answer is a *method*, not a coordinate: summon
+  the vehicle instead of hunting for one, pick the easy variant of the job, use the equipment that
+  cannot fail, exploit the spot where the crowd fights back.
+
+The tell is simple: if knowing every location would finish the achievement, it's a map problem;
+if you could know every location and still do it slowly and badly, it's a solution-thread problem.
+On an open-world game this roughly halves the deep-read list, and it stops the guide from
+reimplementing a map site badly inside collapsed notes.
+
+On a 60-70 achievement list this typically leaves 15-25 warranting a deep read, and the split
+above cuts the number of *solution threads* well below that. **Record which achievements you
+triaged out and why**, so a later pass extends the work instead of repeating it, and so a wrong
+triage call is auditable rather than invisible.
 
 ### Keeping browser reads cheap
 
@@ -1777,6 +1802,16 @@ only present the guide after this pass, not before it.
   for its *mechanism*, then decide placement yourself — adopting "do it after mission X" verbatim
   would have moved the item four phases later for no reason once you can get the same vehicle
   earlier.
+- Not every hard achievement is a solution-thread question. Collectible and location achievements
+  (packages, stunt jumps, bridges, races) are *map* problems, already solved better by MapGenie and
+  similar interactive maps than by any prose guide — reading their solution threads spends tokens
+  to learn coordinates the guide should be linking to rather than restating. What those achievements
+  need from the guide is the one thing a map cannot give: whether to sweep them **now, while the
+  player is in this area**, and how many of the set are reachable at this point. Technique
+  achievements (grinds, minigames, repeatable jobs, counted tasks) are the opposite — a map is
+  useless and the thread is everything, because the answer is a trick. The test: if knowing every
+  location would finish it, it's a map problem; if you could know every location and still do it
+  badly, it's a thread problem.
 - The expensive way to use solution threads is to read all 65 of them. The cheap way is to read
   the walkthrough overview *first* — one page that reports missable and unobtainable counts,
   playthroughs required, a section-by-section table of contents, and a breakdown tagging every
