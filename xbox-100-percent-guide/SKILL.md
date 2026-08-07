@@ -104,6 +104,38 @@ number (a threshold, a cap, an exact count) and the disagreement can't be resolv
 give the range or the safer/more conservative figure, rather than picking one source arbitrarily
 and stating it as settled fact.
 
+### Read the community's solution threads, not just the achievement descriptions
+
+Achievement lists, wikis, and completion breakdowns tell you **what** each achievement requires.
+They almost never tell you **when in a playthrough to do it**. That information does exist, and it
+lives in one specific place: the top-voted solutions on the achievement's own page at a tracking
+site — **TrueAchievements** (open the achievement page with its guides/solutions shown, e.g. the
+`?showguides=1` view) and **PowerPyx**, plus their equivalents (TrueTrophies, PSNProfiles) when
+they cover the same game.
+
+Those threads are written by people who finished the game and then wrote down what they wished
+they'd known going in, so they routinely carry the one thing a description structurally cannot:
+placement. "Do this after mission X." "Wait until you have Y." "Don't bother before Z." That is
+precisely the method-prerequisite and method-window information Step 1 already demands — the
+solution thread is usually where it actually lives, and it is invisible from the achievement list.
+
+For every non-trivial achievement:
+
+- **Open the achievement's own page with solutions visible and read the top-voted solution**, not
+  just the achievement blurb or a summary page that aggregates blurbs.
+- **Extract any placement advice**: a named mission, a named unlock, a "much easier once you
+  have…" condition, a warning that it gets harder later.
+- **When the community's recommended placement disagrees with the order you derived, that's a
+  conflict to resolve, not noise to discard.** Assume they know something your ordering doesn't —
+  usually a specific vehicle, weapon, location, or scripted setup that one mission hands over for
+  free. Work out what it is, then either adopt their placement or keep yours **and record the
+  reason in the item's note**. Silently keeping your own ordering against the top-voted solution
+  is how a guide ends up confidently worse than the free advice it was built from.
+- **An unreachable source is unverified, not absent.** These sites commonly block automated
+  fetches (403). If you cannot read a solution thread, say so plainly and leave the item flagged
+  rather than inventing a rationale for the placement you already had — the same rule as any other
+  empty fetch, and an easy one to rationalize away when the existing placement looks reasonable.
+
 **Verify that a fetch or search actually returned content before treating it as ground truth.**
 A tool call that returns empty is not a source, it's a non-result — don't reconstruct plausible-
 sounding specifics (mission numbers, exact sequences, precise thresholds) from general knowledge
@@ -1334,6 +1366,12 @@ the person. Re-read it start to finish as if actually playing, one line at a tim
   premise-change sweep above). List the guide's premises and check every note against **all** of
   them, and against each other — a stale "clock target: under 16 hours" is only detectable against
   another note saying there is no clock on this save.
+- **Has every achievement's placement been reconciled against the top community solution?** Go
+  achievement by achievement against TrueAchievements/PowerPyx solution threads — not the
+  descriptions, the solutions — and for each one either match their recommended placement or carry
+  a stated reason for differing. An item sitting in a phase the top-voted solution says is the
+  wrong one, with no note explaining the choice, is an unresearched placement wearing a confident
+  face. Unreachable sources stay flagged as unverified rather than silently ratifying what you had.
 - **Does any note point at another item by position?** "Two steps above," "the step below," "the
   next item" — every hit is a defect, because this skill reorders constantly and the reference
   rots silently. Name the item or its phase instead.
@@ -1580,6 +1618,17 @@ only present the guide after this pass, not before it.
   premise's vocabulary, grep every note for it, confirm each hit. A related tell from the same
   edit: replacing a clause inside a carried-over sentence left an ungrammatical double-conjunction
   seam, because only the fragment was re-read and not the sentence around it.
+- The placement information this skill spends the most effort deriving is often already written
+  down, for free, in the top-voted solution thread on the achievement's own TrueAchievements or
+  PowerPyx page — and nowhere else. Achievement lists and wikis describe *what* an achievement
+  needs; solution threads are where finished players say *when to do it* ("best done after mission
+  X," "wait until you have Y"). A guide can pass every internal check in this skill, be entirely
+  factually accurate, and still place an achievement in a phase the community consensus says is the
+  wrong one — because none of the internal checks ever consult that consensus. Read the solutions
+  per achievement, and treat disagreement as a conflict to resolve and record, never as noise.
+  GTA IV's Wheelie Rider was the case that surfaced this: the guide had it in Phase 1 on a
+  reasonable-sounding runway method, while the top TrueAchievements thread recommends a specific
+  much later mission.
 - A premise sweep that greps only the rule you just changed will pass a guide that still
   contradicts itself elsewhere. A stale "clock target leaving this phase: under 16 hours" survived
   a full premise sweep because the sweep was built from *routing* vocabulary, while that line is a
