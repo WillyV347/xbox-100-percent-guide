@@ -174,7 +174,27 @@ Use whichever of these cover the game:
 
 **Start with the TrueAchievements walkthrough overview. It is one read that plans every other
 read.** The URL is standard per game: `trueachievements.com/game/<Game-Slug>/walkthrough` — e.g.
-`.../game/Grand-Theft-Auto-4/walkthrough`. That single page returns:
+`.../game/Grand-Theft-Auto-4/walkthrough`.
+
+**If that URL doesn't resolve, navigate to it rather than guessing again.** The slug is not
+mechanically derivable from the title — *Grand Theft Auto IV* is `Grand-Theft-Auto-4`, with the
+Roman numeral silently converted to Arabic — so a 404 usually means the slug is wrong, not that
+the walkthrough is missing (and per the status-code rule above, 404 means fix the URL, not switch
+tools). The reliable path:
+
+1. Open the game's achievement list page, `trueachievements.com/game/<Game-Slug>/achievements`.
+2. If that slug is also wrong, search the web for the game plus "trueachievements" and follow any
+   result onto the site — any page for the right game will do.
+3. Use the game navigation bar at the top (*News · Forum · Clips · **Walkthrough** · Reviews ·
+   Scores · DLC*) and follow the Walkthrough tab. That link carries the correct slug, which also
+   gives you the right slug for every other page you'll need.
+
+A game with no walkthrough is a real possibility — the tab will be absent or empty. That is a
+genuine absence, not a broken URL: fall back to the achievement list plus per-achievement
+solutions, and say the walkthrough wasn't available rather than silently skipping the cross-checks
+it would have provided.
+
+That single page returns:
 
 - Headline counts: achievements, gamerscore, estimated time, **playthroughs required**
 - **Missable and unobtainable counts** — a direct numeric cross-check against the missables work in
