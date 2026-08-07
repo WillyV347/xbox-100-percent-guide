@@ -70,7 +70,11 @@ Search for:
   the achievement's own description doesn't mention. Capture them, because they, not the
   achievement, determine how early the task can sensibly be routed (see "Earliest reachable is a
   ceiling" in Step 7). An achievement with no gate at all whose only good method sits behind a
-  late-game region is the standard shape of this.
+  late-game region is the standard shape of this. **Ask about the closing edge too — "does anything
+  later remove this method?"** A method relying on a region still being locked, on the player still
+  being low-level, or on an NPC or vehicle that later dies or stops spawning gives the task a
+  *window* rather than a start point. These are invisible to a missables search, because the
+  achievement itself never becomes unobtainable — only the cheap way to earn it does.
 - Known exploits or efficiency tricks (e.g., money/XP glitches, sequence breaks) — get the
   specific, verified method (exact target, exact button, exact condition), not a vague
   paraphrase. "Bet on horses" is not a method; "bet on the horse with the [specific marker],
@@ -565,6 +569,38 @@ best cleared once a class ability trivializes it; in a shooter, a weapon-specifi
 saved for the map where that weapon is issued; in a racer, a time trial best run after the car
 upgrade the campaign gives you anyway; in a platformer, a collectible best swept after the
 traversal ability that turns a precision jump into a walk.
+
+#### Method windows close as well as open
+
+The prerequisites above are all about a method becoming *available*. The mirror case is a method
+that **expires**, and it is easy to miss entirely because the achievement itself never becomes
+unobtainable — only the cheap way to get it does. Nothing in a missables search surfaces these,
+because nothing is being permanently lost; the player just quietly ends up doing a five-minute
+task the forty-minute way.
+
+The usual causes, in any genre:
+
+- **A method that depends on something still being locked.** Trespassing into a region the story
+  hasn't opened often triggers an instant maximum alert state, a unique enemy, or a boundary
+  behaviour that simply stops existing once that region unlocks normally.
+- **A method that depends on the player still being weak or low-level** — scaled enemies, a
+  tutorial-grade encounter, an early-game spawn table that stops appearing.
+- **A method that depends on a character, faction, vendor, or vehicle** that dies, leaves,
+  turns hostile, or stops spawning after a story beat.
+- **A method that depends on an unpatched or unfinished world state** — a structure that gets
+  destroyed in a cutscene, an area that becomes a mission-only interior, a shop that closes.
+
+**Research the closing edge, not just the opening one.** For every method, ask both "what does
+this need?" and "does anything later take it away?" A method with both an opening and a closing
+gate defines a *window*, and the task belongs inside that window — which is frequently neither
+the earliest nor the latest point in the route.
+
+**A closing window is flagged like a missable, because it behaves like one.** Put the warning
+inline at the task ("easy only until mission N — after that you're doing the hard version") *and*
+inline on the step that closes it ("finishing this mission ends the cheap method for X — make
+sure it's checked off above"). The achievement is not missable, so it does not belong in the
+missables box as a lost-forever risk; the cost is real, though, and the player has to see it
+coming from both sides.
 
 **Two things still outrank all of this** — they're principles 1 and 2, and they're deliberately
 willing to pay the cost: **missables** and **power-unlocks** go early even when early is
@@ -1232,6 +1268,13 @@ the person. Re-read it start to finish as if actually playing, one line at a tim
   nearby. An early placement that forces a cross-map trip, a worse grinding spot, or a fight
   without the gear that trivializes it is a regression, not an optimization (the ceiling section
   in Step 7). Missables and power-unlocks are the standing exceptions and go early regardless.
+- **Does any task's cheap method expire, and is the task inside that window?** Check both edges,
+  not just the opening one — a method that needs a region still locked, an NPC still alive, or the
+  player still low-level defines a window, and the task has to sit inside it with the closing edge
+  flagged both on the task and on the step that closes it (method windows, Step 7). **When
+  auditing an existing guide, an item's own note is a claim to verify, not evidence** — a note
+  asserting why a placement is correct is precisely the thing under audit, and re-reading it
+  proves nothing. Verify the placement against a source, not against the guide's own reasoning.
 - Is every item still sitting in the final cleanup phase there for a stated, verified reason,
   with everything else moved to its earliest reachable phase (the cleanup-phase audit from
   Step 7)? And does every ongoing whole-game requirement have its habit stated in Phase 1,
@@ -1432,6 +1475,21 @@ only present the guide after this pass, not before it.
   achievement description never mentions. Same shape in any genre: the bounty that's trivial once
   a class ability lands, the weapon challenge best saved for the map that issues that weapon, the
   time trial best run after the campaign hands over the car.
+- Methods expire, and nothing in a missables search will tell you. GTA IV's One Man Army (survive
+  five minutes at six stars) is the case that exposed this: the community method is to steal a
+  helicopter from Higgins Helitours in Algonquin and fly over Alderney *while Alderney is still
+  locked*, because entering a locked island grants six stars instantly and nothing on the ground
+  can touch a helicopter circling at altitude. That needs Algonquin open (mission 31) and Alderney
+  still shut (mission 38) — a window of exactly seven missions. Earlier there is no helicopter;
+  later the trick is gone forever and the task becomes a firefight in a safehouse lobby. The
+  achievement is never unobtainable, so no missables research surfaces it; the player just
+  silently does a five-minute task the hard way. Research both edges of a method, not just the
+  opening one, and flag the closing edge on the task *and* on the step that closes it.
+- **When auditing a guide, its own notes are claims under audit, not evidence.** A placement that
+  came with a confident justification got waved through on a review pass purely because the
+  justification read well — the note asserted a method that the research did not actually support,
+  and re-reading the note "confirmed" it. A guide's stated reasoning can only be checked against a
+  source; checking it against itself always passes.
 - Early placement is a means, not a virtue. The goal is a small post-story cleanup, so a task the
   player will pass anyway in Phase 5 costs nothing left in Phase 5, while the same task in Phase 1
   can cost a dedicated cross-map trip and a harder attempt for identical reward. Compare the real
