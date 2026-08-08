@@ -27,12 +27,98 @@ progress, collapsible notes), not a static markdown file or a plain chat respons
 Format below.
 
 This skill applies to **any Xbox game** — open-world sandboxes, RPGs, shooters, racers,
-platformers, indies, multiplayer titles. Many examples below come from GTA-style open-world
-games because that's where the skill was battle-tested, but every principle generalizes: read
-"missions" as the game's own progress unit (quests, chapters, levels, races, operations),
-"islands" as any gated region or act, and "vehicle missions" as any repeatable side activity
-with a permanent reward. Don't skip a step because the game "doesn't have that" — translate
-the concept to the game's own systems instead.
+platformers, indies, multiplayer titles. Many examples below are shaped like open-world action
+games, because that's the genre this skill has been exercised on most, but every principle
+generalizes: read "mission" as the game's own progress unit (quest, chapter, level, race, run,
+match, turn, case), "region" as any slice that can be gated (act, level-select entry, difficulty
+tier, unlocked character, faction path, playlist), and "side activity" as any repeatable optional
+content with a reward. Don't skip a step because the game "doesn't have that" — translate the
+concept to the game's own systems instead.
+
+### This file never stores facts about a particular game
+
+**No example in this skill names a real game, mission, character, achievement, or location, and
+nothing learned while building one guide is written back here in those terms.** The skill is the
+method; a game is the input. A lesson learned on one title gets recorded as the *pattern* that made
+it fail — "an achievement whose enabling system stays inert until a mid-story mission switches it
+on" — never as the title, the achievement name, or the mission that exposed it.
+
+**Anonymizing the names is only half of it. An example also has to escape its genre.** Serial
+numbers filed off a crime-sandbox example leave a crime-sandbox example: stolen police cars,
+wanted levels, safehouses, districts, and stunt jumps still tell a reader building a roguelike,
+a racing sim, a puzzle game, a fighting game, or a turn-based strategy campaign nothing they can
+use — and worse, invite them to decide the step doesn't apply to their game at all. That is the
+same defect as naming the title, arriving one level deeper.
+
+So every example follows this shape:
+
+- **State the mechanism first, in terms any game can have** — a system that is switched on later
+  than the object that fronts it; a task whose fast method has prerequisites the task doesn't; a
+  requirement that accrues on elapsed time rather than player action.
+- **Then illustrate, and rotate the genre.** Where an illustration earns its place, prefer two or
+  three short ones drawn from *different kinds of game* over a single long worked example from one.
+  A reader should be able to find their own game's shape in at least one of them.
+- **Write every illustration as an explicit hypothetical**, marked as invented — "say a game
+  has…", "a hypothetical:", "picture a title where…" — or as a bracketed slot (`[the region that
+  opens in Act 2]`) in sample guide text. Never as a flat assertion. An unmarked invented specific
+  reads exactly like a researched fact, which is the failure this whole skill is built to prevent;
+  a plausible detail stated plainly is indistinguishable from a verified one, and the next reader
+  has no way to tell that "the enemy at the temple checkpoint" was made up to carry a point.
+- **Check the spread across the file, not just within one section.** If most examples in this
+  document could only occur in one genre, the file has drifted, regardless of how carefully each
+  individual example was anonymized.
+
+**Nothing in this file is a fact about any real game.** Every scenario, venue, enemy, item,
+threshold, and mission number below is invented to illustrate a mechanism. None of it is research
+output, none of it transfers to the game you are working on, and none of it may be reused as
+though it were known — the game in front of you gets researched from scratch, every time, exactly
+as Step 1 requires.
+
+The rough spread to write against: open-world sandboxes, action-adventures, RPGs (western and
+JRPG), shooters, roguelikes, racing games, platformers, fighting games, sports titles, strategy
+and 4X, survival/crafting, sims and management games, puzzle games, rhythm games, visual novels,
+live-service and multiplayer titles. Not every example needs to name one, but no example should
+be *impossible* in most of them.
+
+When adding to Key Lessons From Real Use, generalize *as you write the lesson*, not in a later
+cleanup pass — both the names and the genre. The generalized version is also the more useful one:
+it forces you to state which property of the situation caused the failure, which is the part that
+transfers.
+
+### The answers don't live here — the questions that produced them do
+
+Every lesson in this file came from asking one specific question about one specific game, getting
+an answer that contradicted what the guide already said, and fixing the guide. Removing the answers
+is deliberate; **removing the questions would gut the skill.** So the questions are stated here as
+standing work, to be asked again, from scratch, for the game in front of you.
+
+They are not background reading. **Each one is a research task performed during generation** — in
+Step 1 for most, and re-checked at the pre-presentation walk-through. None of them ever returns
+"same as last time," which is exactly why the answers can't be cached in this file:
+
+| Ask, of every… | The question | Wrong answer looks like |
+| --- | --- | --- |
+| item you're about to place in the earliest phase | Is the **system** behind this switched on yet, or is only the **object** present? | The thing is reachable from minute one, so it's Phase 1 — while the feature it fronts stays inert until a story beat |
+| item you believe has no gate | What **evidence** says it's ungated? | "No trigger found," which is absence of evidence wearing the face of evidence of absence |
+| non-trivial achievement | What is the community's **fast method**, and what does *that* method require? | Placing on the task's availability when the method is what's gated |
+| method you've found | Does anything **later remove** it? | A start point recorded where the task actually has a window |
+| location-dependent task | **Which** specific venue, level, or mode — and was it verified separately from the similar-looking one? | "Any bar," "any vendor," or two activities assumed to share a place because they're the same type |
+| task needing an item | Is the best place to **acquire** it the same as the best place to **use** it? | One location named for both, because collapsing them read tidier |
+| elapsed-time requirement | How **early** could this clock have been started? | A timer started at the line where its reward is collected |
+| deep-read achievement | What does the top-voted solution say about **when** to do it? | A defensible-sounding placement that the community consensus contradicts, with no note explaining the difference |
+| finished guide | Does the **look** come from images of *this* entry, or from adjectives and franchise reputation? | A palette named and rationalized without ever viewing the game |
+| count you researched | Does it **match** the walkthrough's stated count? | Two numbers that differ, averaged or ignored instead of resolved |
+
+The concrete findings these produce — the mission that switches on a system, the item that makes a
+skill trick trivial, the venue for each minigame, the entry's real palette — are genuine research
+output and worth keeping. **Keep them outside this file**: a per-game notes file, a memory entry,
+whatever the environment offers. Two rules for that store:
+
+- **It is an input to verify against, never a substitute for the research.** Games get patched,
+  servers close, community consensus moves, and a cached answer is a claim of the same standing as
+  a community guide's — useful as a starting point and a cross-check, not as ground truth. Treat a
+  conflict between the notes and a live source the way Step 1 treats any source disagreement.
+- **It never flows back into this file.** The skill takes the question; the notes take the answer.
 
 ---
 
@@ -40,6 +126,11 @@ the concept to the game's own systems instead.
 
 Before writing anything, web-search for current, accurate information. Do not rely on training
 data alone — achievement lists, missables, and exploit patching change over time.
+
+**The standing questions in "The answers don't live here" above are part of this step**, not a
+separate exercise: work the list for this game and record what each returns. If a per-game notes
+file exists from an earlier session, read it now — as a starting point and a cross-check to
+verify, never as a reason to skip a search.
 
 Search for:
 - Full achievement list with descriptions
@@ -49,11 +140,12 @@ Search for:
   decision) rather than only through a one-time story trigger. These are easy to miss because
   they don't show up in a simple achievement-list search; they surface in mechanic-specific or
   troubleshooting-focused searches instead (see Step 3).
-- 100% completion requirements (story missions, collectibles, side missions, vehicle missions,
-  etc.) — enumerate every distinct category explicitly, not just the obvious ones. Side-job
-  systems are easy to under-count: a game can have half a dozen distinct side-mission businesses
-  (e.g., trucking, valet, courier, quarry work) that a completion-percentage source lists but a
-  generic achievement-list source doesn't. Cross-check an authoritative "what counts toward 100%"
+- 100% completion requirements (story progress, collectibles, side content, repeatable activities,
+  etc.) — enumerate every distinct category explicitly, not just the obvious ones. Side-activity
+  systems are easy to under-count: a game can carry half a dozen distinct ones — a delivery job
+  line, a contract board, an arena ladder, a fishing or farming system, a photo or research
+  catalogue — that a completion-percentage source lists but a generic achievement-list source
+  doesn't. Cross-check an authoritative "what counts toward 100%"
   breakdown against the achievement list — they are usually different sources, and content that
   matters for one can be totally absent from the other.
 - Cumulative, whole-game requirements — anything satisfied by *how the player plays* over
@@ -82,7 +174,7 @@ Search for:
 - Collectible counts per area/region (exact numbers, not approximations), and what reward each
   collectible category actually grants (cash, weapons, stat unlocks) — this often changes how
   early it's worth prioritizing them.
-- Vehicle missions, minigames, or side content and what they unlock
+- Repeatable side activities, minigames, or optional content and what they unlock
 - **Where required vehicles, items, or NPCs actually spawn**, by name of location, not just
   "steal a truck." Community guides frequently get this wrong for small/rural locations
   specifically — a vehicle being conveniently available in the same small town as an unrelated
@@ -207,12 +299,13 @@ Use whichever of these cover the game:
 | **PlayStationTrophies.org** | Anything with a PlayStation release | Trophy names map 1:1 to achievement names for the same game, so its guides transfer directly. Useful when TrueAchievements' solutions are thin. |
 
 **Start with the TrueAchievements walkthrough overview. It is one read that plans every other
-read.** The URL is standard per game: `trueachievements.com/game/<Game-Slug>/walkthrough` — e.g.
-`.../game/Grand-Theft-Auto-4/walkthrough`.
+read.** The URL is standard per game: `trueachievements.com/game/<Game-Slug>/walkthrough`, where
+the slug is the game's title in hyphenated title case.
 
 **If that URL doesn't resolve, navigate to it rather than guessing again.** The slug is not
-mechanically derivable from the title — *Grand Theft Auto IV* is `Grand-Theft-Auto-4`, with the
-Roman numeral silently converted to Arabic — so a 404 usually means the slug is wrong, not that
+mechanically derivable from the title — subtitles and editions get dropped or reordered,
+punctuation vanishes, and a Roman numeral is often silently converted to an Arabic digit (a title
+ending `IV` becoming a slug ending `-4`) — so a 404 usually means the slug is wrong, not that
 the walkthrough is missing (and per the status-code rule above, 404 means fix the URL, not switch
 tools). The reliable path:
 
@@ -256,8 +349,8 @@ descriptions and, next to each, a **guide count** ("9 guides", "3 guides"). Two 
   returns confident, plausible, wrong content. **Harvest every ID in one shot** rather than reading
   the page repeatedly: run a small script in the browser that maps achievement name to ID from the
   links, e.g. collect `href` matches of `/a<digits>/` with their link text into one object. That
-  returns the whole game's ID table in a single compact result — 65 achievements for GTA IV — and
-  every later page is then a direct navigation.
+  returns the whole game's ID table in a single compact result — every achievement on a 60-plus
+  list in one object — and every later page is then a direct navigation.
 - **Guide count is a second triage signal, and a good one.** Many guides means the community found
   the method contested or non-obvious and kept adding better ones; one or two means it is
   straightforward and the top solution will only confirm what you already know. Combine it with the
@@ -299,8 +392,9 @@ fraction of them the placement is already forced and no thread can move it. Deci
 **Then split the deep-read candidates by what the open question actually is**, because half of
 them are asking something a solution thread is the wrong tool for:
 
-- **"Where are they?" — location and collectible enumeration.** Hidden packages, stunt jumps,
-  bridges, seagulls, races, shrines, chests: any set scattered across a map. Do **not** spend
+- **"Where are they?" — location and collectible enumeration.** Hidden pickups, audio logs,
+  shrines, chests, landmarks, race gates, lore notes: any set scattered across a map or a set of
+  levels. Do **not** spend
   achievement-page reads on these. What you need is an exhaustive location list, and that lives in
   a dedicated interactive map (MapGenie and its equivalents) or a wiki with map data — sources
   built for exactly this and far better at it than a prose solution. More importantly, **locations
@@ -518,18 +612,21 @@ prominently at the top of the guide.
 Before building the route, identify upgrades, rewards, or unlocks that make the rest of the
 game significantly easier. These should be front-loaded even if they feel like a detour.
 
-Common examples:
-- Vehicle missions that unlock infinite sprint, fireproof status, max armor (e.g., Paramedic,
-  Firefighter, Vigilante in GTA-style games)
-- Collectibles that unlock weapons, vehicles, or abilities at safehouses
-- Exploit missions that generate large amounts of money or XP early
-- Minigames that unlock permanent stat boosts
-- Companion/relationship perks that reduce the cost of death or failure (e.g., a perk that
-  prevents item loss on death or arrest) — worth calling out specifically before the guide's
-  most punishing or combat-heavy stretch, not just "whenever you get around to it"
-- The same logic in any genre: early traversal or ability unlocks in action-adventures, a
-  weapon/gear tier that trivializes a difficulty achievement, an XP/loot multiplier in an RPG,
-  or a practice mode that makes a hard minigame achievement cheaper to attempt
+Common shapes, across genres:
+- A repeatable side activity whose completion tiers hand over a permanent buff — infinite sprint,
+  fire resistance, an armor or damage tier, a carry-capacity increase
+- Collectible sets that unlock gear, abilities, or a base upgrade once a threshold is reached
+- An early exploit, contract, or investment that generates outsized money, XP, or resources
+- A minigame, trial, or training mode granting a permanent stat boost
+- A perk, relic, or relationship that reduces the cost of death or failure (keeping your items on
+  death, a free revive, a retry that doesn't reset the run) — worth calling out specifically
+  before the guide's most punishing stretch, not "whenever you get around to it"
+- Traversal and access unlocks that shrink every later trip: a double jump or grapple in a
+  platformer, a mount or fast-travel network in an RPG, a better ship or engine in a space or
+  racing game
+- Anything that lowers the difficulty of a *later* achievement: a gear tier that trivializes a
+  hard-mode run, an XP or loot multiplier, a practice or training mode that makes a demanding
+  skill achievement cheaper to attempt, a unit or card that breaks a strategy game's mid-game
 
 These should happen in Phase 1 or Phase 2 of the guide, not after the story.
 
@@ -552,8 +649,8 @@ unlock something" — also check:
   reward and let the reward backfill any "have X amount" requirement, instead of telling the
   player to bank that amount twice.
 - **Are there daily/session caps on a grindable stat or activity?** If so, say so, and give the
-  standard workaround (often: save at a safehouse/hub to skip an in-game cooldown) instead of
-  letting the player assume one long session will finish it.
+  standard workaround (often: resting, saving, or returning to a hub to roll the cooldown over)
+  instead of letting the player assume one long session will finish it.
 - **Does anything advance on elapsed time rather than on player action?** In-game days passing,
   a business or property accruing income, a build/craft/crop timer, a stock price moving, a
   letter or phone call arriving some days after a trigger, a relationship cooling off, a
@@ -572,17 +669,16 @@ unlock something" — also check:
   riskiest, most failure-prone stretch of the game? If a perk mitigates death/failure
   consequences, place the acquisition of that perk immediately before the section it protects,
   not as a passing mention somewhere earlier.
-- **Is the best place to acquire a required vehicle/item different from the best place to
-  actually use it?** Many vehicle-based side missions have a specific location that makes the
-  mission itself fastest (low traffic, convenient objective spawns) that is *not* where the
-  vehicle spawns. Verify both independently — don't assume the vehicle spawns wherever the
-  mission is easiest, and don't assume the guide should be organized around wherever the
-  vehicle happens to be available first. Place the task at its best **completion** location in
-  the route, and fold the acquisition into that same step as a "go get it from X, bring it
-  here" instruction, rather than defaulting to whichever location the vehicle happens to be
-  available at earliest. If fetching it is genuinely risky (a fragile or rollover-prone
-  vehicle, a long drive through traffic), say so and give the specific hazard to watch for, not
-  just "drive it over."
+- **Is the best place to *acquire* what a task needs different from the best place to *do* the
+  task?** The two questions look like one and routinely have different answers: the spot that
+  makes an activity fastest (a quiet area, dense objective spawns, a forgiving arena) is often not
+  where the required vehicle, weapon, tool, mount, ingredient, or unit is obtained. Verify both
+  independently — don't assume the item is found where the task is easiest, and don't organize the
+  route around wherever the item first becomes available. Place the task at its best **completion**
+  location and fold the acquisition into that same step as a "get it from X, bring it here"
+  instruction. If the fetch itself is risky — a fragile item that breaks, an escort that can die, a
+  consumable you only get one of, a long trip through hostile territory — say so and name the
+  specific hazard rather than "and then bring it over."
 
 This step is what separates "a list of true facts about the game" from "a list of true facts in
 an order that actually helps." When in doubt, ask: if the player does these two things in the
@@ -593,27 +689,30 @@ around? If the answer is "more," the order is wrong.
 
 ## Step 6: Identify Area-Gated Content
 
-Many open world games lock content behind story progression or map access. Before writing
+Most games lock some content behind progression. **"Area" here means whatever slice of a game can
+become temporarily or permanently unreachable** — a region of an open map, a chapter or act, a
+level select entry, a difficulty tier, a character or class you haven't recruited, a faction path
+you didn't take, a multiplayer playlist, a post-game dungeon, a New Game+ exclusive. Before writing
 the route, determine:
 
-- What content is accessible from the start vs. what requires story progress to unlock
-- Which collectibles, jumps, rampages, or side missions are physically blocked early
-- Which vehicle missions require specific vehicles that only spawn in locked areas
-- In non-open-world games, the same check applies to chapter-locked levels, point-of-no-return
-  cutoffs, and NG+-only content — "area" is whatever slice of the game can become temporarily
-  or permanently unreachable
+- What is accessible from the start vs. what requires progress to unlock
+- Which collectibles, challenges, or side content are physically blocked early — behind a locked
+  region, a traversal ability you don't have, a level you can't yet select, a rank you haven't hit
+- Which activities require something that itself only exists later: a vehicle, a key item, a
+  companion, an unlocked loadout, a crafting tier, a party member with a specific skill
+- Where the point-of-no-return cutoffs are, and what becomes unreachable past each
 
 **Do not tell the player to sweep areas they cannot fully access yet.** Only instruct a
-collectible or content sweep once the player has full access to that area. If access is
-partial, state exactly what is and is not reachable.
+collectible or content sweep once the player has full access. If access is partial, state exactly
+what is and is not reachable.
 
-For example: "There are X collectibles in this area. You can reach Y of them now on foot.
-The remaining Z require a helicopter / story unlock / specific vehicle — come back for those
-in Phase N."
+For example: "There are X collectibles in this area. Y are reachable now. The remaining Z need the
+grapple upgrade / a story unlock / a specific companion — come back for those in Phase N."
 
-This was a key clarification from real use: telling a player to collect all hidden packages
-on Island 1 when they are on mission 1 is incorrect — many are physically inaccessible.
-Always ground collectible sweeps in what is actually reachable at that point in the route.
+This was a key clarification from real use: telling a player to sweep a whole region's collectibles
+at the start of the game is wrong, because a share of them are behind abilities or access they
+don't have yet — the same error as pointing a player at every level's hidden items before the level
+select is populated. Always ground sweeps in what is actually reachable at that point in the route.
 
 ---
 
@@ -664,7 +763,8 @@ next things the player does after the parent. If a piece of side content unlocke
 is best done immediately, it nests under mission 6. If it's best done 40 items later — because
 of area access, a resource it needs, a timer, or simple efficiency — it is not a child of
 mission 6 at all. It's its own item at its own correct position, carrying a note that names
-what unlocked it ("opened up by 'Drive-Thru' back in Phase 1"). The unlock relationship is
+what unlocked it ("opened up by the Phase 1 mission that unlocked [the workshop]"). The
+unlock relationship is
 information; the position is the instruction. Encode the relationship in a note, never by
 dragging the item out of its place in the route.
 
@@ -738,18 +838,17 @@ the time-gated cases further down.
 This is a specific, easy-to-violate case of the granularity principle above, worth spelling out
 on its own because it's the anti-pattern that recurs most often:
 
-**Wrong:** `Play missions 7 through 17 (Nines and AK's, Drive-By, Sweet's Girl, Cesar
-Vialpando, Home Invasion, Catalyst, Robbing Uncle Sam, OG Loc, Running Dog, Wrong Side of the
-Tracks, Just Business).`
+**Wrong:** a single line reading `Play missions 7 through 17`, followed by all eleven mission
+titles crammed into a parenthetical on that same line.
 
-This crams eleven distinct missions into a parenthetical on a single line. The player can only
-check off "did the whole stretch" as one lump action, there's no way to track partial progress
-through it, and a long parenthetical is harder to scan than a short list.
+This puts eleven distinct missions into one checkbox. The player can only check off "did the whole
+stretch" as one lump action, there's no way to track partial progress through it, and a long
+parenthetical is harder to scan than a short list.
 
 **Right:** the parent line states only the range (`Play missions 7 through 17.`), and each
-mission gets its own child row nested underneath it — `Nines and AK's`, `Drive-By`, `Sweet's
-Girl`, and so on, one per line, each its own checkbox. The parent collapses them visually
-(collapsed by default with a small toggle to expand), but each is independently checkable.
+mission gets its own child row nested underneath it, named in full, one per line, each its own
+checkbox. The parent collapses them visually (collapsed by default with a small toggle to expand),
+but each is independently checkable.
 
 This applies to every bundle, however short — consistency matters more than saving one toggle
 click on a two-mission bundle. It applies even when nothing noteworthy happens in a given
@@ -783,19 +882,21 @@ hasn't switched on yet costs the player a session of trying to do something impo
 concluding the guide is wrong.
 
 **The trap is that the object exists before the feature does.** A gate does not have to look like a
-locked bridge. The thing the task needs can be physically present, reachable, and enterable from
-minute one while the function it provides is simply switched off until a mission flips it — and
-every check in this skill that verifies *the thing is there* will pass. GTA IV's "Cleaned the Mean
-Streets" is the case that exposed it: capturing criminals needs the police computer, the police
-computer is in any LCPD car, and a police car can be stolen in the first ten minutes. The Most
-Wanted database behind it is dead until the Vlad mission "Crime and Punishment," roughly mission 14.
-Placed in Phase 1 on "you can steal a cop car whenever," the item sends the player to sit in front
-of a working-looking terminal that does nothing.
+locked door. The thing the task needs is often physically present, reachable, and interactable from
+the first hour while the function it provides is simply switched off until a story beat flips it —
+and every check in this skill that verifies *the thing is there* will pass.
 
-The general shape, in any genre: a menu tab, a shop, a vendor, a phone contact list, an in-game
-website, a fast-travel network, a bounty board, a crafting bench, a stat or challenge screen. Ask
-of every early item not "can the player reach it?" but **"is the system behind it running yet?"** —
-they are different questions and only the first one is easy to check.
+The shape recurs in every genre, and always the same way. Hypothetical cases, all invented: a
+crafting bench you can stand at that accepts no recipes until a story beat teaches you one; a
+contract board that renders empty until you join the faction; a vendor whose interesting stock is
+flagged out until a chapter turns over; a fast-travel map you can open but not travel from; a
+challenge menu whose entries all read "locked" without saying why; a multiplayer playlist visible
+but unpopulated until a campaign rank; a terminal or scanner built into a common vehicle whose
+backing database is inert. In each, the object is there and the system behind it is not.
+
+Ask of every early item not "can the player reach it?" but **"is the system behind it running
+yet?"** — they are different questions, and only the first one is easy to check. The first is what
+a location or item lookup answers, which is exactly why the second one gets skipped.
 
 ### Earliest reachable is a ceiling, not a target
 
@@ -811,14 +912,19 @@ carries prerequisites the raw task doesn't*. The task looks ungated, so an audit
 "available from the start" and drops it in Phase 1, where the only version the player can
 actually attempt is the slow, miserable one.
 
-A worked example, generalizable to any genre: an achievement for landing a number of melee
-counters has no gate whatsoever — the player can punch a pedestrian five minutes in. But the
-method that makes it quick is a particular place where NPCs reliably fight back rather than
-fleeing, and in GTA IV that place (the Higgins Helitours queue, Fishmarket South) is in Algonquin,
-across bridges the story hasn't opened yet. Placed "as early as possible," the item lands before
-mission 6 and asks the player to do a version of the task that's dramatically worse — or to
-attempt it somewhere they can't yet legally reach. The achievement was ungated; the good method
-never was.
+A hypothetical, to fix the shape — invented, like every example here. Say an achievement asks for
+50 perfect parries. It has no gate whatsoever: the player can parry the first enemy in the
+tutorial. But say the method that makes it quick is one enemy type that telegraphs slowly and
+respawns indefinitely next to a checkpoint, and that enemy first appears in a mid-game zone.
+Placed "as early as possible," the item lands in the opening hours and asks the player to grind 50
+parries against fast, scarce enemies instead of 50 against slow, infinite ones. The achievement was
+ungated; the good method never was.
+
+The same shape with the details swapped, all equally invented: a strategy game's "win without
+losing a unit," attemptable on any map and trivial only on the one with a chokepoint; a roguelike's
+kill-count achievement, open from run one and several times faster once a build-defining relic has
+been unlocked into the pool; a sports title's career milestone, reachable in any mode and cheapest
+in the one that lets you simulate.
 
 **Place every item at the earliest point where its best method is available and the player is
 already going to be nearby** — not the earliest point the task is technically possible. Doing
@@ -851,9 +957,10 @@ task the forty-minute way.
 
 The usual causes, in any genre:
 
-- **A method that depends on something still being locked.** Trespassing into a region the story
-  hasn't opened often triggers an instant maximum alert state, a unique enemy, or a boundary
-  behaviour that simply stops existing once that region unlocks normally.
+- **A method that depends on something still being locked or unfinished.** A region in its
+  pre-story state, a faction still hostile, an out-of-bounds behaviour, a difficulty tier that
+  hasn't scaled yet — each can produce a shortcut that simply stops existing once things unlock
+  normally.
 - **A method that depends on the player still being weak or low-level** — scaled enemies, a
   tutorial-grade encounter, an early-game spawn table that stops appearing.
 - **A method that depends on a character, faction, vendor, or vehicle** that dies, leaves,
@@ -884,8 +991,9 @@ past in Phase 5 costs nothing to leave in Phase 5, while the same task in Phase 
 cross-map trip and a harder attempt. **When early and late are genuinely comparable, go early** —
 that's what keeps the cleanup phase small. When they aren't, go where it's cheap.
 
-**Then record the decision in the item's note** ("left until Phase 4 — the Helitours crowd is the
-fast way to do this and Algonquin isn't open before then"). An unexplained late item is
+**Then record the decision in the item's note** — in the invented terms above, "left until Phase 4
+— [the slow-telegraph enemies] are the fast way to do this, and [their zone] isn't open before
+then." An unexplained late item is
 indistinguishable from an unresearched one, and the next pass over the guide will drag it forward
 again on exactly the reasoning this section exists to stop.
 
@@ -958,8 +1066,8 @@ completely accurate and still waste hours of the player's life. The failure look
 
 ```
 □ Wait a few in-game days for the property to start paying out.
-□ Wait a few in-game days for the newspaper to run the story.
-□ Wait a few in-game days for Sofia to call about the next job.
+□ Wait a few in-game days for the crop to finish growing.
+□ Wait a few in-game days for the letter about the next job to arrive.
 ```
 
 Three clocks that could all have been ticking simultaneously since Phase 2, run one after
@@ -980,16 +1088,16 @@ Three things fix it, in this order:
   usual grouping and backtracking rules still decide exactly where). Concurrent timers collapse
   into one window sized by the longest one, not a queue.
 - **Only if the window genuinely can't be filled**, name the game's own cheapest way to burn the
-  clock — sleeping at a safehouse, saving to advance six hours, a fast-travel leg — as *one*
-  line, not one per timer, and say how much time it needs to cover. "Wait a few in-game days"
-  with no mechanism is never acceptable; if the player must pass time, tell them the fastest way
-  the game provides.
+  clock — resting at a camp or inn, saving to roll the clock forward, ending the turn, a
+  fast-travel leg — as *one* line, not one per timer, and say how much time it needs to cover.
+  "Wait a few in-game days" with no mechanism is never acceptable; if the player must pass time,
+  tell them the fastest way the game provides.
 
-**How this renders in the checklist:** the *start* is a real checkbox ("Buy the Vank Hoff Hotel
+**How this renders in the checklist:** the *start* is a real checkbox ("Buy [the income property]
 — income accrues from here"). The *collection* is a real checkbox later. The wait itself gets no
-checkbox at all — it is not something the player does (the no-FYI-checkbox rule in Output
-Format), so it lives as a note on the collection line: "needs ~5 in-game days; you started this
-back in Phase 2 and the missions since have covered it."
+checkbox at all — it is not something the player does (the no-FYI-checkbox rule in Output Format),
+so it lives as a note on the collection line: "needs ~5 in-game days; you started this back in
+Phase 2 and the missions since have covered it."
 
 **Then verify the window is actually covered.** If the intervening route is shorter than the
 timer, the note is a lie — move the start earlier, move the collection later, or add the
@@ -1023,9 +1131,9 @@ relationship is paid for — in notes, not by moving items:
 
 - **The first link carries the map of the whole chain** in its note: how many links, roughly how
   much in-game time each gap needs, and where each subsequent link sits in the route ("4 visits
-  total, ~3 in-game days between each; the next three are in Phase 3 after the docks missions,
-  Phase 4 opening, and Phase 4 after the airport"). The player should never be surprised by a
-  link appearing, or wonder whether they missed one.
+  total, ~3 in-game days between each; the next three are in Phase 3 after [the harbor questline],
+  at the opening of Phase 4, and in Phase 4 after [the tournament]"). The player should never be
+  surprised by a link appearing, or wonder whether they missed one.
 - **Every later link carries a back-pointer**: "visit 3 of 4 — you did visit 2 in Phase 3; enough
   days have passed since then." Without it, a lone "talk to X again" line 60 items later reads as
   an orphan or a duplicate.
@@ -1035,7 +1143,7 @@ relationship is paid for — in notes, not by moving items:
   out of nearby tasks — that tail is where this bug survives an inattentive check.
 - **If a gap genuinely can't be filled** — the player has cleared everything reachable in that
   window — that specific gap gets the named pass-time mechanism from above, and only that gap.
-  One unavoidable "sleep twice at the safehouse to cover the remaining two days" is a fine
+  One unavoidable "rest twice at [the inn] to cover the remaining two days" is a fine
   outcome; three of them in a row means the interleaving was never done.
 - **The chain still has to satisfy the deferral and dependency rules** (Step 7 principle 10, and
   the line-by-line dependency check): every link is a real checkbox in a real phase, and the
@@ -1053,12 +1161,13 @@ interleaved — it was transcribed.
 
 Use consistent, plain terms throughout:
 
-- **Name areas explicitly** (e.g., "Vice City Beach / East Island," "Vice City Mainland /
-  West Island") rather than shorthand like "Island 1" or "Island 2" without defining them.
-  Define any shorthand on first use: "Vice City Beach (the starting island, also called
-  Island 1 in some guides)."
-- **Define jargon on first use.** Not all players know what "vehicle missions," "rampages,"
-  or "stunt jumps" are in a given game. One-line definition on first mention.
+- **Name regions, zones, chapters, and modes by their in-game names** rather than a shorthand the
+  game itself never uses ("Island 1," "Area 2," "the second act"). Where community guides use a
+  shorthand, define it against the in-game name on first use: "[the game's own name] (the starting
+  region, called Zone 1 in some guides)."
+- **Define jargon on first use.** Not all players know the game's own name for its side activities,
+  or what a given title means by a "trial," a "rampage," a "time attack," a "seed," or an
+  "ascension." One-line definition on first mention.
 - **State collectible counts precisely** — total in area, reachable now, and what blocks
   the rest. Never say "grab all X collectibles" if some are inaccessible.
 - **Separate achievements from 100% requirements.** Some achievements are not required
@@ -1131,8 +1240,8 @@ divs is not acceptable and will need to be redone.
    fraction in its collapsed header so the player can see progress without opening it. First
    (or current, if known) phase open by default, rest collapsed, so the player isn't scrolling
    past phases they've already finished. Power-unlocks fold into the phase where they're
-   front-loaded, per Step 4. Phase **titles** are proper title case ("Alderney Unlocked," not
-   "Alderney unlocked"); the smaller descriptive sub-caption under the title (e.g. "missions
+   front-loaded, per Step 4. Phase **titles** are proper title case ("Second Region Unlocked," not
+   "Second region unlocked"); the smaller descriptive sub-caption under the title (e.g. "missions
    52-88") can stay as a plain lowercase caption, matching the reference file.
 5. **Time estimate** — story completion and full 100% estimate, if sources provide one.
 6. **Footer** — a "Tools" list (map/tracker sites, save-checker sites) and a "Known stuck-at-X%
@@ -1155,17 +1264,17 @@ So:
 
 - **Search the full dataset, not the rendered DOM.** Match against every item's visible text
   *and* its note text, plus phase titles, phase notes, and the missables box. Notes are the
-  highest-value target: when a player searches "bowling alley," "fireproof," or "ambulance,"
-  the answer is usually a location or definition the skill deliberately tucked into a note.
+  highest-value target: when a player searches "blacksmith," "fire resistance," or "respec," the
+  answer is usually a location or definition the skill deliberately tucked into a note.
 - **Reveal matches automatically.** A hit inside a collapsed phase opens that phase; a hit inside
   a bundled mission sub-list opens the parent; a hit inside a note expands (or at minimum flags)
   that note. Filtering without auto-expanding is the same bug as not searching notes at all.
-- **Keep matches in context.** A lone child row reading "Drive-By" tells the player nothing.
-  Show the ancestor chain — phase, then parent item, then the matching row — so every result is
-  locatable in the route.
+- **Keep matches in context.** A lone child row showing nothing but a mission's name tells the
+  player nothing. Show the ancestor chain — phase, then parent item, then the matching row — so
+  every result is locatable in the route.
 - **Highlight the matched substring** in the results, case-insensitively.
 - **Show a live match count** ("14 matches"), and a real empty state naming the term ("No matches
-  for 'stunt jump'") rather than a blank list.
+  for 'stealth kill'") rather than a blank list.
 - **Clearing search restores the player's previous expand/collapse state**, not everything-open
   and not everything-closed. Snapshot the state when a search begins, restore it on clear. A
   player working in Phase 4 who searches for something and clears should land back in Phase 4.
@@ -1223,8 +1332,8 @@ That does not mean "one line per mission":
   system, it's a hard area/story gate, or it's otherwise notable. Keep nesting to one level
   deep for readability.
 - **Side content nests under the mission that unlocks it, as a child item, not as a sibling
-  and not under a separate "Side Content" heading.** A parent line ("Play mission 6 'Drive-Thru'
-  (gym unlocks)") gets child lines directly under it for what just opened up. This keeps strict
+  and not under a separate "Side Content" heading.** A parent line ("Play mission 6 — [the workshop]
+  unlocks") gets child lines directly under it for what just opened up. This keeps strict
   play order intact while still grouping logically — the player expands the mission, clears
   what it unlocked, moves to the next. Do not split a phase into "Story missions" / "Side
   content" / "Achievements" sections — that was tried and rejected, it forces the player to
@@ -1268,7 +1377,7 @@ tasks and must never get their own checkbox. Concretely:
 ### Explain thoroughly, in as few words as possible
 
 A short line is good; a short line that assumes knowledge the player doesn't have is not. Don't
-ship a bare achievement name and a fragment ("Cut Your Teeth — one rank promotion") without
+ship a bare achievement name and a fragment ("[achievement name] — one rank promotion") without
 making sure a first-time player would know what to actually do — what "rank" means here, how
 it's earned, where. Prefer: keep the visible line as short as the reference file's style, but
 back every non-obvious one with a note that answers "what do I actually do, in plain terms" in
@@ -1277,15 +1386,18 @@ anything named after in-game jargon.
 
 ### Add locations whenever they're needed or would help
 
-If a task happens at a specific place (a shop, a landmark, a district), name it — "Homebrew
-Café, Beechwood City" beats "any internet café." When more than one valid location exists,
-don't just name one arbitrarily: work out and recommend the *best* one — closest to wherever
-the player will actually be at that point in the route (their current safehouse, the mission
-they just finished, an area they're already passing through), or otherwise the most convenient
-(everything in one stop, open earliest, cheapest). "Any bar with a pool table" is a cop-out if
-research can turn up the specific bar, its neighborhood, and why it's the right pick right now.
-Look this up during research (Step 1) — don't leave it vague, and don't assume two different
-activities share a location just because they're the same "type" of venue; verify each one.
+If a task happens somewhere specific — a vendor, a landmark, a room, a level, a map, a mode, a
+menu — name it exactly. The place's own name plus how to get to it beats "at any merchant" or "on
+one of the desert maps." When more than one valid option exists, don't name one arbitrarily: work
+out and recommend the *best* one — closest to where the player actually is at that point in the
+route (their current hub or base, the mission they just finished, an area they're already passing
+through), or otherwise the most convenient (everything in one stop, cheapest, unlocked earliest,
+shortest to reload). "Any vendor who sells reagents" and "any level with a long straight" are
+cop-outs if research can turn up the specific one and why it's the right pick right now.
+
+Look this up during research (Step 1) — don't leave it vague, and don't assume two activities of
+the same "type" share a location, a level, or a mode just because they seem like they would;
+verify each one separately.
 
 ### Content depth standard
 
@@ -1298,8 +1410,8 @@ including (via an expandable note, see below, so the main line stays scannable):
 - Efficient techniques/exploits worth calling out explicitly
 
 Use a small expandable "(i)" note toggle on any line that needs this extra detail or a
-plain-English definition of jargon (assume the player may be new to this game — define terms
-like "vigilante missions" or "triathlons" on first use via this same mechanism). The visible
+plain-English definition of jargon (assume the player may be new to this game — define the game's
+own names for its side activities and minigames on first use via this same mechanism). The visible
 line stays short; depth lives one tap away. Nothing the player actually needs to *not miss*
 gets hidden behind a collapsed note — only context and reasoning does. The test: if you deleted
 every note, would the player still be able to complete everything correctly, just without
@@ -1316,8 +1428,8 @@ Build the look from the research gathered in Step 1, not from imagination:
 
 - **Palette from the game**, not from a generic dark-dashboard default. Take it from what the
   game actually looks like — its HUD and menus, its key art, the dominant colors of its setting.
-  Liberty City's rain-grey and washed municipal blue is not Vice City's sunset pink and teal, and
-  neither is a fantasy RPG's parchment and ink.
+  A rain-grey city of washed municipal blue is not a sunset-pink-and-teal beach city, and neither
+  is a fantasy RPG's parchment and ink.
 - **Type that evokes the game's own lettering.** Pair a display face for the header and phase
   titles with a readable body face (Google Fonts are fine). The logo's letterforms and the
   mission-title card are the reference.
@@ -1328,15 +1440,15 @@ Build the look from the research gathered in Step 1, not from imagination:
 
 **Theme the entry, not the franchise.** A series' most iconic look is not necessarily *this*
 game's look, and the more famous the franchise, the stronger the pull toward its brand imagery
-instead of the title in front of you. GTA IV is the textbook case and the one that has actually
-gone wrong here: "GTA" evokes sun-bleached neon — hot pink, cyan, palm trees, a chrome-and-sunset
-logo — and GTA IV is the deliberate opposite of that. It is grey, rain-soaked Liberty City,
-desaturated blue and municipal drab, dirty amber sodium streetlight, with key art built from
-high-contrast black-and-white character panels. A neon treatment on that guide isn't a slightly-off
-palette, it's a different game's identity. The same trap sits in any series with a tonal outlier:
-check what *this* entry looks like, and when an entry breaks from its series' house style,
-say so explicitly in your notes and verify the palette twice — the franchise's gravity is
-strongest exactly where it is most wrong.
+instead of the title in front of you. The case that has actually gone wrong here had exactly this
+shape: a long-running open-world series whose brand imagery is sun-bleached neon — hot pink, cyan,
+palm trees, a chrome-and-sunset logo — and the entry being written up was the deliberate opposite
+of that. Grey and rain-soaked, desaturated blue and municipal drab, dirty amber sodium streetlight,
+key art built from high-contrast black-and-white character panels. The neon treatment that shipped
+wasn't a slightly-off palette, it was a different game's identity. The same trap sits in any series
+with a tonal outlier: check what *this* entry looks like, and when an entry breaks from its series'
+house style, say so explicitly in your notes and verify the palette twice — the franchise's gravity
+is strongest exactly where it is most wrong.
 
 **The reference-file trap is the main way this fails, and it is built into the workflow.** This
 skill tells you to open a prior game's guide as the reference for quality bar and structure — and
@@ -1423,16 +1535,17 @@ unlock description never became a task.
 for each thing the line mentions, resolve it in one of two directions.**
 
 **Backward (prerequisites): does the player already have it at this point in the route?** For
-every requirement a line implies, the acquisition must be either folded into that same line ("go
-get the ambulance from Dillimore General, bring it to Angel Pine") or completed by an earlier line
-the player has already checked off. If neither is true, the line is unplayable as written — add
-the acquisition step, or move the line to after whatever provides it. Things that hide as silent
-prerequisites:
+every requirement a line implies, the acquisition must be either folded into that same line ("grab
+[the fire-resistance item] from [the last vendor] before you enter [the fire zone]") or
+completed by an earlier line the player has already checked off. If neither is true, the line is
+unplayable as written — add the acquisition step, or move the line to after whatever provides it.
+Things that hide as silent prerequisites:
 
 - A required vehicle, weapon, tool, or outfit the route never told the player to obtain
 - Cash, currency, or materials the route never had the player earn before a purchase item
 - A skill/stat level, license, or proficiency gate on an activity
-- Map or region access, a safehouse, a garage, a fast-travel unlock
+- Map, region, level, or mode access — a hub, a storage upgrade, a fast-travel unlock, a
+  difficulty tier that has to be beaten before the next one appears
 - An ability, perk, or companion introduced by a mission placed later than this line
 - **A game system, feature, service, or menu that a story mission switches on** — a database or
   terminal, a phone contact, a shop or in-game website, property purchasing, fast travel, a bounty
@@ -1444,10 +1557,10 @@ prerequisites:
 **Forward (mentions): does the thing named have its own real completion step somewhere?** Every
 noun the guide introduces as something that exists and matters must eventually appear as an
 actual checkbox item — not just as a phrase inside another item's text. The highest-risk source
-is unlock descriptions: "(gym unlocks)," "also unlocks Freight Train," "opens up the chop shop"
-each name a whole content category that will silently never be done if it never receives its own
-line. Also check anything named in a note as "you'll want this for X," any activity mentioned as
-existing in an area sweep, and any achievement referenced in passing.
+is unlock descriptions: "(the workshop unlocks)," "also unlocks horde mode," "opens up the second
+crafting tier" each name a whole content category that will silently never be done if it never
+receives its own line. Also check anything named in a note as "you'll want this for X," any
+activity mentioned as existing in an area sweep, and any achievement referenced in passing.
 
 Resolution is one of exactly three things, and "it's implied" is not among them:
 
@@ -1469,11 +1582,11 @@ whatever used to sit above it.
 
 The dependency check above resolves things a line *needs*. This one catches the mirror-image bug:
 a line that treats an action as **already performed** when no earlier line ever told the player to
-perform it. The guide says "now that the garage is upgraded," "with all 12 tapes collected," "sell
-the cars you've been stockpiling," "you should be at max muscle by now" — and the route never
-contained the step. Unlike the deferral sweep, nothing here reads as unfinished; it reads as
-*finished*, which is worse, because the player trusts it and moves on. They discover the gap only
-when the assumed thing turns out not to exist.
+perform it. The guide says "now that [the base] is upgraded," "with all [12 relics] collected,"
+"sell the materials you've been stockpiling," "you should be at max strength by now" — and the
+route never contained the step. Unlike the deferral sweep, nothing here reads as unfinished; it
+reads as *finished*, which is worse, because the player trusts it and moves on. They discover the
+gap only when the assumed thing turns out not to exist.
 
 This is not the same as a missing prerequisite. A prerequisite hole leaves the player unable to
 start a task and they notice immediately. An assumed completion quietly writes a task out of the
@@ -1503,9 +1616,9 @@ in passing, and not something a later phase happens to cover. Three legitimate r
 Two things this check should specifically look at, because they fail quietly:
 
 - **Ongoing/accumulating requirements** (money totals, stat maxes, collectible counts, reputation
-  levels). A later line assuming a threshold — "you'll have the $200k for the airport by now" —
-  only holds if the route actually generated it. Trace the arithmetic, don't assume the player
-  played efficiently.
+  levels). A later line assuming a threshold — "you'll have the [200,000] for [the ship upgrade]
+  by now" — only holds if the route actually generated it. Trace the arithmetic, don't assume the
+  player played efficiently.
 - **Anything the player was told was optional earlier.** If an earlier step is presented as
   optional and a later line assumes it's done, that's a contradiction — either make the earlier
   step required, or make the later line handle its absence.
@@ -1596,10 +1709,11 @@ and it now points somewhere else or nowhere. Since this skill reorders items con
 windows, chain interleaving, cleanup audits, play-order corrections), positional references are
 guaranteed to rot, and they rot in the notes nobody re-reads.
 
-**Name the thing, not its distance.** "You unlocked Roman's taxi earlier in this phase when you
-pushed his Like past 90%" survives any reordering; "you unlocked it two steps above" does not.
-Where the reference genuinely needs locating, name the phase or the item's own title — both
-travel with the item — never a count of rows or a relative direction.
+**Name the thing, not its distance.** "You unlocked [the free-fast-travel perk] earlier in this
+phase when you pushed [that companion's] friendship past 90%" survives any reordering; "you
+unlocked it two steps above" does not. Where the reference genuinely needs locating, name the
+phase or the item's own title — both travel with the item — never a count of rows or a relative
+direction.
 
 This applies to the guide's own text, not to phase names: "in Phase 2" is stable because phases
 are named units, while "two items up" is not. Sweep for the pattern before presenting; it is a
@@ -1659,9 +1773,9 @@ checking:
 - **Line by line: does every dependency a line raises resolve?** For each item, is every
   prerequisite it implies (vehicle, cash, unlock, region access, stat level) either acquired in
   that same line or already completed by an earlier one — and does every thing the line names
-  (especially inside unlock descriptions like "gym unlocks") have its own real checkbox somewhere
-  later, or an explicit out-of-scope statement? Enumerate them; don't eyeball it (the dependency
-  check above).
+  (especially inside unlock descriptions like "the workshop unlocks") have its own real checkbox
+  somewhere later, or an explicit out-of-scope statement? Enumerate them; don't eyeball it (the
+  dependency check above).
 - **Does every line that speaks of an action in the past tense point at a real earlier step that
   performed it?** "Now that you've …", "the X you bought earlier", "you should have $200k by
   now", and phase intros recapping the previous phase all assert work was done — each one needs
@@ -1748,6 +1862,12 @@ checking:
   Step 7)? And does every ongoing whole-game requirement have its habit stated in Phase 1,
   checkpoints along the route, and only a verification-plus-top-up line at the end?
 
+- **Did every standing question get an actual answer for this game?** Walk the table in "The
+  answers don't live here" and confirm each row was researched rather than assumed — most of the
+  checks above are one of those questions applied to a finished file, and an unanswered row is a
+  guide resting on whatever the last game's answer happened to be. Write what you found to the
+  per-game notes store, not into this skill.
+
 This pass is not optional and not the same thing as validating JS syntax — syntax validation
 confirms the file runs, this pass confirms the file is *right*. Do both. Fix what you find, and
 only present the guide after this pass, not before it.
@@ -1756,15 +1876,21 @@ only present the guide after this pass, not before it.
 
 ## Key Lessons From Real Use
 
+Every lesson below is written as a pattern, with the game, mission, achievement, character, and
+place names stripped out — see "This file never stores facts about a particular game" at the top.
+When you add one, generalize it in the same pass: state the property of the situation that caused
+the failure, not the title it happened in.
+
 - Players may be at mission 1 when asking for this guide. Do not front-load the guide with
   content sweeps that require mid-game progress to complete.
 - Collectible sweeps should always specify how many are reachable *right now*, not just the
   total count.
 - Area names in guides often differ from what players see on the map in-game. Use the
   in-game name first, then note the guide shorthand if needed.
-- Vehicle missions (Paramedic, Taxi, Firefighter, etc.) are often skipped by players
-  rushing story — but their upgrades (infinite sprint, fireproof, etc.) are significant
-  enough to call out explicitly and early.
+- Optional side systems whose reward is a *permanent* upgrade — a job line, a contract board, an
+  arena ladder, a training regimen, a collection turn-in — are the first thing a player rushing
+  story skips, and the upgrades behind them (infinite sprint, a resistance, a damage or capacity
+  tier) pay back across everything after. Call them out explicitly and early.
 - Some games have exploit-based money/XP grinds that trivialize later content. These are
   worth flagging even if the player doesn't ask, as they can save significant time.
 - A tool call that returns no content is not the same as a tool call that confirms something
@@ -1802,20 +1928,20 @@ only present the guide after this pass, not before it.
   a "fix" when a save error appears is the wrong move; the file was already using it correctly
   and the real gap was missing retry/backoff and swallowing the error instead of surfacing it
   or degrading gracefully.
-- Reported from real use: the GTA IV guide's theme "wasn't really close to the style of the game,"
+- Reported from real use: a finished guide's theme "wasn't really close to the style of the game,"
   even though the rule requiring a per-game look was already in the skill. Three mechanisms, all
   fixable, none of them "try harder." **A palette cannot be derived from a text search** — every
   other fact in Step 1 is prose and survives the trip, but search results describe a game in
   adjectives, and "gritty," "atmospheric," and "urban" all compress to dark grey plus one accent no
   matter which game produced them. You have to view screenshots and key art, or say you can't and
-  ask the player. **Franchise gravity beats entry specifics** — "GTA" pulls toward Vice City neon,
-  and GTA IV is the franchise's deliberate tonal opposite: grey rain-soaked Liberty City,
-  desaturated municipal blue, sodium-amber streetlight, black-and-white character-panel key art.
-  The pull is strongest exactly where it's most wrong. **And the gate first written for this
-  checked the wrong thing**: it asked the builder to *name* the palette and its source, which is
-  self-assessment against your own reasoning — the identical failure this skill already documents
-  for placement notes. Compare the header against an actual image, and show the player the palette
-  before building three hundred items on top of it.
+  ask the player. **Franchise gravity beats entry specifics** — the series in that case is known
+  for sun-bleached neon, and the entry being written up was its deliberate tonal opposite: a grey
+  rain-soaked city, desaturated municipal blue, sodium-amber streetlight, black-and-white
+  character-panel key art. The pull is strongest exactly where it's most wrong. **And the gate
+  first written for this checked the wrong thing**: it asked the builder to *name* the palette and
+  its source, which is self-assessment against your own reasoning — the identical failure this
+  skill already documents for placement notes. Compare the header against an actual image, and
+  show the player the palette before building three hundred items on top of it.
 - Per-game visual identity was stated as a rule twice and enforced nowhere: no research step fed
   it, no pre-presentation check tested it, and the only guard was "never reuse a previous game's
   *exact* palette" — which a recolor of the last guide passes. It is also the one requirement the
@@ -1831,20 +1957,21 @@ only present the guide after this pass, not before it.
 - A bundled mission line ("Play missions 2-10") still needs every mission individually
   checkable — as a collapsed nested sub-list under that line, not as names crammed into a
   parenthetical on the summary line itself.
-- Phase titles need real title case ("Alderney Unlocked"), not sentence case — small detail,
+- Phase titles need real title case ("Second Region Unlocked"), not sentence case — small detail,
   easy to get wrong by treating the title field like the descriptive sub-caption beneath it.
 - FYI/context lines snuck in as checkboxes repeatedly (multiplayer's intro paragraph, "this
   whole map is open from mission 1" for each DLC) because there was nowhere else to put them —
   the fix was adding a real phase-level `note` field rendered above the item list, not a
   reminder to "try harder" at spotting these. Structure the data model so non-actionable
   content has a home that isn't a checkbox.
-- A terse achievement line ("Cut Your Teeth — one rank promotion") can be simultaneously short
+- A terse achievement line (a name plus "one rank promotion") can be simultaneously short
   and unclear if the player doesn't already know the game's systems. Short main line, note for
   the actual explanation, every time something isn't self-evident.
-- Locations get missed by default unless specifically checked for during research — police
-  computer access (needs a law enforcement vehicle, not "any police station"), bowling alley
-  name, bar name for darts/pool, golf course name, cage fighting arena location all had to be
-  added on a later pass. Look them up in Step 1, don't wait to be asked.
+- Locations get missed by default unless specifically checked for during research. In one guide,
+  the venue for each minigame, the vendor for a required item, the arena for a challenge type, and
+  the object that actually carries a needed function (a terminal that lives in a vehicle, not in
+  the building the player assumes) all had to be added on a later pass. Look them up in Step 1,
+  don't wait to be asked.
 - The player-simulation pass caught a real logic bug: a reminder ("finish X before this closes")
   had been nested as a child of the mission that closes the window, so reading top-to-bottom the
   player would hit the reminder *after* it stopped being useful. A child item must always make
@@ -1856,31 +1983,32 @@ only present the guide after this pass, not before it.
   before assuming it's a net-new gap — but also be honest when something genuinely isn't in the
   skill yet (like first-time-player jargon notes were not, explicitly, until this revision)
   rather than implying it was there all along.
-- Don't assume two activities of the same "type" share a venue — pool and darts both happen at
-  bars in GTA IV, but pool is only at Homebrew Café while darts is at a completely different
-  location (Steinway Beer Garden); they got wrongly bundled as "any bar has both" until checked
-  individually. Verify each activity's location separately, even when it seems like they'd
-  naturally be in the same place.
-- "Any bar" and "any police station" both slipped through even after the locations rule was
-  added, because a plausible-sounding generic wasn't checked against whether a specific best
-  answer existed. The fix that stuck: for every location-dependent item, explicitly work out
-  what's closest to where the player actually is at that point in the route (e.g. the bowling
-  alley that happens to border the starting apartment), not just "a valid one somewhere."
-- Vehicle or item spawn locations reported by community guides can be wrong or inconsistent,
-  especially for small or rural in-game locations. A vehicle being conveniently available in
-  the same small town as an unrelated task is a claim to verify against more than one source,
-  not an assumption to build a route around (a fire truck turned out not to exist in a town
-  where multiple guides implied it did, only the ambulance was actually there).
+- Don't assume two activities of the same "type" share a venue, a level, or a mode. Two minigames
+  of the same category turned out to be hosted at two different venues on opposite sides of the
+  map, each offering only one of them; they were wrongly bundled as "anywhere of this type has
+  both" until checked individually. The same trap catches two challenges assumed to run on the
+  same map and two collectibles assumed to sit in the same chapter. Verify each one separately.
+- A plausible-sounding generic ("any tavern," "any outpost," "any of the desert maps") slipped
+  through even after the locations rule was added, because nobody checked whether a specific best
+  answer existed. The fix that stuck: for every location-dependent item, work out what is actually
+  closest to where the player stands at that point in the route — the venue bordering the starting
+  hub, the map already in the current playlist — not "a valid one somewhere."
+- Spawn and availability claims in community guides can be wrong or inconsistent, especially for
+  small or out-of-the-way places. Something being conveniently available right where an unrelated
+  task happens is a claim to verify against more than one source, not an assumption to build a
+  route around — in one case a required vehicle turned out not to exist in the town several guides
+  implied it did, and only a different one was actually there.
 - When the best place to *acquire* something differs from the best place to *use* it, name
   both locations explicitly and place the task at the completion site with a "get it from X,
   bring it to Y" instruction, rather than collapsing them into a single location for tidiness.
 - Money-generating exploits belong first among a cluster of related tasks, not just documented
   somewhere in the guide, so the cash they produce is actually available for whatever spending
   comes later in that same cluster.
-- All-or-nothing or high-risk achievements (max-bet gambles, one-shot bets) belong last in a
-  cluster of similar tasks, done only after safer wins have built a cushion — not first.
-- Side-content categories can hide inside a mission's unlock description ("also unlocks Freight
-  Train") without ever becoming their own actionable checklist line. Audit unlock descriptions
+- All-or-nothing or high-risk achievements (a max-stake gamble, a one-shot bet, a no-death or
+  no-reload run, anything that consumes a limited resource on failure) belong last in a cluster of
+  similar tasks, done only after safer wins have built a cushion — not first.
+- Side-content categories can hide inside a mission's unlock description ("also unlocks the
+  survival mode") without ever becoming their own actionable checklist line. Audit unlock descriptions
   specifically for nouns that never received their own bullet anywhere in the guide.
 - The deferral sweep only catches lines that *admit* something is unfinished. The bigger hole is
   the line that admits nothing: it names a vehicle, an amount of cash, a region, or an unlocked
@@ -1890,10 +2018,10 @@ only present the guide after this pass, not before it.
   backward to an earlier step that provides it, forward to a later step that completes it — and
   it has to be an enumeration, because the failure mode of this check is that everything *feels*
   covered.
-- A side-content "category" can have more real instances than a first pass assumes (three gym
-  trainers across three cities in one game, not the one most guides lead with). When a source
-  describes something as a category or a set, confirm the actual count before assuming one
-  instance covers it.
+- A side-content "category" can have more real instances than a first pass assumes — three
+  trainers of the same kind spread across three settlements, not the one most guides lead with;
+  four separate challenge boards, one per biome. When a source describes something as a category
+  or a set, confirm the actual count before assuming one instance covers it.
 - Daily or session caps on a grindable stat need their reset mechanism named explicitly (e.g.,
   "save at a hub twice to skip the cooldown"), not just flagged as existing.
 - If a stat-interaction concern turns out to be based on a mechanic that isn't real (a physical
@@ -1932,9 +2060,9 @@ only present the guide after this pass, not before it.
   and demand a real completion step for each match, every time, before presenting (see the
   orphaned-deferrals section in Output Format).
 - The final cleanup phase exerts gravity on anything without an obvious story trigger. In one
-  guide, three repeatable side activities — a stadium minigame available from the very start of
-  the game, a race unlocked simply by reaching a landmark the player passes through in an early
-  region, and a repeatable fare-pickup job with no gate at all — had zero mention anywhere
+  guide, three repeatable side activities — something like an arena minigame available from the
+  very start, a challenge unlocked by reaching a landmark the player passes early, and a repeatable
+  courier job with no gate at all — had zero mention anywhere
   except a vague "you'll also need to do these eventually" in the cleanup phase, because no
   research was ever done into when they actually become available. Availability is a
   researchable fact per item, never a default. The fix runs in both directions: other content
@@ -1957,25 +2085,27 @@ only present the guide after this pass, not before it.
   ask where each clock *could* have started.
 - The cleanup-phase audit overcorrects. Told to move anything not genuinely gated late to its
   earliest reachable phase, a guide starts placing items at the earliest point they're
-  *technically possible*, which is a different and much weaker claim. The tell from real use:
-  GTA IV's "Finish Him" (melee counters) landed before mission 6, because countering a pedestrian
-  is ungated — while the method everyone actually uses is the Higgins Helitours queue in
-  Fishmarket South, Algonquin, an island the story hasn't opened at that point. **Availability
-  has to be assessed on the method, not the task.** Most tasks have a best way to do them, that
-  way is tied to a place/crowd/vehicle/weapon/upgrade, and the tie carries prerequisites the
-  achievement description never mentions. Same shape in any genre: the bounty that's trivial once
-  a class ability lands, the weapon challenge best saved for the map that issues that weapon, the
-  time trial best run after the campaign hands over the car.
-- Methods expire, and nothing in a missables search will tell you. GTA IV's One Man Army (survive
-  five minutes at six stars) is the case that exposed this: the community method is to steal a
-  helicopter from Higgins Helitours in Algonquin and fly over Alderney *while Alderney is still
-  locked*, because entering a locked island grants six stars instantly and nothing on the ground
-  can touch a helicopter circling at altitude. That needs Algonquin open (mission 31) and Alderney
-  still shut (mission 38) — a window of exactly seven missions. Earlier there is no helicopter;
-  later the trick is gone forever and the task becomes a firefight in a safehouse lobby. The
-  achievement is never unobtainable, so no missables research surfaces it; the player just
-  silently does a five-minute task the hard way. Research both edges of a method, not just the
-  opening one, and flag the closing edge on the task *and* on the step that closes it.
+  *technically possible*, which is a different and much weaker claim. The tell from real use, put
+  in invented terms: a counter-attack achievement landed in the opening hours, because countering
+  a basic enemy is ungated — while the method everyone actually uses needs one specific enemy type
+  that telegraphs slowly and respawns endlessly, first appearing well into the mid-game.
+  **Availability has to be assessed on the method, not the task.** Most tasks have a best way to
+  do them, that way is tied to a place, enemy, item, loadout, map, mode, or upgrade, and the tie
+  carries prerequisites the achievement description never mentions. Same shape in every genre: the
+  bounty that's trivial once a class ability lands, the weapon challenge best saved for the map
+  that issues that weapon, the time trial best run after the campaign hands over the car, the
+  flawless-victory achievement best attempted against the one CPU opponent with an exploitable
+  pattern.
+- Methods expire, and nothing in a missables search will tell you. The case that exposed this had
+  this shape (the specifics here are invented): an achievement for surviving several minutes at
+  maximum alert, whose community method depends on a vantage point the enemy AI cannot reach — and
+  that vantage point only exists while an area is still in its pre-story state. One mission opens
+  the access needed to get there; a later one rebuilds the area and the trick is gone. The task
+  therefore has a *window* of a handful of missions: earlier the access doesn't exist, later the
+  method doesn't, and outside it the achievement becomes a straight fight the player is not
+  equipped for. The achievement is never unobtainable, so no missables research surfaces it; the
+  player just silently does a five-minute task the hard way. Research both edges of a method, not
+  just the opening one, and flag the closing edge on the task *and* on the step that closes it.
 - Changing a routing rule silently invalidates the prose that explained the old one, and the
   explanation is never in the diff. Moving two items out of Phase 1 to their cheaper method
   windows left three phase notes still telling the player "side content sits in the phase where it
@@ -1991,29 +2121,30 @@ only present the guide after this pass, not before it.
   PowerPyx page — and nowhere else. Achievement lists and wikis describe *what* an achievement
   needs; solution threads are where finished players say *when to do it* ("best done after mission
   X," "wait until you have Y"). A guide can pass every internal check in this skill, be entirely
-  factually accurate, and still place an achievement in a phase the community consensus says is the
-  wrong one — because none of the internal checks ever consult that consensus. Read the solutions
-  per achievement, and treat disagreement as a conflict to resolve and record, never as noise.
-  GTA IV's Wheelie Rider was the case that surfaced this: the guide had it in Phase 1 on a
-  reasonable-sounding "any bike, airport runway" method, while the top TrueAchievements solution
-  says to use a *scooter*, because a moped physically cannot loop over backwards, which turns a
-  balancing act into holding one stick — and no airport trip. Note what the reconciliation
-  actually produced: the thread framed its advice as "after mission X" because that mission hands
-  you a scooter, but the transferable insight was the vehicle, not the mission. Read the solution
-  for its *mechanism*, then decide placement yourself — adopting "do it after mission X" verbatim
-  would have moved the item four phases later for no reason once you can get the same vehicle
-  earlier.
+  factually accurate, and still place an achievement in a phase the community consensus says is
+  the wrong one — because none of the internal checks ever consult that consensus. Read the
+  solutions per achievement, and treat disagreement as a conflict to resolve and record, never as
+  noise. A skill-trick achievement was the case that surfaced this — again with invented
+  specifics: the guide had it in Phase 1 on a reasonable-sounding "any standard equipment, any
+  open space" method, while the top TrueAchievements solution says to use the *weakest* item of
+  its class, because its low power physically cannot produce the overshoot that ruins the attempt
+  — turning a balancing act into holding one button, with no trip to a special location. Note what
+  the reconciliation actually produced: the thread framed its advice as "after mission X" because
+  that mission hands you the weak item, but the transferable insight was the item, not the
+  mission. Read the solution for its *mechanism*, then decide placement yourself — adopting "do it
+  after mission X" verbatim would have moved the item four phases later for no reason once the
+  same item is obtainable earlier.
 - Not every hard achievement is a solution-thread question. Collectible and location achievements
-  (packages, stunt jumps, bridges, races) are *map* problems, already solved better by MapGenie and
-  similar interactive maps than by any prose guide — reading their solution threads spends tokens
-  to learn coordinates the guide should be linking to rather than restating. What those achievements
-  need from the guide is the one thing a map cannot give: whether to sweep them **now, while the
-  player is in this area**, and how many of the set are reachable at this point. Technique
-  achievements (grinds, minigames, repeatable jobs, counted tasks) are the opposite — a map is
-  useless and the thread is everything, because the answer is a trick. The test: if knowing every
-  location would finish it, it's a map problem; if you could know every location and still do it
+  (hidden pickups, shrines, chests, landmarks, races) are *map* problems, already solved better by
+  MapGenie and similar interactive maps than by any prose guide — reading their solution threads
+  spends tokens to learn coordinates the guide should be linking to rather than restating. What
+  those achievements need from the guide is the one thing a map cannot give: whether to sweep them
+  **now, while the player is in this area**, and how many of the set are reachable at this point.
+  Technique achievements (grinds, minigames, repeatable jobs, counted tasks) are the opposite — a
+  map is useless and the thread is everything, because the answer is a trick. The test: if knowing
+  every location would finish it, it's a map problem; if you could know every location and still do it
   badly, it's a thread problem.
-- The expensive way to use solution threads is to read all 65 of them. The cheap way is to read
+- The expensive way to use solution threads is to read every one on the list. The cheap way is to read
   the walkthrough overview *first* — one page that reports missable and unobtainable counts,
   playthroughs required, a section-by-section table of contents, and a breakdown tagging every
   achievement by type (Main Storyline, Collectable, Cumulative, Missable, Buggy, Time Consuming,
@@ -2035,11 +2166,11 @@ only present the guide after this pass, not before it.
   achievement placements in one session were nearly left unverified on the strength of a 403 that
   a browser resolved in seconds.
 - Reading a solution thread for its mechanism instead of its literal instruction is right, and it
-  has a failure mode that looks exactly like insight. GTA IV's Wheelie Rider thread said "after
-  Hating the Haters"; the mechanism is that a moped cannot loop over backwards, so the abstraction
-  became "the trick is the vehicle, not the mission" and the item stayed in Phase 1. What the
-  abstraction dropped is *why the mission was named*: Faggios are uncommon in traffic, so the
-  mission is how you reliably get one. Abstracting away the specific is how you lose the fact the
+  has a failure mode that looks exactly like insight. The long-wheelie thread above said "after
+  mission X"; the mechanism is that the weak item physically cannot overshoot, so the abstraction
+  became "the trick is the item, not the mission" and it stayed in Phase 1. What the abstraction
+  dropped is *why the mission was named*: that item is rare everywhere else, so the mission is how
+  you reliably get one. Abstracting away the specific is how you lose the fact the
   advice was carrying. The override was also shipped with a hedge — "if you haven't found one by
   then, it's free at that mission" — which is the tell: the uncertainty was known, and it got
   written into the guide instead of resolved. **A hedge in the artifact is a research trigger that
@@ -2101,8 +2232,8 @@ only present the guide after this pass, not before it.
   is that play order wins every time and the group gets broken up, with the unlock relationship
   preserved in a note. An item's position is an instruction; its grouping is only information.
 - There are two shapes of waiting and only one of them has an easy fix. Independent timers get
-  started early and run in parallel. A **dependent chain** — interact with an NPC, wait a few
-  in-game days, interact again, wait again — can't be parallelized at all, because each link only
+  started early and run in parallel. A **dependent chain** — talk to a character, wait a few
+  in-game days, talk again, wait again — can't be parallelized at all, because each link only
   exists once the previous one happened. Writing that chain out as consecutive checklist items is
   the version of this bug that survives the "start the clock early" fix, because there is no
   earlier clock to start. The route is what moves: each link goes where the required days have
@@ -2111,10 +2242,10 @@ only present the guide after this pass, not before it.
   specifically — interleaving is easy at the start and collapses at the end, once the route runs
   out of nearby work.
 - If the player genuinely must pass time with nothing to do, that's a mechanic question, not a
-  shrug: name the game's own fastest way to advance the clock (sleep at a safehouse, save to
-  advance six hours, a fast-travel leg) and how much of the window it covers. "Wait a few in-game
-  days" tells the player something is required without telling them how to do it, which is the
-  same failure as "any bar with a pool table."
+  shrug: name the game's own fastest way to advance the clock (rest at a camp or inn, save to roll
+  the clock forward, end the turn, a fast-travel leg) and how much of the window it covers. "Wait a
+  few in-game days" tells the player something is required without telling them how to do it, which
+  is the same failure as "at any vendor."
 - The structure that makes these guides scannable — collapsed accordions, bundled sub-lists,
   notes hidden behind a toggle — is the same structure that breaks a naively-built search box.
   Most of the file's text is off-screen at any moment, so a search that filters rendered rows
@@ -2146,26 +2277,39 @@ only present the guide after this pass, not before it.
   overwrites state punishes exactly the players who used the checklist most carefully.
 - The cleanup-phase audit has a mirror image nobody built: **Phase 1 is the other catch-all.** The
   audit exists because a terminal phase collects anything unresearched — and the opening phase
-  collects anything believed ungated, which is the same failure with the sign flipped. GTA IV's
-  "Cleaned the Mean Streets" sat in Phase 1 because a police car can be stolen in the first ten
-  minutes, and the achievement's own description says nothing about a gate. It has one: the Most
-  Wanted database is inert until the Vlad mission "Crime and Punishment," roughly mission 14, and the
-  top TrueAchievements solution says so in its opening sentence. Every reason it slipped is
-  structural, not attentional: no source ever *asserts* "this is ungated," so that belief is always
-  formed by not finding a gate; it isn't missable, so missables research is blind to it; and the
-  ceiling section trains attention on the *opposite* shape — ungated task, gated method — which
-  makes "the task itself is gated" feel like the case already handled. Ungated is a claim requiring
-  evidence, and the earliest phase is where unevidenced claims accumulate.
+  collects anything believed ungated, which is the same failure with the sign flipped. In invented
+  terms: an achievement sat in Phase 1 because the object its method needs — say a terminal built
+  into a common vehicle — is obtainable in the first ten minutes, and the achievement's own
+  description says nothing about a gate. It has one: the database that terminal queries stays
+  inert until a mid-story mission activates it, and the top TrueAchievements solution says so in
+  its opening sentence. Every reason it slipped is structural, not attentional: no source ever
+  *asserts* "this is ungated," so that belief is always formed by not finding a gate; it isn't
+  missable, so missables research is blind to it; and the ceiling section trains attention on the
+  *opposite* shape — ungated task, gated method — which makes "the task itself is gated" feel like
+  the case already handled. Ungated is a claim requiring evidence, and the earliest phase is where
+  unevidenced claims accumulate.
 - **The object existing is not the feature working**, and every location-style check in this skill
-  passes on the object. The police computer is physically in the car, reachable, and enterable long
-  before the database behind it responds — so "does the location exist," "is the vehicle
-  obtainable," and "is the area open" all return yes while the task remains impossible. The
-  prerequisite taxonomy listed vehicles, weapons, cash, stats, and region access, and had no entry
-  for *a system a mission switches on*: a terminal, a phone contact, a shop or website, property
-  buying, fast travel, a challenge screen. Ask "is the system running yet," not "can the player get
-  there."
-- The lessons above skew toward GTA-style open-world games because that's where this skill was
-  battle-tested. Don't let that narrow the skill's scope: for each new game, translate the
-  concepts (missions → quests/chapters/races, islands → gated acts, vehicle missions →
-  repeatable side activities with permanent rewards) instead of pattern-matching for
-  GTA-specific structures and concluding a step doesn't apply.
+  passes on the object. The interface is physically present, reachable, and interactable long
+  before the system behind it responds — so "does the location exist," "is the item obtainable,"
+  and "is the area open" all return yes while the task remains impossible. The prerequisite
+  taxonomy listed items, weapons, currency, stats, and region access, and had no entry for *a
+  system a story beat switches on*: a crafting bench with no recipes, a contract board with no
+  contracts, a vendor with locked stock, fast travel, a challenge or trial menu, a multiplayer
+  playlist. Ask "is the system running yet," not "can the player get there."
+- The lessons above were learned mostly on open-world action games, so their examples are written
+  to be genre-portable on purpose (see "This file never stores facts about a particular game" at
+  the top). Translate rather than pattern-match: for each new game, read "mission" as its progress
+  unit (quest, chapter, level, race, run, match, turn, case), "region" as any slice that can be
+  gated (act, level-select entry, difficulty tier, unlocked character, faction path, playlist),
+  and "side activity" as any repeatable optional content with a reward. Three failure modes, the
+  last being the quiet one: taking a term literally and skipping the step because this game has no
+  regions; deciding a whole step doesn't apply because the illustration came from another genre;
+  and treating an illustration as *the* case rather than one instance of a pattern that will look
+  different here.
+- Every example in this file has been rewritten at least twice — once to remove the game names,
+  once to remove the genre those names implied — and the second pass mattered more. An example
+  with the serial numbers filed off still teaches only the genre it came from: a reader building a
+  guide for a rhythm game, a 4X campaign, or a fighting game learns nothing from stolen police
+  cars, and reasonably concludes the step is for somebody else. When a lesson is worth recording,
+  the question is not "have I removed the proper nouns" but "could this have happened in a game
+  with no map, no vehicles, and no open world" — and if it could, say it that way.
