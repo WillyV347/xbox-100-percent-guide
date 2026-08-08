@@ -94,6 +94,17 @@ Search for:
   DLC, removed events) — for multiplayer/online achievements, also check server population and
   whether boosting is realistically possible. A 100% route that dead-ends on a dead server
   needs to say so up front, not at the end.
+- **The game's own visual identity** — this is a research target, not a thing to improvise at
+  build time. The guide's look is a hard requirement (see Visual Design under Output Format) and
+  it is the only requirement in this skill with no factual input unless you go get one. Collect:
+  the palette the game actually uses (its HUD, menus, loading screens, key art, the setting's
+  own dominant colors), its typography (the logo's letterforms, the mission-title and stat-screen
+  faces, and a Google Fonts pairing that evokes them), and any UI convention the game itself owns
+  — a wanted-level row of stars, a radar disc, a mission-passed card, a stencilled crate, a
+  handwritten journal page. Also note the era and tone, since they decide everything the palette
+  doesn't: 1980s neon, muddy post-apocalypse, clean sci-fi, hand-painted fantasy. A guide whose
+  look was derived from screenshots reads as made-for-this-game; one improvised from the title
+  alone reads as a template with the game's name typed into it.
 - Specific locations for location-dependent tasks (see "Add locations" under Output Format) —
   the exact venue, its neighborhood, and which candidate is best given where the player will be
   at that point in the route
@@ -1287,17 +1298,38 @@ gets hidden behind a collapsed note — only context and reasoning does. The tes
 every note, would the player still be able to complete everything correctly, just without
 knowing why? If not, something that belongs on the visible line got buried in a note.
 
-### Visual design
+### Visual design — the structure is shared, the look never is
 
-Give the file a distinct visual identity tied to the game's own setting and tone — a real color
-palette and font pairing (Google Fonts are fine), not a generic default dashboard look. This
-should read as a made-for-this-game reference tool, the kind of thing a fan site would build,
-not a templated to-do list. Pick a signature visual element tied to the game (a texture, a
-recurring shape, a stat-screen convention the game itself uses) and build the palette and type
-choices around it. **Never reuse a previous game's exact palette/font pairing for a new
-game** — the per-game visual identity is a deliberate, permanent feature of these guides, not
-an incidental style choice. Reuse the *structure* (accordion phases, missables box, nested
-children, footer) across every game; vary the *look* every time.
+**Every game gets its own visual identity, derived from that game, and no two guides look
+alike.** This is a deliberate, permanent, non-negotiable feature of these guides, not a styling
+preference — a player keeps several of these files open across years, and each one should be
+recognizable as *that game's* guide from a thumbnail, before a single word is read.
+
+Build the look from the research gathered in Step 1, not from imagination:
+
+- **Palette from the game**, not from a generic dark-dashboard default. Take it from what the
+  game actually looks like — its HUD and menus, its key art, the dominant colors of its setting.
+  Liberty City's rain-grey and washed municipal blue is not Vice City's sunset pink and teal, and
+  neither is a fantasy RPG's parchment and ink.
+- **Type that evokes the game's own lettering.** Pair a display face for the header and phase
+  titles with a readable body face (Google Fonts are fine). The logo's letterforms and the
+  mission-title card are the reference.
+- **One signature element the game itself owns**, carried through the file — a wanted-level star
+  row, a radar disc, a stat-screen bar treatment, a stencil, a paper texture, a scanline. It
+  should appear in the header, the progress bar, and the phase markers so the file reads as one
+  designed object rather than a theme color swapped into a template.
+
+**The reference-file trap is the main way this fails, and it is built into the workflow.** This
+skill tells you to open a prior game's guide as the reference for quality bar and structure — and
+that file arrives with a complete palette, type pairing, and signature motif already wired
+through it. Editing it is the path of least resistance, and the previous game's look survives the
+edit because nothing forces it out. So: **take the structure from the reference file and nothing
+else.** Re-derive the palette, the fonts, and the motif from scratch for the new game before
+writing any CSS. "Not the *exact* same palette" is not the standard — a recolored version of the
+last guide is the same failure, and it is what you get by editing rather than re-deriving.
+
+Reuse across games: the accordion phases, missables box, nested children, search bar, footer, and
+every behavior in this document. Vary across games: everything the player sees.
 
 ### Persistence — read this before writing any storage code
 
@@ -1623,6 +1655,14 @@ checking:
   unobtainable" callout), and every 100% category must have real covering steps, not just a
   mention. "It's probably in there somewhere" is not a check; enumerate the list and tick each
   entry off against the document.
+- **Does this file look like this game, and unlike the last guide you built?** Name the palette,
+  the type pairing, and the signature motif out loud, and say which thing in the game each one
+  came from — if any answer is "it looked good" or "that's what the reference file used," it was
+  carried over rather than derived. Then compare side by side against the most recent prior
+  guide: different hues, different fonts, different motif, not a recolor. This check exists
+  because visual identity is the one requirement a player judges instantly and the build process
+  actively works against, by handing you a finished file from another game to start from (Visual
+  Design above).
 - **Test the search bar against collapsed content specifically.** Pick a term that appears only
   inside a collapsed note (a location name, a jargon definition) and one that appears only in a
   bundled mission sub-list, and confirm each is actually found and revealed. Then confirm
@@ -1740,6 +1780,15 @@ only present the guide after this pass, not before it.
   a "fix" when a save error appears is the wrong move; the file was already using it correctly
   and the real gap was missing retry/backoff and swallowing the error instead of surfacing it
   or degrading gracefully.
+- Per-game visual identity was stated as a rule twice and enforced nowhere: no research step fed
+  it, no pre-presentation check tested it, and the only guard was "never reuse a previous game's
+  *exact* palette" — which a recolor of the last guide passes. It is also the one requirement the
+  workflow actively undermines, because the skill hands you a finished guide for a different game
+  as the structural reference, and a palette, type pairing, and motif ride along inside it. Every
+  other requirement here has an input (research) and a gate (the walk-through); the look had
+  neither, which is why it drifts toward whatever the reference file already was. The fix is the
+  same shape as everywhere else: make it a research target, then make it a gate — name each
+  choice and the thing in the game it came from, and compare against the previous guide.
 - Matching a prior game's *structure* does not mean matching its *look* — a player explicitly
   wants a different visual theme per game while the underlying format (accordion, missables
   box, nesting, footer) stays consistent. Don't collapse those two things together.
