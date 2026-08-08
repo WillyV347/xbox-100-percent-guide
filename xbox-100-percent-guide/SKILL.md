@@ -108,6 +108,10 @@ Step 1 for most, and re-checked at the pre-presentation walk-through. None of th
 | deep-read achievement | What does the top-voted solution say about **when** to do it? | A defensible-sounding placement that the community consensus contradicts, with no note explaining the difference |
 | finished guide | Does the **look** come from images of *this* entry, or from adjectives and franchise reputation? | A palette named and rationalized without ever viewing the game |
 | count you researched | Does it **match** the walkthrough's stated count? | Two numbers that differ, averaged or ignored instead of resolved |
+| set handed off to a map | Does anything about **when** these appear vary? | A complete, correct pin list backing a sweep the player can't finish yet |
+| content category, one at a time | Does anything in **this category** advance on elapsed time? | One game-level "no timers here," with a dependent chain inside a category never questioned |
+| source that supplied the **ordering** | Which of its timing claims did you verify **independently**? | A route transcribed from one voice, passing every later check against itself |
+| source you couldn't read | **Which specific claims** now rest on something weaker, and does the player know? | "Some placements unverified" in a notes file, with the affected items unnamed |
 
 The concrete findings these produce — the mission that switches on a system, the item that makes a
 skill trick trivial, the venue for each minigame, the entry's real palette — are genuine research
@@ -287,6 +291,33 @@ item flagged rather than inventing a rationale for the placement you already had
 rule as any other empty fetch, and the easiest one to rationalize away, because a 403 arrives
 exactly when the existing placement looks perfectly reasonable.
 
+**Flagging it is where this used to stop, and flagging is not enough: a blocked primary source is
+an open ticket, not a closed risk.** A line reading "couldn't reach the achievement site" records
+that something went wrong and tells nobody what it cost — the affected placements then ship
+looking exactly as confident as the verified ones, because nothing in the guide distinguishes
+them. Four things actually close it out:
+
+- **Escalate the tool before accepting the gap.** A block is a statement about one access path,
+  not about the content, so exhaust the other paths first: a browser pane when a fetch tool
+  failed, a different browser surface, the excerpt a search engine already has, a sibling site
+  covering the same game (TrueTrophies, PlayStationTrophies, PowerPyx, a wiki that quotes the
+  solution). Accepting the gap is the last move, never the first.
+- **Name the specific claims that now rest on weaker sources.** Not "some placements are
+  unverified" — the actual list, item by item: which achievements were going to be reconciled
+  against that source, and what each one's placement currently rests on instead (your own
+  inference, a secondary wiki, a count from a walkthrough page).
+- **Surface that list to the person in your response, not only in a notes file.** A risk recorded
+  where only the next builder will look has been filed, not communicated. The player is the one
+  who can decide whether to accept a placement, check it themselves, or have you retry later, and
+  they can only decide that if they know which items are affected.
+- **Say what would resolve it.** "Re-run this when the site is reachable and these six placements
+  get reconciled" turns a permanent-sounding limitation into a task with an owner.
+
+The same treatment applies to any primary source that can't be read — a paywalled guide, a dead
+wiki, a video whose transcript won't load, a map site that won't render. The failure mode never
+changes: the gap gets logged somewhere that reads as diligence, and the claims resting on it are
+indistinguishable from the researched ones by the time the guide is presented.
+
 ### Which achievement site, and start with the walkthrough
 
 All of this is **supplemental to** the research already specified above, never a replacement for it.
@@ -357,6 +388,40 @@ descriptions and, next to each, a **guide count** ("9 guides", "3 guides"). Two 
   type tags: a Collectable or Time Consuming achievement carrying nine guides is the strongest
   possible case for a deep read, while a Main Storyline achievement with two is the weakest.
 
+### A source shaped like the deliverable will silently replace the research
+
+The most useful sources in the list above — a walkthrough's ordered story pages, a roadmap-style
+guide covering the whole game in phases, a community "optimal route" post — arrive already in the
+shape of the thing you are building. That is exactly what makes them hazardous. When a single
+source supplies the ordering, the work collapses from research into transcription: the route gets
+copied, every later check in this skill runs against the copy rather than against the game, and
+the guide inherits both that source's coverage and its blind spots without ever registering that
+it did.
+
+Three mechanisms, none of which require the source to be bad:
+
+- **Format carries authority its sourcing hasn't earned.** A numbered, ordered checklist reads as
+  settled. The identical claim as prose in a forum post reads as one person's opinion and gets
+  checked. Nothing about the numbering makes it more verified.
+- **One voice produces no disagreements to surface.** The cross-referencing rule above works by
+  catching sources that conflict. A single spine source cannot conflict with itself, so the whole
+  mechanism reports clean while doing no work.
+- **An ordered list encodes timing implicitly and never states it.** Position *is* the claim. If
+  an item sits where it sits because of a story gate, an elapsed-time window, or a method that
+  only exists later, the list shows the consequence of that gate and never the gate itself — so
+  the reason can't be checked, can't be written into a note, and vanishes the moment anything
+  reorders.
+
+So: **when one source supplies the ordering, name it as the spine** — in the per-game notes, and
+in the guide's own text wherever the ordering is load-bearing — and then **deliberately verify a
+sample of its claims against independent sources.** Not a spot-check of whatever is cheapest to
+confirm. **Weight the sample toward claims about timing and availability**, since those are the
+ones the format hides: draw items from across the whole route rather than the opening, and include
+at least one the spine places surprisingly early and one it places surprisingly late. Resolve any
+disagreement the way Step 1 resolves every other source conflict. A clean sample means the spine
+has earned its position; a dirty one has just shown you the class of error it was about to
+propagate through every phase.
+
 ### Triage before deep-reading — most achievements never need a solution thread
 
 Reading a solution thread for all 60-70 achievements is enormously wasteful, because for a large
@@ -414,10 +479,34 @@ if you could know every location and still do it slowly and badly, it's a soluti
 On an open-world game this roughly halves the deep-read list, and it stops the guide from
 reimplementing a map site badly inside collapsed notes.
 
+**Triage is not one-way — a category routed to a map tool still owes the timing question.**
+"Where are they" and "when do they become available" are independent questions, and answering the
+first does not retire the second. A set can be exhaustively mapped — every pin placed, every count
+confirmed — and still be gated: on elapsed time, on story progress, on a time-of-day or weather
+window, on a rank or difficulty tier, on a faction state. A map answers none of that, because a
+map is a spatial index and availability is a temporal fact. The failure is quiet and total: the
+guide sends the player to sweep a set with a complete, correct list of locations, and a share of
+them simply aren't there yet.
+
+So **every category triaged out to a map, tracker, or other external tool gets one more question
+before it leaves the deep-read list: does anything about *when* these appear vary?** If yes, it
+re-enters the list **for timing only** — not for locations, which the map still owns. That read is
+narrow and cheap, because you are not looking for where the items are; you are looking for the one
+sentence saying some of them only show up after something else.
+
+Hypothetical shapes, all invented, spread deliberately across genres: a collectible set where a
+handful only spawn at night; a set whose last few only appear once a faction stops being hostile;
+a photo or research catalogue whose subjects migrate by season; a set of race gates that only
+populate once a vehicle class is unlocked; a shrine or challenge set with a subset walled off
+until a chapter turns over; a card or unit collection where some entries only drop from an
+end-game mode. In every one, the map is correct and a sweep instruction built on it is still
+wrong.
+
 On a 60-70 achievement list this typically leaves 15-25 warranting a deep read, and the split
 above cuts the number of *solution threads* well below that. **Record which achievements you
-triaged out and why**, so a later pass extends the work instead of repeating it, and so a wrong
-triage call is auditable rather than invisible.
+triaged out and why** — including the timing answer for anything sent to a map — so a later pass
+extends the work instead of repeating it, and so a wrong triage call is auditable rather than
+invisible.
 
 ### Keeping browser reads cheap
 
@@ -665,6 +754,26 @@ unlock something" — also check:
   route rearranged around it instead. Establish how many links the chain has and how much time
   each gap needs, because that's what the route has to fill. See the dedicated section in
   Step 7 for how both cases get written into the route.
+
+  **Ask this question per content category, never once for the whole game.** "Does anything
+  advance on elapsed time?" asked at the game level invites a single answer, and the answer is
+  whichever clock is most visible — an income property, a crop, a research bar — after which the
+  question feels answered and the search stops. So enumerate the game's content categories first,
+  then ask it of each one separately: the progress line; every side activity, one at a time; every
+  collectible set; relationships, companions, and factions; encounters, spawns, and enemy
+  populations; unlocks, upgrades, and crafting; vendors, stock, and the economy; and anything the
+  100%-requirements breakdown from Step 1 lists that none of those cover. Where the game has
+  several instances of a category — four contract boards, three trainers, six shops — the question
+  is asked of the category, and any instance that behaves differently is its own answer.
+
+  The failure shape this prevents is specific: a game with no obvious economy timers reads as "no
+  timers at all," while a dependent chain sits inside a category nobody ever questioned
+  individually — a relationship that only deepens between in-game days, a vendor whose stock rolls
+  over on a schedule, a repeatable job that only re-offers once a period passes, a set of
+  encounters that fire at a fixed rate. Those are the expensive ones, because a chain discovered
+  late can't be fixed by starting a clock early (see the dependent-chain section in Step 7) — the
+  route has to be rearranged around it, which is cheap while the route is still being drafted and
+  expensive afterwards.
 - **Does the order in which the player acquires protective perks matter** relative to the
   riskiest, most failure-prone stretch of the game? If a perk mitigates death/failure
   consequences, place the acquisition of that perk immediately before the section it protects,
@@ -1700,6 +1809,37 @@ This is Step 7's principle 8 — re-check position after editing content — app
 of items. Same failure, different surface: the thing you edited is fine, and the thing that
 described it is now wrong.
 
+### Structural self-description sweep — claims about the artifact get checked against the artifact
+
+The premise sweep above catches prose that *was* true and stopped being true when a rule changed.
+This one catches prose that was **never true**: a sentence written while thinking about the
+intended design, while the implementation went another way. Nothing invalidated it, so no edit
+draws attention to it, and the premise sweep can't reach it either — there is no old premise to
+grep for, only a description that never corresponded to anything.
+
+The vulnerable class is narrow and easy to name: **any sentence making a claim about how the guide
+itself is organized.** "Each collectible set is split across the phases where it's reachable."
+"These are grouped by area rather than bundled at the end." "Every mission in this stretch gets
+its own row." "Locations are listed separately from the tasks that need them." "The rest of this
+category is nested under the mission that unlocks it." Each is a falsifiable assertion about the
+artifact — and **each is checked against the artifact, never against intent.** Confirming that the
+skill contains the rule the sentence describes proves nothing; the question is whether this file
+actually did it.
+
+**Grep for structural self-description and verify every hit by looking.** The vocabulary is stable
+across games, because it describes this skill's own machinery rather than any game: *split
+across*, *grouped by*, *rather than bundled*, *each gets its own*, *listed separately*, *broken
+out*, *nested under*, *one per*, *in the phase where*, *collapsed into*, *distributed*. For each
+match, open the thing it describes and count. A note claiming every mission in a range has its own
+row is verified by expanding that range and counting rows — not by recalling that the bundling
+rule exists.
+
+The player-facing cost is what makes this worth a dedicated pass: these are the sentences a player
+uses to decide **how to read the file** and **whether anything is missing**. A guide claiming a
+set is distributed across the phases where it's reachable, when it actually sits in one lump in
+the cleanup phase, doesn't just mis-describe itself — it teaches the player to stop looking for
+the rest.
+
 ### Never write positional cross-references
 
 A note that points at another item **by position** — "two steps above," "the confirmation step
@@ -1726,8 +1866,9 @@ This is the loop that produced most of the defects this skill knows about, so it
 plainly, for all of the checks above and the walk-through below:
 
 **A targeted edit round requires the same full sweep as a fresh build.** Not a spot-check of what
-you touched — the whole set: deferrals, dependencies, assumed completions, premises, positional
-references, achievement-placement reconciliation, and the player walk-through.
+you touched — the whole set: deferrals, dependencies, assumed completions, premises, structural
+self-description, positional references, achievement-placement reconciliation, and the player
+walk-through.
 
 **Sweep for hedges while you're there.** Search the finished text for softening phrases — "if you
 can't find," "if you haven't," "or you could," "assuming you," "should be able to" — and for each
@@ -1816,6 +1957,13 @@ checking:
   premise-change sweep above). List the guide's premises and check every note against **all** of
   them, and against each other — a stale "clock target: under 16 hours" is only detectable against
   another note saying there is no clock on this save.
+- **Does every sentence describing the guide's own structure match the guide's actual structure?**
+  Grep for structural self-description — "split across," "grouped by," "rather than bundled," "each
+  gets its own," "listed separately," "nested under," "one per" — and verify each hit by opening
+  what it describes and counting. This is distinct from the premise sweep: these sentences were
+  never true rather than made false by an edit, so nothing in the diff points at them, and checking
+  them against the skill's rules instead of against the file always passes (the structural
+  self-description sweep above).
 - **Does the missable count match the walkthrough's?** TrueAchievements' walkthrough overview
   states missable and unobtainable counts outright. Compare them against Step 3's findings; a
   mismatch is an unresolved research conflict, not a rounding difference.
@@ -1825,6 +1973,22 @@ checking:
   a stated reason for differing. An item sitting in a phase the top-voted solution says is the
   wrong one, with no note explaining the choice, is an unresearched placement wearing a confident
   face. Unreachable sources stay flagged as unverified rather than silently ratifying what you had.
+- **Did one source supply the ordering, and was it verified rather than transcribed?** If a
+  walkthrough, roadmap, or route post provided the spine, confirm it is named as such and that a
+  sample of its claims was checked independently — weighted toward timing and availability, drawn
+  from across the route, including one surprisingly early and one surprisingly late placement. A
+  route inherited whole from one voice passes every internal check in this skill while never having
+  been checked against the game (the spine-source section in Step 1).
+- **Did any primary source stay blocked, and does the person know exactly what that cost?** For
+  every source that couldn't be read: were the other access paths tried before accepting the gap,
+  is there a named item-by-item list of the claims now resting on weaker sources, is that list in
+  the response to the player rather than only in a notes file, and does it say what would resolve
+  it? A logged gap with no list of affected items is a closed-looking ticket that is still open
+  (the blocked-source section in Step 1).
+- **Was the elapsed-time question asked of every content category, not once of the game?** Walk the
+  categories — progress line, each side activity, each collectible set, relationships, encounters
+  and spawns, unlocks, vendors and economy — and confirm each was individually questioned. A single
+  game-level "no timers here" is the answer shape that hides dependent chains (Step 5).
 - **Does any note point at another item by position?** "Two steps above," "the step below," "the
   next item" — every hit is a defect, because this skill reorders constantly and the reference
   rots silently. Name the item or its phase instead.
@@ -1845,6 +2009,12 @@ checking:
   a terminal, shop, contact list, or menu the player can walk up to may not be running until a
   mission turns it on. Anything whose placement rests on "no gate found" is unresearched, not
   ungated (the burden-of-proof section in Step 7).
+- **Was every map-triaged category asked the timing question before it left the deep-read list?**
+  For each collectible or location set handed off to a map or tracker, confirm someone asked
+  whether anything about *when* those appear varies — night-only spawns, a subset gated on a
+  faction or chapter, seasonal or weather windows — and that the answer is reflected in the
+  reachable-now counts. A complete, correct location list plus a sweep instruction the player
+  can't actually finish is the exact output of a one-way triage (the triage section in Step 1).
 - **Is anything placed early that's genuinely cheaper later?** For every item moved forward, check
   that its *best method* — not just the task — is available there and that the player is already
   nearby. An early placement that forces a cross-map trip, a worse grinding spot, or a fight
@@ -2306,6 +2476,47 @@ the failure, not the title it happened in.
   regions; deciding a whole step doesn't apply because the illustration came from another genre;
   and treating an illustration as *the* case rather than one instance of a pattern that will look
   different here.
+- Triage was built as a one-way door: a category judged to be a "where are they" problem got
+  handed to a map tool and never came back. But *where* and *when* are independent, and only the
+  first one was being answered. A set can be fully mapped — every pin, every count — and still have
+  members that don't exist yet: night-only spawns, a subset gated behind a faction turning
+  friendly, seasonal subjects in a research catalogue, entries that only drop from an end-game
+  mode. The map is correct and the sweep instruction built on it still strands the player. Every
+  category leaving for a map or tracker gets one more question — does anything about when these
+  appear vary — and a yes puts it back on the deep-read list for timing only.
+- Asking "does anything advance on elapsed time?" once, about the whole game, reliably returns one
+  answer: whichever clock is most visible. The question then feels answered and the search stops.
+  Enumerate the content categories and ask it of each — progress line, each side activity, each
+  collectible set, relationships, encounters, unlocks, vendors — because the expensive case is a
+  dependent chain sitting inside a category nobody questioned individually, in a game that
+  otherwise has no obvious timers. That case can't be fixed later by starting a clock early; there
+  is no earlier clock, so the route itself has to be rearranged, which is cheap during drafting and
+  expensive after.
+- A source that arrives already in the deliverable's shape — an ordered walkthrough, a phased
+  roadmap, an "optimal route" post — will silently replace the research rather than feed it. Three
+  reasons, none of them the source being wrong: the format carries authority its sourcing hasn't
+  earned (numbered lists read as settled where the same claim in prose gets checked); one voice
+  produces no disagreements, so the cross-referencing rule reports clean while doing nothing; and
+  an ordered list encodes timing *as position* and never states it, so the gate behind a placement
+  is unavailable to check, unavailable to note, and lost on the next reorder. Name the spine, then
+  verify a sample of it independently, weighted toward timing and availability and drawn from
+  across the whole route rather than the opening few.
+- Two different bugs live in prose about the guide, and only one of them was covered. The premise
+  sweep catches sentences made false by a later edit. The other kind was **never true**: written
+  while thinking about the intended design while the implementation went another way — "each set is
+  split across the phases where it's reachable" on a guide where the set sits in one lump. Nothing
+  invalidated it, so no diff points at it, and there's no old vocabulary to grep. Any sentence
+  describing how the guide is organized is a claim about the artifact and gets verified against the
+  artifact by counting, never against the rule that was supposed to produce it. These are also the
+  sentences a player uses to judge whether anything is missing, so a false one actively teaches
+  them to stop looking.
+- Flagging a blocked source was treated as handling it. It isn't: a blocked primary source is an
+  open ticket, not a closed risk. "Couldn't reach the site" records that something went wrong and
+  never says what it cost, so the placements resting on it ship indistinguishable from the verified
+  ones. Escalate the tool first (browser pane, another surface, a cached excerpt, a sibling site) —
+  accepting the gap is the last move. Then name the affected claims item by item, put that list in
+  the response to the player rather than only in a notes file, and say what would resolve it. A
+  risk filed where only the next builder looks has been filed, not communicated.
 - Every example in this file has been rewritten at least twice — once to remove the game names,
   once to remove the genre those names implied — and the second pass mattered more. An example
   with the serial numbers filed off still teaches only the genre it came from: a reader building a
