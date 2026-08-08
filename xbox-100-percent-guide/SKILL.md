@@ -131,6 +131,22 @@ For every non-trivial achievement:
   free. Work out what it is, then either adopt their placement or keep yours **and record the
   reason in the item's note**. Silently keeping your own ordering against the top-voted solution
   is how a guide ends up confidently worse than the free advice it was built from.
+- **The community placement is the default, and the burden of proof is on overriding it.** Reading
+  a thread for its *mechanism* rather than its literal instruction is correct — but it creates a
+  specific trap: you extract the principle ("the trick is the vehicle, not the mission"), apply the
+  principle, and drop the fact that made the mission matter in the first place (the vehicle is
+  hard to get any other way). The abstraction feels like insight and is actually loss of
+  information. So: an override is only allowed on a **verified** reason. If your reason depends on
+  a fact you have not checked — that an item spawns commonly, that a location is reachable, that an
+  alternative is comparable — go and check it. If you cannot, **defer to the community placement**,
+  because hundreds of people who finished the game landed on it and you have an untested hunch.
+- **Hedging in the guide is not a substitute for verifying.** When you notice mid-reasoning that
+  your placement rests on something unverified, the correct response is research, not a softening
+  clause. Writing "if you can't find one, it's free later" launders your own uncertainty into the
+  deliverable: the note reads as thorough, the guide looks researched, and the doubt has silently
+  been transferred to the player, who is in the worst position to resolve it. A recorded reason
+  built on an unchecked assumption is worse than no reason at all, precisely because it looks
+  like diligence. If you catch yourself writing a hedge, that is the signal to open the source.
 **These sites 403 plain fetch tools — use a browser instead.** TrueAchievements (and its
 TrueSteamAchievements/TrueTrophies siblings) reject automated fetches, so a fetch-style tool
 returns HTTP 403 and looks exactly like "no such page." That is a bot-protection response to the
@@ -1501,6 +1517,12 @@ plainly, for all of the checks above and the walk-through below:
 you touched — the whole set: deferrals, dependencies, assumed completions, premises, positional
 references, achievement-placement reconciliation, and the player walk-through.
 
+**Sweep for hedges while you're there.** Search the finished text for softening phrases — "if you
+can't find," "if you haven't," "or you could," "assuming you," "should be able to" — and for each
+ask whether it encodes a *real player choice* or an *unresolved research question*. The first is
+fine. The second is a defect: verify it, then rewrite the line as a decision. A guide thick with
+hedges is one that published its uncertainty instead of resolving it.
+
 The reason is structural, not motivational. These defects are *created by editing* and are almost
 never present in a first draft. Moving one item strands a prerequisite that used to sit above it,
 falsifies a phase note three sections away that explains the routing, breaks a positional
@@ -1874,6 +1896,17 @@ only present the guide after this pass, not before it.
   a 403 there is not "unavailable" — it means use a browser pane and read the rendered text. Two
   achievement placements in one session were nearly left unverified on the strength of a 403 that
   a browser resolved in seconds.
+- Reading a solution thread for its mechanism instead of its literal instruction is right, and it
+  has a failure mode that looks exactly like insight. GTA IV's Wheelie Rider thread said "after
+  Hating the Haters"; the mechanism is that a moped cannot loop over backwards, so the abstraction
+  became "the trick is the vehicle, not the mission" and the item stayed in Phase 1. What the
+  abstraction dropped is *why the mission was named*: Faggios are uncommon in traffic, so the
+  mission is how you reliably get one. Abstracting away the specific is how you lose the fact the
+  advice was carrying. The override was also shipped with a hedge — "if you haven't found one by
+  then, it's free at that mission" — which is the tell: the uncertainty was known, and it got
+  written into the guide instead of resolved. **A hedge in the artifact is a research trigger that
+  was ignored**, and it is worse than an unexplained placement, because it reads as thorough while
+  transferring the doubt to the player.
 - "List the guide's premises, then check every note against the list" pushes the hard part onto
   judgment at exactly the moment judgment has already failed once. A fixed starter set you tick
   through beats a list you're asked to invent, and the same handful recur in every game: is there a
