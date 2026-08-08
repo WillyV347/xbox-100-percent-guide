@@ -94,6 +94,24 @@ Search for:
   DLC, removed events) — for multiplayer/online achievements, also check server population and
   whether boosting is realistically possible. A 100% route that dead-ends on a dead server
   needs to say so up front, not at the end.
+- **The game's own visual identity — and you have to actually look at the game, not read about
+  it.** This is a research target, not a thing to improvise at build time (see Visual Design under
+  Output Format). Collect: the palette the game actually uses (HUD, menus, loading screens, key
+  art, the setting's dominant colors), its typography (the logo's letterforms, the mission-title
+  and stat-screen faces, and a Google Fonts pairing that evokes them), and any UI convention the
+  game itself owns — a wanted-level star row, a radar disc, a mission-passed card, a stencilled
+  crate, a handwritten journal page.
+
+  **The mechanism matters here in a way it doesn't for the rest of Step 1.** Every other fact in
+  this step is text and arrives correctly through a text search. A palette does not. Search
+  results describe a game in adjectives, and an adjective is not a color — "gritty," "atmospheric,"
+  "stylish," and "urban" all compress to the same dark-grey-plus-one-accent theme regardless of
+  which game produced them, which is precisely how a guide ends up looking like every other guide.
+  So: **view the game's screenshots and key art directly** — image search, the store page, a wiki's
+  media gallery — and pull specific colors off what you see. **If you cannot view images in this
+  environment, that is a limitation to state, not to route around**: say so and ask the player for
+  a screenshot or for confirmation of the palette. Substituting a mood word for a color you never
+  looked at is the same defect as inventing a mission number, and it fails the same way.
 - Specific locations for location-dependent tasks (see "Add locations" under Output Format) —
   the exact venue, its neighborhood, and which candidate is best given where the player will be
   at that point in the route
@@ -270,6 +288,13 @@ fraction of them the placement is already forced and no thread can move it. Deci
   location-dependent tasks
 - **You placed it by inference rather than by a verified gate.** Your own uncertainty is a triage
   signal, and the cheapest one you have.
+- **You believe it has no gate at all and you're about to place it early.** "Ungated" is the
+  highest-confidence claim a guide makes and the least-evidenced one: no source ever *asserts* that
+  an achievement is ungated, so the belief is only ever formed by failing to find a gate. That is
+  absence of evidence wearing the face of evidence of absence — and it is the specific belief that
+  puts items in Phase 1. The solution thread is where the gate actually gets stated, and it is
+  usually the thread's **first sentence**, before any technique advice ("after you complete X you'll
+  have access to Y"), which makes this the cheapest read on the whole list.
 
 **Then split the deep-read candidates by what the open question actually is**, because half of
 them are asking something a solution thread is the wrong tool for:
@@ -737,6 +762,40 @@ When an item bundling several missions already has other children (e.g., a note 
 whichever mission unlocks an asset), add the missing mission names as additional children
 rather than leaving them out of the sub-list — every mission in the stated range should have
 its own row, whether or not it individually has anything special attached to it.
+
+### "Ungated" is a claim — the first phase carries the same burden of proof as the last
+
+The cleanup audit below demands per-item research for everything sitting at the *end* of the route,
+on the reasoning that a catch-all phase collects whatever nobody checked. That reasoning applies
+just as exactly to the *front* of the route, and there has been no matching audit there. **Phase 1
+is the other catch-all.** Anything the guide believes has no gate lands in it, and the belief that
+something has no gate is never the product of research — no achievement list, walkthrough, or wiki
+page ever states that a task is ungated. It is only ever arrived at by not finding a gate, which is
+indistinguishable from not looking.
+
+So the front of the route gets the same treatment as the back:
+
+**Every item in the earliest phase must name, in its note, either the specific mission or event
+that turns it on, or the verified fact that nothing does.** "No trigger found" is not the second
+one. An unexplained early item is exactly as unresearched as an unexplained late one, and it fails
+worse: a late item the player could have done earlier costs a detour, while an early item the game
+hasn't switched on yet costs the player a session of trying to do something impossible and
+concluding the guide is wrong.
+
+**The trap is that the object exists before the feature does.** A gate does not have to look like a
+locked bridge. The thing the task needs can be physically present, reachable, and enterable from
+minute one while the function it provides is simply switched off until a mission flips it — and
+every check in this skill that verifies *the thing is there* will pass. GTA IV's "Cleaned the Mean
+Streets" is the case that exposed it: capturing criminals needs the police computer, the police
+computer is in any LCPD car, and a police car can be stolen in the first ten minutes. The Most
+Wanted database behind it is dead until the Vlad mission "Crime and Punishment," roughly mission 14.
+Placed in Phase 1 on "you can steal a cop car whenever," the item sends the player to sit in front
+of a working-looking terminal that does nothing.
+
+The general shape, in any genre: a menu tab, a shop, a vendor, a phone contact list, an in-game
+website, a fast-travel network, a bounty board, a crafting bench, a stat or challenge screen. Ask
+of every early item not "can the player reach it?" but **"is the system behind it running yet?"** —
+they are different questions and only the first one is easy to check.
 
 ### Earliest reachable is a ceiling, not a target
 
@@ -1246,17 +1305,50 @@ gets hidden behind a collapsed note — only context and reasoning does. The tes
 every note, would the player still be able to complete everything correctly, just without
 knowing why? If not, something that belongs on the visible line got buried in a note.
 
-### Visual design
+### Visual design — the structure is shared, the look never is
 
-Give the file a distinct visual identity tied to the game's own setting and tone — a real color
-palette and font pairing (Google Fonts are fine), not a generic default dashboard look. This
-should read as a made-for-this-game reference tool, the kind of thing a fan site would build,
-not a templated to-do list. Pick a signature visual element tied to the game (a texture, a
-recurring shape, a stat-screen convention the game itself uses) and build the palette and type
-choices around it. **Never reuse a previous game's exact palette/font pairing for a new
-game** — the per-game visual identity is a deliberate, permanent feature of these guides, not
-an incidental style choice. Reuse the *structure* (accordion phases, missables box, nested
-children, footer) across every game; vary the *look* every time.
+**Every game gets its own visual identity, derived from that game, and no two guides look
+alike.** This is a deliberate, permanent, non-negotiable feature of these guides, not a styling
+preference — a player keeps several of these files open across years, and each one should be
+recognizable as *that game's* guide from a thumbnail, before a single word is read.
+
+Build the look from the research gathered in Step 1, not from imagination:
+
+- **Palette from the game**, not from a generic dark-dashboard default. Take it from what the
+  game actually looks like — its HUD and menus, its key art, the dominant colors of its setting.
+  Liberty City's rain-grey and washed municipal blue is not Vice City's sunset pink and teal, and
+  neither is a fantasy RPG's parchment and ink.
+- **Type that evokes the game's own lettering.** Pair a display face for the header and phase
+  titles with a readable body face (Google Fonts are fine). The logo's letterforms and the
+  mission-title card are the reference.
+- **One signature element the game itself owns**, carried through the file — a wanted-level star
+  row, a radar disc, a stat-screen bar treatment, a stencil, a paper texture, a scanline. It
+  should appear in the header, the progress bar, and the phase markers so the file reads as one
+  designed object rather than a theme color swapped into a template.
+
+**Theme the entry, not the franchise.** A series' most iconic look is not necessarily *this*
+game's look, and the more famous the franchise, the stronger the pull toward its brand imagery
+instead of the title in front of you. GTA IV is the textbook case and the one that has actually
+gone wrong here: "GTA" evokes sun-bleached neon — hot pink, cyan, palm trees, a chrome-and-sunset
+logo — and GTA IV is the deliberate opposite of that. It is grey, rain-soaked Liberty City,
+desaturated blue and municipal drab, dirty amber sodium streetlight, with key art built from
+high-contrast black-and-white character panels. A neon treatment on that guide isn't a slightly-off
+palette, it's a different game's identity. The same trap sits in any series with a tonal outlier:
+check what *this* entry looks like, and when an entry breaks from its series' house style,
+say so explicitly in your notes and verify the palette twice — the franchise's gravity is
+strongest exactly where it is most wrong.
+
+**The reference-file trap is the main way this fails, and it is built into the workflow.** This
+skill tells you to open a prior game's guide as the reference for quality bar and structure — and
+that file arrives with a complete palette, type pairing, and signature motif already wired
+through it. Editing it is the path of least resistance, and the previous game's look survives the
+edit because nothing forces it out. So: **take the structure from the reference file and nothing
+else.** Re-derive the palette, the fonts, and the motif from scratch for the new game before
+writing any CSS. "Not the *exact* same palette" is not the standard — a recolored version of the
+last guide is the same failure, and it is what you get by editing rather than re-deriving.
+
+Reuse across games: the accordion phases, missables box, nested children, search bar, footer, and
+every behavior in this document. Vary across games: everything the player sees.
 
 ### Persistence — read this before writing any storage code
 
@@ -1342,6 +1434,12 @@ prerequisites:
 - A skill/stat level, license, or proficiency gate on an activity
 - Map or region access, a safehouse, a garage, a fast-travel unlock
 - An ability, perk, or companion introduced by a mission placed later than this line
+- **A game system, feature, service, or menu that a story mission switches on** — a database or
+  terminal, a phone contact, a shop or in-game website, property purchasing, fast travel, a bounty
+  board, a challenge or stat screen. This one hides from every other check in this skill, because
+  the *object* is usually present and reachable long before the *function* is live: the location
+  check passes, the vehicle check passes, the player sits down at it and nothing happens. Resolve
+  it by naming the mission that activates the system, not the place the system lives in.
 
 **Forward (mentions): does the thing named have its own real completion step somewhere?** Every
 noun the guide introduces as something that exists and matters must eventually appear as an
@@ -1576,6 +1674,17 @@ checking:
   unobtainable" callout), and every 100% category must have real covering steps, not just a
   mention. "It's probably in there somewhere" is not a check; enumerate the list and tick each
   entry off against the document.
+- **Does this file look like this game — checked against the game, not against your reasoning?**
+  Put the finished header next to an actual screenshot or the key art and compare: are these the
+  same colors? Naming your intent does not pass this check. A stated rationale for a palette is
+  the thing under audit, and the skill's own rule applies to look exactly as it does to routing —
+  checking a choice against the reasoning that produced it always passes. Then confirm three
+  things: the palette came off an image you actually viewed rather than a mood word; it's *this
+  entry's* look and not the franchise's house style; and set side by side with the most recent
+  prior guide it's a different identity, not a recolor. **Show the player the palette, type
+  pairing, and motif before building hundreds of items on top of them** — it is the cheapest
+  correction point in the whole process, and the player is ground truth on whether it feels like
+  the game.
 - **Test the search bar against collapsed content specifically.** Pick a term that appears only
   inside a collapsed note (a location name, a jargon definition) and one that appears only in a
   bundled mission sub-list, and confirm each is actually found and revealed. Then confirm
@@ -1616,6 +1725,12 @@ checking:
   chain that runs out of nearby work collapses at its tail. Confirm the first link's note maps
   the whole chain and every later link points back to the previous one (the dependent-chain
   section in Step 7).
+- **Is anything placed early that isn't actually possible there?** Audit the earliest phase the way
+  the cleanup phase gets audited, item by item: each one must name the mission or event that enables
+  it, or carry a verified statement that nothing gates it. Check the *system*, not just the place —
+  a terminal, shop, contact list, or menu the player can walk up to may not be running until a
+  mission turns it on. Anything whose placement rests on "no gate found" is unresearched, not
+  ungated (the burden-of-proof section in Step 7).
 - **Is anything placed early that's genuinely cheaper later?** For every item moved forward, check
   that its *best method* — not just the task — is available there and that the player is already
   nearby. An early placement that forces a cross-map trip, a worse grinding spot, or a fight
@@ -1687,6 +1802,29 @@ only present the guide after this pass, not before it.
   a "fix" when a save error appears is the wrong move; the file was already using it correctly
   and the real gap was missing retry/backoff and swallowing the error instead of surfacing it
   or degrading gracefully.
+- Reported from real use: the GTA IV guide's theme "wasn't really close to the style of the game,"
+  even though the rule requiring a per-game look was already in the skill. Three mechanisms, all
+  fixable, none of them "try harder." **A palette cannot be derived from a text search** — every
+  other fact in Step 1 is prose and survives the trip, but search results describe a game in
+  adjectives, and "gritty," "atmospheric," and "urban" all compress to dark grey plus one accent no
+  matter which game produced them. You have to view screenshots and key art, or say you can't and
+  ask the player. **Franchise gravity beats entry specifics** — "GTA" pulls toward Vice City neon,
+  and GTA IV is the franchise's deliberate tonal opposite: grey rain-soaked Liberty City,
+  desaturated municipal blue, sodium-amber streetlight, black-and-white character-panel key art.
+  The pull is strongest exactly where it's most wrong. **And the gate first written for this
+  checked the wrong thing**: it asked the builder to *name* the palette and its source, which is
+  self-assessment against your own reasoning — the identical failure this skill already documents
+  for placement notes. Compare the header against an actual image, and show the player the palette
+  before building three hundred items on top of it.
+- Per-game visual identity was stated as a rule twice and enforced nowhere: no research step fed
+  it, no pre-presentation check tested it, and the only guard was "never reuse a previous game's
+  *exact* palette" — which a recolor of the last guide passes. It is also the one requirement the
+  workflow actively undermines, because the skill hands you a finished guide for a different game
+  as the structural reference, and a palette, type pairing, and motif ride along inside it. Every
+  other requirement here has an input (research) and a gate (the walk-through); the look had
+  neither, which is why it drifts toward whatever the reference file already was. The fix is the
+  same shape as everywhere else: make it a research target, then make it a gate — name each
+  choice and the thing in the game it came from, and compare against the previous guide.
 - Matching a prior game's *structure* does not mean matching its *look* — a player explicitly
   wants a different visual theme per game while the underlying format (accordion, missables
   box, nesting, footer) stays consistent. Don't collapse those two things together.
@@ -2006,6 +2144,26 @@ only present the guide after this pass, not before it.
 - A re-sync merges, it never overwrites. Players check things by hand that no achievement covers
   (100%-stat tasks) and things they finished before the achievement popped; a sync that
   overwrites state punishes exactly the players who used the checklist most carefully.
+- The cleanup-phase audit has a mirror image nobody built: **Phase 1 is the other catch-all.** The
+  audit exists because a terminal phase collects anything unresearched — and the opening phase
+  collects anything believed ungated, which is the same failure with the sign flipped. GTA IV's
+  "Cleaned the Mean Streets" sat in Phase 1 because a police car can be stolen in the first ten
+  minutes, and the achievement's own description says nothing about a gate. It has one: the Most
+  Wanted database is inert until the Vlad mission "Crime and Punishment," roughly mission 14, and the
+  top TrueAchievements solution says so in its opening sentence. Every reason it slipped is
+  structural, not attentional: no source ever *asserts* "this is ungated," so that belief is always
+  formed by not finding a gate; it isn't missable, so missables research is blind to it; and the
+  ceiling section trains attention on the *opposite* shape — ungated task, gated method — which
+  makes "the task itself is gated" feel like the case already handled. Ungated is a claim requiring
+  evidence, and the earliest phase is where unevidenced claims accumulate.
+- **The object existing is not the feature working**, and every location-style check in this skill
+  passes on the object. The police computer is physically in the car, reachable, and enterable long
+  before the database behind it responds — so "does the location exist," "is the vehicle
+  obtainable," and "is the area open" all return yes while the task remains impossible. The
+  prerequisite taxonomy listed vehicles, weapons, cash, stats, and region access, and had no entry
+  for *a system a mission switches on*: a terminal, a phone contact, a shop or website, property
+  buying, fast travel, a challenge screen. Ask "is the system running yet," not "can the player get
+  there."
 - The lessons above skew toward GTA-style open-world games because that's where this skill was
   battle-tested. Don't let that narrow the skill's scope: for each new game, translate the
   concepts (missions → quests/chapters/races, islands → gated acts, vehicle missions →
