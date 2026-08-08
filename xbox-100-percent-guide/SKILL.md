@@ -270,6 +270,13 @@ fraction of them the placement is already forced and no thread can move it. Deci
   location-dependent tasks
 - **You placed it by inference rather than by a verified gate.** Your own uncertainty is a triage
   signal, and the cheapest one you have.
+- **You believe it has no gate at all and you're about to place it early.** "Ungated" is the
+  highest-confidence claim a guide makes and the least-evidenced one: no source ever *asserts* that
+  an achievement is ungated, so the belief is only ever formed by failing to find a gate. That is
+  absence of evidence wearing the face of evidence of absence — and it is the specific belief that
+  puts items in Phase 1. The solution thread is where the gate actually gets stated, and it is
+  usually the thread's **first sentence**, before any technique advice ("after you complete X you'll
+  have access to Y"), which makes this the cheapest read on the whole list.
 
 **Then split the deep-read candidates by what the open question actually is**, because half of
 them are asking something a solution thread is the wrong tool for:
@@ -737,6 +744,40 @@ When an item bundling several missions already has other children (e.g., a note 
 whichever mission unlocks an asset), add the missing mission names as additional children
 rather than leaving them out of the sub-list — every mission in the stated range should have
 its own row, whether or not it individually has anything special attached to it.
+
+### "Ungated" is a claim — the first phase carries the same burden of proof as the last
+
+The cleanup audit below demands per-item research for everything sitting at the *end* of the route,
+on the reasoning that a catch-all phase collects whatever nobody checked. That reasoning applies
+just as exactly to the *front* of the route, and there has been no matching audit there. **Phase 1
+is the other catch-all.** Anything the guide believes has no gate lands in it, and the belief that
+something has no gate is never the product of research — no achievement list, walkthrough, or wiki
+page ever states that a task is ungated. It is only ever arrived at by not finding a gate, which is
+indistinguishable from not looking.
+
+So the front of the route gets the same treatment as the back:
+
+**Every item in the earliest phase must name, in its note, either the specific mission or event
+that turns it on, or the verified fact that nothing does.** "No trigger found" is not the second
+one. An unexplained early item is exactly as unresearched as an unexplained late one, and it fails
+worse: a late item the player could have done earlier costs a detour, while an early item the game
+hasn't switched on yet costs the player a session of trying to do something impossible and
+concluding the guide is wrong.
+
+**The trap is that the object exists before the feature does.** A gate does not have to look like a
+locked bridge. The thing the task needs can be physically present, reachable, and enterable from
+minute one while the function it provides is simply switched off until a mission flips it — and
+every check in this skill that verifies *the thing is there* will pass. GTA IV's "Cleaned the Mean
+Streets" is the case that exposed it: capturing criminals needs the police computer, the police
+computer is in any LCPD car, and a police car can be stolen in the first ten minutes. The Most
+Wanted database behind it is dead until the Vlad mission "Crime and Punishment," roughly mission 14.
+Placed in Phase 1 on "you can steal a cop car whenever," the item sends the player to sit in front
+of a working-looking terminal that does nothing.
+
+The general shape, in any genre: a menu tab, a shop, a vendor, a phone contact list, an in-game
+website, a fast-travel network, a bounty board, a crafting bench, a stat or challenge screen. Ask
+of every early item not "can the player reach it?" but **"is the system behind it running yet?"** —
+they are different questions and only the first one is easy to check.
 
 ### Earliest reachable is a ceiling, not a target
 
@@ -1342,6 +1383,12 @@ prerequisites:
 - A skill/stat level, license, or proficiency gate on an activity
 - Map or region access, a safehouse, a garage, a fast-travel unlock
 - An ability, perk, or companion introduced by a mission placed later than this line
+- **A game system, feature, service, or menu that a story mission switches on** — a database or
+  terminal, a phone contact, a shop or in-game website, property purchasing, fast travel, a bounty
+  board, a challenge or stat screen. This one hides from every other check in this skill, because
+  the *object* is usually present and reachable long before the *function* is live: the location
+  check passes, the vehicle check passes, the player sits down at it and nothing happens. Resolve
+  it by naming the mission that activates the system, not the place the system lives in.
 
 **Forward (mentions): does the thing named have its own real completion step somewhere?** Every
 noun the guide introduces as something that exists and matters must eventually appear as an
@@ -1616,6 +1663,12 @@ checking:
   chain that runs out of nearby work collapses at its tail. Confirm the first link's note maps
   the whole chain and every later link points back to the previous one (the dependent-chain
   section in Step 7).
+- **Is anything placed early that isn't actually possible there?** Audit the earliest phase the way
+  the cleanup phase gets audited, item by item: each one must name the mission or event that enables
+  it, or carry a verified statement that nothing gates it. Check the *system*, not just the place —
+  a terminal, shop, contact list, or menu the player can walk up to may not be running until a
+  mission turns it on. Anything whose placement rests on "no gate found" is unresearched, not
+  ungated (the burden-of-proof section in Step 7).
 - **Is anything placed early that's genuinely cheaper later?** For every item moved forward, check
   that its *best method* — not just the task — is available there and that the player is already
   nearby. An early placement that forces a cross-map trip, a worse grinding spot, or a fight
@@ -2006,6 +2059,26 @@ only present the guide after this pass, not before it.
 - A re-sync merges, it never overwrites. Players check things by hand that no achievement covers
   (100%-stat tasks) and things they finished before the achievement popped; a sync that
   overwrites state punishes exactly the players who used the checklist most carefully.
+- The cleanup-phase audit has a mirror image nobody built: **Phase 1 is the other catch-all.** The
+  audit exists because a terminal phase collects anything unresearched — and the opening phase
+  collects anything believed ungated, which is the same failure with the sign flipped. GTA IV's
+  "Cleaned the Mean Streets" sat in Phase 1 because a police car can be stolen in the first ten
+  minutes, and the achievement's own description says nothing about a gate. It has one: the Most
+  Wanted database is inert until the Vlad mission "Crime and Punishment," roughly mission 14, and the
+  top TrueAchievements solution says so in its opening sentence. Every reason it slipped is
+  structural, not attentional: no source ever *asserts* "this is ungated," so that belief is always
+  formed by not finding a gate; it isn't missable, so missables research is blind to it; and the
+  ceiling section trains attention on the *opposite* shape — ungated task, gated method — which
+  makes "the task itself is gated" feel like the case already handled. Ungated is a claim requiring
+  evidence, and the earliest phase is where unevidenced claims accumulate.
+- **The object existing is not the feature working**, and every location-style check in this skill
+  passes on the object. The police computer is physically in the car, reachable, and enterable long
+  before the database behind it responds — so "does the location exist," "is the vehicle
+  obtainable," and "is the area open" all return yes while the task remains impossible. The
+  prerequisite taxonomy listed vehicles, weapons, cash, stats, and region access, and had no entry
+  for *a system a mission switches on*: a terminal, a phone contact, a shop or website, property
+  buying, fast travel, a challenge screen. Ask "is the system running yet," not "can the player get
+  there."
 - The lessons above skew toward GTA-style open-world games because that's where this skill was
   battle-tested. Don't let that narrow the skill's scope: for each new game, translate the
   concepts (missions → quests/chapters/races, islands → gated acts, vehicle missions →
