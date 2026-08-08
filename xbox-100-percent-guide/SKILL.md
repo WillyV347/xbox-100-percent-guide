@@ -94,17 +94,24 @@ Search for:
   DLC, removed events) — for multiplayer/online achievements, also check server population and
   whether boosting is realistically possible. A 100% route that dead-ends on a dead server
   needs to say so up front, not at the end.
-- **The game's own visual identity** — this is a research target, not a thing to improvise at
-  build time. The guide's look is a hard requirement (see Visual Design under Output Format) and
-  it is the only requirement in this skill with no factual input unless you go get one. Collect:
-  the palette the game actually uses (its HUD, menus, loading screens, key art, the setting's
-  own dominant colors), its typography (the logo's letterforms, the mission-title and stat-screen
-  faces, and a Google Fonts pairing that evokes them), and any UI convention the game itself owns
-  — a wanted-level row of stars, a radar disc, a mission-passed card, a stencilled crate, a
-  handwritten journal page. Also note the era and tone, since they decide everything the palette
-  doesn't: 1980s neon, muddy post-apocalypse, clean sci-fi, hand-painted fantasy. A guide whose
-  look was derived from screenshots reads as made-for-this-game; one improvised from the title
-  alone reads as a template with the game's name typed into it.
+- **The game's own visual identity — and you have to actually look at the game, not read about
+  it.** This is a research target, not a thing to improvise at build time (see Visual Design under
+  Output Format). Collect: the palette the game actually uses (HUD, menus, loading screens, key
+  art, the setting's dominant colors), its typography (the logo's letterforms, the mission-title
+  and stat-screen faces, and a Google Fonts pairing that evokes them), and any UI convention the
+  game itself owns — a wanted-level star row, a radar disc, a mission-passed card, a stencilled
+  crate, a handwritten journal page.
+
+  **The mechanism matters here in a way it doesn't for the rest of Step 1.** Every other fact in
+  this step is text and arrives correctly through a text search. A palette does not. Search
+  results describe a game in adjectives, and an adjective is not a color — "gritty," "atmospheric,"
+  "stylish," and "urban" all compress to the same dark-grey-plus-one-accent theme regardless of
+  which game produced them, which is precisely how a guide ends up looking like every other guide.
+  So: **view the game's screenshots and key art directly** — image search, the store page, a wiki's
+  media gallery — and pull specific colors off what you see. **If you cannot view images in this
+  environment, that is a limitation to state, not to route around**: say so and ask the player for
+  a screenshot or for confirmation of the palette. Substituting a mood word for a color you never
+  looked at is the same defect as inventing a mission number, and it fails the same way.
 - Specific locations for location-dependent tasks (see "Add locations" under Output Format) —
   the exact venue, its neighborhood, and which candidate is best given where the player will be
   at that point in the route
@@ -1319,6 +1326,18 @@ Build the look from the research gathered in Step 1, not from imagination:
   should appear in the header, the progress bar, and the phase markers so the file reads as one
   designed object rather than a theme color swapped into a template.
 
+**Theme the entry, not the franchise.** A series' most iconic look is not necessarily *this*
+game's look, and the more famous the franchise, the stronger the pull toward its brand imagery
+instead of the title in front of you. GTA IV is the textbook case and the one that has actually
+gone wrong here: "GTA" evokes sun-bleached neon — hot pink, cyan, palm trees, a chrome-and-sunset
+logo — and GTA IV is the deliberate opposite of that. It is grey, rain-soaked Liberty City,
+desaturated blue and municipal drab, dirty amber sodium streetlight, with key art built from
+high-contrast black-and-white character panels. A neon treatment on that guide isn't a slightly-off
+palette, it's a different game's identity. The same trap sits in any series with a tonal outlier:
+check what *this* entry looks like, and when an entry breaks from its series' house style,
+say so explicitly in your notes and verify the palette twice — the franchise's gravity is
+strongest exactly where it is most wrong.
+
 **The reference-file trap is the main way this fails, and it is built into the workflow.** This
 skill tells you to open a prior game's guide as the reference for quality bar and structure — and
 that file arrives with a complete palette, type pairing, and signature motif already wired
@@ -1655,14 +1674,17 @@ checking:
   unobtainable" callout), and every 100% category must have real covering steps, not just a
   mention. "It's probably in there somewhere" is not a check; enumerate the list and tick each
   entry off against the document.
-- **Does this file look like this game, and unlike the last guide you built?** Name the palette,
-  the type pairing, and the signature motif out loud, and say which thing in the game each one
-  came from — if any answer is "it looked good" or "that's what the reference file used," it was
-  carried over rather than derived. Then compare side by side against the most recent prior
-  guide: different hues, different fonts, different motif, not a recolor. This check exists
-  because visual identity is the one requirement a player judges instantly and the build process
-  actively works against, by handing you a finished file from another game to start from (Visual
-  Design above).
+- **Does this file look like this game — checked against the game, not against your reasoning?**
+  Put the finished header next to an actual screenshot or the key art and compare: are these the
+  same colors? Naming your intent does not pass this check. A stated rationale for a palette is
+  the thing under audit, and the skill's own rule applies to look exactly as it does to routing —
+  checking a choice against the reasoning that produced it always passes. Then confirm three
+  things: the palette came off an image you actually viewed rather than a mood word; it's *this
+  entry's* look and not the franchise's house style; and set side by side with the most recent
+  prior guide it's a different identity, not a recolor. **Show the player the palette, type
+  pairing, and motif before building hundreds of items on top of them** — it is the cheapest
+  correction point in the whole process, and the player is ground truth on whether it feels like
+  the game.
 - **Test the search bar against collapsed content specifically.** Pick a term that appears only
   inside a collapsed note (a location name, a jargon definition) and one that appears only in a
   bundled mission sub-list, and confirm each is actually found and revealed. Then confirm
@@ -1780,6 +1802,20 @@ only present the guide after this pass, not before it.
   a "fix" when a save error appears is the wrong move; the file was already using it correctly
   and the real gap was missing retry/backoff and swallowing the error instead of surfacing it
   or degrading gracefully.
+- Reported from real use: the GTA IV guide's theme "wasn't really close to the style of the game,"
+  even though the rule requiring a per-game look was already in the skill. Three mechanisms, all
+  fixable, none of them "try harder." **A palette cannot be derived from a text search** — every
+  other fact in Step 1 is prose and survives the trip, but search results describe a game in
+  adjectives, and "gritty," "atmospheric," and "urban" all compress to dark grey plus one accent no
+  matter which game produced them. You have to view screenshots and key art, or say you can't and
+  ask the player. **Franchise gravity beats entry specifics** — "GTA" pulls toward Vice City neon,
+  and GTA IV is the franchise's deliberate tonal opposite: grey rain-soaked Liberty City,
+  desaturated municipal blue, sodium-amber streetlight, black-and-white character-panel key art.
+  The pull is strongest exactly where it's most wrong. **And the gate first written for this
+  checked the wrong thing**: it asked the builder to *name* the palette and its source, which is
+  self-assessment against your own reasoning — the identical failure this skill already documents
+  for placement notes. Compare the header against an actual image, and show the player the palette
+  before building three hundred items on top of it.
 - Per-game visual identity was stated as a rule twice and enforced nowhere: no research step fed
   it, no pre-presentation check tested it, and the only guard was "never reuse a previous game's
   *exact* palette" — which a recolor of the last guide passes. It is also the one requirement the
