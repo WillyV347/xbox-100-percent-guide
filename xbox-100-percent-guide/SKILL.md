@@ -1526,6 +1526,30 @@ gets hidden behind a collapsed note — only context and reasoning does. The tes
 every note, would the player still be able to complete everything correctly, just without
 knowing why? If not, something that belongs on the visible line got buried in a note.
 
+### Concrete nouns are the audit unit — and a correction pass is new writing
+
+**Concrete nouns are the audit unit.** Every street, venue, building, vehicle, item, button
+input, numeric threshold and time window that appears in a note must trace to a specific source
+you actually read. Fluent guide-writing generates plausible specifics on its own, and on the page
+an invented specific is indistinguishable from a researched one. If you cannot name the source
+for a concrete noun, cut it — a note that says less is not worse than a note that says something
+false with confidence.
+
+**A correction is new writing, not cleanup.** The fix pass is where fabrication enters most
+easily, because applying a finding feels like transcription and carries none of the checking
+discipline of the research pass. Every concrete detail introduced while correcting an earlier
+error is held to the same sourcing standard as the original.
+
+**An invented enabling detail is a symptom of a placement conflict.** When a source's method
+arrives with an acquisition or availability fact that does not fit where you have placed the
+item, the pull is to bridge the gap with a plausible specific and keep the placement. Treat any
+detail you are about to supply that *rescues* a placement as a stop signal. The availability fact
+is the finding; the placement is what changes.
+
+**Mark inference inside the artifact, not only in your notes.** Where a method or location is
+your own reasoning rather than a community solution, say so on the line the reader sees. A
+flagged inference is honest; an unflagged one is a claim.
+
 ### Visual design — the structure is shared, the look never is
 
 **Every game gets its own visual identity, derived from that game, and no two guides look
@@ -1570,6 +1594,28 @@ last guide is the same failure, and it is what you get by editing rather than re
 
 Reuse across games: the accordion phases, missables box, nested children, search bar, footer, and
 every behavior in this document. Vary across games: everything the player sees.
+
+### Item IDs must be content-derived and position-independent from the first build
+
+**Item IDs must be content-derived and position-independent from the first build.** Derive each
+ID from the task's own text as a slug, never from an index or position. Positional IDs make an
+artifact resistant to its own corrections, and that resistance will be rationalised as protecting
+the user's progress. Content IDs make repositioning free, which is the only condition under which
+placement corrections actually get made.
+
+**A placement correction must move the item. Ordering is never encoded in prose.** Position
+carries order; notes carry method and caveats. If a note tells the reader to do something at a
+different point than where it sits, the guide contradicts itself in its primary channel. Move it.
+
+**If an artifact already has positional IDs and the user has begun ticking, migrate rather than
+defer.** Ship a stored map from old ID to new ID, translate on load, and rewrite storage on first
+run. This is a single pass. Deferring it degrades every subsequent correction, and the deferrals
+compound: each one is individually defensible and collectively produces a guide whose order no
+longer reflects what you know.
+
+**When a structural flaw begins dictating content decisions, fix the structure.** The signal is
+catching yourself choosing a worse fix because a better one is architecturally awkward. Do not
+let the flaw accumulate exceptions.
 
 ### Persistence — read this before writing any storage code
 
@@ -1867,8 +1913,10 @@ plainly, for all of the checks above and the walk-through below:
 
 **A targeted edit round requires the same full sweep as a fresh build.** Not a spot-check of what
 you touched — the whole set: deferrals, dependencies, assumed completions, premises, structural
-self-description, positional references, achievement-placement reconciliation, and the player
-walk-through.
+self-description, positional references, concrete nouns, route order, achievement-placement
+reconciliation, and the player walk-through. Two of those exist specifically because a correction
+pass creates its own defects: the concrete-noun sweep re-runs over the *corrected* text, and the
+route-order walk re-reads the sequence a moved item just changed.
 
 **Sweep for hedges while you're there.** Search the finished text for softening phrases — "if you
 can't find," "if you haven't," "or you could," "assuming you," "should be able to" — and for each
@@ -1903,6 +1951,9 @@ checking:
   actually done and put the unlock relationship in a note (the spine principle in Step 7).
 - Does every location, vehicle, or target named on a checkbox line actually exist where the
   guide says it does (the location-research requirement from Step 1)?
+- **Concrete-noun sweep.** Before delivery, extract every proper noun, number, threshold and input
+  instruction from the notes and confirm each against a source. Run this again after any correction
+  pass, over the corrected text — not only over text written in the original build.
 - Does anything referencing a later point in the game appear before something referencing an
   earlier one (the position-desync check from Step 7, principle 8)?
 - Would a player who has never seen this game get stuck or confused by any single line without
@@ -1957,6 +2008,9 @@ checking:
   premise-change sweep above). List the guide's premises and check every note against **all** of
   them, and against each other — a stale "clock target: under 16 hours" is only detectable against
   another note saying there is no clock on this save.
+- **Route-order walk.** After any correction pass, read the items in order as a player following
+  the checkboxes would, and confirm the sequence still matches current knowledge. The premise sweep
+  catches sentences made false by an edit; it does not catch an order that has quietly gone stale.
 - **Does every sentence describing the guide's own structure match the guide's actual structure?**
   Grep for structural self-description — "split across," "grouped by," "rather than bundled," "each
   gets its own," "listed separately," "nested under," "one per" — and verify each hit by opening
