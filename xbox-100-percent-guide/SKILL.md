@@ -8,7 +8,11 @@ description: >
   casual phrasings like "I want to do everything in X" or "best way to play X for all
   achievements" — any named game plus completion, achievement, or roadmap intent. Also applies
   when the user asks to turn an existing guide into an interactive checklist, or to revise
-  ordering, formatting, or accuracy in a guide this skill already produced. Also triggers on
+  ordering, formatting, or accuracy in a guide this skill already produced. **Stays in force for
+  every follow-up turn about a guide it built, not just the request that started it** — questions
+  ("why is this in Phase 3," "where is that terminal," "do I need this for 100%"), corrections,
+  additions ("add the DLC," "I already did X"), re-ordering, re-theming, and complaints all
+  re-enter this skill rather than being answered from memory of the build. Also triggers on
   syncing, importing, or checking the player's existing Xbox achievements against a guide —
   "sync my achievements," "what do I already have," "update my progress from my Xbox profile,"
   "start the guide from where I actually am."
@@ -34,6 +38,37 @@ match, turn, case), "region" as any slice that can be gated (act, level-select e
 tier, unlocked character, faction path, playlist), and "side activity" as any repeatable optional
 content with a reward. Don't skip a step because the game "doesn't have that" — translate the
 concept to the game's own systems instead.
+
+### Every turn after the first is still this skill
+
+The build is the beginning of the job, not the job. A player lives in one of these files for
+50-200 hours and comes back with questions, corrections, and additions the whole time — "why is
+this in Phase 3," "where exactly is that terminal," "I already did X out of order," "add the DLC,"
+"re-sync me," "this theme doesn't look like the game," "this step didn't work." **Every one of
+those re-enters this skill.** They are not conversational follow-ups to be answered from memory of
+the build; they are further work on the artifact, held to every standard below.
+
+Concretely, on any follow-up turn:
+
+- **Research the answer, don't recall it.** Whatever the question touches gets the same sourcing
+  standard as Step 1 — including the per-game notes store, which is an input to verify against and
+  never a substitute (see the standing-questions section below). "I built this guide, so I know"
+  is exactly the confidence that ships an invented specific.
+- **The answer's home is the artifact, not the reply.** If the player had to ask, the guide didn't
+  say it. Answer them in chat *and* put the answer into the line that should have carried it —
+  otherwise the same question is waiting for the next player, and the guide's own text now
+  contradicts what you just told them. This is the executability rule in Output Format, arriving as
+  a bug report.
+- **Any edit re-runs the sweeps.** Every verification pass in Output Format applies after a
+  revision round, not only after a fresh build — the defects this skill guards against are mostly
+  *created* by editing (see "Every sweep re-runs after an edit round" and the walk-through pass).
+  A one-line change is an edit round.
+- **A player's report is evidence, and their proposed cause is a hypothesis.** "This is wrong" is
+  almost always right about the symptom; check the mechanism against the file as it actually
+  stands rather than accepting or dismissing the diagnosis wholesale.
+- **Deliver the updated file, not a description of the update.** The deliverable never changes: an
+  edited guide is a rebuilt HTML checklist handed over, not a chat message explaining what would
+  change.
 
 ### This file never stores facts about a particular game
 
@@ -152,6 +187,14 @@ Search for:
   doesn't. Cross-check an authoritative "what counts toward 100%"
   breakdown against the achievement list — they are usually different sources, and content that
   matters for one can be totally absent from the other.
+- **Which progress units run straight into the next one without handing control back**, and
+  where the player ends up when control does return. A mission list looks like a list of
+  separable entries; some of those boundaries don't exist in play, because one unit triggers the
+  next directly — and the handoff often relocates the player or changes their loadout, party,
+  vehicle, or access. The guide plans around the boundaries it can see, so a phantom one puts
+  tasks in a gap the player never gets. Ask it of every boundary the route will place anything at
+  (see the chaining section in Step 7); it's usually stated in passing in the same walkthrough
+  and solution text already being read.
 - Cumulative, whole-game requirements — anything satisfied by *how the player plays* over
   dozens of hours rather than by a task at one point in the route: max proficiency/level with
   every weapon, total distance or usage counts, per-category kill totals, skill mastery bars.
@@ -740,23 +783,31 @@ unlock something" — also check:
 - **Are there daily/session caps on a grindable stat or activity?** If so, say so, and give the
   standard workaround (often: resting, saving, or returning to a hub to roll the cooldown over)
   instead of letting the player assume one long session will finish it.
-- **Does anything advance on elapsed time rather than on player action?** In-game days passing,
-  a business or property accruing income, a build/craft/crop timer, a stock price moving, a
-  letter or phone call arriving some days after a trigger, a relationship cooling off, a
-  real-time cooldown on a repeatable job, a vehicle or spawn refreshing. These are not tasks,
-  they are clocks, and the only sequencing question that matters is **how early the clock can be
-  started** — research the earliest point in the route where the timer can be set running, the
-  same evidence standard as any other fact. A timer started at its earliest legal point is free;
-  the same timer started where its reward gets collected costs the player the entire wait.
-  **Then check whether the timers are independent or chained**: several separate clocks can all
-  run at once, but a sequence where each step is gated on time since the *previous* step (visit
-  an NPC, wait, visit again, wait, visit again) can't be parallelized at all — it needs the
-  route rearranged around it instead. Establish how many links the chain has and how much time
-  each gap needs, because that's what the route has to fill. See the dedicated section in
-  Step 7 for how both cases get written into the route.
+- **Does anything resolve on something other than the player doing it right now?** Elapsed time
+  is the obvious case — in-game days passing, a business or property accruing income, a
+  build/craft/crop timer, a stock price moving, a relationship cooling off, a real-time cooldown,
+  a vehicle or spawn refreshing — but **the question is broader than clocks, and phrasing it as
+  "does anything advance on elapsed time" is what makes the rest invisible.** Also count: a
+  message, letter, call, or in-game email that arrives after a trigger; an activity, encounter,
+  contact, or visitor that has to *fire* before it can be done; anything gated on a counter of
+  missions, wins, levels, or purchases rather than on days; a vendor restock or job board that
+  rolls over; a daily or weekly reset on a real-world clock; an unlock that only appears at the
+  next sign-in or server sync; something that only changes the next time the player sleeps, saves,
+  reloads, or re-enters an area. None of these are tasks — they are **pending outcomes**, and the
+  sequencing question that matters is **how early the pending state can be created**, researched
+  to the same evidence standard as any other fact. Started at its earliest legal point it is free;
+  started where its reward gets collected it costs the player the entire wait. **Then establish
+  what actually advances it** — time alone, progress the player is making anyway, or one specific
+  action they must take — because that decides whether the route can absorb the wait or has to
+  perform something. **And check whether they are independent or chained**: several can be pending
+  at once, but a sequence where each step is gated on the *previous* one (visit an NPC, wait,
+  visit again, wait, visit again) can't be parallelized at all — it needs the route rearranged
+  around it instead. Establish how many links the chain has and what each gap needs, because
+  that's what the route has to fill. See the dedicated section in Step 7 for how all of these get
+  written into the route.
 
-  **Ask this question per content category, never once for the whole game.** "Does anything
-  advance on elapsed time?" asked at the game level invites a single answer, and the answer is
+  **Ask this question per content category, never once for the whole game.** Asked at the game
+  level it invites a single answer, and the answer is
   whichever clock is most visible — an income property, a crop, a research bar — after which the
   question feels answered and the search stops. So enumerate the game's content categories first,
   then ask it of each one separately: the progress line; every side activity, one at a time; every
@@ -834,6 +885,9 @@ order the game actually unlocks things in. Search for the game's mission list or
 progression specifically (e.g., "[game] mission order," "[game] walkthrough chapter list") and
 confirm which mission unlocks which region/vehicle/side-content before asserting it — a chain
 of individually-true facts can still describe a false sequence if two of them are reversed.
+**The same pass establishes where the seams in that sequence actually are** — which entries the
+game runs back to back without returning control, and where the player is standing afterwards —
+because the route may only place work at real seams (see the chaining section below).
 Only present a specific numbered order once it's confirmed this way; otherwise say so and use
 the guide's own sequential step numbers rather than implying you've confirmed the game's actual
 internal ordering (see Step 1's fetch-verification note, same principle, applied to sequence
@@ -935,12 +989,19 @@ the time-gated cases further down.
 12. **Ongoing whole-game requirements are routed as a habit, not an end-phase task.** State
     the behavior early, checkpoint it mid-route, verify it at the end — see the dedicated
     section below.
-13. **Waiting is never a step.** Anything that advances on elapsed time gets started at the
-    earliest point the route allows and then runs *underneath* the rest of the route. Where a
-    chain of steps is gated on time between each one, the clock can't move — so the links get
-    interleaved into the route with real work between them, never written out as a contiguous
-    block. The player is never parked in front of a clock, and two waits never sit next to each
-    other — see the dedicated section below.
+13. **Waiting is never a step — and a wait is not only a clock.** Anything the player has to
+    wait *for* — elapsed in-game time, a message or call arriving, an activity or encounter that
+    has to trigger, a counter of missions or wins, a restock or reset, a next-sign-in unlock —
+    gets started at the earliest point the route allows and then resolves *underneath* the rest
+    of the route. Where a chain of steps is gated on the one before it, nothing can start
+    earlier, so the links get interleaved into the route with real work between them, never
+    written out as a contiguous block. The player is never parked waiting, and two waits never
+    sit next to each other — see the dedicated section below.
+14. **Nothing goes between two units the game runs back to back.** A gap on the page is not a
+    gap in the game: where one mission, chapter, race, or level hands straight off to the next
+    without returning control, the player cannot act between them, and the handoff frequently
+    moves them somewhere else as well. Verify that control actually returns at any boundary the
+    route places something at — see the dedicated section below.
 
 ### Bundled missions get their own sub-list, never a parenthetical
 
@@ -970,6 +1031,65 @@ When an item bundling several missions already has other children (e.g., a note 
 whichever mission unlocks an asset), add the missing mission names as additional children
 rather than leaving them out of the sub-list — every mission in the stated range should have
 its own row, whether or not it individually has anything special attached to it.
+
+### Missions that chain automatically — a gap on the page is not a gap in the game
+
+A mission list is a list of *entries*, and the guide silently assumes each entry ends by handing
+control back to a player standing where they started. Plenty don't. A unit that runs straight into
+the next one — the end of one triggering the start of the next with no player action in between —
+produces a boundary that exists in the source's numbering and nowhere in play.
+
+**Anything the guide places at that boundary is not mis-ordered, it is unexecutable.** The player
+reads the line, has no control to act on it, and by the time control returns the situation has
+changed. This fails a level below every check in this skill: the item is accurate, correctly
+researched, and correctly gated, and it still cannot be done where it sits.
+
+Two distinct costs, and the second is the one that gets missed:
+
+- **No window.** There is no moment between the two units in which to do anything at all.
+- **A different world on the other side.** An automatic handoff routinely *relocates* the player
+  — a new hub, a new region, a one-way transition — and often changes their state as well: a
+  stripped or swapped loadout, a lost vehicle or mount, a split party, a different time of day or
+  season, an altered faction or alert state, a previous area closed behind them. So content the
+  guide grouped as "while you're here, also do these" was reachable when it was written and isn't
+  once the chain fires. The player doesn't just lose the gap — they lose the hub the gap
+  belonged to.
+
+Invented shapes, deliberately across genres: a race that loads the next event of its series on the
+results screen; a chapter whose closing cutscene rolls directly into the next level with a
+different loadout; a quest whose turn-in immediately opens the next one and moves the party to
+another town; an arcade ladder that advances opponent to opponent; a campaign turn that ends by
+jumping to the next season with the map redrawn.
+
+**Research it as a property of the boundary, not of the mission.** For every mission boundary the
+route places something at, confirm control actually returns there and note where the player is
+standing when it does. **A page break in a walkthrough is not evidence of a control seam** — it's
+an authoring convenience, and it is exactly what creates the phantom gap in the first place. The
+information is cheap to get once you ask: walkthroughs and solution threads mention it in passing
+("this leads straight into…", "you'll be taken to…", "you can't return here afterwards"), and it
+sits in the same sentences already being read for placement advice.
+
+Then write it into the route:
+
+- **Chained units are one uninterrupted block.** Nothing is inserted between them — no side
+  content, no collectible sweep, no timer start, no shopping trip, no "grab these while you're
+  nearby." Use the existing bundling mechanic: a parent line covering the chain, each unit as its
+  own child row.
+- **Say it on the line before the chain begins**, where the player can still act on it: this runs
+  straight into the next mission, control doesn't return until it ends, and here is where you'll be
+  standing when it does. A player who expects a break will otherwise stop mid-chain planning to do
+  the errands the guide listed.
+- **Displaced content moves to the last real control seam before the chain, or to after it ends** —
+  whichever is genuinely better, judged the normal way. But when the chain closes access to where
+  that content lives, the pre-chain placement is not a preference, it's the only option, and the
+  closing edge gets flagged on the item *and* on the line that starts the chain, the same as a
+  method window or a missable.
+- **Break the "while you're here" grouping at the chain.** Area-based clustering (ordering
+  principle 4) is only valid within a stretch where the player stays put; a chain that relocates
+  them ends the cluster, and what used to be one trip is now two.
+- **A warning that must be acted on before the chain goes on the pre-chain line**, never on a unit
+  inside it — the same rule as a child reminder having to make sense after its parent, since advice
+  the player reaches only after losing control is advice they cannot use.
 
 ### "Ungated" is a claim — the first phase carries the same burden of proof as the last
 
@@ -1166,41 +1286,71 @@ get a three-part treatment:
   spot]." If the habit was followed, this line costs minutes. The guide must never present the
   whole requirement as end-phase work.
 
-### Waiting is never a step — elapsed time runs underneath the route
+### Waiting is never a step — every pending outcome runs underneath the route
 
-Elapsed-time requirements (identified in Step 5) are the one category where a guide can be
-completely accurate and still waste hours of the player's life. The failure looks like this:
+**A "wait" is any gap between the player causing something and that something being ready** — and
+elapsed in-game time is only the most obvious way a game creates one. This section was originally
+written for clocks, and reading it as being about clocks is the way it gets missed: a guide can
+route every in-game-day timer perfectly and still park the player in front of a message that
+hasn't arrived yet. Every pending outcome has the same three parts and gets the same treatment:
+
+| Part | The question | Why it matters |
+| --- | --- | --- |
+| **Start condition** | What creates the pending state, and how early can the route do it? | This is the whole fix — everything else is cleanup |
+| **Resolution condition** | What actually advances it — time, player actions, a counter, a session boundary, a die roll? | Decides whether the route can absorb the wait or has to act |
+| **Arrival signal** | What tells the player it's ready, and where does it show up? | An outcome the player never notices is an outcome they never collect |
+
+**The resolution condition is the part that's routinely assumed to be time and isn't.** Shapes
+this takes, invented and spread across genres: an in-game message, letter, or call that arrives
+some days after a trigger; an activity, encounter, or visitor that only fires once a counter of
+completed missions, wins, or levels is passed; a contact who only reappears the *next time* the
+player enters an area, sleeps, saves, or fast-travels; a vendor restock or job board that rolls
+over on a schedule; a daily or weekly reset on a real-world clock; an online reward that only
+lands at the next sign-in or server sync; a random-chance event that rolls periodically and may
+need several rolls; a build, craft, research, or crop timer; a relationship or reputation that
+only moves a step per period. Some of these advance while the player does anything at all; some
+advance only while they do something *specific*; and some don't advance on their own at all.
+
+The failure they share:
 
 **Wrong:**
 
 ```
 □ Wait a few in-game days for the property to start paying out.
-□ Wait a few in-game days for the crop to finish growing.
-□ Wait a few in-game days for the letter about the next job to arrive.
+□ Wait for the message about the next job to arrive.
+□ Wait for the side activity to become available.
 ```
 
-Three clocks that could all have been ticking simultaneously since Phase 2, run one after
+Three pending outcomes that could all have been set running back in Phase 2, resolved one after
 another while the player does nothing. **Back-to-back waits are almost never a property of the
 game — they're a drafting artifact.** They appear because the guide was written in the order
-rewards get *collected*, so each timer was started at the line where its payoff is claimed,
-which serializes clocks that the game itself runs in parallel. Even a single isolated "wait"
-step is usually the same bug in smaller form.
+rewards get *collected*, so each pending state was started at the line where its payoff is
+claimed, which serializes things the game itself resolves in parallel. Even a single isolated
+"wait" step is usually the same bug in smaller form.
 
-Three things fix it, in this order:
+Four things fix it, in this order:
 
-- **Start every clock at its earliest legal point.** Research when the timer can first be set
-  running — buying the property, triggering the phone call, planting the thing, making the
-  deposit — and put *that* action in the earliest phase where it's reachable. This is the whole
-  fix; the other two only clean up what's left.
-- **Let it run underneath real work.** Once started, the route keeps going with actual tasks and
-  the collection line appears later, wherever the player is genuinely nearby again (all the
-  usual grouping and backtracking rules still decide exactly where). Concurrent timers collapse
-  into one window sized by the longest one, not a queue.
-- **Only if the window genuinely can't be filled**, name the game's own cheapest way to burn the
-  clock — resting at a camp or inn, saving to roll the clock forward, ending the turn, a
-  fast-travel leg — as *one* line, not one per timer, and say how much time it needs to cover.
-  "Wait a few in-game days" with no mechanism is never acceptable; if the player must pass time,
-  tell them the fastest way the game provides.
+- **Start everything at its earliest legal point.** Research the start condition — buying the
+  property, triggering the call, planting the thing, making the deposit, completing the mission
+  that starts the counter — and put *that* action in the earliest phase where it's reachable.
+  This is the whole fix; the rest only cleans up what's left.
+- **Know what actually advances it, and route accordingly.** A wait that resolves on elapsed time
+  or on progress the player is making anyway is absorbed for free by putting real work
+  underneath it. A wait that resolves only on a *specific* player action — sleeping, saving,
+  leaving and re-entering an area, ending a turn, reloading, signing out and back in — is not
+  absorbed by anything, and the guide has to name that action and fold it into a step the player
+  was already taking. Treating the second kind as the first produces a note promising the thing
+  will be ready by Phase 4 when nothing in Phase 4 ever triggers it.
+- **Let it resolve underneath real work.** Once started, the route keeps going with actual tasks
+  and the collection line appears later, wherever the player is genuinely nearby again (all the
+  usual grouping and backtracking rules still decide exactly where). Concurrent pending outcomes
+  collapse into one window sized by the slowest, not a queue.
+- **Only if the window genuinely can't be filled**, name the game's own cheapest way to advance
+  it — resting at a camp or inn, saving to roll the clock forward, ending the turn, a fast-travel
+  leg, re-entering the area — as *one* line, not one per pending item, and say how much it needs
+  to cover. "Wait a few in-game days" with no mechanism is never acceptable, and neither is "wait
+  for the call"; if the player must pass time or repeat a trigger, tell them the fastest way the
+  game provides.
 
 **How this renders in the checklist:** the *start* is a real checkbox ("Buy [the income property]
 — income accrues from here"). The *collection* is a real checkbox later. The wait itself gets no
@@ -1208,18 +1358,27 @@ checkbox at all — it is not something the player does (the no-FYI-checkbox rul
 so it lives as a note on the collection line: "needs ~5 in-game days; you started this back in
 Phase 2 and the missions since have covered it."
 
-**Then verify the window is actually covered.** If the intervening route is shorter than the
-timer, the note is a lie — move the start earlier, move the collection later, or add the
-explicit pass-time line. Checking this means counting the real steps between start and
+**The collection line states the arrival signal.** Where it shows up and what it looks like — an
+icon on the map, a mailbox entry, a phone notification, a new board listing, a menu badge, or
+nothing at all — because a pending outcome with no stated signal is the delayed-confirmation
+failure in the executability rules, arriving from the other direction: the player either misses
+that it's ready, or re-does the start action believing the first one failed.
+
+**Then verify the window is actually covered.** If the intervening route is shorter than the wait
+— too few in-game days, too few missions on the counter, no intervening step that performs the
+required trigger — the note is a lie. Move the start earlier, move the collection later, or add
+the explicit advance-it line. Checking this means counting the real steps between start and
 collection, not assuming they add up.
 
 #### Dependent chains: the clock can't move, so the route has to
 
-Everything above assumes the timers are **independent** — several clocks that could have been
+Everything above assumes the pending outcomes are **independent** — several that could have been
 running at once. The harder case is a **dependent chain**, where each wait is gated on the step
 before it: talk to an NPC, wait a few in-game days, talk to them again, wait a few more, talk to
-them a third time. Nothing can be started earlier, because link 2 doesn't exist until link 1 has
-happened and the days have passed. Starting the clock early is not available as a fix here, and
+them a third time. The gate between links doesn't have to be time — a chain can equally be
+message-then-reply-then-message, or a contact who only reappears after the next few missions each
+time — and the shape is identical whatever advances it. Nothing can be started earlier, because
+link 2 doesn't exist until link 1 has happened and the gap has been covered. Starting the clock early is not available as a fix here, and
 a guide that only knows that fix will write the chain out as three adjacent checkboxes with two
 waits wedged between them — which is exactly the thing that reads as "sit there and do nothing"
 three times in a row.
@@ -1508,6 +1667,64 @@ Look this up during research (Step 1) — don't leave it vague, and don't assume
 the same "type" share a location, a level, or a mode just because they seem like they would;
 verify each one separately.
 
+### Every item must be executable from its own line
+
+An item is finished when a player who has read only this guide can act on it without going
+somewhere else to find out how. The test is mechanical and it gets asked of every item: **what
+does the player do in the ten seconds after reading this?** Three parts, all of which must be
+answerable from the item's own text — the visible line plus its note:
+
+- **Where do they physically go** — the place, screen, menu, mode, or device they have to be at,
+  and how they get there from where the route just left them.
+- **What do they interact with** — the object, character, terminal, menu entry, item, or input.
+- **What confirms it worked** — the pop-up, counter, unlock, log entry, or state change that tells
+  them to tick the box.
+
+If any of the three requires knowledge the guide never supplied, **the item is incomplete even
+though nothing in it is false.** This is a different defect from inaccuracy, and it survives every
+accuracy check in this skill precisely because every word on the line is correct. The
+concrete-noun sweep asks whether each specific is *sourced*; this asks whether the specifics the
+player needs are *present*. A line can pass the first and fail the second completely.
+
+**Pay particular attention to items naming a system rather than a place: naming the system is not
+explaining the access route.** A website, a companion app, a console dashboard, an in-game
+terminal or console, a storefront, a service, a submenu — each of these is a destination, and
+naming it says nothing about how the player reaches it. The line reads as specific, so it passes a
+skim, and the player is left holding a controller with no idea what to press. What a system-named
+item owes, on top of the three parts above:
+
+- **Whether it's inside the game at all.** A step requiring the player to leave the game — a
+  browser, a phone app, the console's own dashboard, a support page — has to say so outright,
+  because everything around it in the route assumes they're playing.
+- **The route in.** Which menu, which tab, which building, what the thing looks like, what the
+  player has to already have (an account, a linked profile, a code, a signed-in session, a rank).
+- **Whether it's still live**, for anything external — Step 1 already asks this of servers and
+  delisted content, and it applies with full force to a site or app a step depends on.
+
+Hypotheticals, invented and spread deliberately: a step saying "register the game on the
+publisher's site to unlock the bonus item" (from what device, with which account, does it need to
+match the one on the console, and where does the item then appear); "use the terminal to look up
+the target" (which building, which floor, is it the wall panel or the desk unit); "claim it from
+the in-game store" (which tab, is it free, does it need the online mode loaded); "enable the
+option in settings" (which settings — the game's, the console's, or the mode's own).
+
+**Corollary: if the confirmation is delayed or invisible, say so on the line.** An action whose
+visible result arrives hours later, or never appears at all, reads as a failure — so the player
+retries it, or decides the guide is wrong and abandons it. Both are expensive, and the retry is
+not always harmless: some of these consume a one-shot resource, a limited currency, or a daily
+allowance, and a double-claim can jam the thing it was meant to grant.
+
+So when there is no immediate feedback, the note carries what the guide can supply: **how long**
+until it lands, **where it will show up** when it does (an in-game mailbox, a stats page, the
+next session's loading screen, an inventory tab the player has never opened), and **what to do in
+the meantime** — which is normally "keep going, don't repeat this." Where there is genuinely no
+feedback at all, say *that*, plainly: the absence of a confirmation is itself information, and
+stating it is what stops silence from being read as failure. Invented shapes across genres: a
+reward posted to an in-game mailbox some days after the trigger; a cumulative stat that only
+updates on an end-of-run summary; an online unlock that appears after the next sign-in sync; a
+counter with no in-game tracker whatsoever, where the achievement pop is the first and only
+signal.
+
 ### Content depth standard
 
 Match the depth of a well-run community wiki, not a bare task list. For every item, prefer
@@ -1549,6 +1766,85 @@ is the finding; the placement is what changes.
 **Mark inference inside the artifact, not only in your notes.** Where a method or location is
 your own reasoning rather than a community solution, say so on the line the reader sees. A
 flagged inference is honest; an unflagged one is a claim.
+
+### The per-item gate — run this list on every item, as you write it
+
+Everything above is a rule about items; this is the checklist that makes sure none of them got
+skipped on *this* item. **It runs at write time, once per item — every mission, child row, side
+activity, achievement task, sweep, and habit line — and again on any item edited later**, however
+small the edit looked.
+
+It exists because the verification passes further down are all file-level. Those run once, at the
+end, over several hundred items, and by then a missed rule costs a re-walk of the whole route,
+while the same miss caught at the moment the line was written costs one line. The two are not
+alternatives: **a per-item gate cannot see cross-item contradictions** (a stale phase note, a
+duplicated sweep, a chain that collapses at its tail), and the file-level sweeps cannot
+realistically reconstruct what each individual line owed. Run both.
+
+**Is it an item at all?**
+
+1. **Does checking this box represent the player having *done* something?** If the honest answer
+   is "nothing, it's context," it's a note or a phase note, not a checkbox.
+2. **Is it exactly one unit of progress?** One mission, one row; no umbrella line overlapping
+   items listed separately below it; a bundle names its range and gives every unit a child row.
+
+**Is it in the right place?**
+
+3. **Is this where the player actually does it** — not where it was unlocked, not where it groups
+   tidily? If the relationship and the position disagree, the position wins and the relationship
+   goes in a note.
+4. **Does the player have control here?** Confirm the preceding unit hands control back rather
+   than running straight into the next, and that they're still where this item assumes.
+5. **Is the placement backed by a verified gate — or by a verified statement that nothing gates
+   it?** "No gate found" is not evidence of no gate, and this applies hardest to anything landing
+   in the first phase. Check that the *system* is running, not just that the place exists.
+6. **Is the item's best *method* available here, and is the player already nearby?** Earliest
+   reachable is a ceiling. And does the method have a closing edge — a window that shuts when a
+   region opens, an NPC dies, or the player out-levels it?
+7. **If it's late, is there a stated reason it's late?** Nothing lands in the cleanup phase by
+   default.
+8. **If it involves a pending outcome, is the start at its earliest legal point**, does real work
+   sit in the gap, and does no other wait sit adjacent to it?
+9. **If it's a child, does it genuinely come after its parent?** A "do this first" warning belongs
+   on the parent line, never as a child of it.
+
+**Can the player execute it from this line alone?**
+
+10. **Where do they go, what do they interact with, what confirms it worked** — all three
+    answerable from the visible line plus its note. If it names a system rather than a place, does
+    it give the route in, and say whether they have to leave the game?
+11. **If the confirmation is delayed or invisible, does the line say so** — how long, where it
+    shows up, and not to repeat the action?
+12. **Is every location the specific best one for this point in the route**, named exactly, rather
+    than "any vendor"? Is any jargon on the line defined on first use?
+
+**Does it close its own loops?**
+
+13. **Backward: is every prerequisite it implies** (item, vehicle, currency, unlock, access, stat,
+    rank) either acquired on this line or completed by an earlier one?
+14. **Forward: does every thing it names** — especially inside an unlock description — have its own
+    real step somewhere later, or an explicit out-of-scope statement? Does any deferral in its text
+    have a matching completion step, written in this same pass?
+15. **Does anything it asserts in the past tense** ("now that you've…", "the X you bought
+    earlier", a running total) point at a real earlier checkbox that produced it?
+
+**Is it honest?**
+
+16. **Does every concrete noun, number, threshold, and input trace to a source you actually read?**
+    If you can't name the source, cut the detail — and hold anything added during a correction pass
+    to the same standard.
+17. **Is the placement reconciled with the top community solution** — matching it, or carrying a
+    stated, verified reason for differing? Is any inference of your own marked as inference on the
+    line the reader sees? Is there a hedge standing in for research you could have done?
+
+**Mechanics**
+
+18. **Content-derived slug for the ID, no positional cross-references in the text** ("two steps
+    above," "the next item"), and if it's missable, is it flagged both inline here and in the
+    top-of-page box?
+
+When a new per-item rule is added to this skill, it joins this list in the same pass — a rule that
+applies to every item and isn't on the gate is a rule that will be applied to some of them.
 
 ### Visual design — the structure is shared, the look never is
 
@@ -1914,7 +2210,8 @@ plainly, for all of the checks above and the walk-through below:
 **A targeted edit round requires the same full sweep as a fresh build.** Not a spot-check of what
 you touched — the whole set: deferrals, dependencies, assumed completions, premises, structural
 self-description, positional references, concrete nouns, route order, achievement-placement
-reconciliation, and the player walk-through. Two of those exist specifically because a correction
+reconciliation, and the player walk-through. **Plus the per-item gate on every item you touched**,
+since an edited line is a newly written line and owes the same list. Two of those exist specifically because a correction
 pass creates its own defects: the concrete-noun sweep re-runs over the *corrected* text, and the
 route-order walk re-reads the sequence a moved item just changed.
 
@@ -1959,6 +2256,26 @@ checking:
 - Would a player who has never seen this game get stuck or confused by any single line without
   opening its note? Does a "child" item actually belong after its parent? Is anything a bare
   FYI wearing a checkbox?
+- **Executability, item by item: what does the player do in the ten seconds after reading this
+  line?** Where they go, what they interact with, what confirms it worked — all three answerable
+  from the item's own text. Enumerate; a line that reads fluently is the exact case this misses,
+  because nothing on it is wrong. **Every item naming a system rather than a place gets checked
+  twice** — a site, app, dashboard, terminal, storefront, service, or submenu is a destination,
+  and the item still owes the route in, whether the player has to leave the game to reach it, and
+  whether it's still live (the executability section in Output Format).
+- **Does the player actually have control everywhere the guide puts work?** For every mission
+  boundary the route places anything at — side content, a sweep, a shopping trip, a timer start —
+  confirm the preceding unit hands control back rather than running straight into the next one,
+  and that the player is still where the item assumes they are. Where a chain exists, confirm
+  nothing sits inside it, the line before it says control won't return until it ends, any
+  "while you're here" cluster breaks at it rather than spanning it, and anything the chain puts
+  out of reach was flagged and placed before it (the chaining section in Step 7).
+- **Does any step have delayed or invisible confirmation, and does it say so?** For every item
+  whose result doesn't appear immediately — a mailed reward, a stat that updates on a summary
+  screen, an unlock that lands at the next sign-in, a counter with no in-game tracker — confirm
+  the line states how long, where it shows up, and that the player should not repeat it. An action
+  that looks like it silently failed gets retried or abandoned, and some of them can't safely be
+  retried.
 - Does every "later" / "won't count until" / "the rest" promise in the guide's own text have a
   matching real completion step in a later phase (the orphaned-deferral sweep above), and does
   every recap claim match what the earlier sections actually completed?
@@ -2039,18 +2356,25 @@ checking:
   the response to the player rather than only in a notes file, and does it say what would resolve
   it? A logged gap with no list of affected items is a closed-looking ticket that is still open
   (the blocked-source section in Step 1).
-- **Was the elapsed-time question asked of every content category, not once of the game?** Walk the
-  categories — progress line, each side activity, each collectible set, relationships, encounters
-  and spawns, unlocks, vendors and economy — and confirm each was individually questioned. A single
-  game-level "no timers here" is the answer shape that hides dependent chains (Step 5).
+- **Was the pending-outcome question asked of every content category, not once of the game — and
+  in its broad form?** Walk the categories — progress line, each side activity, each collectible
+  set, relationships, encounters and spawns, unlocks, vendors and economy — and confirm each was
+  individually questioned, about arrivals, triggers, counters, restocks and resets as well as
+  about clocks. A single game-level "no timers here" is the answer shape that hides dependent
+  chains, and "we checked the timers" is the one that hides everything that isn't a timer
+  (Step 5).
 - **Does any note point at another item by position?** "Two steps above," "the step below," "the
   next item" — every hit is a defect, because this skill reorders constantly and the reference
   rots silently. Name the item or its phase instead.
-- **Is the player ever told to wait?** No two elapsed-time waits may sit adjacent; no timer may
-  start later in the route than it could have; every wait note must point at real intervening
-  steps that actually fill the window (count them, don't assume); and any genuinely unavoidable
-  pass-time line must name the game's own fastest mechanism for it rather than saying "wait a
-  few days" (the waiting section in Step 7).
+- **Is the player ever told to wait — for anything, not just for time?** Sweep for every pending
+  outcome, including the ones that aren't clocks: a message or call to arrive, an activity or
+  contact to appear, a counter to fill, a restock or reset, an unlock that lands at the next
+  sign-in. No two waits may sit adjacent; none may be started later in the route than it could
+  have been; every wait note must point at real intervening steps that actually cover the gap
+  (count them, and for a non-time wait confirm those steps genuinely *perform* whatever advances
+  it); each collection line must say what the arrival signal is and where it appears; and any
+  genuinely unavoidable pass-the-gap line must name the game's own fastest mechanism rather than
+  saying "wait a few days" or "wait for the call" (the waiting section in Step 7).
 - **Are any time-gated chains sitting as a contiguous block?** For every sequence where each
   step is gated on time since the one before it, confirm the links are interleaved through the
   route with real tasks in *every* gap — check the last gaps as carefully as the first, since a
@@ -2091,6 +2415,12 @@ checking:
   checks above are one of those questions applied to a finished file, and an unanswered row is a
   guide resting on whatever the last game's answer happened to be. Write what you found to the
   per-game notes store, not into this skill.
+
+- **Did every item clear the per-item gate?** That list runs as each line is written, so by now it
+  should be a confirmation rather than a first pass. If it wasn't run during the build, run it now
+  item by item — it is cheaper than discovering at hour 60 of a playthrough which rule was skipped,
+  and its whole purpose is that no single item quietly escapes a rule the file-level sweeps don't
+  look for.
 
 This pass is not optional and not the same thing as validating JS syntax — syntax validation
 confirms the file runs, this pass confirms the file is *right*. Do both. Fix what you find, and
@@ -2571,6 +2901,79 @@ the failure, not the title it happened in.
   accepting the gap is the last move. Then name the affected claims item by item, put that list in
   the response to the player rather than only in a notes file, and say what would resolve it. A
   risk filed where only the next builder looks has been filed, not communicated.
+- **Accuracy and executability are different properties, and every check in this skill tested only
+  the first.** An item can be true in every word and still be unusable, because the player finishes
+  reading it and does not know what to physically do next — the concrete-noun sweep asks whether
+  each specific is *sourced*, and nothing asked whether the specifics a player needs are *there*.
+  The test that catches it is behavioural rather than editorial: ask what happens in the ten
+  seconds after the line is read — where they go, what they touch, what tells them it worked — and
+  treat any part the guide never supplied as an incomplete item. It fails silently for the same
+  reason the fluent-invention bug does, with the sign flipped: an invented specific reads exactly
+  like a researched one, and a missing one reads exactly like a concise one.
+- **Items that name a system rather than a place are where executability collapses**, and they are
+  the ones that look most specific. A site, a companion app, a console dashboard, an in-game
+  terminal, a storefront, a service, a submenu — naming it identifies the destination and says
+  nothing about the route in. Invented shapes, across kinds of game: "register on the publisher's
+  site for the bonus item" (which device, which account, does it have to match the console's, and
+  where does the item arrive), "use the terminal to look up the target" (which building, wall panel
+  or desk unit), "claim it in the in-game store" (which tab, does the online mode need to be
+  loaded). Worst of all is the step that quietly requires leaving the game: the player is holding a
+  controller, and everything around that line assumes they're playing, so a step needing a browser
+  or a phone has to say so outright.
+- **A step with no visible confirmation reads as a failed step.** The player does the thing,
+  nothing happens, and they either repeat it or conclude the guide is wrong — and repeating is not
+  always free, because these are disproportionately the one-shot claims, limited currencies, and
+  daily allowances, where a double-attempt can jam the very thing it was meant to grant. Delayed
+  and absent feedback both need stating on the line: how long, where it will surface (a mailbox, a
+  stats page, the next session's sync, an inventory tab nobody opens), and "don't do this again
+  while you wait." Where there is genuinely no feedback at all, saying so *is* the fix — the
+  absence is information, and stating it is the only thing that stops silence from being read as
+  failure. Invented shapes: a reward mailed some in-game days after its trigger; a stat that only
+  moves on an end-of-run summary; an unlock that appears at the next sign-in; a counter with no
+  in-game tracker, where the achievement pop is the first and only signal.
+- **The waiting rules were written about clocks, and a rule written about one instance of a
+  pattern gets applied to that instance only.** Elapsed in-game time is the most visible way a game
+  makes the player wait, so it became the whole category — and everything else that leaves a task
+  pending sailed through: a message or call that arrives after a trigger, an activity or contact
+  that has to fire before it can be done, something gated on a counter of missions or wins rather
+  than on days, a restock or reset, an unlock that lands at the next sign-in, a state that only
+  changes the next time the player sleeps or re-enters an area. The generalization that holds is
+  **start condition, resolution condition, arrival signal**: create the pending state as early as
+  the route allows, know what actually advances it (time alone, progress the player is making
+  anyway, or one specific action they must perform — the third is the one a note silently promises
+  and never delivers), and say how the player will know it's ready. Note the shape of this failure
+  for the rest of the file too: a correctly-stated rule that names one example of its class will be
+  applied to that example.
+- **Rules were being audited at the file level and skipped at the item level.** Every verification
+  pass in this skill runs once, at the end, over hundreds of items — which catches contradictions
+  between items beautifully and catches "this particular line never had its location researched"
+  almost never, because nothing at the file level is looking for a rule that was silently not
+  applied to one row. A per-item gate run as each line is written closes that: same rules, asked
+  where the answer costs one line instead of a re-walk of the route. The two checks are not
+  substitutes in either direction — the gate can't see a stale phase note three sections away, and
+  the sweeps can't reconstruct what each individual line owed. The maintenance rule matters as much
+  as the list: a per-item rule added to this skill without being added to the gate is a rule that
+  will be applied to some items and not others.
+- **A boundary between two entries in a mission list is not proof of a boundary in play**, and a
+  guide plans entirely around the boundaries it can see. Reported from real use: a collectible
+  hunt was placed between two consecutive quests, and the first quest ran directly into the second
+  with no control returned in between — the handoff also moved the player's hub, so by the time
+  they could act, the sweep the guide had scheduled was somewhere they no longer were. Nothing in
+  the item was inaccurate; it was unexecutable, which is a level below where every check in this
+  skill was looking. Note the two separate costs: the missing gap, and the changed world on the
+  other side of it — a chain that relocates the player, strips a loadout, splits a party, or seals
+  an area invalidates the whole "while you're here" cluster the item belonged to, not just its
+  position. The property to research is the *boundary*, not the mission, and the tell to distrust
+  is a walkthrough's page break, which is an authoring convenience that looks exactly like a seam.
+- **The skill was being treated as a build-time tool and abandoned at the point it was most
+  needed.** The guide ships, the player comes back with a question, a correction, or "add the
+  DLC," and those turns get answered from memory of the build — no research, no sweeps, and the
+  answer lands in the chat message rather than in the file the player actually uses. Every one of
+  those failure modes is one this skill already documents; they just stopped being applied once
+  the artifact existed. Two consequences worth naming: a question the player had to ask is a line
+  that failed the executability test, so the answer belongs *in* that line as well as in the
+  reply; and a one-line edit is an edit round, which means the full sweep re-runs, because the
+  defects here are overwhelmingly created by editing rather than present in a first draft.
 - Every example in this file has been rewritten at least twice — once to remove the game names,
   once to remove the genre those names implied — and the second pass mattered more. An example
   with the serial numbers filed off still teaches only the genre it came from: a reader building a
