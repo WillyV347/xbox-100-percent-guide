@@ -137,6 +137,7 @@ Step 1 for most, and re-checked at the pre-presentation walk-through. None of th
 | task needing an item | Is the best place to **acquire** it the same as the best place to **use** it? | One location named for both, because collapsing them read tidier |
 | elapsed-time requirement | How **early** could this clock have been started? | A timer started at the line where its reward is collected |
 | deep-read achievement | What does the top-voted solution say about **when** to do it? | A defensible-sounding placement that the community consensus contradicts, with no note explaining the difference |
+| item you moved off a source's placement | What **evidence** made the source wrong — and does the note say so? | A relocation made out of caution, sitting afterwards where nothing distinguishes it from a researched one |
 | finished guide | Does the **look** come from images of *this* entry, or from adjectives and franchise reputation? | A palette named and rationalized without ever viewing the game |
 | count you researched | Does it **match** the walkthrough's stated count? | Two numbers that differ, averaged or ignored instead of resolved |
 | set handed off to a map | Does anything about **when** these appear vary? | A complete, correct pin list backing a sweep the player can't finish yet |
@@ -256,6 +257,47 @@ and missable details — sources often disagree. When sources genuinely disagree
 number (a threshold, a cap, an exact count) and the disagreement can't be resolved, say so and
 give the range or the safer/more conservative figure, rather than picking one source arbitrarily
 and stating it as settled fact.
+
+### Use the deepest research surface available — and ask for it if it's off
+
+Everything in this step is a multi-question, multi-source sweep: sixty-odd achievements, the
+standing question list above, several sites that each answer a different part of it, and a pile of
+counts to reconcile. That is exactly the shape a dedicated research mode is built for, and where
+one exists it should be doing this work instead of a hand-rolled sequence of single searches.
+
+**On Claude that mode is Research** (`support.claude.com/en/articles/11088861-use-research-on-claude`).
+It runs many interconnected searches, decides what to look at next as it goes, and returns a cited
+report in minutes. It's available on Pro, Max, Team and Enterprise plans, on the web, desktop and
+mobile apps; the player switches it on with the **+** button at the bottom left of the chat and
+selecting **Research**, and a blue indicator confirms it's active. Web search has to be enabled for
+it to work at all.
+
+Two things follow, and both of them are about *asking*:
+
+- **It does not turn itself on, so prompt for it.** If a research mode is available and inactive,
+  say so *before* starting the sweep rather than reporting it afterwards — and say both halves:
+  what it buys here (per-achievement placement is the most search-heavy work in this skill, and the
+  part most often cut short) and what it costs (it draws on the same usage limits and spends them
+  faster, since it pulls many sources per question). Then let the player decide. A guide built
+  without it is still held to every standard here; it just takes more turns to reach them.
+- **Where there is no such mode, say so plainly and run the sweep by hand.** Claude Code sessions,
+  API integrations, and other agents have no toggle to offer; there the sweep *is* the searches,
+  fetches and browser reads specified through the rest of this step, performed explicitly. What is
+  never acceptable is the third option: describing a single search as though it were a deep pass.
+  That is the same fabrication this step's non-result rule exists to stop, aimed at your own
+  process instead of at the game.
+
+And two things a research mode does not change:
+
+- **Its output is a source, not a verdict.** It gets the same treatment as any other source —
+  cross-referenced against a second one, worked against the standing questions, and resolved rather
+  than averaged where it conflicts. Its citations are the most useful thing it returns; follow them
+  rather than trusting the summary written on top of them.
+- **It does not automatically reach the sources this step depends on.** Read its citation list for
+  the walkthrough overview and the per-achievement solution threads specifically. Anything absent
+  is still owed, and the tracking sites that refuse automated fetches (below) are the likeliest
+  gap — a research pass that couldn't read them will route around them to whatever it could read,
+  and the report it produces looks complete either way. Open a browser pane for those.
 
 ### Read the community's solution threads, not just the achievement descriptions
 
@@ -1222,6 +1264,55 @@ then." An unexplained late item is
 indistinguishable from an unresearched one, and the next pass over the guide will drag it forward
 again on exactly the reasoning this section exists to stop.
 
+### Moving an item is a claim — and caution is not evidence
+
+The two audits either side of this one push in opposite directions: the cleanup audit drags content
+forward, the ceiling drags it back. Both exist to correct unresearched placement, and both can be
+carried out *without doing any research*, which reproduces the original defect with the sign
+flipped. The move that gets away with it is the backwards one, because relocating something later
+always feels like the careful option.
+
+**Moving an item away from where a source placed it is a claim requiring evidence, exactly as much
+as placing it early is.** A walkthrough page, a top-voted solution, a roadmap's phase, or the
+per-game notes store asserts something about the game when it puts a task at a given point.
+Overriding that asserts something else — that the placement is wrong, or that a prerequisite exists
+the source never mentioned. That is a claim of the same kind and it carries the same burden. The
+Step 1 rule holds here in both directions: an override is allowed on a **verified** reason, and if
+you cannot verify it, defer to the source.
+
+**Caution is not evidence.** "Better safe than sorry," "it can't hurt to leave it later," "they
+probably won't have the upgrade yet" are all reasons to *go and check*, never conclusions. **If you
+are relocating something because a gate "must" exist** — because it would be surprising for a task
+this strong to be open this early, because the method *sounds* like it needs something — **you are
+asserting a gate you have not found.** That is the same unevidenced move as reading "no trigger
+found" as ungated, run backwards, and it is the mirror of the Phase 1 problem: unevidenced claims
+accumulate at the front of the route as things believed ungated, and at the back as things believed
+risky.
+
+The reason this survives every check is that the two errors fail differently. **Placing something
+too early fails loudly** — the player tries it, it doesn't work, and they come back and say so.
+**Placing it too late fails silently**: the task works whenever they finally reach it, nothing looks
+broken, and the cost is a cross-map trip and a harder attempt they never learn were avoidable.
+Nobody reports a guide for being needlessly cautious, so the only thing that can catch a defensive
+relocation is the note it was made to carry.
+
+So **record the override and its reason, and mark it as an override**, in the item's note where the
+player and the next pass both see it. Three parts, none of them optional:
+
+- **What the source said** — named, not gestured at ("the walkthrough puts this in [the second
+  act]," "the top solution says to wait for [the late unlock]").
+- **What the guide does instead, and why** — the specific mechanism, in the same terms the rest of
+  the note uses.
+- **What that reason rests on** — a verified fact, or an assumption explicitly marked as one. An
+  unverified reason recorded *as* unverified is a working note; the same reason recorded flat is a
+  fabricated one, and per the hedging rule in Step 1 it is worse than no reason at all.
+
+An unrecorded override becomes invisible in one edit round. The item simply sits where it sits, the
+reasoning that put it there is gone, and it is now indistinguishable from a researched placement —
+so the next pass either re-derives the same guess from scratch or, more often, leaves it alone
+because it looks decided. Recording it keeps it checkable: by a later pass, by a re-research when a
+blocked source becomes reachable, and by the player, who is the one paying for it if it's wrong.
+
 ### Audit the cleanup phase — nothing lands there by default
 
 Guides built with this skill tend to end with a "post-story cleanup" phase that catches
@@ -1798,7 +1889,9 @@ realistically reconstruct what each individual line owed. Run both.
    reachable is a ceiling. And does the method have a closing edge — a window that shuts when a
    region opens, an NPC dies, or the player out-levels it?
 7. **If it's late, is there a stated reason it's late?** Nothing lands in the cleanup phase by
-   default.
+   default. And if it sits anywhere other than where a source put it — earlier *or* later — does the
+   note record the override, name the source, and say whether the reason is verified? Caution is not
+   a reason.
 8. **If it involves a pending outcome, is the start at its earliest legal point**, does real work
    sit in the gap, and does no other wait sit adjacent to it?
 9. **If it's a child, does it genuinely come after its parent?** A "do this first" warning belongs
@@ -2977,3 +3070,29 @@ the failure, not the title it happened in.
   cars, and reasonably concludes the step is for somebody else. When a lesson is worth recording,
   the question is not "have I removed the proper nouns" but "could this have happened in a game
   with no map, no vehicles, and no open world" — and if it could, say it that way.
+- **The heaviest research in this skill was being run on whatever surface happened to be switched
+  on.** Step 1 is a multi-question sweep across several sites — the exact shape a dedicated research
+  mode exists for — and that mode does not activate itself; it has to be asked for, by you, before
+  the sweep rather than after. Nothing in the conversation surfaces the choice otherwise, and the
+  cost of not asking is invisible in the output: a shallow sweep and a deep one produce guides that
+  read identically, because the difference is in the placements nobody checked. Three parts to
+  getting it right. **Ask, and give both halves** — what the deeper surface buys and that it spends
+  usage limits faster — then let the player decide. **Where no such mode exists** (Claude Code, API
+  sessions, other agents), say so and run the sweep explicitly; what is never acceptable is calling
+  one search a deep pass, which is this file's own fabrication rule aimed at your process instead of
+  at the game. **And read what it actually cited**: a research report routes around any source it
+  couldn't fetch and looks equally complete either way, so the tracking sites this skill depends on
+  have to be confirmed present in the citations, not assumed covered.
+- **Placement was only ever audited in one direction.** Every guard in this file treats early
+  placement as the claim needing evidence — ungated-is-a-claim, earliest-is-a-ceiling, the Phase 1
+  audit — and none of them noticed that moving an item *later* is a claim of exactly the same kind:
+  that the source putting it earlier was wrong, or that a prerequisite exists nobody found. Caution
+  supplies the reason and it isn't one; relocating something because a gate "must" exist is
+  asserting a gate you never located. It survives because the two failures are asymmetric.
+  Too-early fails loudly — the player tries it, it doesn't work, they report it. Too-late fails
+  silently — it works whenever they get there, and the cross-map trip they didn't need to make is a
+  cost they never learn about. So nothing external catches a defensive move, which leaves the note
+  as the only mechanism: name the source, say what the guide does instead and why, and mark whether
+  that reason is verified or assumed. An unrecorded override is gone within one edit round, and what
+  it leaves behind looks exactly like a researched placement — decided enough that the next pass
+  won't touch it.
