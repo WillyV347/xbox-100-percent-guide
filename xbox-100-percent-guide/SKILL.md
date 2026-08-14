@@ -132,6 +132,11 @@ Step 1 for most, and re-checked at the pre-presentation walk-through. None of th
 | item you're about to place in the earliest phase | Is the **system** behind this switched on yet, or is only the **object** present? | The thing is reachable from minute one, so it's Phase 1 — while the feature it fronts stays inert until a story beat |
 | item you believe has no gate | What **evidence** says it's ungated? | "No trigger found," which is absence of evidence wearing the face of evidence of absence |
 | non-trivial achievement | What is the community's **fast method**, and what does *that* method require? | Placing on the task's availability when the method is what's gated |
+| item you're about to place anywhere | Which of the **four axes** — mission prerequisite, elapsed time, cyclic window, irreversible choice — did you actually ask, and what did each return? | One confident answer on the loudest axis, read as clearance on all four |
+| group you're about to put under one parent | Does **every member** share that gate, and that window? | One researched gate stretched over a category, and children inheriting a position none of them was checked for |
+| item sitting next to its topical siblings | Where is **this one's** cheap method available, and has that window shut by here? | A category placed as a block, with the members whose shortcut expired quietly paying for the tidiness |
+| dependency you just wrote into a line | Is this a **gate** (the mission comes first) or a **deadline** (the item comes first)? | Both directions written the same way in prose, and only the gate direction ever checked |
+| availability fact you took from a walkthrough | Is there a **structured** source with this as a field — and do the guides agreeing on it have independent origins? | Four sources agreeing because all four are downstream of one, with the qualifier dropped somewhere in the retelling |
 | method you've found | Does anything **later remove** it? | A start point recorded where the task actually has a window |
 | location-dependent task | **Which** specific venue, level, or mode — and was it verified separately from the similar-looking one? | "Any bar," "any vendor," or two activities assumed to share a place because they're the same type |
 | task needing an item | Is the best place to **acquire** it the same as the best place to **use** it? | One location named for both, because collapsing them read tidier |
@@ -256,7 +261,10 @@ Use at least 2-3 sources (achievement guides, wikis, community guides). Cross-re
 and missable details — sources often disagree. When sources genuinely disagree on a specific
 number (a threshold, a cap, an exact count) and the disagreement can't be resolved, say so and
 give the range or the safer/more conservative figure, rather than picking one source arbitrarily
-and stating it as settled fact.
+and stating it as settled fact. **Count independent sources, not pages** — several guides
+descended from one walkthrough are one source wearing three faces, and for availability facts
+specifically a structured per-item table outranks all of them (see the section on reading the
+table before the narrative, below).
 
 ### Use the deepest research surface available — and ask for it if it's off
 
@@ -468,6 +476,59 @@ descriptions and, next to each, a **guide count** ("9 guides", "3 guides"). Two 
   straightforward and the top solution will only confirm what you already know. Combine it with the
   type tags: a Collectable or Time Consuming achievement carrying nine guides is the strongest
   possible case for a deep read, while a Main Storyline achievement with two is the weakest.
+
+### For availability data, read the table before the narrative
+
+The sources above are mostly **prose**: a walkthrough page, a roadmap, a solution thread. Prose is
+the right tool for *method* — the trick, the setup, the reason one approach beats another. It is
+the wrong first stop for **availability**, which is the class of fact this skill spends most of its
+effort on: unlock condition, time or weather window, prerequisites, rank or tier requirement,
+which act or region something appears in.
+
+**Where a wiki or database exposes per-item fields, read that table first.** Many games have one —
+a wiki infobox with an "unlocked by" or "requires" row, a sortable list with availability columns,
+a community database or tracker with per-entry prerequisites, an interactive map with per-pin
+conditions, a datamined table. Two reasons it outranks the narrative version:
+
+- **A field is answering the question directly.** A prose guide mentions availability only when the
+  author happened to think it worth a sentence; a column has an entry for every row, so a blank is
+  visible as a blank rather than hiding inside a paragraph that didn't come up.
+- **Prose compresses and misremembers.** Writing a walkthrough means summarizing, and summarizing
+  drops the qualifier — "available after the second act" is what "available after the second act,
+  except the two in the northern zone" turns into by the third retelling. The exceptions are
+  precisely what this skill needs, and they are the first thing prose loses.
+
+**And agreement among prose sources is weak evidence when they share an ancestor.** The
+cross-referencing rule in this step assumes independent sources; community guides frequently are
+not. A wiki, three achievement guides, and a video description can all trace back to one original
+walkthrough, and then "four sources agree" means one source said it four times. Consensus produced
+that way is exactly as wrong as its ancestor and considerably more convincing.
+
+So before treating agreement as confirmation, ask **whether these sources could have arrived at
+this independently** — different authors, different eras, different methods of finding out
+(datamining, a structured database, in-game testing, a first-hand playthrough) — and weight one
+structured or first-hand source above several that read like each other. Where they *do* share an
+ancestor, say so in the per-game notes: "three guides agree, all apparently downstream of the same
+walkthrough" is a materially different confidence level from "three guides agree" and should never
+be recorded as the second.
+
+**None of this demotes solution threads, and the split is narrower than it first sounds.** A
+structured source answers **when a thing is *available*** — the gate, the window, the prerequisite.
+A solution thread answers **when it is *best*, and how** — which is a different question with a
+different answer, and the thread remains the primary source for it, exactly as the solution-thread
+section says. A table showing something is reachable in the opening act does not contradict a
+top-voted solution saying to save it for later; the first is a constraint and the second is a
+recommendation, and this skill routes on the second within the bounds of the first.
+
+**Where they genuinely conflict on the fact — the table says a thing is gated and the thread says
+do it before that gate — the structured field wins**, and this is the one place the
+community-placement default in the solution-thread section does not apply. That default exists
+because a thread's author finished the game and you didn't; it is about *judgment*, and it holds
+completely for judgment. A gate is not judgment, it's a field, and the reason to prefer the field
+is the compression problem above: prose states availability only in passing and sheds the qualifier
+first, so a thread saying "do it in the opening act" is usually reporting where its author did it,
+not asserting that nothing gates it. Resolve and record the disagreement like any other conflict —
+name both sources and which won — rather than averaging them or quietly dropping one.
 
 ### A source shaped like the deliverable will silently replace the research
 
@@ -1040,6 +1101,20 @@ the time-gated cases further down.
     without returning control, the player cannot act between them, and the handoff frequently
     moves them somewhere else as well. Verify that control actually returns at any boundary the
     route places something at — see the dedicated section below.
+15. **Enumerate all four dependency axes before placing anything** — mission prerequisite, elapsed
+    time since a prior step, time-of-day or cyclic window, irreversible choice. They are
+    independent, and satisfying one does not make an item placeable. Record each explicitly,
+    including the empty ones — see the dedicated section below.
+16. **A bundle claims a shared gate.** Putting several items under one parent asserts that every
+    member shares that parent's unlock condition *and* its availability window, because children
+    inherit the parent's position. Gates are checked per item, never per category. Where the
+    members' gates differ, the bundle splits and the category label survives in a note — see the
+    dedicated section below.
+17. **Cheapest, not tidiest.** An item goes where its own method is cheapest, never where it
+    thematically belongs. Topical clustering is what writing does by default, and it routes an item
+    to its *category's* position rather than its own — see the dedicated section below. This is not
+    principle 4: grouping by area is about one physical trip the player is already making;
+    grouping by topic is about the writer's outline and saves nobody anything.
 
 ### Bundled missions get their own sub-list, never a parenthetical
 
@@ -1069,6 +1144,48 @@ When an item bundling several missions already has other children (e.g., a note 
 whichever mission unlocks an asset), add the missing mission names as additional children
 rather than leaving them out of the sub-list — every mission in the stated range should have
 its own row, whether or not it individually has anything special attached to it.
+
+### A bundle is an assertion that every member shares one gate
+
+The sub-list rule is about *granularity* — a bundle's children each get their own checkbox instead
+of being crammed into a parenthetical. It says nothing about *where the bundle sits*, and that gap
+is where bundling does its damage, because the two feel like one decision and are not.
+
+**Children inherit the parent's position in the route.** So putting several items under one parent
+is not a display choice; it is a claim about all of them at once — that every member shares the
+parent's unlock condition **and** the parent's availability window. Nesting an item is placing it.
+**A sub-list does not fix placement, it hides it**: the children are now individually checkable and
+collectively mis-routed, and the structure reads as more carefully organized than the loose version
+it replaced.
+
+**So gate-check per item, never per category.** The pull runs the other way — a category is the
+natural unit to research ("when do the contract boards open?", "when can I start the arena
+ladder?"), it returns one clean answer, and that answer then gets applied to every member. One gate
+was verified and a dozen placements were made from it. The members that don't share it fail
+silently, because nothing in a tidy sub-list distinguishes a researched position from an inherited
+one.
+
+Invented shapes, deliberately across genres: a set of side jobs from one board where the last two
+only appear at a later rank; an arena ladder whose top tier needs a qualification the rest don't; a
+crafting category where one recipe needs a tool the others don't; a collectible set where a handful
+of members sit in an area that opens two acts later; a roster of optional characters where one is
+recruited from content the others have nothing to do with. In every case the category has an honest
+answer and some member of it doesn't match.
+
+**Categories are for the reader's comprehension. The route is built from gates.** A category name is
+a fine label and never a placement. Concretely:
+
+- **Group only on a verified match** — same unlock condition, same window. Not same type, same
+  reward, same source page, same name prefix.
+- **Where members diverge, the bundle splits.** Each item goes where its own gate and its own window
+  put it, and the category relationship survives the way every other out-of-position relationship
+  does: in a note that names the category, never a position (see the positional-cross-reference
+  rule).
+- **A split category owes a stated count.** If four of six members are here and two are later, say
+  so on the line and give the later two real steps, or it's an orphaned deferral.
+- **The connecting-line bundle is the safe case, and only because it's already gate-checked**: a run
+  of consecutive missions the player does back to back shares a gate by construction. That is why
+  mission bundling works and why extending the same structure to a *topic* does not.
 
 ### Missions that chain automatically — a gap on the page is not a gap in the game
 
@@ -1128,6 +1245,95 @@ Then write it into the route:
 - **A warning that must be acted on before the chain goes on the pre-chain line**, never on a unit
   inside it — the same rule as a child reminder having to make sense after its parent, since advice
   the player reaches only after losing control is advice they cannot use.
+
+### Four dependency axes — satisfying one does not make an item placeable
+
+Placement gets treated as one question with one answer: *what does this need?* It is four questions,
+and they are independent. An item is placeable at a point only when **all four** are satisfied
+there, and each has its own evidence, its own failure mode, and its own detailed treatment further
+into this step.
+
+| Axis | The question | Where it's handled |
+| --- | --- | --- |
+| **1. Mission prerequisite** | Which progress unit must have happened first — and is the *system* running, not just the object present? | The burden-of-proof and dependency-direction rules |
+| **2. Elapsed time since a prior step** | How much has to pass — or what has to resolve — since the step that started this, and does real work sit in that gap? | The waiting and dependent-chain rules |
+| **3. Time-of-day or cyclic window** | Does this only work at a particular time, in particular weather, in a season, on a reset cycle? | This section, plus the timing question in triage |
+| **4. Irreversible choice** | Does a branch already taken close this, or does a branch still ahead close it? | This section, plus missables and the deadline direction |
+
+**Satisfying one axis reads as clearance, and that is the whole bug.** Research returns a confident
+answer on whichever axis is loudest — usually the mission prerequisite, because it is the one every
+source states — the question feels answered, and the item gets placed. The other three are never
+asked. This is the same failure shape as asking the pending-outcome question once for the whole
+game: a clean answer to a narrower question retires a broader one.
+
+**Two clarifications before the axes are usable**, both of which this file has been burned by
+before:
+
+- **Axis 2 is not only clocks.** "Elapsed time" is its most visible form and its worst label — the
+  waiting rules were originally written about clocks and everything else that leaves a task pending
+  sailed straight through. Axis 2 covers every pending outcome: a message or call that has to
+  arrive, an encounter that has to fire, a counter of missions or wins, a restock, an unlock that
+  lands at the next sign-in. Ask it in the broad form the waiting section specifies, or this axis
+  will be answered for timers only.
+- **Axes 2 and 3 overlap unless you draw the line, and an unshared boundary means both get skipped
+  as "handled by the other."** The split: **axis 2 moves forward once** — something the player
+  caused is resolving, and when it resolves it stays resolved. **Axis 3 comes around again** — a
+  state the world enters and leaves on its own cycle regardless of anything the player did, and
+  missing it means waiting for the next one. A build or research timer is axis 2. Nightfall,
+  weather, a season, a weekly rotation is axis 3. A daily reset is axis 3 even though it involves a
+  clock, because it recurs.
+
+With that settled: axes 1 and 2 are covered in depth elsewhere in this step. The other two are the
+ones with no home until now:
+
+**Axis 3 — a cyclic window is not a progress gate, and every progress-shaped check is blind to
+it.** Night, dawn, a weather state, a season, a day of the week, a real-world daily or weekly
+reset: the player can be perfectly progressed, standing in exactly the right place, with every
+prerequisite met, and still unable to do the thing. It does not resolve by advancing the route,
+which is precisely why it survives a route audit — the item is correctly ordered and still fails.
+Invented shapes across genres: an encounter that only appears after dark; a subject that only
+migrates through in one season; a vendor stocking the needed part only on a particular in-game
+weekday; a fishing or foraging entry tied to weather; a mode or playlist that only runs on a
+weekend rotation. Two things every item on this axis owes, on the line: **the window itself**, and
+**the game's own fastest way to reach it** — sleeping, resting, a wait-until control, a clock or
+weather item, a fast-travel leg that advances time. A window stated with no mechanism is the same
+defect as "wait a few in-game days." And per the waiting section, that mechanism is a **checkbox**
+when the player has to perform it: the window is a state and gets no box, the act of reaching it is
+a task and does.
+
+**Axis 4 — an irreversible choice constrains placement in both directions.** A branch already taken
+can make an item impossible; a branch still ahead can be the deadline it has to precede. Faction or
+route commitments, an NPC killed or spared, a one-shot consumable spent, a difficulty or build
+locked in, a resource permanently allocated, a relationship closed off. Two distinct constraints,
+and the second is the one that gets missed because it points backwards: **this item must be done
+before the choice**, which makes it a deadline under the direction rule, not a prerequisite. Where a
+choice makes an item impossible on this save at all, that is a missable and belongs in the missables
+box; where it merely forecloses the cheap method, it's a closing window.
+
+**Record all four explicitly per item, including the ones that come back empty.** "No time-of-day
+constraint" recorded is a checkable claim; the same fact unrecorded is indistinguishable from never
+having asked — which is the ungated-is-a-claim rule applied to the other three axes.
+
+**The record is split across two homes, and the split is what keeps it affordable:**
+
+- **The per-game notes store takes all four axes for every item, empties included.** That is the
+  audit trail — what a re-research pass, a later edit round, or a re-run against a newly reachable
+  source checks against. It is build-time material and never ships.
+- **The item's note in the artifact carries only the non-empty axes that change what the player
+  does.** Four lines of "no branch dependency; no cyclic window" on every one of several hundred
+  items is noise the player never needs, and it breaks the content-depth standard's bargain that a
+  note earns its collapse by being context rather than clutter. An axis that constrains this item
+  goes on the line; an axis that came back empty is recorded in the store and nowhere else.
+
+The empty answers still have to be *written down somewhere*, because "we checked and there's
+nothing" and "nobody asked" are the same shape when neither is recorded. The store is where they
+live.
+
+**Check mechanically wherever the shape allows.** Axis 1 is the dependency-direction script. Axis 2
+is countable — count the real steps sitting in each gap rather than assuming they add up. Axes 3
+and 4 cannot be proven from the route alone, but they are enumerable: list every item carrying a
+cyclic window and confirm each states its window *and* its mechanism; list every item touching a
+branch and confirm each names the branch and its direction.
 
 ### "Ungated" is a claim — the first phase carries the same burden of proof as the last
 
@@ -1247,10 +1453,57 @@ sure it's checked off above"). The achievement is not missable, so it does not b
 missables box as a lost-forever risk; the cost is real, though, and the player has to see it
 coming from both sides.
 
-**Two things still outrank all of this** — they're principles 1 and 2, and they're deliberately
-willing to pay the cost: **missables** and **power-unlocks** go early even when early is
-expensive. A missable done the hard way beats a missable lost, and a power-unlock's entire value
-is the hours it saves everything after it.
+#### Thematic clustering is the default pull of writing, and it routes badly
+
+Everything above assumes placement is being *decided*. Often it isn't — it's being inherited from
+the outline. Items about the same subject want to sit together, because that is what writing does:
+research arrives by topic, notes accumulate by topic, and a route assembled by writing comes out
+grouped by topic unless something actively stops it. The result reads well and routes badly, and it
+does so in a specific, predictable direction.
+
+**A thematic cluster lands at its category's position, and a category's position is usually its
+latest-gated member's.** Everything else in the cluster gets dragged along to that point. So the
+failure isn't merely untidy sequencing — combined with method windows, it is that **an item
+grouped with its topical siblings will often sit past the point where its own shortcut expired.**
+The cheap method needed a region still locked, an NPC still alive, a faction still hostile, the
+player still under-levelled — and the cluster carried the item straight through that window on its
+way to where the category as a whole made sense.
+
+Two questions per item, and they are asked of the item, never of the group it's sitting in:
+
+- **Where does the community's easy method actually work?** Not where the task is possible, and not
+  where the rest of its category happens to be — the specific point where *this* method's
+  prerequisites are met and the player is already nearby.
+- **Does that window close?** If the method has a closing edge, the item belongs inside the window,
+  and being carried past it by a grouping decision is the most common way that happens.
+
+**Place it where the task is cheapest, not where it thematically belongs.** Then keep the topic
+where topics belong: in the note, as a named relationship ("this is the third of the four [contract
+boards]; the others are in Phase 2 and Phase 5"), which costs the reader nothing and costs the route
+nothing either.
+
+The tell in a draft is a run of items that are obviously siblings and have no stated individual
+reason for being where they are. If a cluster's placement was decided once and applied to all of
+them, that is a category-level gate check wearing checklist clothes — the same defect the
+shared-gate bundle rule describes, arriving through placement instead of through structure.
+
+#### Where all three of these land
+
+**Two things outrank the ceiling, the window, and the cluster alike** — they're principles 1 and 2,
+and they're deliberately willing to pay the cost: **missables** and **power-unlocks** go early even
+when early is expensive. A missable done the hard way beats a missable lost, and a power-unlock's
+entire value is the hours it saves everything after it.
+
+**The exception overrides cost, never feasibility.** Everything these two outrank — a worse method,
+a dedicated trip, a harder attempt, full price, a redundant grind — is *expensive*, and paying it
+early is the trade being made deliberately. The four dependency axes are a different kind of thing:
+they say the item cannot be done there at all. A missable whose only method needs nightfall, a
+faction state the player hasn't reached, or a branch not yet taken has no earlier placement to go
+to, and "go early regardless" would be asking for a position that doesn't exist. So read the rule
+as **earliest *feasible* point, not earliest point** — then, since a missable pinned late by an axis
+is a genuine risk rather than a preference, the constraint gets stated on the line and in the
+missables box, so the player knows why it can't move and what happens if they pass the window
+without it.
 
 Everything else resolves by honestly comparing the cost both ways. The reason to do things early
 is a small post-story cleanup, not earliness as a virtue: a task the player will fly straight
@@ -1258,11 +1511,11 @@ past in Phase 5 costs nothing to leave in Phase 5, while the same task in Phase 
 cross-map trip and a harder attempt. **When early and late are genuinely comparable, go early** —
 that's what keeps the cleanup phase small. When they aren't, go where it's cheap.
 
-**Then record the decision in the item's note** — in the invented terms above, "left until Phase 4
-— [the slow-telegraph enemies] are the fast way to do this, and [their zone] isn't open before
-then." An unexplained late item is
-indistinguishable from an unresearched one, and the next pass over the guide will drag it forward
-again on exactly the reasoning this section exists to stop.
+**Then record the decision in the item's note**, in the same invented terms as the parry example
+above: "left until Phase 4 — [the slow-telegraph enemies] are the fast way to do this, and [their
+zone] isn't open before then." An unexplained late item is indistinguishable from an unresearched
+one, and the next pass over the guide will drag it forward again on exactly the reasoning these
+sections exist to stop.
 
 ### Moving an item is a claim — and caution is not evidence
 
@@ -1444,6 +1697,16 @@ Four things fix it, in this order:
 checkbox at all — it is not something the player does (the no-FYI-checkbox rule in Output Format),
 so it lives as a note on the collection line: "needs ~5 in-game days; you started this back in
 Phase 2 and the missions since have covered it."
+
+**But the mechanism that advances a wait is a checkbox, because it is an action.** "Rest twice at
+[the inn] to cover the remaining two days," "sleep until night," "end the turn," "save and reload
+to roll the vendor stock" all pass the no-FYI test outright: checking the box represents something
+the player did. The distinction is exact and worth holding — **the wait is a state and never gets a
+box; the act of passing it is a task and always does.** Getting this backwards in either direction
+costs something real: a note-only mechanism leaves a required action with no way to track it, in
+the one document whose whole job is tracking, and a player who steps away mid-gap comes back unable
+to tell whether they did it. This applies wherever a pass-time or reach-the-window instruction
+appears, including the cyclic-window mechanism the four-axes section requires.
 
 **The collection line states the arrival signal.** Where it shows up and what it looks like — an
 icon on the map, a mailbox entry, a phone notification, a new board listing, a menu badge, or
@@ -1699,6 +1962,10 @@ That does not mean "one line per mission":
   here — it goes at its correct position with a note naming what unlocked it. Nesting shows the
   relationship *when the relationship and the order happen to agree*; it is never the reason an
   item sits somewhere.
+  **And every child inherits this parent's position, so nesting several items here asserts they
+  all share its gate and its window** — verified per child, never once for the category they
+  belong to (see the shared-gate bundle section in Step 7). Where one member of a set diverges, it
+  leaves the sub-list and takes a real step of its own at its own position.
 - **Flag missables twice**: once inline at the exact line where the window opens or closes
   (a short tagged label like "MISSABLE — ...") and once in the top-of-page missables box. The
   inline flag is what actually protects the player in the moment; the box is the heads-up.
@@ -1874,61 +2141,80 @@ realistically reconstruct what each individual line owed. Run both.
    is "nothing, it's context," it's a note or a phase note, not a checkbox.
 2. **Is it exactly one unit of progress?** One mission, one row; no umbrella line overlapping
    items listed separately below it; a bundle names its range and gives every unit a child row.
+3. **If it's inside a bundle, was its gate checked individually?** Children inherit the parent's
+   position, so grouping asserts a shared unlock condition *and* a shared window for every member.
+   A gate researched once for the category is not an answer for this row.
 
 **Is it in the right place?**
 
-3. **Is this where the player actually does it** — not where it was unlocked, not where it groups
+4. **Were all four dependency axes enumerated and recorded** — mission prerequisite, elapsed time
+   since a prior step, time-of-day or cyclic window, irreversible choice — including the ones that
+   came back empty? An unrecorded axis is indistinguishable from an unasked one, and satisfying the
+   loudest axis is not clearance on the other three.
+5. **Is this where the player actually does it** — not where it was unlocked, not where it groups
    tidily? If the relationship and the position disagree, the position wins and the relationship
    goes in a note.
-4. **Does the player have control here?** Confirm the preceding unit hands control back rather
+6. **Did anything but this item's own cost decide its position?** If it sits next to its topical
+   siblings, that is the outline placing it, not the route. Where is *this one's* cheap method, and
+   has that window already shut here?
+7. **Does the player have control here?** Confirm the preceding unit hands control back rather
    than running straight into the next, and that they're still where this item assumes.
-5. **Is the placement backed by a verified gate — or by a verified statement that nothing gates
+8. **Is the placement backed by a verified gate — or by a verified statement that nothing gates
    it?** "No gate found" is not evidence of no gate, and this applies hardest to anything landing
    in the first phase. Check that the *system* is running, not just that the place exists.
-6. **Is the item's best *method* available here, and is the player already nearby?** Earliest
+9. **Is the item's best *method* available here, and is the player already nearby?** Earliest
    reachable is a ceiling. And does the method have a closing edge — a window that shuts when a
    region opens, an NPC dies, or the player out-levels it?
-7. **If it's late, is there a stated reason it's late?** Nothing lands in the cleanup phase by
-   default. And if it sits anywhere other than where a source put it — earlier *or* later — does the
-   note record the override, name the source, and say whether the reason is verified? Caution is not
-   a reason.
-8. **If it involves a pending outcome, is the start at its earliest legal point**, does real work
-   sit in the gap, and does no other wait sit adjacent to it?
-9. **If it's a child, does it genuinely come after its parent?** A "do this first" warning belongs
-   on the parent line, never as a child of it.
+10. **If it's late, is there a stated reason it's late?** Nothing lands in the cleanup phase by
+    default. And if it sits anywhere other than where a source put it — earlier *or* later — does the
+    note record the override, name the source, and say whether the reason is verified? Caution is not
+    a reason.
+11. **If it involves a pending outcome, is the start at its earliest legal point**, does real work
+    sit in the gap, and does no other wait sit adjacent to it?
+12. **If it carries a cyclic window, does the line state both the window and the mechanism** —
+    the game's own fastest way to reach night, the weather, the season, the reset? A window with no
+    mechanism is "wait a few in-game days" wearing a different hat.
+13. **If it's a child, does it genuinely come after its parent?** A "do this first" warning belongs
+    on the parent line, never as a child of it.
 
 **Can the player execute it from this line alone?**
 
-10. **Where do they go, what do they interact with, what confirms it worked** — all three
+14. **Where do they go, what do they interact with, what confirms it worked** — all three
     answerable from the visible line plus its note. If it names a system rather than a place, does
     it give the route in, and say whether they have to leave the game?
-11. **If the confirmation is delayed or invisible, does the line say so** — how long, where it
+15. **If the confirmation is delayed or invisible, does the line say so** — how long, where it
     shows up, and not to repeat the action?
-12. **Is every location the specific best one for this point in the route**, named exactly, rather
+16. **Is every location the specific best one for this point in the route**, named exactly, rather
     than "any vendor"? Is any jargon on the line defined on first use?
 
 **Does it close its own loops?**
 
-13. **Backward: is every prerequisite it implies** (item, vehicle, currency, unlock, access, stat,
+17. **Backward: is every prerequisite it implies** (item, vehicle, currency, unlock, access, stat,
     rank) either acquired on this line or completed by an earlier one?
-14. **Forward: does every thing it names** — especially inside an unlock description — have its own
+18. **Forward: does every thing it names** — especially inside an unlock description — have its own
     real step somewhere later, or an explicit out-of-scope statement? Does any deferral in its text
     have a matching completion step, written in this same pass?
-15. **Does anything it asserts in the past tense** ("now that you've…", "the X you bought
+19. **Is every dependency on this line tagged with its direction** — a gate the named mission has
+    to precede, or a deadline it has to follow? Write it in words that carry direction ("needs X
+    first," "must be done before X"), never "tied to X," and check the ordering both ways.
+20. **Does anything it asserts in the past tense** ("now that you've…", "the X you bought
     earlier", a running total) point at a real earlier checkbox that produced it?
 
 **Is it honest?**
 
-16. **Does every concrete noun, number, threshold, and input trace to a source you actually read?**
+21. **Does every concrete noun, number, threshold, and input trace to a source you actually read?**
     If you can't name the source, cut the detail — and hold anything added during a correction pass
     to the same standard.
-17. **Is the placement reconciled with the top community solution** — matching it, or carrying a
+22. **For anything this line claims about availability, was a structured source checked** — a table
+    with per-item unlock, window, and prerequisite fields — before settling for prose? And if the
+    agreement backing it is several prose guides, do they actually have independent origins?
+23. **Is the placement reconciled with the top community solution** — matching it, or carrying a
     stated, verified reason for differing? Is any inference of your own marked as inference on the
     line the reader sees? Is there a hedge standing in for research you could have done?
 
 **Mechanics**
 
-18. **Content-derived slug for the ID, no positional cross-references in the text** ("two steps
+24. **Content-derived slug for the ID, no positional cross-references in the text** ("two steps
     above," "the next item"), and if it's missable, is it flagged both inline here and in the
     top-of-page box?
 
@@ -2118,6 +2404,63 @@ guide and feeling like it hangs together is not. Do it every time before present
 after edits — moving or rewriting a single item can strand a prerequisite that was satisfied by
 whatever used to sit above it.
 
+### Dependency direction — gates must precede, deadlines must follow. Script it.
+
+The line-by-line dependency check resolves *whether* a dependency has a home. This one resolves
+**which way it points**, and then proves the ordering mechanically instead of by eye.
+
+**A prerequisite and a deadline are opposite constraints that look identical in prose.** A line
+tying an item to a named mission is making one of two incompatible claims:
+
+- **A gate**: the mission must come **before** the item. Do this after X; needs the tool X hands
+  over; the board is empty until X.
+- **A deadline**: the item must come **before** the mission. Do this before X; X closes the area; X
+  is where the cheap method dies; X is the point of no return for this.
+
+English marks the difference with one small word, and the guide's own vocabulary hides it
+constantly: *tied to X*, *for X*, *with X*, *goes with X*, *X mission*, *do this around X* state a
+relationship and no direction at all. So the two constraints get written the same way, filed the
+same way, and only one of them ever gets verified — and it is always the gate, because "does the
+prerequisite come first" is the question everyone already knows to ask. Deadlines fail in exactly
+the silent direction this file keeps documenting: the item still works when the player reaches it,
+or it doesn't and they blame themselves.
+
+**So tag every dependency with its direction as you write it**, in the item's own note, in the
+words that carry direction — "needs [mission] first" or "must be done before [mission]" — never in
+the ambiguous middle. Every closing edge the method-window section produces is a deadline. Every
+missable window is a deadline. Every unlock is a gate.
+
+**Then verify both directions with a script, not a read.** This is the one check in this file that
+returns a definite answer, so it should never be eyeballed: the route is an ordered structure with
+content-derived IDs, and the constraint is an inequality over positions.
+
+1. **Flatten the route to true play order** — depth-first through phases, parents, and child rows,
+   in render order. Flattening is not optional: the authored data nests, the player reads it
+   flattened, and comparing against the un-flattened array puts every child row at the wrong index.
+2. **Index it** — item ID to position, plus a lookup from mission/unit name to the position of the
+   row that completes it.
+3. **Extract the dependencies** — scan every visible line and every note for named missions or
+   units, and record each with its tagged direction.
+4. **Assert the inequality**: for a gate, `index(mission) < index(item)`. For a deadline,
+   `index(item) < index(mission)`. Print every violation with both positions.
+
+Three ways it fails, each meaning something different:
+
+- **The inequality is backwards** — a real position bug. Move one of the two, then re-run the
+  route-order walk, because you just changed the sequence.
+- **The referenced mission resolves to nothing** — the backward half of the dependency check just
+  failed mechanically: the guide names a prerequisite it never gave the player a step for. Add the
+  step or state it out of scope.
+- **The name matches nothing exactly** — usually the same unit written two ways in two places.
+  That is also a search-bar defect (a player searching one spelling misses the other), so fix the
+  naming rather than loosening the matcher.
+
+**What the script proves and what it doesn't.** It proves that every dependency you *found* is
+ordered correctly. It cannot tell you about a dependency nobody wrote down — that is still the
+line-by-line dependency check's enumeration, and this does not replace it. Run the script every time before
+presenting and after every edit round; it costs seconds, it is deterministic, and a moved item is
+exactly the event that breaks it.
+
 ### Assumed-completion check — every "you've already done X" needs an earlier line that did X
 
 The dependency check above resolves things a line *needs*. This one catches the mirror-image bug:
@@ -2297,9 +2640,11 @@ This is the loop that produced most of the defects this skill knows about, so it
 plainly, for all of the checks above and the walk-through below:
 
 **A targeted edit round requires the same full sweep as a fresh build.** Not a spot-check of what
-you touched — the whole set: deferrals, dependencies, assumed completions, premises, structural
-self-description, positional references, concrete nouns, route order, achievement-placement
-reconciliation, and the player walk-through. **Plus the per-item gate on every item you touched**,
+you touched — the whole set: deferrals, dependencies, **the dependency-direction script**, assumed
+completions, premises, structural self-description, positional references, concrete nouns, route
+order, achievement-placement reconciliation, and the player walk-through. The direction script is
+the cheapest of these and the most sensitive to exactly what an edit round does — moving one item
+changes every index — so run it first and let it tell you what else moved. **Plus the per-item gate on every item you touched**,
 since an edited line is a newly written line and owes the same list. Two of those exist specifically because a correction
 pass creates its own defects: the concrete-noun sweep re-runs over the *corrected* text, and the
 route-order walk re-reads the sequence a moved item just changed.
@@ -2374,6 +2719,23 @@ checking:
   (especially inside unlock descriptions like "the workshop unlocks") have its own real checkbox
   somewhere later, or an explicit out-of-scope statement? Enumerate them; don't eyeball it (the
   dependency check above).
+- **Does every item have all four dependency axes on record?** Mission prerequisite, elapsed time
+  since a prior step, time-of-day or cyclic window, irreversible choice — enumerated per item, with
+  the empty answers written down as empty. Then check the two the route can't prove on its own:
+  every item carrying a cyclic window states both the window *and* the game's fastest mechanism for
+  reaching it, and every item touching a branch names the branch and which side of it the item
+  belongs on. An item cleared on one axis and never asked about the other three is the default
+  failure, because the loudest axis answers confidently and retires the question (the four-axes
+  section in Step 7).
+- **Run the dependency-direction script, and read what it prints.** Flatten the route to true play
+  order, index it, and assert every tagged dependency's inequality: gates must precede
+  (`index(mission) < index(item)`), deadlines must follow (`index(item) < index(mission)`). A
+  prerequisite and a deadline read identically in prose — *tied to X*, *for X*, *with X* — so an
+  untagged dependency is an unchecked one, and it is always the deadline direction that goes
+  unverified. A reference resolving to no item is the backward dependency check failing
+  mechanically; a name matching nothing exactly is the same unit written two ways, which also
+  breaks search. This is the one check here that returns a definite answer, so it is never
+  eyeballed (the dependency-direction section above).
 - **Does every line that speaks of an action in the past tense point at a real earlier step that
   performed it?** "Now that you've …", "the X you bought earlier", "you should have $200k by
   now", and phase intros recapping the previous phase all assert work was done — each one needs
@@ -2486,7 +2848,28 @@ checking:
   that its *best method* — not just the task — is available there and that the player is already
   nearby. An early placement that forces a cross-map trip, a worse grinding spot, or a fight
   without the gear that trivializes it is a regression, not an optimization (the ceiling section
-  in Step 7). Missables and power-unlocks are the standing exceptions and go early regardless.
+  in Step 7). Missables and power-unlocks are the standing exceptions and go early regardless —
+  but that exception buys past *cost*, not past feasibility: where one of the four axes makes an
+  early placement impossible, the item goes to its earliest feasible point with the constraint
+  stated on the line.
+- **Is anything sitting where it sits because of its topic rather than its cost?** Find every run
+  of obviously-sibling items — the same collectible set, the same job board, the same activity type
+  — and confirm each member has its own stated reason for its position. A cluster placed as a
+  cluster lands at its category's position, which is usually its latest-gated member's, and drags
+  the rest past their own cheap methods. Check specifically whether any member's method window had
+  already closed by the point the cluster sits at (the thematic-clustering section in Step 7).
+- **Does every bundle assert a gate its members actually share?** For each parent with child rows,
+  confirm the gate was checked per member rather than once for the category, and that every child
+  shares the parent's window as well as its unlock. Where they diverge, the bundle should have been
+  split, with the category surviving as a note and any left-behind members carrying real steps of
+  their own. A sub-list makes children individually checkable; it never makes them individually
+  placed (the bundle section in Step 7).
+- **Where did the availability facts come from — a table or a paragraph?** For unlock conditions,
+  windows, and prerequisites, confirm a structured per-item source was checked before prose was
+  accepted, and that any "several sources agree" actually rests on sources with independent
+  origins rather than one walkthrough retold. Prose drops the qualifier first, and shared-ancestor
+  consensus is exactly as wrong as its ancestor while reading far more convincingly (the
+  structured-references section in Step 1).
 - **Does any task's cheap method expire, and is the task inside that window?** Check both edges,
   not just the opening one — a method that needs a region still locked, an NPC still alive, or the
   player still low-level defines a window, and the task has to sit inside it with the closing edge
@@ -2866,7 +3249,10 @@ the failure, not the title it happened in.
   cost both ways: comparable → go early; not comparable → go where it's cheap, and write the
   reason into the note, or the next audit drags it forward again. Missables and power-unlocks are
   the two standing exceptions — they go early even when early is expensive, because a lost
-  missable is unrecoverable and a power-unlock pays back across everything after it.
+  missable is unrecoverable and a power-unlock pays back across everything after it. That exception
+  buys past cost and not past feasibility: a dependency axis that makes an early placement
+  impossible isn't an expense to accept, so the rule is earliest *feasible*, with the constraint
+  stated rather than silently overridden.
 - The checklist is a route first and an outline second, and that precedence has to be stated
   rather than assumed. Nesting, bundling, and phase accordions are presentation — they exist to
   make hundreds of items scannable and to show why an item sits where it does. Left unranked,
@@ -3083,6 +3469,73 @@ the failure, not the title it happened in.
   at the game. **And read what it actually cited**: a research report routes around any source it
   couldn't fetch and looks equally complete either way, so the tracking sites this skill depends on
   have to be confirmed present in the citations, not assumed covered.
+- **Placement was being asked as one question when it is four.** Mission prerequisite, elapsed time
+  since a prior step, time-of-day or cyclic window, irreversible choice — independent axes, each
+  able to make an item unplaceable on its own. The failure is not that any one is hard; it's that
+  **a confident answer on one reads as clearance on all of them**, and the loudest axis is always
+  the mission prerequisite, because it is the one every source volunteers. Two axes had no home in
+  this file at all until it was named. A cyclic window is not a progress gate — the player can be
+  perfectly progressed, in the right place, fully equipped, and still unable to act, and no route
+  audit catches it because the item is correctly *ordered*. An irreversible choice constrains in
+  both directions, and the backwards one gets missed: the item must precede the choice, which makes
+  it a deadline rather than a prerequisite. Record all four per item including the empty answers,
+  since an unrecorded axis is indistinguishable from an unasked one — the ungated-is-a-claim rule,
+  generalized off the axis it was first written for.
+- **Adding a rule to this file reliably creates a conflict with an older one, and the conflicts are
+  found by sweeping for them, not by noticing them while writing.** Four surfaced in a single
+  revision round, each between two rules that are individually correct: where a per-item record
+  lives when the file has both a build-time store and a player-facing note; which source wins when
+  a structured availability field contradicts a top-voted solution; whether an action that passes
+  time is a checkbox when the wait it advances explicitly isn't; and whether a standing "go early
+  regardless" exception can survive a constraint that makes early *impossible*. The resolutions all
+  took the same shape — **name the two things the rules are actually about and give each its own
+  scope** — and none of them required weakening either rule: full record to the store and only
+  constraining axes to the artifact; structured wins on facts, community wins on judgment; the wait
+  is a state and the act of passing it is a task; the exception buys past cost and not past
+  feasibility. Treat a new rule as owing a sweep against the existing ones, the same way a moved
+  item owes the full verification pass.
+- **A bundle is a claim about every member at once, and it was being treated as a display choice.**
+  The bundling rule solves granularity — each child gets its own checkbox instead of being crammed
+  into a parenthetical — and says nothing about where the bundle sits, so the two feel like one
+  decision and are not. Children inherit the parent's position, which means grouping asserts a
+  shared unlock condition *and* a shared window for every member. The failure is that a category is
+  the natural unit to research: one clean answer comes back for "when do the boards open," and a
+  dozen placements get made from it. **Gate-check per item, never per category** — a category is a
+  label for the reader and never a placement. Invented shapes: a job board whose last two entries
+  need a later rank, a ladder whose top tier needs a qualification, a collectible set with members
+  in an area that opens two acts on. A sub-list does not fix placement, it hides it: the result
+  reads as more carefully organized than the loose version it replaced.
+- **Thematic clustering is what writing does by default, and it routes an item to its category's
+  position rather than its own.** Research arrives by topic and notes accumulate by topic, so a
+  route assembled by writing comes out grouped by topic unless something stops it. The direction of
+  the damage is predictable: a cluster lands where the *category* makes sense, which is usually its
+  latest-gated member's position, and everything else gets dragged there — **often past the point
+  where its own shortcut expired**, which is the method-window bug arriving through a structural
+  door rather than a research one. The tell in a draft is a run of obvious siblings with no
+  individual stated reason for their positions. Ask it per item: where does this one's cheap method
+  work, and does that window close. Place at the cheapest point; keep the topic in a note.
+- **A prerequisite and a deadline are opposite constraints that read identically in prose.** One
+  requires the mission before the item, the other requires the item before the mission — and the
+  vocabulary a guide reaches for (*tied to X*, *for X*, *with X*, *X mission*) states the
+  relationship with no direction at all. Only the gate direction ever gets verified, because "does
+  the prerequisite come first" is the question everyone already knows to ask, so deadlines fail in
+  the silent direction: the item still works whenever the player gets to it, or it doesn't and they
+  blame themselves. Every method-window closing edge and every missable window is a deadline. Tag
+  direction as you write, in words that carry it, then prove both with a script rather than a read
+  — flatten to true play order, index, assert the inequality. It is the one check here with a
+  definite answer, and eyeballing it wastes that.
+- **Prose is the right source for method and the wrong first source for availability.** Unlock
+  conditions, windows, prerequisites, and tier requirements are per-item fields, and where a wiki
+  infobox, sortable list, tracker, or map exposes them as fields, that table answers every row
+  while a walkthrough mentions availability only where its author thought it worth a sentence.
+  Prose also compresses, and the qualifier is the first thing it drops — "available after the
+  second act" is what "…except the two in the northern zone" becomes by the third retelling, and
+  the exceptions are the entire point. **Worse, agreement among prose sources is weak evidence when
+  they share an ancestor**: a wiki, three guides and a video description can all descend from one
+  original walkthrough, at which point "four sources agree" means one source said it four times,
+  and the consensus is exactly as wrong as its ancestor while reading far more convincingly. Count
+  independent origins, not pages, and record shared ancestry in the notes rather than laundering it
+  into a confidence level it never earned.
 - **Placement was only ever audited in one direction.** Every guard in this file treats early
   placement as the claim needing evidence — ungated-is-a-claim, earliest-is-a-ceiling, the Phase 1
   audit — and none of them noticed that moving an item *later* is a claim of exactly the same kind:
