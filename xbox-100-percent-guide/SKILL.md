@@ -132,7 +132,9 @@ Step 1 for most, and re-checked at the pre-presentation walk-through. None of th
 | item you're about to place in the earliest phase | Is the **system** behind this switched on yet, or is only the **object** present? | The thing is reachable from minute one, so it's Phase 1 — while the feature it fronts stays inert until a story beat |
 | item you believe has no gate | What **evidence** says it's ungated? | "No trigger found," which is absence of evidence wearing the face of evidence of absence |
 | non-trivial achievement | What is the community's **fast method**, and what does *that* method require? | Placing on the task's availability when the method is what's gated |
-| item you're about to place anywhere | Which of the **four axes** — mission prerequisite, elapsed time, cyclic window, irreversible choice — did you actually ask, and what did each return? | One confident answer on the loudest axis, read as clearance on all four |
+| item you're about to place anywhere | Which of the **five axes** — mission prerequisite, elapsed time, cyclic window, irreversible choice, trigger ownership — did you actually ask, and what did each return? | One confident answer on the loudest axis, read as clearance on all five |
+| item you're about to route | Does the **player** initiate this, or does the **game**? | An arrival the game sends written as a place the player travels to, sitting inside a sweep |
+| constraint you just researched | Is it on the **visible line**, or only in the note? | A window, a branch condition, or an unprompted trigger collapsed out of sight, met at the wrong hour with the wrong save |
 | group you're about to put under one parent | Does **every member** share that gate, and that window? | One researched gate stretched over a category, and children inheriting a position none of them was checked for |
 | item sitting next to its topical siblings | Where is **this one's** cheap method available, and has that window shut by here? | A category placed as a block, with the members whose shortcut expired quietly paying for the tidiness |
 | dependency you just wrote into a line | Is this a **gate** (the mission comes first) or a **deadline** (the item comes first)? | Both directions written the same way in prose, and only the gate direction ever checked |
@@ -216,6 +218,14 @@ Search for:
   being low-level, or on an NPC or vehicle that later dies or stops spawning gives the task a
   *window* rather than a start point. These are invisible to a missables search, because the
   achievement itself never becomes unobtainable — only the cheap way to earn it does.
+- **Which content the game initiates rather than the player** — anything delivered by a call, text,
+  in-game email or letter, an ambient or random event, a visitor, a broadcast, an NPC who starts the
+  conversation. The guide cannot schedule these, so what research has to return is different: not
+  "where is the best place to do this" but **the earliest point it can arrive** and **what the
+  arrival looks like**. This is invisible to an achievement-list search, because the description
+  states the requirement and never who fires it; it is usually stated in passing in the same
+  walkthrough and solution text already being read ("after mission X he'll ring you," "wait for the
+  letter"). See the trigger-ownership axis in Step 7 for how these get routed.
 - Known exploits or efficiency tricks (e.g., money/XP glitches, sequence breaks) — get the
   specific, verified method (exact target, exact button, exact condition), not a vague
   paraphrase. "Bet on horses" is not a method; "bet on the horse with the [specific marker],
@@ -898,7 +908,9 @@ unlock something" — also check:
   started where its reward gets collected it costs the player the entire wait. **Then establish
   what actually advances it** — time alone, progress the player is making anyway, or one specific
   action they must take — because that decides whether the route can absorb the wait or has to
-  perform something. **And check whether they are independent or chained**: several can be pending
+  perform something. **And establish who collects it**: several of the shapes above are things the
+  game brings to the player rather than things the player goes and gets, which changes where the
+  line can sit at all rather than merely where it is cheapest (trigger ownership, Step 7). **And check whether they are independent or chained**: several can be pending
   at once, but a sequence where each step is gated on the *previous* one (visit an NPC, wait,
   visit again, wait, visit again) can't be parallelized at all — it needs the route rearranged
   around it instead. Establish how many links the chain has and what each gap needs, because
@@ -1101,10 +1113,10 @@ the time-gated cases further down.
     without returning control, the player cannot act between them, and the handoff frequently
     moves them somewhere else as well. Verify that control actually returns at any boundary the
     route places something at — see the dedicated section below.
-15. **Enumerate all four dependency axes before placing anything** — mission prerequisite, elapsed
-    time since a prior step, time-of-day or cyclic window, irreversible choice. They are
-    independent, and satisfying one does not make an item placeable. Record each explicitly,
-    including the empty ones — see the dedicated section below.
+15. **Enumerate all five dependency axes before placing anything** — mission prerequisite, elapsed
+    time since a prior step, time-of-day or cyclic window, irreversible choice, trigger ownership.
+    They are independent, and satisfying one does not make an item placeable. Record each
+    explicitly, including the empty ones — see the dedicated section below.
 16. **A bundle claims a shared gate.** Putting several items under one parent asserts that every
     member shares that parent's unlock condition *and* its availability window, because children
     inherit the parent's position. Gates are checked per item, never per category. Where the
@@ -1115,6 +1127,16 @@ the time-gated cases further down.
     to its *category's* position rather than its own — see the dedicated section below. This is not
     principle 4: grouping by area is about one physical trip the player is already making;
     grouping by topic is about the writer's outline and saves nobody anything.
+18. **The route may only schedule what the player triggers.** Content the *game* initiates — a
+    call, a text, an email, an ambient event, a visitor — arrives on its own schedule and cannot be
+    put anywhere by the guide. It goes at the earliest point it can arrive, says on its line that it
+    comes unprompted, and never sits inside a sweep or a batch, because a sweep is a plan the player
+    executes — see the trigger-ownership axis below.
+19. **A constraint belongs on the visible line.** Anything that decides whether an attempt can
+    succeed at all — a window, a branch condition, an unprompted trigger, a closing deadline — is
+    visible without expanding anything. Notes carry method and reasoning; they never carry the
+    thing that determines whether the player is even able to do this — see the dedicated section
+    below.
 
 ### Bundled missions get their own sub-list, never a parenthetical
 
@@ -1246,10 +1268,10 @@ Then write it into the route:
   inside it — the same rule as a child reminder having to make sense after its parent, since advice
   the player reaches only after losing control is advice they cannot use.
 
-### Four dependency axes — satisfying one does not make an item placeable
+### Five dependency axes — satisfying one does not make an item placeable
 
-Placement gets treated as one question with one answer: *what does this need?* It is four questions,
-and they are independent. An item is placeable at a point only when **all four** are satisfied
+Placement gets treated as one question with one answer: *what does this need?* It is five questions,
+and they are independent. An item is placeable at a point only when **all five** are satisfied
 there, and each has its own evidence, its own failure mode, and its own detailed treatment further
 into this step.
 
@@ -1259,14 +1281,20 @@ into this step.
 | **2. Elapsed time since a prior step** | How much has to pass — or what has to resolve — since the step that started this, and does real work sit in that gap? | The waiting and dependent-chain rules |
 | **3. Time-of-day or cyclic window** | Does this only work at a particular time, in particular weather, in a season, on a reset cycle? | This section, plus the timing question in triage |
 | **4. Irreversible choice** | Does a branch already taken close this, or does a branch still ahead close it? | This section, plus missables and the deadline direction |
+| **5. Trigger ownership** | Does the **player** initiate this, or does the **game**? | This section — it decides whether the item can be routed at all |
 
 **Satisfying one axis reads as clearance, and that is the whole bug.** Research returns a confident
 answer on whichever axis is loudest — usually the mission prerequisite, because it is the one every
-source states — the question feels answered, and the item gets placed. The other three are never
+source states — the question feels answered, and the item gets placed. The other four are never
 asked. This is the same failure shape as asking the pending-outcome question once for the whole
 game: a clean answer to a narrower question retires a broader one.
 
-**Two clarifications before the axes are usable**, both of which this file has been burned by
+**Axis 5 is asked first, because it decides whether the other four are even a placement question.**
+Axes 1 through 4 all assume the guide gets to choose where an item goes and the player then executes
+it there. Where the game owns the trigger, that assumption is false before any of them are asked,
+and the answers they return describe a position the route cannot actually put the player in.
+
+**Three clarifications before the axes are usable**, all of which this file has been burned by
 before:
 
 - **Axis 2 is not only clocks.** "Elapsed time" is its most visible form and its worst label — the
@@ -1282,8 +1310,15 @@ before:
   missing it means waiting for the next one. A build or research timer is axis 2. Nightfall,
   weather, a season, a weekly rotation is axis 3. A daily reset is axis 3 even though it involves a
   clock, because it recurs.
+- **Axes 2 and 5 also overlap, and the same unshared-boundary rule applies.** Axis 2 asks **when**
+  the thing becomes ready. Axis 5 asks **who acts** once it is. They are orthogonal and both get
+  asked: a build timer is axis 2 with the player owning the trigger (they go and collect it); a call
+  that arrives three missions later is axis 2 *and* game-owned. Answering "it's a pending outcome,
+  the waiting section covers it" retires axis 5 without asking it — and the waiting section places
+  the collection line wherever the player is next nearby, which is precisely the wrong answer for
+  something that finds the player rather than being found.
 
-With that settled: axes 1 and 2 are covered in depth elsewhere in this step. The other two are the
+With that settled: axes 1 and 2 are covered in depth elsewhere in this step. The other three are the
 ones with no home until now:
 
 **Axis 3 — a cyclic window is not a progress gate, and every progress-shaped check is blind to
@@ -1310,30 +1345,92 @@ before the choice**, which makes it a deadline under the direction rule, not a p
 choice makes an item impossible on this save at all, that is a missable and belongs in the missables
 box; where it merely forecloses the cheap method, it's a closing window.
 
-**Record all four explicitly per item, including the ones that come back empty.** "No time-of-day
+**Axis 5 — trigger ownership decides whether an item can be routed at all.** Everything else in this
+step is about *choosing* where an item goes. This axis asks whether the choice exists. Two kinds of
+content:
+
+- **Player-initiated.** The player walks somewhere, opens something, starts something. The guide
+  picks the point; the player executes it there. Every other rule in this step applies normally.
+- **Game-initiated.** The game reaches out on its own schedule — a phone call, a text, an in-game
+  email or letter, an ambient event, a random encounter, a visitor who turns up, a broadcast, an
+  NPC who initiates a conversation, a drop-in invasion or contract offer. **The guide cannot
+  schedule it.** It fires when the game decides, and no line in a checklist changes that.
+
+The failure is not that game-initiated content is hard to place. It is that it gets written as
+though it were player-initiated, and the two are indistinguishable once the line is on the page: an
+imperative verb and a destination. The player reads "go meet [the contact] at [the venue]," travels
+there, and nothing happens — because the actual mechanic is that the contact calls *them*, at a time
+the guide has no say over. The item is accurately researched, correctly gated on every other axis,
+and unexecutable, which is the same class of defect as placing work inside an automatic mission
+chain.
+
+**The tell is a note that contradicts its own line's framing:** a collapsed note saying the game
+reaches out — "she'll call you once…", "you'll get a text when…", "an email arrives after…" — sitting
+under an item positioned and phrased as though the player travels to it. The research was done, it
+landed in the note, and the line was written from the outline instead. Whenever a note says the game
+initiates, the line is wrong until it says so too.
+
+Three rules, and they replace the normal placement machinery rather than supplementing it:
+
+- **Place it at the earliest point it can arrive**, not where its payoff is collected and not where
+  its topic sits. This is the axis-2 start-condition rule with the collection half removed: there is
+  no cheapest point to choose, because the player is not choosing. Research the earliest trigger —
+  the mission, the counter, the elapsed period, the prior conversation — and put the line there, so
+  the player knows to expect it from that point onward rather than being surprised by it forty items
+  later.
+- **Say on the line that it arrives unprompted**, and say through what — a phone, a mailbox, a
+  notification, an event popup, an NPC approaching. This is the arrival signal the waiting section
+  requires, promoted to the visible line, because here it is not context about a task: it *is* the
+  task's mechanics. A player who thinks they have to go somewhere will go there.
+- **Never put it inside a sweep or a batch.** A sweep is a plan the player executes — "clear these
+  six while you're in the area" — and an item nobody can execute on demand does not belong in one.
+  It also cannot join an area cluster under ordering principle 4, because it is not part of a trip.
+
+**The checkbox is the player's response, not the arrival**, which is the wait rule applied to this
+axis: the arrival is a state and gets no box, responding to it is a task and gets one. So this is
+normally a single line — "[do the thing] when [the contact] calls; the call comes unprompted once
+[the trigger], not from any board" — sitting at the earliest point the call can come. Split it into
+two lines only when the response is genuinely separable and lands much later, in which case the
+arrival is a phase note rather than a checkbox and the response carries a back-pointer to it.
+
+Invented shapes, deliberately across genres: a contact who rings once a mission count is passed and
+offers a job that never appears on any board; a letter that turns up in a hub's mailbox some days
+after a favor; a rival who challenges the player on their own schedule between events; a wandering
+merchant who appears at camp unbidden; a distress signal that broadcasts while the player is doing
+something else; a recurring in-engine event that fires on the world's clock, not the player's. In
+every one, a guide can say *what to do when it happens* and *how early it can happen*, and cannot
+say *do this now*.
+
+**Record all five explicitly per item, including the ones that come back empty.** "No time-of-day
 constraint" recorded is a checkable claim; the same fact unrecorded is indistinguishable from never
-having asked — which is the ungated-is-a-claim rule applied to the other three axes.
+having asked — which is the ungated-is-a-claim rule applied to the other four axes.
 
-**The record is split across two homes, and the split is what keeps it affordable:**
+**The record has three homes, and knowing which is which is what keeps it both affordable and
+usable:**
 
-- **The per-game notes store takes all four axes for every item, empties included.** That is the
+- **The per-game notes store takes all five axes for every item, empties included.** That is the
   audit trail — what a re-research pass, a later edit round, or a re-run against a newly reachable
   source checks against. It is build-time material and never ships.
-- **The item's note in the artifact carries only the non-empty axes that change what the player
-  does.** Four lines of "no branch dependency; no cyclic window" on every one of several hundred
-  items is noise the player never needs, and it breaks the content-depth standard's bargain that a
-  note earns its collapse by being context rather than clutter. An axis that constrains this item
-  goes on the line; an axis that came back empty is recorded in the store and nowhere else.
+- **The visible line in the artifact carries every non-empty axis**, because a constraint decides
+  whether the attempt can succeed at all and the player has to meet it without expanding anything
+  (see the visible-line rule in Output Format). The window, the branch condition, the unprompted
+  arrival, the deadline: on the line.
+- **The item's note carries the method and the reasoning** — how to reach the window fastest, why
+  the placement is what it is, what the source said. Never the constraint itself.
 
-The empty answers still have to be *written down somewhere*, because "we checked and there's
-nothing" and "nobody asked" are the same shape when neither is recorded. The store is where they
-live.
+Empty axes go to the store and nowhere else. Five lines of "no branch dependency; no cyclic window"
+on each of several hundred items is noise the player never needs, and it breaks the content-depth
+standard's bargain that a note earns its collapse by being context rather than clutter. But the
+empty answers still have to be *written down somewhere*, because "we checked and there's nothing"
+and "nobody asked" are the same shape when neither is recorded. The store is where they live.
 
-**Check mechanically wherever the shape allows.** Axis 1 is the dependency-direction script. Axis 2
-is countable — count the real steps sitting in each gap rather than assuming they add up. Axes 3
-and 4 cannot be proven from the route alone, but they are enumerable: list every item carrying a
-cyclic window and confirm each states its window *and* its mechanism; list every item touching a
-branch and confirm each names the branch and its direction.
+**Check mechanically wherever the shape allows** — see the checker suite in Output Format, which
+turns the following into runnable assertions rather than reminders. Axis 1 is the
+dependency-direction script. Axis 2 is countable: count the real steps sitting in each gap rather
+than assuming they add up. Axes 3, 4 and 5 cannot be proven from the route alone, but each is
+*declarable*, and a declaration is machine-checkable: every item carrying a cyclic window states its
+window and its mechanism, every item touching a branch names the branch and its direction, and every
+game-initiated item is marked unprompted and sits in no sweep.
 
 ### "Ungated" is a claim — the first phase carries the same burden of proof as the last
 
@@ -1496,10 +1593,11 @@ entire value is the hours it saves everything after it.
 
 **The exception overrides cost, never feasibility.** Everything these two outrank — a worse method,
 a dedicated trip, a harder attempt, full price, a redundant grind — is *expensive*, and paying it
-early is the trade being made deliberately. The four dependency axes are a different kind of thing:
+early is the trade being made deliberately. The five dependency axes are a different kind of thing:
 they say the item cannot be done there at all. A missable whose only method needs nightfall, a
-faction state the player hasn't reached, or a branch not yet taken has no earlier placement to go
-to, and "go early regardless" would be asking for a position that doesn't exist. So read the rule
+faction state the player hasn't reached, a branch not yet taken, or a trigger the game owns has no
+earlier placement to go to, and "go early regardless" would be asking for a position that doesn't
+exist. So read the rule
 as **earliest *feasible* point, not earliest point** — then, since a missable pinned late by an axis
 is a genuine risk rather than a preference, the constraint gets stated on the line and in the
 missables box, so the player knows why it can't move and what happens if they pass the window
@@ -1684,7 +1782,12 @@ Four things fix it, in this order:
 - **Let it resolve underneath real work.** Once started, the route keeps going with actual tasks
   and the collection line appears later, wherever the player is genuinely nearby again (all the
   usual grouping and backtracking rules still decide exactly where). Concurrent pending outcomes
-  collapse into one window sized by the slowest, not a queue.
+  collapse into one window sized by the slowest, not a queue. **This half only applies where the
+  player collects.** Where the game delivers — a call, a message, a visitor, an event — there is no
+  "nearby" to route to and no collection point to choose: the line goes at the earliest point the
+  thing can arrive and says it arrives unprompted (axis 5). Choosing a convenient collection
+  position for something that finds the player is the axis-5 failure arriving through the waiting
+  rules.
 - **Only if the window genuinely can't be filled**, name the game's own cheapest way to advance
   it — resting at a camp or inn, saving to roll the clock forward, ending the turn, a fast-travel
   leg, re-entering the area — as *one* line, not one per pending item, and say how much it needs
@@ -1712,7 +1815,9 @@ appears, including the cyclic-window mechanism the four-axes section requires.
 icon on the map, a mailbox entry, a phone notification, a new board listing, a menu badge, or
 nothing at all — because a pending outcome with no stated signal is the delayed-confirmation
 failure in the executability rules, arriving from the other direction: the player either misses
-that it's ready, or re-does the start action believing the first one failed.
+that it's ready, or re-does the start action believing the first one failed. **For a game-initiated
+arrival the signal moves from the note to the visible line**, because it stops being context about a
+task and becomes the only way the task ever starts.
 
 **Then verify the window is actually covered.** If the intervening route is shorter than the wait
 — too few in-game days, too few missions on the counter, no intervening step that performs the
@@ -1824,6 +1929,12 @@ the first draft rather than starting with markdown and converting later. In envi
 file outputs directory, build it with `create_file` into `/mnt/user-data/outputs/` and share it
 with `present_files`. Only skip the HTML build if the person explicitly asks for plain
 text/markdown instead.
+
+**The guide ships with its checkers.** The HTML file is what the player uses and stays a single
+self-contained document; alongside it goes the route data and the small verification suite that
+reads it (see the checker-suite section below). Those are build-time tooling, and they are part of
+the delivery for the same reason content-derived IDs are: the next edit round happens in another
+session, and a check that lived only in this conversation will not be there for it.
 
 This is a real, personal tool the player will keep open in a browser tab for 50-200+ hours
 across many sessions, checking off one line at a time while actually playing. Every structural
@@ -2006,6 +2117,10 @@ back every non-obvious one with a note that answers "what do I actually do, in p
 one or two sentences. This applies especially to multiplayer achievements, minigames, and
 anything named after in-game jargon.
 
+**What "short" means here is short on *explanation*.** A constraint is never what gets cut to make
+a line fit — see the visible-line rule, which is the one thing this section does not license
+pushing into a note.
+
 ### Add locations whenever they're needed or would help
 
 If a task happens somewhere specific — a vendor, a landmark, a room, a level, a map, a mode, a
@@ -2079,6 +2194,54 @@ updates on an end-of-run summary; an online unlock that appears after the next s
 counter with no in-game tracker whatsoever, where the achievement pop is the first and only
 signal.
 
+### Every constraint goes on the visible line — notes carry method, never feasibility
+
+The note mechanism is what makes several hundred items scannable, and it is therefore the default
+destination for everything research turns up. That default is right for most of it and catastrophic
+for one class: **a constraint that decides whether the attempt can succeed at all.** The split is
+exact and it is not a matter of length or importance:
+
+- **The visible line carries anything that determines whether the player is *able* to do this
+  here.** A time-of-day, weather, or season window. A branch condition — spare or kill, this faction
+  or that one, spend the one-shot item or keep it. An unprompted trigger the game owns. A closing
+  deadline. A rank, tier, or difficulty requirement. A prerequisite that must be in hand before
+  starting rather than acquired along the way.
+- **The note carries method and reasoning**: why the item sits here, what the source said, what the
+  efficient technique is, what the jargon means, how the category relates to its other members.
+
+**One piece of method rides with the constraint rather than into the note: whatever the player must
+do to satisfy it.** The game's fastest way to reach nightfall, the weather, the season, or the
+reset belongs on the line beside the window it unlocks, because a window with no mechanism is
+"wait a few in-game days" — a condition stated and no way to meet it. The test for whether a
+sentence is method or constraint is not what it describes but what its absence costs: if removing
+it leaves the player *unable* rather than merely *uninformed*, it is on the line.
+
+**A constraint in a collapsed note is a constraint the player does not meet.** Not because they are
+careless — because the file is designed to be read with the notes closed, which is the whole reason
+notes exist. The three failure shapes are worth naming, since each is a real cost and none of them
+looks like a defect on the page:
+
+- **A time window in a note** is a player standing in the right place at the wrong hour, concluding
+  the guide is wrong about the location.
+- **A spare-or-kill condition in a note** is a player who made the choice already, on a save they
+  cannot go back to. This one is unrecoverable, which is why a branch condition is closer to a
+  missable warning than to a piece of context.
+- **An unprompted trigger in a note** is a player travelling to a place to meet someone who was
+  going to call them.
+
+The pull toward the note is strong and it is a writing instinct rather than a judgment: the
+constraint is a qualifier, qualifiers make a sentence longer, and this skill also asks for short
+lines. **Brevity governs explanation, not constraints.** The short-line rule means a line with the
+*explanation* stripped off it, not a line with its conditions hidden — "[task] — night only, sleep
+at [the inn] to skip ahead" is short. Where a line genuinely gets unwieldy, cut the reasoning, not
+the condition.
+
+The content-depth standard's test asks whether the player could still *complete* everything with
+the notes deleted. This is the sharper version of the same question, and it is the one to run first:
+**with every note deleted, could the player still tell what they are and are not allowed to do?** A
+line that reads as an unconditional instruction when it isn't is worse than a line missing detail,
+because the player acts on it confidently.
+
 ### Content depth standard
 
 Match the depth of a well-run community wiki, not a bare task list. For every item, prefer
@@ -2093,7 +2256,8 @@ Use a small expandable "(i)" note toggle on any line that needs this extra detai
 plain-English definition of jargon (assume the player may be new to this game — define the game's
 own names for its side activities and minigames on first use via this same mechanism). The visible
 line stays short; depth lives one tap away. Nothing the player actually needs to *not miss*
-gets hidden behind a collapsed note — only context and reasoning does. The test: if you deleted
+gets hidden behind a collapsed note — only context and reasoning does (the visible-line rule above
+is the strict form of this, for constraints specifically). The test: if you deleted
 every note, would the player still be able to complete everything correctly, just without
 knowing why? If not, something that belongs on the visible line got buried in a note.
 
@@ -2147,79 +2311,99 @@ realistically reconstruct what each individual line owed. Run both.
 
 **Is it in the right place?**
 
-4. **Were all four dependency axes enumerated and recorded** — mission prerequisite, elapsed time
-   since a prior step, time-of-day or cyclic window, irreversible choice — including the ones that
-   came back empty? An unrecorded axis is indistinguishable from an unasked one, and satisfying the
-   loudest axis is not clearance on the other three.
-5. **Is this where the player actually does it** — not where it was unlocked, not where it groups
+4. **Were all five dependency axes enumerated and recorded** — mission prerequisite, elapsed time
+   since a prior step, time-of-day or cyclic window, irreversible choice, trigger ownership —
+   including the ones that came back empty? An unrecorded axis is indistinguishable from an unasked
+   one, and satisfying the loudest axis is not clearance on the other four.
+5. **Does the player initiate this, or does the game?** If the game does, is it at the earliest
+   point it can arrive, does the line say it comes unprompted and through what, and is it outside
+   every sweep, batch, and area cluster? A note saying the game reaches out, under a line phrased as
+   a destination, is the tell.
+6. **Is this where the player actually does it** — not where it was unlocked, not where it groups
    tidily? If the relationship and the position disagree, the position wins and the relationship
    goes in a note.
-6. **Did anything but this item's own cost decide its position?** If it sits next to its topical
+7. **Did anything but this item's own cost decide its position?** If it sits next to its topical
    siblings, that is the outline placing it, not the route. Where is *this one's* cheap method, and
    has that window already shut here?
-7. **Does the player have control here?** Confirm the preceding unit hands control back rather
+8. **Does the player have control here?** Confirm the preceding unit hands control back rather
    than running straight into the next, and that they're still where this item assumes.
-8. **Is the placement backed by a verified gate — or by a verified statement that nothing gates
+9. **Is the placement backed by a verified gate — or by a verified statement that nothing gates
    it?** "No gate found" is not evidence of no gate, and this applies hardest to anything landing
    in the first phase. Check that the *system* is running, not just that the place exists.
-9. **Is the item's best *method* available here, and is the player already nearby?** Earliest
-   reachable is a ceiling. And does the method have a closing edge — a window that shuts when a
-   region opens, an NPC dies, or the player out-levels it?
-10. **If it's late, is there a stated reason it's late?** Nothing lands in the cleanup phase by
+10. **Is the item's best *method* available here, and is the player already nearby?** Earliest
+    reachable is a ceiling. And does the method have a closing edge — a window that shuts when a
+    region opens, an NPC dies, or the player out-levels it?
+11. **If it's late, is there a stated reason it's late?** Nothing lands in the cleanup phase by
     default. And if it sits anywhere other than where a source put it — earlier *or* later — does the
     note record the override, name the source, and say whether the reason is verified? Caution is not
     a reason.
-11. **If it involves a pending outcome, is the start at its earliest legal point**, does real work
+12. **If it involves a pending outcome, is the start at its earliest legal point**, does real work
     sit in the gap, and does no other wait sit adjacent to it?
-12. **If it carries a cyclic window, does the line state both the window and the mechanism** —
-    the game's own fastest way to reach night, the weather, the season, the reset? A window with no
-    mechanism is "wait a few in-game days" wearing a different hat.
 13. **If it's a child, does it genuinely come after its parent?** A "do this first" warning belongs
     on the parent line, never as a child of it.
 
+**Is every constraint visible without expanding anything?**
+
+14. **Is every non-empty axis on the visible line, not in the note?** The window, the branch
+    condition, the unprompted trigger, the deadline, the rank or tier requirement. Notes carry
+    method and reasoning; a constraint in a note is a constraint the player never meets. Delete the
+    note mentally: does the line still say what they are and aren't allowed to do?
+15. **If it carries a cyclic window, does the line state both the window and the mechanism** —
+    the game's own fastest way to reach night, the weather, the season, the reset? A window with no
+    mechanism is "wait a few in-game days" wearing a different hat.
+16. **If it turns on an irreversible choice, does the line name the branch and which side of it
+    this item needs?** Spare or kill, this faction or that, spend or keep. This one is closer to a
+    missable than to context, because the player who reads it late has already decided.
+
 **Can the player execute it from this line alone?**
 
-14. **Where do they go, what do they interact with, what confirms it worked** — all three
+17. **Where do they go, what do they interact with, what confirms it worked** — all three
     answerable from the visible line plus its note. If it names a system rather than a place, does
     it give the route in, and say whether they have to leave the game?
-15. **If the confirmation is delayed or invisible, does the line say so** — how long, where it
+18. **If the confirmation is delayed or invisible, does the line say so** — how long, where it
     shows up, and not to repeat the action?
-16. **Is every location the specific best one for this point in the route**, named exactly, rather
+19. **Is every location the specific best one for this point in the route**, named exactly, rather
     than "any vendor"? Is any jargon on the line defined on first use?
 
 **Does it close its own loops?**
 
-17. **Backward: is every prerequisite it implies** (item, vehicle, currency, unlock, access, stat,
+20. **Backward: is every prerequisite it implies** (item, vehicle, currency, unlock, access, stat,
     rank) either acquired on this line or completed by an earlier one?
-18. **Forward: does every thing it names** — especially inside an unlock description — have its own
+21. **Forward: does every thing it names** — especially inside an unlock description — have its own
     real step somewhere later, or an explicit out-of-scope statement? Does any deferral in its text
     have a matching completion step, written in this same pass?
-19. **Is every dependency on this line tagged with its direction** — a gate the named mission has
+22. **Is every dependency on this line tagged with its direction** — a gate the named mission has
     to precede, or a deadline it has to follow? Write it in words that carry direction ("needs X
     first," "must be done before X"), never "tied to X," and check the ordering both ways.
-20. **Does anything it asserts in the past tense** ("now that you've…", "the X you bought
+23. **Does anything it asserts in the past tense** ("now that you've…", "the X you bought
     earlier", a running total) point at a real earlier checkbox that produced it?
 
 **Is it honest?**
 
-21. **Does every concrete noun, number, threshold, and input trace to a source you actually read?**
+24. **Does every concrete noun, number, threshold, and input trace to a source you actually read?**
     If you can't name the source, cut the detail — and hold anything added during a correction pass
     to the same standard.
-22. **For anything this line claims about availability, was a structured source checked** — a table
+25. **For anything this line claims about availability, was a structured source checked** — a table
     with per-item unlock, window, and prerequisite fields — before settling for prose? And if the
     agreement backing it is several prose guides, do they actually have independent origins?
-23. **Is the placement reconciled with the top community solution** — matching it, or carrying a
+26. **Is the placement reconciled with the top community solution** — matching it, or carrying a
     stated, verified reason for differing? Is any inference of your own marked as inference on the
     line the reader sees? Is there a hedge standing in for research you could have done?
 
 **Mechanics**
 
-24. **Content-derived slug for the ID, no positional cross-references in the text** ("two steps
+27. **Content-derived slug for the ID, no positional cross-references in the text** ("two steps
     above," "the next item"), and if it's missable, is it flagged both inline here and in the
     top-of-page box?
+28. **Does this line carry the machine-readable fields the checkers need** — its declared
+    constraints, its tagged dependency directions, its trigger owner — in the data rather than only
+    in the rendered prose? A rule the checker suite cannot see is a rule that survives only as long
+    as attention does.
 
 When a new per-item rule is added to this skill, it joins this list in the same pass — a rule that
-applies to every item and isn't on the gate is a rule that will be applied to some of them.
+applies to every item and isn't on the gate is a rule that will be applied to some of them. **And
+where the rule's shape allows it, it joins the checker suite too**, for the same reason: a rule
+enforced only by a list someone reads is a rule that lapses under editing pressure.
 
 ### Visual design — the structure is shared, the look never is
 
@@ -2406,6 +2590,9 @@ whatever used to sit above it.
 
 ### Dependency direction — gates must precede, deadlines must follow. Script it.
 
+This is the first of three machine-checkable classes; the checker-suite section below covers the
+other two and the rules for building and validating all of them.
+
 The line-by-line dependency check resolves *whether* a dependency has a home. This one resolves
 **which way it points**, and then proves the ordering mechanically instead of by eye.
 
@@ -2430,9 +2617,9 @@ words that carry direction — "needs [mission] first" or "must be done before [
 the ambiguous middle. Every closing edge the method-window section produces is a deadline. Every
 missable window is a deadline. Every unlock is a gate.
 
-**Then verify both directions with a script, not a read.** This is the one check in this file that
-returns a definite answer, so it should never be eyeballed: the route is an ordered structure with
-content-derived IDs, and the constraint is an inequality over positions.
+**Then verify both directions with a script, not a read.** This is one of the few checks in this
+file that returns a definite answer, so it should never be eyeballed: the route is an ordered
+structure with content-derived IDs, and the constraint is an inequality over positions.
 
 1. **Flatten the route to true play order** — depth-first through phases, parents, and child rows,
    in render order. Flattening is not optional: the authored data nests, the player reads it
@@ -2460,6 +2647,87 @@ ordered correctly. It cannot tell you about a dependency nobody wrote down — t
 line-by-line dependency check's enumeration, and this does not replace it. Run the script every time before
 presenting and after every edit round; it costs seconds, it is deterministic, and a moved item is
 exactly the event that breaks it.
+
+### The checker suite — ship it with the guide, and run it after every edit
+
+**Stated rules do not survive editing pressure. Executable ones do.** That is not a maxim, it is
+this project's own measured result: three separate rules about timing were each written down
+carefully, and each was then violated in a later edit *by the same author who wrote the rule*. Not
+misunderstood, not disagreed with — written, agreed, and then broken while attention was on
+something else. A rule that lives only in prose is enforced by whoever happens to be paying
+attention at the moment of the edit, and an edit round is exactly when attention is elsewhere.
+
+So **wherever a rule's shape allows a machine to decide it, write the checker instead of trusting
+the rule.** Three classes of constraint in this skill have that shape, and between them they cover
+most of what an edit round breaks:
+
+| Class | What it asserts | Examples |
+| --- | --- | --- |
+| **Ordering** | One position must be less than another | Gates precede their item; deadlines follow it; a link of a chain follows the previous link |
+| **Adjacency** | What may or may not sit next to, or inside, what | No two waits adjacent; nothing between chained units; a game-initiated item inside no sweep; a "do this first" warning not nested under the thing it warns about |
+| **Declaration** | An item carrying property P must state P on its visible line | A cyclic window states its window and mechanism; a branch dependency names the branch and side; an unprompted trigger says so; a deferral has a matching completion step |
+
+Everything else in the verification passes — whether a fact is true, whether a placement is wise,
+whether a note is honest — is judgment and stays judgment. The point of scripting these three is to
+free that attention for the parts only judgment can do.
+
+**Ship the checkers alongside the guide.** They are build-time tooling, not something the player
+uses, but they belong in the delivery rather than in the session: a small script plus the route data
+it reads, handed over with the HTML file. The reason is the same reason positional IDs get migrated
+rather than deferred — the next edit round happens in a different session, possibly by a different
+agent, and a checker that existed only in the last conversation is a checker that does not exist.
+The guide itself stays a single self-contained HTML file for the player; the checkers sit next to
+it, and the response says what they check and how to run them.
+
+**This requires the route to be data before it is markup.** The checkers read the same structure the
+HTML renders from — items with IDs, nesting, declared constraints, tagged dependency directions,
+trigger owner — so build the file that way from the first draft. A guide whose only representation
+is rendered HTML can still be checked, but every checker then starts by parsing prose, which is
+where false negatives come from.
+
+**Run the whole suite after every edit round, and run it before the judgment sweeps rather than
+after them.** It is seconds of work, it is deterministic, and its output tells you which of the
+expensive sweeps actually need attention — a moved item changes every index, and the suite is what
+says so.
+
+#### Test the checker before trusting it
+
+**A checker's false negatives are invisible by construction.** A checker that finds nothing and a
+checker that *can* find nothing produce identical output, and the second one is worse than having no
+checker at all: it converts an unknown error rate into confidence. The original state was
+uncertainty, which at least invites a look.
+
+So no checker is trusted until it has been shown to fire:
+
+- **Prove it on a known-bad case first.** Before relying on a pass, break something deliberately —
+  move a gated item above its gate, strip the mechanism off a windowed line, put a game-initiated
+  item inside a sweep, place two waits adjacent — and confirm the checker reports it. Then revert.
+  A green run means something only after you have seen a red one. Keep the known-bad cases with the
+  checkers as fixtures, so the proof re-runs rather than being remembered.
+- **Strip presentation before matching.** Item text is authored with markup — emphasis, links,
+  entities, non-breaking spaces, line wrapping — and a checker matching raw source will miss
+  `**night**-only` while catching `night-only`, silently. Normalize first: strip tags, decode
+  entities, collapse whitespace, fold case. This is the same lesson as the search bar's "search the
+  data, not the DOM," and it fails the same way: every term the author tries happens to be one that
+  matches.
+- **Keep detection and requirement equally strict.** A checker has two halves — *which items does
+  this apply to*, and *what must they say* — and they have to be calibrated together. Detect
+  loosely and require strictly, and it screams at every line that mentions the word "night." Detect
+  strictly and require loosely, and it inspects three items and passes the file. The second is the
+  dangerous one, because it looks like a clean run. When they cannot be brought into line, prefer
+  the noisy direction: a false positive costs a glance, and a false negative costs the defect the
+  checker was written for.
+- **Normalize presentation, never content.** These two look alike and are opposites. Stripping
+  markup so `**Mission&nbsp;Four**` and `Mission Four` compare equal is normalization. Loosening a
+  matcher so `Mission Four` and `Mission 4` compare equal is hiding a real defect — the same unit
+  written two ways, which also breaks the player's search. Fix the naming; don't teach the checker
+  to tolerate it.
+- **Report what it did not check.** Every checker prints its coverage — items scanned, items
+  matched, items skipped and why. "0 violations" over 4 of 380 items is a different result from
+  "0 violations" over 380, and without the count they are the same line of output.
+
+**A checker you have not seen fail is a claim, not a check** — the same standing this skill gives to
+"no trigger found" and to a guide's own notes under audit. Validate it, then trust it.
 
 ### Assumed-completion check — every "you've already done X" needs an earlier line that did X
 
@@ -2640,11 +2908,13 @@ This is the loop that produced most of the defects this skill knows about, so it
 plainly, for all of the checks above and the walk-through below:
 
 **A targeted edit round requires the same full sweep as a fresh build.** Not a spot-check of what
-you touched — the whole set: deferrals, dependencies, **the dependency-direction script**, assumed
-completions, premises, structural self-description, positional references, concrete nouns, route
-order, achievement-placement reconciliation, and the player walk-through. The direction script is
-the cheapest of these and the most sensitive to exactly what an edit round does — moving one item
-changes every index — so run it first and let it tell you what else moved. **Plus the per-item gate on every item you touched**,
+you touched — the whole set: **the checker suite** (ordering, adjacency, declaration), deferrals,
+dependencies, assumed completions, premises, structural self-description, positional references,
+concrete nouns, route order, achievement-placement reconciliation, and the player walk-through. The
+checker suite is the cheapest of these and the most sensitive to exactly what an edit round does —
+moving one item changes every index — so **run it first and let it tell you what else moved.** It is
+also the only part of the list that cannot be skipped by accident, which is the whole reason those
+three classes were made executable. **Plus the per-item gate on every item you touched**,
 since an edited line is a newly written line and owes the same list. Two of those exist specifically because a correction
 pass creates its own defects: the concrete-noun sweep re-runs over the *corrected* text, and the
 route-order walk re-reads the sequence a moved item just changed.
@@ -2719,23 +2989,45 @@ checking:
   (especially inside unlock descriptions like "the workshop unlocks") have its own real checkbox
   somewhere later, or an explicit out-of-scope statement? Enumerate them; don't eyeball it (the
   dependency check above).
-- **Does every item have all four dependency axes on record?** Mission prerequisite, elapsed time
-  since a prior step, time-of-day or cyclic window, irreversible choice — enumerated per item, with
-  the empty answers written down as empty. Then check the two the route can't prove on its own:
-  every item carrying a cyclic window states both the window *and* the game's fastest mechanism for
-  reaching it, and every item touching a branch names the branch and which side of it the item
-  belongs on. An item cleared on one axis and never asked about the other three is the default
-  failure, because the loudest axis answers confidently and retires the question (the four-axes
-  section in Step 7).
-- **Run the dependency-direction script, and read what it prints.** Flatten the route to true play
-  order, index it, and assert every tagged dependency's inequality: gates must precede
+- **Does every item have all five dependency axes on record?** Mission prerequisite, elapsed time
+  since a prior step, time-of-day or cyclic window, irreversible choice, trigger ownership —
+  enumerated per item, with the empty answers written down as empty. Then check the three the route
+  can't prove on its own: every item carrying a cyclic window states both the window *and* the
+  game's fastest mechanism for reaching it, every item touching a branch names the branch and which
+  side of it the item belongs on, and every game-initiated item says so. An item cleared on one axis
+  and never asked about the other four is the default failure, because the loudest axis answers
+  confidently and retires the question (the five-axes section in Step 7).
+- **Is anything the game initiates written as somewhere the player goes?** Sweep for notes saying
+  the game reaches out — "he'll call," "you'll get a text," "a letter arrives," "the event fires" —
+  and check the line above each one: if it reads as a destination with an imperative verb, the item
+  is unexecutable, however accurate it is. Each of these belongs at the earliest point it can
+  arrive, says on its visible line that it comes unprompted and through what, and sits inside no
+  sweep, batch, or area cluster — a sweep is a plan the player executes, and this is not something
+  they can execute (trigger ownership, Step 7).
+- **Is every constraint on a visible line rather than in a note?** Open nothing and read the file:
+  every window, branch condition, unprompted trigger, deadline, and tier requirement should be
+  legible with all notes collapsed. A constraint one tap away is a constraint met at the wrong hour
+  with the wrong save, and the spare-or-kill case is unrecoverable. Notes may explain how and why;
+  they may not hold the thing that decides whether the attempt can succeed (the visible-line rule
+  above).
+- **Run the checker suite, and read what it prints.** Ordering: flatten the route to true play
+  order, index it, and assert every tagged dependency's inequality — gates must precede
   (`index(mission) < index(item)`), deadlines must follow (`index(item) < index(mission)`). A
   prerequisite and a deadline read identically in prose — *tied to X*, *for X*, *with X* — so an
   untagged dependency is an unchecked one, and it is always the deadline direction that goes
   unverified. A reference resolving to no item is the backward dependency check failing
   mechanically; a name matching nothing exactly is the same unit written two ways, which also
-  breaks search. This is the one check here that returns a definite answer, so it is never
-  eyeballed (the dependency-direction section above).
+  breaks search. Adjacency: no two waits touching, nothing inside an automatic chain, no
+  game-initiated item inside a sweep. Declaration: every item carrying a window, a branch, or an
+  unprompted trigger states it on its visible line. These are the checks here that return definite
+  answers, so they are never eyeballed (the checker-suite section above).
+- **Has the suite itself been shown to fail?** Confirm each checker has been run against a
+  deliberately broken case and reported it — a gated item moved above its gate, a mechanism stripped
+  off a windowed line, a game-initiated item dropped into a sweep. Check that it strips markup
+  before matching, that its detection and its requirement are equally strict, and that it prints how
+  many items it actually inspected. "0 violations" from a checker that matched four items is the
+  output that reads best and means least; an unvalidated checker is worse than no checker, because
+  it replaces uncertainty with false confidence (the validation rules above).
 - **Does every line that speaks of an action in the past tense point at a real earlier step that
   performed it?** "Now that you've …", "the X you bought earlier", "you should have $200k by
   now", and phase intros recapping the previous phase all assert work was done — each one needs
@@ -2849,7 +3141,7 @@ checking:
   nearby. An early placement that forces a cross-map trip, a worse grinding spot, or a fight
   without the gear that trivializes it is a regression, not an optimization (the ceiling section
   in Step 7). Missables and power-unlocks are the standing exceptions and go early regardless —
-  but that exception buys past *cost*, not past feasibility: where one of the four axes makes an
+  but that exception buys past *cost*, not past feasibility: where one of the five axes makes an
   early placement impossible, the item goes to its earliest feasible point with the constraint
   stated on the line.
 - **Is anything sitting where it sits because of its topic rather than its cost?** Find every run
@@ -3469,18 +3761,74 @@ the failure, not the title it happened in.
   at the game. **And read what it actually cited**: a research report routes around any source it
   couldn't fetch and looks equally complete either way, so the tracking sites this skill depends on
   have to be confirmed present in the citations, not assumed covered.
-- **Placement was being asked as one question when it is four.** Mission prerequisite, elapsed time
-  since a prior step, time-of-day or cyclic window, irreversible choice — independent axes, each
-  able to make an item unplaceable on its own. The failure is not that any one is hard; it's that
-  **a confident answer on one reads as clearance on all of them**, and the loudest axis is always
-  the mission prerequisite, because it is the one every source volunteers. Two axes had no home in
-  this file at all until it was named. A cyclic window is not a progress gate — the player can be
-  perfectly progressed, in the right place, fully equipped, and still unable to act, and no route
-  audit catches it because the item is correctly *ordered*. An irreversible choice constrains in
-  both directions, and the backwards one gets missed: the item must precede the choice, which makes
-  it a deadline rather than a prerequisite. Record all four per item including the empty answers,
-  since an unrecorded axis is indistinguishable from an unasked one — the ungated-is-a-claim rule,
-  generalized off the axis it was first written for.
+- **Placement was being asked as one question when it is five.** Mission prerequisite, elapsed time
+  since a prior step, time-of-day or cyclic window, irreversible choice, trigger ownership —
+  independent axes, each able to make an item unplaceable on its own. The failure is not that any
+  one is hard; it's that **a confident answer on one reads as clearance on all of them**, and the
+  loudest axis is always the mission prerequisite, because it is the one every source volunteers.
+  Three axes had no home in this file at all until each was named. A cyclic window is not a progress
+  gate — the player can be perfectly progressed, in the right place, fully equipped, and still
+  unable to act, and no route audit catches it because the item is correctly *ordered*. An
+  irreversible choice constrains in both directions, and the backwards one gets missed: the item
+  must precede the choice, which makes it a deadline rather than a prerequisite. Record all five per
+  item including the empty answers, since an unrecorded axis is indistinguishable from an unasked
+  one — the ungated-is-a-claim rule, generalized off the axis it was first written for.
+- **Trigger ownership decides whether an item can be routed at all, and it was never asked.** Every
+  other axis assumes the guide picks a point and the player executes there. Where the *game* owns
+  the trigger — a call, a text, an in-game letter, an ambient event, a visitor, an NPC who starts
+  the conversation — that assumption is false before the other four are even asked, and their
+  answers describe a position the route cannot put the player in. The two kinds are
+  indistinguishable once written, because a line is an imperative verb and a destination either way:
+  the player reads "go meet [the contact] at [the venue]," travels there, and nothing happens,
+  because the contact calls *them* on a schedule nobody controls. Nothing in the item is inaccurate
+  — it is unexecutable, the same level below the checks as work scheduled inside an automatic
+  mission chain. **The tell is a note that contradicts its own line**: the research found that the
+  game reaches out, it landed in the collapsed note, and the line was written from the outline.
+  Three rules replace the normal machinery — earliest point it can arrive, marked unprompted on the
+  visible line with the channel named, and inside no sweep or batch, because a sweep is a plan the
+  player executes and this is not something they can execute on demand.
+- **A constraint in a collapsed note is a constraint the player does not meet.** The note mechanism
+  is what makes several hundred items scannable, so it is the default destination for everything
+  research turns up — right for method and reasoning, catastrophic for anything deciding whether the
+  attempt can succeed at all. The file is *designed* to be read with the notes shut, which is the
+  entire point of having them, so a qualifier tucked into one is a qualifier that does not exist.
+  Three costs, none of which looks like a defect on the page: a time window in a note is a player
+  standing in the right place at the wrong hour and concluding the location is wrong; an unprompted
+  trigger in a note is a player travelling to meet someone who was going to call; **a spare-or-kill
+  condition in a note is unrecoverable**, because by the time they open it the save is already
+  decided. The pull is a writing instinct rather than a judgment — constraints are qualifiers,
+  qualifiers lengthen a sentence, and this skill also asks for short lines. Brevity governs
+  *explanation*, not constraints: strip the reasoning off the line, never the condition.
+- **Stated rules do not survive editing pressure; executable ones do — and this file measured it.**
+  Three separate rules about timing were each written down carefully here and each subsequently
+  violated in a later edit *by the author who wrote it*. Not misunderstood or disputed: written,
+  agreed, then broken while attention was on something else, which is the normal condition of an
+  edit round. Prose enforcement depends on whoever is paying attention at the moment of the change,
+  and that is precisely the moment attention is elsewhere. Three classes of constraint have a shape
+  a machine can decide — **ordering** (gates precede, deadlines follow), **adjacency** (no two waits
+  touching, nothing inside an automatic chain, no game-initiated item inside a sweep), and
+  **declaration** (an item carrying a window, a branch, or an unprompted trigger states it on its
+  visible line) — and each of those was previously a rule someone had to remember. Write the checker
+  instead. Ship it with the guide rather than leaving it in the session, because the next edit round
+  is a different session and a checker that isn't delivered doesn't exist. Judgment keeps everything
+  it is actually needed for; scripting these three is what frees the attention for it.
+- **A checker's false negatives are invisible by construction, so an unvalidated checker is worse
+  than none.** A checker that finds nothing and a checker that *can* find nothing print the same
+  thing, and the second replaces uncertainty with confidence — a strictly worse position than not
+  having looked, because uncertainty at least invites a look. The discipline that fixes it is
+  cheap: break something on purpose, watch the checker report it, revert, and keep the broken case
+  as a fixture so the proof re-runs instead of being remembered. Three specific ways they fail
+  silently. **Markup defeats matching** — item text carries emphasis, entities, and wrapping, so a
+  raw-source match misses `**night**-only` while catching `night-only`; normalize presentation
+  first, which is the search bar's "search the data, not the DOM" arriving in a second place, and
+  fails identically because every term the author tries happens to be one that matches. **Detection
+  and requirement drift apart** — a checker has two halves, *which items does this apply to* and
+  *what must they say*, and a strict detector with a loose requirement inspects four items and
+  passes the file, which is the dangerous direction because it looks clean. **Normalizing content
+  gets mistaken for normalizing presentation** — stripping tags so two spellings of the same string
+  compare equal is correct; loosening a matcher so "Mission Four" and "Mission 4" compare equal
+  hides a real defect that also breaks the player's search. Make every checker print how many items
+  it inspected: "0 violations" over 4 of 380 items and over 380 of 380 are the same sentence.
 - **Adding a rule to this file reliably creates a conflict with an older one, and the conflicts are
   found by sweeping for them, not by noticing them while writing.** Four surfaced in a single
   revision round, each between two rules that are individually correct: where a per-item record
@@ -3493,7 +3841,19 @@ the failure, not the title it happened in.
   constraining axes to the artifact; structured wins on facts, community wins on judgment; the wait
   is a state and the act of passing it is a task; the exception buys past cost and not past
   feasibility. Treat a new rule as owing a sweep against the existing ones, the same way a moved
-  item owes the full verification pass.
+  item owes the full verification pass. **The next round reproduced the rate exactly** — five
+  additions, six conflicts, every one between two individually correct rules, every one resolved by
+  scoping rather than weakening: a game-delivered arrival has no "collect it where the player is
+  next nearby" position to choose, so the waiting rule's collection half is scoped to
+  player-collected outcomes; an unprompted item is not part of a trip, so it never joins an area
+  cluster; the axis record grew a third home, since constraints belong on the visible line while the
+  note keeps method and the store keeps the empties; brevity governs explanation and not
+  constraints, so a short line is one with the reasoning stripped rather than the condition; the
+  player-facing deliverable stays one self-contained file while the checkers ship beside it as
+  build-time tooling; and a checker normalizes *presentation* freely while never normalizing
+  *content*, which keeps "strip the markup before matching" from becoming "teach the matcher to
+  accept two names for one mission." Two rounds at the same rate is a pattern, not a coincidence —
+  budget the sweep into every addition rather than treating it as cleanup.
 - **A bundle is a claim about every member at once, and it was being treated as a display choice.**
   The bundling rule solves granularity — each child gets its own checkbox instead of being crammed
   into a parenthetical — and says nothing about where the bundle sits, so the two feel like one
@@ -3522,8 +3882,8 @@ the failure, not the title it happened in.
   the silent direction: the item still works whenever the player gets to it, or it doesn't and they
   blame themselves. Every method-window closing edge and every missable window is a deadline. Tag
   direction as you write, in words that carry it, then prove both with a script rather than a read
-  — flatten to true play order, index, assert the inequality. It is the one check here with a
-  definite answer, and eyeballing it wastes that.
+  — flatten to true play order, index, assert the inequality. It returns a definite answer, and
+  eyeballing it wastes that. This became the ordering half of the checker suite.
 - **Prose is the right source for method and the wrong first source for availability.** Unlock
   conditions, windows, prerequisites, and tier requirements are per-item fields, and where a wiki
   infobox, sortable list, tracker, or map exposes them as fields, that table answers every row
