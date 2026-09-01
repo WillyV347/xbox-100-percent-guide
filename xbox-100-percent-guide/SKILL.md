@@ -5,13 +5,13 @@ description: >-
   the user names a specific game and wants 100% completion, all achievements, a platinum roadmap,
   or asks what order to do everything in. Triggers on "how do I 100% X", "missable achievements
   in X", "optimal order for X", "completion guide for X", "what should I do first in X", and
-  casual phrasings like "I want to do everything in X" — any named game plus completion,
-  achievement, or roadmap intent. Also triggers on syncing or checking the player's existing Xbox
-  achievements against a guide — "sync my achievements," "what do I already have," "start the
-  guide from where I actually am." Stays in force for every follow-up turn about a guide it built,
-  not just the request that started it: questions ("why is this in Phase 3"), corrections,
-  additions ("add the DLC," "I already did X"), re-ordering, re-theming, and complaints all
-  re-enter this skill rather than being answered from memory of the build.
+  "I want to do everything in X" — any named game plus completion, achievement, or roadmap intent.
+  Also triggers on syncing Xbox achievements — "sync my achievements," "what do I already have,"
+  "start the guide from where I actually am." Also triggers on patching a live Hundo guide —
+  "update the live guide," "fix this note on the site," "add ACH tags," "re-publish," "patch the
+  existing guide." Stays in force for every follow-up turn about a guide it built: questions,
+  corrections, additions, re-ordering, re-theming, label fixes, and complaints re-enter this
+  skill rather than being answered from memory of the build.
 ---
 
 # Xbox 100% Completion Guide Skill
@@ -65,6 +65,10 @@ Concretely, on any follow-up turn:
 - **Deliver the updated file, not a description of the update.** The deliverable never changes: an
   edited guide is a rebuilt HTML checklist handed over, not a chat message explaining what would
   change.
+- **A patch to a live site guide starts from the live JSON.** If the player wants a label fix, a
+  corrected note, or a re-publish of a guide already on Hundo, `GET /api/guides/<slug>` first.
+  Do not remint IDs from the HTML artifact and do not start from memory of an earlier session.
+  Label-only edits are in scope — they are still an edit round. See Patch below.
 
 ### This file never stores facts about a particular game
 
@@ -2080,6 +2084,11 @@ That does not mean "one line per mission":
 - **Flag missables twice**: once inline at the exact line where the window opens or closes
   (a short tagged label like "MISSABLE — ...") and once in the top-of-page missables box. The
   inline flag is what actually protects the player in the moment; the box is the heads-up.
+  Use the site-wide vocabulary, not a one-off class: `<span class="tag ach">ACH</span>` (unlocks
+  an achievement), `<span class="tag pct">100%</span>` (counts toward the completion stat),
+  `<span class="tag miss">MISSABLE</span>`, `<span class="tag win">WINDOW</span>`, and
+  `<span class="gs">(NG)</span>` with no space before `G`. Only attach a G value that is
+  verified; omit `gs` rather than inventing it.
 - **When something has no specific trigger** (available from the start, no mission gates it),
   say so and place it at the top of the phase/DLC rather than inventing a false trigger point.
   Collectible sweeps that are genuinely background tasks across a whole phase (not a single
@@ -3192,6 +3201,90 @@ only present the guide after this pass, not before it.
 
 ---
 
+## Publish to Hundo
+
+The HTML artifact stays the in-session deliverable. Hundo is where a finished revision lives.
+Publishing happens *after* every verification sweep has passed, never before. A guide that has
+not passed its sweeps must not be published, even if the player asks; say so and finish the
+sweeps first.
+
+Fill these in from the deployment, then keep them out of the artifact:
+
+- `HUNDO_SITE_URL` — the deployed origin, no trailing slash.
+- `HUNDO_PUBLISH_TOKEN` — the value of `PUBLISH_TOKEN` on that project.
+
+The site is **Hundo**, tagline "100% completion guides". Do not put "Xbox" in a guide's `title`
+or `slug`. Mentioning an Xbox achievement inside guide prose is fine; using the trademark as
+branding on an ad-supported site is not.
+
+Convert the finished guide into the site's guide schema (the `#data` shape plus theme tokens),
+derive item IDs with the same slug algorithm the artifact uses (strip tags with **no** space,
+so `ACH</span><i>…` concatenates; do not decode entities first), then:
+
+```bash
+curl -sS -X POST "$HUNDO_SITE_URL/api/publish" \
+  -H "Authorization: Bearer $HUNDO_PUBLISH_TOKEN" \
+  -H "Content-Type: application/json" \
+  --data-binary @guide.json
+```
+
+Read the errors; they are per-field on purpose. `idmap_would_orphan_progress` means a value in
+`idmap` points at nothing — fix that before retrying. A 503 `storage_not_configured` means the
+JSON was valid but this deployment has no database; report it and keep the artifact as the
+deliverable. Re-publish by incrementing `version` on the same slug.
+
+The full field list, theme slot map, and error table live with the site
+(`docs/skill-publish-section.md`). Do not invent extra fields.
+
+---
+
+## Patch a live Hundo guide
+
+A patch is a publish of a guide that already exists. Label-only edits, a wrong note, a missing
+ACH tag, a voice rewrite — all of these are in scope, not only net-new games. A one-line change
+is still an edit round: every sweep re-runs, then you POST with `version` incremented.
+
+### 1. Fetch the live JSON first
+
+```bash
+curl -sS "$HUNDO_SITE_URL/api/guides/<slug>"
+```
+
+No auth. The body is the guide object itself. 404 means this deployment does not know the slug.
+Do not reconstruct IDs from the HTML artifact, and do not start from memory of an earlier
+session. Keep the fetched `idmap` and every live item `id` — those are the IDs players have
+ticks against.
+
+### 2. Apply the edit
+
+Edit the JSON (and the HTML artifact in lockstep if this session still owns it). Keep the
+canonical labels from Output Format. Voice is second-person imperative: do not assume the
+reader's save, choices, or session; mark unverified locations as unconfirmed; cut author-diary
+asides.
+
+### 3. Keep or remap IDs
+
+If the item's `text` did not remint the slug, keep the existing `id` (frozen IDs at older
+wording are legitimate). If it would remint, either freeze the old `id` or add
+`"<old id>": "<new id>"` to `idmap`. **Never drop an old `idmap` key.** Every value must be a
+live item ID or another `idmap` key — a dangling target fails the POST with
+`idmap_would_orphan_progress`.
+
+Embedded-JSON sources treat the IDs already in the data block as authoritative. Legacy
+inline-JS sources remint from text on extract; previous live IDs have to be merged into
+`idmap` when the item count is unchanged. A patch that remints without that merge orphans
+progress.
+
+### 4. What "on the site" actually means
+
+`POST /api/publish` writes a published-guides row. The checklist page and the GET above read
+that row only when the deployment has the server-side database credentials **and** the
+published `version` is newer than the committed file. Without those, a valid POST reports
+`storage_not_configured` and the committed file is still what the site serves. Tell the player
+which path this deployment is on rather than claiming the POST landed on the page.
+
+---
+
 ## Key Lessons From Real Use
 
 Every lesson below is written as a pattern, with the game, mission, achievement, character, and
@@ -3229,6 +3322,10 @@ the failure, not the title it happened in.
   list wasn't rechecked, and it ended up sitting right after an item referencing a much later
   mission (an "at mission 22" line immediately followed by a "complete mission 1" line).
   Content and position are two different things to verify; fixing one doesn't fix the other.
+- A real bug from practice: an item's visible text was edited so its content-derived ID
+  reminted, and ticks stored against the old ID vanished on the next load. The `idmap` exists
+  for that exact case — add the old ID → new ID, never drop earlier keys, and start a live-site
+  patch from the GET JSON rather than reminting from the HTML.
 - The deliverable is the interactive HTML checklist described in Output Format above, not a
   markdown writeup. A markdown file (or an HTML file that's just markdown-shaped prose in
   divs) is the wrong artifact even if the content inside it is accurate, and will need a full
