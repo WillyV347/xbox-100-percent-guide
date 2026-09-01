@@ -1,6 +1,6 @@
 # Xbox 100% Completion Guide — LLM Skill
 
-An LLM skill that generates an **optimal, phase-by-phase route to 100% completion and all achievements** for any Xbox game. Works with [Claude](https://claude.com/claude-code) out of the box, and with **any LLM or agent that can follow a markdown instruction file** — a custom GPT, a Gemini Gem, an open-source agent framework, or a plain system prompt.
+An LLM skill that generates an **optimal, phase-by-phase route to 100% completion and all achievements** for any Xbox game. Works with [Cursor](https://cursor.com) and [Claude](https://claude.com/claude-code) out of the box, and with **any LLM or agent that can follow a markdown instruction file** — a custom GPT, a Gemini Gem, an open-source agent framework, or a plain system prompt.
 
 Point it at a game, and the model researches the current achievement list, flags every missable, front-loads the upgrades that make the rest of the game easier, and lays out a route that minimizes backtracking — grounded in what's actually reachable at each point in the game, not just a raw collectible dump.
 
@@ -84,11 +84,37 @@ The HTML file is the only part you use. Alongside it come the route data and the
 
 ## Installation
 
-### Option A — Claude: install the packaged skill
+### Option A — Cursor: open this repo
+
+Clone the repository and open it in Cursor. The skill loads automatically from
+[`.cursor/skills/xbox-100-percent-guide/`](.cursor/skills/xbox-100-percent-guide/), a symlink to
+the canonical [`xbox-100-percent-guide/SKILL.md`](xbox-100-percent-guide/SKILL.md). No extra copy
+step.
+
+To use it in another Cursor project, or across every project:
+
+```bash
+git clone https://github.com/WillyV347/xbox-100-percent-guide.git
+cd xbox-100-percent-guide
+
+# User-level (every Cursor workspace)
+mkdir -p ~/.cursor/skills
+ln -s "$(pwd)/xbox-100-percent-guide" ~/.cursor/skills/xbox-100-percent-guide
+
+# Or project-level, from the other repo
+mkdir -p .cursor/skills
+ln -s /absolute/path/to/xbox-100-percent-guide/xbox-100-percent-guide .cursor/skills/xbox-100-percent-guide
+```
+
+Cursor reads `name` and `description` from the YAML frontmatter to decide when to apply the skill.
+On Windows, enable Git symlinks (`git clone -c core.symlinks=true …`) or copy the
+`xbox-100-percent-guide/` folder instead of linking.
+
+### Option B — Claude: install the packaged skill
 
 Download [`xbox-100-percent-guide.skill`](xbox-100-percent-guide.skill) and add it to your Claude skills. The `.skill` file is a ZIP archive containing the skill's `SKILL.md`.
 
-### Option B — Claude Code: use the source directly
+### Option C — Claude Code: use the source directly
 
 Copy the [`xbox-100-percent-guide/`](xbox-100-percent-guide/) folder into your Claude skills directory (typically `~/.claude/skills/`):
 
@@ -97,7 +123,7 @@ git clone https://github.com/WillyV347/xbox-100-percent-guide.git
 cp -r xbox-100-percent-guide/xbox-100-percent-guide ~/.claude/skills/
 ```
 
-### Option C — any other LLM or agent
+### Option D — any other LLM or agent
 
 The skill is plain markdown. Use the contents of [`SKILL.md`](xbox-100-percent-guide/SKILL.md) as a system prompt, custom instructions (custom GPT, Gemini Gem), or an agent's instruction file, and give the model web-search access so it can do the research steps.
 
@@ -118,15 +144,25 @@ The model will research the specific game and produce the full guide.
 
 It stays in force after that, too. Follow-up turns about a guide it built — "why is this in Phase 3," "where exactly is that terminal," "I already did X out of order," "add the DLC," "re-sync me," "this theme doesn't look like the game," "this step didn't work" — re-enter the same process rather than being answered from memory of the build: the answer gets researched, it goes *into* the file as well as into the reply (a question you had to ask is a line that failed the executability test), and every verification pass re-runs, since a one-line edit is still an edit round.
 
+Patching a guide that is already on Hundo is the same skill, not a side path. Start with `GET /api/guides/<slug>` so you keep the item IDs players have ticks against, apply the edit, keep or remap IDs in `idmap`, re-run every verification sweep, then `POST /api/publish` with `version` incremented. Do not remint IDs from the HTML artifact or from memory of an earlier session.
+
+Examples that should also trigger the skill:
+
+- "Update the live Hundo guide"
+- "Fix this note on the site"
+- "Add ACH tags and re-publish"
+- "Patch the existing guide"
+
 ## Repository layout
 
 ```
 .
 ├── README.md
 ├── LICENSE
-├── xbox-100-percent-guide.skill   # packaged skill (ZIP), for direct install in Claude
-└── xbox-100-percent-guide/
-    └── SKILL.md                   # skill source — usable as a system prompt for any LLM
+├── xbox-100-percent-guide.skill          # packaged skill (ZIP), for direct install in Claude
+├── xbox-100-percent-guide/
+│   └── SKILL.md                          # skill source — single source of truth
+└── .cursor/skills/xbox-100-percent-guide # symlink → ../../xbox-100-percent-guide
 ```
 
 ## License
